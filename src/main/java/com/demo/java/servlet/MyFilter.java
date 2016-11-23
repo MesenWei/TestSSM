@@ -8,20 +8,23 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class MyFilter implements Filter{
 
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("servlet is destroying ...");
 	}
 
 	@Override
 	public void doFilter(ServletRequest arg0, ServletResponse arg1, FilterChain arg2) throws IOException, ServletException {
+		System.out.println("servlet is running ...");
 		HttpServletRequest request = (HttpServletRequest)arg0;
-//        HttpServletResponse response =(HttpServletResponse)arg1;
+        HttpServletResponse response =(HttpServletResponse)arg1;
         System.out.println(request.getRequestURL());
         arg2.doFilter(arg0, arg1);
 	}
@@ -29,7 +32,7 @@ public class MyFilter implements Filter{
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		// TODO Auto-generated method stub
-		
+		System.out.println("servlet is initing ...");
 	}
 
 }

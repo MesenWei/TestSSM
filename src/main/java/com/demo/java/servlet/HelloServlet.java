@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 
 public class HelloServlet extends HttpServlet{
 
@@ -18,34 +15,28 @@ public class HelloServlet extends HttpServlet{
 	
 	
 	public HelloServlet() {
-		System.out.println("����Servletʵ��");
+		System.out.println("自定义的servlet启动了");
 	}
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		System.out.println("��ʼ��ʵ��");
+		System.out.println("HelloServlet is initing...");
 	}
 	
 	@Override
 	public void destroy() {
 		super.destroy();
-		System.out.println("����ʵ��");
+		System.out.println("HelloServlet is destroying...");
 	}
 	
-	public void print(HttpServletRequest req, HttpServletResponse resp){
-		System.out.println (req.getMethod ());
-		System.out.println (req.getProtocol ());
-		System.out.println (req.getRequestURI ());
-		System.out.println (req.getRequestURL ());
-		System.out.println (req.getServletPath ());
-	}
-	
+	@Override
 	public void service(HttpServletRequest req, HttpServletResponse resp) throws IOException{
 //		a(req,resp);
 //		b(req,resp);
 		c(req,resp);
-		
+//		d(req,resp);
+
 		
 	}
 	
@@ -67,15 +58,41 @@ public class HelloServlet extends HttpServlet{
 		try {
 			
 			req.getRequestDispatcher("WEB-INF/template/b.jsp").forward(req, resp);
-			
 		} catch (ServletException | IOException e) {
 			e.printStackTrace();
-		};
+		}
 	}
-	
+
+	/**
+	 * 1.如果req.getSession(true)不被执行，则没有session创建
+	 * 	 cookie中是没有jsessionid
+	 * 2.如果req.getSession(true)被执行了，则session被创建
+	 *   cookie中有了jsessionid，当请求再次访问的时候，请求中带有jsessionid
+	 *   同时也证明，jsessionid是自动写入cookie的。
+	 * 3.如果浏览器禁用了cookie，后端逻辑没有变化，只是写入cookie的jsessionid
+	 *   不能保存在浏览器中，所以在发起请求的时候，tomcat无法获取jsessionid。
+	 * @param req
+	 * @param resp
+	 */
 	public void c(HttpServletRequest req, HttpServletResponse resp){
 		HttpSession session = req.getSession(true);
 		System.out.println(session);
+	}
+
+	public void d(HttpServletRequest req, HttpServletResponse resp){
+		Cookie[] cookies = req.getCookies();
+//		for(Cookie c : cookies){
+//			String value = c.getValue();
+//			System.out.println(c);
+//		}
+	}
+
+	public void e(HttpServletRequest req, HttpServletResponse resp){
+		System.out.println (req.getMethod ());
+		System.out.println (req.getProtocol ());
+		System.out.println (req.getRequestURI ());
+		System.out.println (req.getRequestURL ());
+		System.out.println (req.getServletPath ());
 	}
 	
 }
