@@ -1,4 +1,4 @@
- namespace java com.demo.java.thrift
+ namespace java com.demo.java.thrift2
  service Hello{
   string helloString(1:string para)
   i32 helloInt(1:i32 para)
