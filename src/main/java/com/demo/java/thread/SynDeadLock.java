@@ -1,6 +1,6 @@
 package com.demo.java.thread;
 /** 
- * 
+ * 线程死锁
  * @author  maosheng 
  * @date 创建时间：2016年10月24日 下午10:42:08
  */
