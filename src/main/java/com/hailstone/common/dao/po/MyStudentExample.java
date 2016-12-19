@@ -324,62 +324,52 @@ public class MyStudentExample {
             return (Criteria) this;
         }
 
-        public Criteria andYuwenEqualTo(String value) {
+        public Criteria andYuwenEqualTo(Long value) {
             addCriterion("yuwen =", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenNotEqualTo(String value) {
+        public Criteria andYuwenNotEqualTo(Long value) {
             addCriterion("yuwen <>", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenGreaterThan(String value) {
+        public Criteria andYuwenGreaterThan(Long value) {
             addCriterion("yuwen >", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenGreaterThanOrEqualTo(String value) {
+        public Criteria andYuwenGreaterThanOrEqualTo(Long value) {
             addCriterion("yuwen >=", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenLessThan(String value) {
+        public Criteria andYuwenLessThan(Long value) {
             addCriterion("yuwen <", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenLessThanOrEqualTo(String value) {
+        public Criteria andYuwenLessThanOrEqualTo(Long value) {
             addCriterion("yuwen <=", value, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenLike(String value) {
-            addCriterion("yuwen like", value, "yuwen");
-            return (Criteria) this;
-        }
-
-        public Criteria andYuwenNotLike(String value) {
-            addCriterion("yuwen not like", value, "yuwen");
-            return (Criteria) this;
-        }
-
-        public Criteria andYuwenIn(List<String> values) {
+        public Criteria andYuwenIn(List<Long> values) {
             addCriterion("yuwen in", values, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenNotIn(List<String> values) {
+        public Criteria andYuwenNotIn(List<Long> values) {
             addCriterion("yuwen not in", values, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenBetween(String value1, String value2) {
+        public Criteria andYuwenBetween(Long value1, Long value2) {
             addCriterion("yuwen between", value1, value2, "yuwen");
             return (Criteria) this;
         }
 
-        public Criteria andYuwenNotBetween(String value1, String value2) {
+        public Criteria andYuwenNotBetween(Long value1, Long value2) {
             addCriterion("yuwen not between", value1, value2, "yuwen");
             return (Criteria) this;
         }
@@ -394,62 +384,52 @@ public class MyStudentExample {
             return (Criteria) this;
         }
 
-        public Criteria andShuxueEqualTo(String value) {
+        public Criteria andShuxueEqualTo(Long value) {
             addCriterion("shuxue =", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueNotEqualTo(String value) {
+        public Criteria andShuxueNotEqualTo(Long value) {
             addCriterion("shuxue <>", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueGreaterThan(String value) {
+        public Criteria andShuxueGreaterThan(Long value) {
             addCriterion("shuxue >", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueGreaterThanOrEqualTo(String value) {
+        public Criteria andShuxueGreaterThanOrEqualTo(Long value) {
             addCriterion("shuxue >=", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueLessThan(String value) {
+        public Criteria andShuxueLessThan(Long value) {
             addCriterion("shuxue <", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueLessThanOrEqualTo(String value) {
+        public Criteria andShuxueLessThanOrEqualTo(Long value) {
             addCriterion("shuxue <=", value, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueLike(String value) {
-            addCriterion("shuxue like", value, "shuxue");
-            return (Criteria) this;
-        }
-
-        public Criteria andShuxueNotLike(String value) {
-            addCriterion("shuxue not like", value, "shuxue");
-            return (Criteria) this;
-        }
-
-        public Criteria andShuxueIn(List<String> values) {
+        public Criteria andShuxueIn(List<Long> values) {
             addCriterion("shuxue in", values, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueNotIn(List<String> values) {
+        public Criteria andShuxueNotIn(List<Long> values) {
             addCriterion("shuxue not in", values, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueBetween(String value1, String value2) {
+        public Criteria andShuxueBetween(Long value1, Long value2) {
             addCriterion("shuxue between", value1, value2, "shuxue");
             return (Criteria) this;
         }
 
-        public Criteria andShuxueNotBetween(String value1, String value2) {
+        public Criteria andShuxueNotBetween(Long value1, Long value2) {
             addCriterion("shuxue not between", value1, value2, "shuxue");
             return (Criteria) this;
         }

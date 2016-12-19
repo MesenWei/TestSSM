@@ -2,10 +2,10 @@ package com.hailstone.server.business.impl;
 
 import java.util.List;
 
+import com.hailstone.common.dao.mapper.MyStudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hailstone.common.dao.mapper.MyStudentMapper;
 import com.hailstone.common.dao.po.MyStudent;
 import com.hailstone.common.dao.po.MyStudentExample;
 import com.hailstone.common.dao.po.MyStudentExample.Criteria;

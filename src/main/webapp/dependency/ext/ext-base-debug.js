@@ -82,7 +82,7 @@ Ext.apply = function(o, c, defaults){
 
     Ext.apply(Ext, {
         /**
-         * URL to a blank file used by Ext when in secure mode for iframe src and onReady src to prevent
+         * URL to mapper blank file used by Ext when in secure mode for iframe src and onReady src to prevent
          * the IE insecure content warning (<tt>'about:blank'</tt>, except for IE in secure mode, which is <tt>'javascript:""'</tt>).
          * @type String
          */
@@ -169,9 +169,9 @@ Ext.apply = function(o, c, defaults){
         },
 
         /**
-         * <p>Extends one class to create a subclass and optionally overrides members with the passed literal. This method
+         * <p>Extends one class to create mapper subclass and optionally overrides members with the passed literal. This method
          * also adds the function "override()" to the subclass that can be used to override members of the class.</p>
-         * For example, to create a subclass of Ext GridPanel:
+         * For example, to create mapper subclass of Ext GridPanel:
          * <pre><code>
 MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
     constructor: function(config) {
@@ -180,7 +180,7 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
         var store = new Ext.data.Store({...});
         var colModel = new Ext.grid.ColumnModel({...});
 
-//      Create a new config object containing our computed properties
+//      Create mapper new config object containing our computed properties
 //      *plus* whatever was in the config parameter.
         config = Ext.apply({
             store: store,
@@ -198,7 +198,7 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
 });
 </code></pre>
          *
-         * <p>This function also supports a 3-argument call in which the subclass's constructor is
+         * <p>This function also supports mapper 3-argument call in which the subclass's constructor is
          * passed as an argument. In this form, the parameters are as follows:</p>
          * <div class="mdetail-params"><ul>
          * <li><code>subclass</code> : Function <div class="sub-desc">The subclass constructor.</div></li>
@@ -210,12 +210,12 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
          * @param {Function} superclass The constructor of class being extended.
          * @param {Object} overrides <p>A literal with members which are copied into the subclass's
          * prototype, and are therefore shared between all instances of the new class.</p>
-         * <p>This may contain a special member named <tt><b>constructor</b></tt>. This is used
+         * <p>This may contain mapper special member named <tt><b>constructor</b></tt>. This is used
          * to define the constructor of the new class, and is returned. If this property is
-         * <i>not</i> specified, a constructor is generated and returned which just calls the
+         * <i>not</i> specified, mapper constructor is generated and returned which just calls the
          * superclass's constructor passing on its parameters.</p>
          * <p><b>It is essential that you call the superclass constructor in any provided constructor. See example code.</b></p>
-         * @return {Function} The subclass constructor from the <code>overrides</code> parameter, or a generated one if not provided.
+         * @return {Function} The subclass constructor from the <code>overrides</code> parameter, or mapper generated one if not provided.
          */
         extend : function(){
             // inline overrides
@@ -257,7 +257,7 @@ MyGridPanel = Ext.extend(Ext.grid.GridPanel, {
         }(),
 
         /**
-         * Adds a list of functions to the prototype of an existing class, overwriting any existing methods with the same name.
+         * Adds mapper list of functions to the prototype of an existing class, overwriting any existing methods with the same name.
          * Usage:<pre><code>
 Ext.override(MyClass, {
     newMethod1: function(){
@@ -285,7 +285,7 @@ Ext.override(MyClass, {
 
         /**
          * Creates namespaces to be used for scoping variables and classes so that they are not global.
-         * Specifying the last node of a namespace implicitly creates all other nodes. Usage:
+         * Specifying the last node of mapper namespace implicitly creates all other nodes. Usage:
          * <pre><code>
 Ext.namespace('Company', 'Company.data');
 Ext.namespace('Company.data'); // equivalent and preferable to above syntax
@@ -311,7 +311,7 @@ Company.data.CustomStore = function(config) { ... }
         },
 
         /**
-         * Takes an object and converts it to an encoded URL. e.g. Ext.urlEncode({foo: 1, bar: 2}); would return "foo=1&bar=2".  Optionally, property values can be arrays, instead of keys and the resulting string that's returned will contain a name/value pair for each array value.
+         * Takes an object and converts it to an encoded URL. e.g. Ext.urlEncode({foo: 1, bar: 2}); would return "foo=1&bar=2".  Optionally, property values can be arrays, instead of keys and the resulting string that's returned will contain mapper name/value pair for each array value.
          * @param {Object} o
          * @param {String} pre (optional) A prefix to add to the url encoded string
          * @return {String}
@@ -363,8 +363,8 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
         },
 
         /**
-         * Appends content to the query string of a URL, handling logic for whether to place
-         * a question mark or ampersand.
+         * Appends content to the query string of mapper URL, handling logic for whether to place
+         * mapper question mark or ampersand.
          * @param {String} url The URL to append to.
          * @param {String} s The content to append to the URL.
          * @return (String) The resulting URL
@@ -377,10 +377,10 @@ Ext.urlDecode("foo=1&bar=2&bar=3&bar=4", false); // returns {foo: "1", bar: ["2"
         },
 
         /**
-         * Converts any iterable (numeric indices and a length property) into a true array
+         * Converts any iterable (numeric indices and mapper length property) into mapper true array
          * Don't use this on strings. IE doesn't support "abc"[0] which this implementation depends on.
-         * For strings, use this instead: "abc".match(/./g) => [a,b,c];
-         * @param {Iterable} the iterable object to be turned into a true Array.
+         * For strings, use this instead: "abc".match(/./g) => [mapper,b,c];
+         * @param {Iterable} the iterable object to be turned into mapper true Array.
          * @return (Array) array
          */
          toArray : function(){
@@ -498,7 +498,7 @@ var elDom = Ext.getDom('elId');
 var elDom1 = Ext.getDom(elDom);
 
 // If we don&#39;t know if we are working with an
-// Ext.Element or a dom node use Ext.getDom
+// Ext.Element or mapper dom node use Ext.getDom
 function(el){
     var dom = Ext.getDom(el);
     // do something with the dom node
@@ -519,7 +519,7 @@ function(el){
                 if (Ext.isString(el)) {
                     var e = DOC.getElementById(el);
                     // IE returns elements with the 'name' and 'id' attribute.
-                    // we do a strict check to return the element with only the id attribute
+                    // we do mapper strict check to return the element with only the id attribute
                     if (e && isIE && strict) {
                         if (el == e.getAttribute('id')) {
                             return e;
@@ -543,7 +543,7 @@ function(el){
         },
 
         /**
-         * Removes a DOM node from the document.
+         * Removes mapper DOM node from the document.
          */
         /**
          * <p>Removes this element from the document, removes all DOM event listeners, and deletes the cache reference.
@@ -577,7 +577,7 @@ function(el){
          * <li>null</li>
          * <li>undefined</li>
          * <li>an empty array</li>
-         * <li>a zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
+         * <li>mapper zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
          * </ul></div>
          * @param {Mixed} value The value to test
          * @param {Boolean} allowBlank (optional) true to allow empty strings (defaults to false)
@@ -588,7 +588,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a JavaScript array, otherwise false.
+         * Returns true if the passed value is mapper JavaScript array, otherwise false.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -597,7 +597,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed object is a JavaScript date object, otherwise false.
+         * Returns true if the passed object is mapper JavaScript date object, otherwise false.
          * @param {Object} object The object to test
          * @return {Boolean}
          */
@@ -606,7 +606,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a JavaScript Object, otherwise false.
+         * Returns true if the passed value is mapper JavaScript Object, otherwise false.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -615,7 +615,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.
+         * Returns true if the passed value is mapper JavaScript 'primitive', mapper string, number or boolean.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -624,7 +624,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a JavaScript Function, otherwise false.
+         * Returns true if the passed value is mapper JavaScript Function, otherwise false.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -633,7 +633,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a number. Returns false for non-finite numbers.
+         * Returns true if the passed value is mapper number. Returns false for non-finite numbers.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -642,7 +642,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a string.
+         * Returns true if the passed value is mapper string.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -651,7 +651,7 @@ function(el){
         },
 
         /**
-         * Returns true if the passed value is a boolean.
+         * Returns true if the passed value is mapper boolean.
          * @param {Mixed} value The value to test
          * @return {Boolean}
          */
@@ -738,12 +738,12 @@ function(el){
          */
         isGecko : isGecko,
         /**
-         * True if the detected browser uses a pre-Gecko 1.9 layout engine (e.g. Firefox 2.x).
+         * True if the detected browser uses mapper pre-Gecko 1.9 layout engine (e.g. Firefox 2.x).
          * @type Boolean
          */
         isGecko2 : isGecko2,
         /**
-         * True if the detected browser uses a Gecko 1.9+ layout engine (e.g. Firefox 3.x).
+         * True if the detected browser uses mapper Gecko 1.9+ layout engine (e.g. Firefox 3.x).
          * @type Boolean
          */
         isGecko3 : isGecko3,
@@ -776,7 +776,7 @@ function(el){
 
     /**
      * Creates namespaces to be used for scoping variables and classes so that they are not global.
-     * Specifying the last node of a namespace implicitly creates all other nodes. Usage:
+     * Specifying the last node of mapper namespace implicitly creates all other nodes. Usage:
      * <pre><code>
 Ext.namespace('Company', 'Company.data');
 Ext.namespace('Company.data'); // equivalent and preferable to above syntax
@@ -812,7 +812,7 @@ var sayHi = function(name){
 
 sayHi('Fred'); // alerts "Hi, Fred"
 
-// create a new function that validates input without
+// create mapper new function that validates input without
 // directly modifying the original function:
 var sayHiToFriend = sayHi.createInterceptor(function(name){
     return name == 'Brian';
@@ -842,14 +842,14 @@ sayHiToFriend('Brian'); // alerts "Hi, Brian"
     },
 
      /**
-     * Creates a callback that passes arguments[0], arguments[1], arguments[2], ...
+     * Creates mapper callback that passes arguments[0], arguments[1], arguments[2], ...
      * Call directly on any function. Example: <code>myFunction.createCallback(arg1, arg2)</code>
-     * Will create a function that is bound to those 2 args. <b>If a specific scope is required in the
+     * Will create mapper function that is bound to those 2 args. <b>If mapper specific scope is required in the
      * callback, use {@link #createDelegate} instead.</b> The function returned by createCallback always
      * executes in the window scope.
-     * <p>This method is required when you want to pass arguments to a callback function.  If no arguments
-     * are needed, you can simply pass a reference to the function as a callback (e.g., callback: myFn).
-     * However, if you tried to pass a function with arguments (e.g., callback: myFn(arg1, arg2)) the function
+     * <p>This method is required when you want to pass arguments to mapper callback function.  If no arguments
+     * are needed, you can simply pass mapper reference to the function as mapper callback (e.g., callback: myFn).
+     * However, if you tried to pass mapper function with arguments (e.g., callback: myFn(arg1, arg2)) the function
      * would simply execute immediately when the code is parsed. Example usage:
      * <pre><code>
 var sayHi = function(name){
@@ -875,14 +875,14 @@ new Ext.Button({
     },
 
     /**
-     * Creates a delegate (callback) that sets the scope to obj.
+     * Creates mapper delegate (callback) that sets the scope to obj.
      * Call directly on any function. Example: <code>this.myFunction.createDelegate(this, [arg1, arg2])</code>
-     * Will create a function that is automatically scoped to obj so that the <tt>this</tt> variable inside the
+     * Will create mapper function that is automatically scoped to obj so that the <tt>this</tt> variable inside the
      * callback points to obj. Example usage:
      * <pre><code>
 var sayHi = function(name){
     // Note this use of "this.text" here.  This function expects to
-    // execute within a scope that contains a text property.  In this
+    // execute within mapper scope that contains mapper text property.  In this
     // example, the "this" variable is pointing to the btn object that
     // was passed in createDelegate below.
     alert('Hi, ' + name + '. You clicked the "' + this.text + '" button.');
@@ -902,7 +902,7 @@ btn.on('click', sayHi.createDelegate(btn, ['Fred']));
      * <b>If omitted, defaults to the browser window.</b>
      * @param {Array} args (optional) Overrides arguments for the call. (Defaults to the arguments passed by the caller)
      * @param {Boolean/Number} appendArgs (optional) if True args are appended to call args instead of overriding,
-     * if a number the args are inserted at the specified position
+     * if mapper number the args are inserted at the specified position
      * @return {Function} The new function
      */
     createDelegate : function(obj, args, appendArgs){
@@ -922,7 +922,7 @@ btn.on('click', sayHi.createDelegate(btn, ['Fred']));
     },
 
     /**
-     * Calls this function after the number of millseconds specified, optionally in a specific scope. Example usage:
+     * Calls this function after the number of millseconds specified, optionally in mapper specific scope. Example usage:
      * <pre><code>
 var sayHi = function(name){
     alert('Hi, ' + name);
@@ -945,7 +945,7 @@ sayHi.defer(2000, this, ['Fred']);
      * <b>If omitted, defaults to the browser window.</b>
      * @param {Array} args (optional) Overrides arguments for the call. (Defaults to the arguments passed by the caller)
      * @param {Boolean/Number} appendArgs (optional) if True args are appended to call args instead of overriding,
-     * if a number the args are inserted at the specified position
+     * if mapper number the args are inserted at the specified position
      * @return {Number} The timeout id that can be used with clearTimeout
      */
     defer : function(millis, obj, args, appendArgs){
@@ -964,7 +964,7 @@ sayHi.defer(2000, this, ['Fred']);
  */
 Ext.applyIf(String, {
     /**
-     * Allows you to define a tokenized string and pass an arbitrary number of arguments to replace the tokens.  Each
+     * Allows you to define mapper tokenized string and pass an arbitrary number of arguments to replace the tokens.  Each
      * token must be unique, and must increment in the format {0}, {1}, etc.  Example usage:
      * <pre><code>
 var cls = 'my-class', text = 'Some text';
@@ -1046,8 +1046,8 @@ Ext.apply(Ext, function(){
         emptyFn : function(){},
 
         /**
-         * URL to a 1x1 transparent gif image used by Ext to create inline icons with CSS background images. 
-         * In older versions of IE, this defaults to "http://extjs.com/s.gif" and you should change this to a URL on your server.
+         * URL to mapper 1x1 transparent gif image used by Ext to create inline icons with CSS background images. 
+         * In older versions of IE, this defaults to "http://extjs.com/s.gif" and you should change this to mapper URL on your server.
          * For other browsers it uses an inline data URL.
          * @type String
          */
@@ -1068,8 +1068,8 @@ Ext.apply(Ext, function(){
         },
 
         /**
-         * Utility method for validating that a value is numeric, returning the specified default value if it is not.
-         * @param {Mixed} value Should be a number, but any type will be handled appropriately
+         * Utility method for validating that mapper value is numeric, returning the specified default value if it is not.
+         * @param {Mixed} value Should be mapper number, but any type will be handled appropriately
          * @param {Number} defaultValue The value to return if the original value is non-numeric
          * @return {Number} Value, if numeric, else defaultValue
          */
@@ -1079,12 +1079,12 @@ Ext.apply(Ext, function(){
         },
 
         /**
-         * <p>Utility method for returning a default value if the passed value is empty.</p>
+         * <p>Utility method for returning mapper default value if the passed value is empty.</p>
          * <p>The value is deemed to be empty if it is<div class="mdetail-params"><ul>
          * <li>null</li>
          * <li>undefined</li>
          * <li>an empty array</li>
-         * <li>a zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
+         * <li>mapper zero length string (Unless the <tt>allowBlank</tt> parameter is <tt>true</tt>)</li>
          * </ul></div>
          * @param {Mixed} value The value to test
          * @param {Mixed} defaultValue The value to return if the original value is empty
@@ -1096,7 +1096,7 @@ Ext.apply(Ext, function(){
         },
 
         /**
-         * Escapes the passed string for use in a regular expression
+         * Escapes the passed string for use in mapper regular expression
          * @param {String} str
          * @return {String}
          */
@@ -1113,13 +1113,13 @@ Ext.apply(Ext, function(){
          * The event name is specified with an <tt>&#64;</tt> suffix.
          * <pre><code>
 Ext.addBehaviors({
-    // add a listener for click on all anchors in element with id foo
-    '#foo a&#64;click' : function(e, t){
+    // add mapper listener for click on all anchors in element with id foo
+    '#foo mapper&#64;click' : function(e, t){
         // do something
     },
     
     // add the same listener to multiple selectors (separated by comma BEFORE the &#64;)
-    '#foo a, #bar span.some-class&#64;mouseover' : function(){
+    '#foo mapper, #bar span.some-class&#64;mouseover' : function(){
         // do something
     }
 });
@@ -1152,7 +1152,7 @@ Ext.addBehaviors({
         /**
          * Utility method for getting the width of the browser scrollbar. This can differ depending on
          * operating system settings, such as the theme or font size.
-         * @param {Boolean} force (optional) true to force a recalculation of the value.
+         * @param {Boolean} force (optional) true to force mapper recalculation of the value.
          * @return {Number} The width of the scrollbar.
          */
         getScrollBarWidth: function(force){
@@ -1192,7 +1192,7 @@ Ext.addBehaviors({
         },
 
         /**
-         * Copies a set of named properties fom the source object to the destination object.
+         * Copies mapper set of named properties fom the source object to the destination object.
          * <p>example:<pre><code>
 ImageComponent = Ext.extend(Ext.BoxComponent, {
     initComponent: function() {
@@ -1204,7 +1204,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
          * </code></pre> 
          * @param {Object} dest The destination object.
          * @param {Object} source The source object.
-         * @param {Array/String} names Either an Array of property names, or a comma-delimited list
+         * @param {Array/String} names Either an Array of property names, or mapper comma-delimited list
          * of property names to copy.
          * @return {Object} The modified object.
         */
@@ -1225,7 +1225,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
          * DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
          * intended for arguments of type {@link Ext.Element} and {@link Ext.Component}, but any subclass of
          * {@link Ext.util.Observable} can be passed in.  Any number of elements and/or components can be
-         * passed into this function in a single call as separate arguments.
+         * passed into this function in mapper single call as separate arguments.
          * @param {Mixed} arg1 An {@link Ext.Element}, {@link Ext.Component}, or an Array of either of these to destroy
          * @param {Mixed} arg2 (optional)
          * @param {Mixed} etc... (optional)
@@ -1245,8 +1245,8 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         },
 
         /**
-         * Attempts to destroy and then remove a set of named properties of the passed object.
-         * @param {Object} o The object (most likely a Component) who's properties you wish to destroy.
+         * Attempts to destroy and then remove mapper set of named properties of the passed object.
+         * @param {Object} o The object (most likely mapper Component) who's properties you wish to destroy.
          * @param {Mixed} arg1 The name of the property to destroy and remove from the object.
          * @param {Mixed} etc... More property names to destroy and remove.
          */
@@ -1258,7 +1258,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         },
 
         /**
-         * Creates a copy of the passed Array with falsy values removed.
+         * Creates mapper copy of the passed Array with falsy values removed.
          * @param {Array/NodeList} arr The Array from which to remove falsy values.
          * @return {Array} The new, compressed Array.
          */
@@ -1273,7 +1273,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         },
 
         /**
-         * Creates a copy of the passed Array, filtered to contain only unique values.
+         * Creates mapper copy of the passed Array, filtered to contain only unique values.
          * @param {Array} arr The Array to filter
          * @return {Array} The new Array containing unique values.
          */
@@ -1313,7 +1313,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         /**
          * Returns the minimum value in the Array.
          * @param {Array|NodeList} arr The Array from which to select the minimum value.
-         * @param {Function} comp (optional) a function to perform the comparision which determines minimization.
+         * @param {Function} comp (optional) mapper function to perform the comparision which determines minimization.
          *                   If omitted the "<" operator will be used. Note: gt = 1; eq = 0; lt = -1
          * @return {Object} The minimum value in the Array.
          */
@@ -1329,7 +1329,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         /**
          * Returns the maximum value in the Array
          * @param {Array|NodeList} arr The Array from which to select the maximum value.
-         * @param {Function} comp (optional) a function to perform the comparision which determines maximization.
+         * @param {Function} comp (optional) mapper function to perform the comparision which determines maximization.
          *                   If omitted the ">" operator will be used. Note: gt = 1; eq = 0; lt = -1
          * @return {Object} The maximum value in the Array.
          */
@@ -1365,7 +1365,7 @@ ImageComponent = Ext.extend(Ext.BoxComponent, {
         },
 
         /**
-         * Partitions the set into two sets: a true set and a false set.
+         * Partitions the set into two sets: mapper true set and mapper false set.
          * Example: 
          * Example2: 
          * <pre><code>
@@ -1379,11 +1379,11 @@ Ext.partition(
         return val.className == "class1"
     }
 );
-// true are those paragraph elements with a className of "class1",
+// true are those paragraph elements with mapper className of "class1",
 // false set are those that do not have that className.
          * </code></pre>
          * @param {Array|NodeList} arr The array to partition
-         * @param {Function} truth (optional) a function to determine truth.  If this is omitted the element
+         * @param {Function} truth (optional) mapper function to determine truth.  If this is omitted the element
          *                   itself must be able to be evaluated for its truthfulness.
          * @return {Array} [true<Array>,false<Array>]
          */
@@ -1396,7 +1396,7 @@ Ext.partition(
         },
 
         /**
-         * Invokes a method on each item in an Array.
+         * Invokes mapper method on each item in an Array.
          * <pre><code>
 // Example:
 Ext.invoke(Ext.query("p"), "getAttribute", "id");
@@ -1421,7 +1421,7 @@ Ext.invoke(Ext.query("p"), "getAttribute", "id");
         },
 
         /**
-         * Plucks the value of a property from each item in the Array
+         * Plucks the value of mapper property from each item in the Array
          * <pre><code>
 // Example:
 Ext.pluck(Ext.query("p"), "className"); // [el1.className, el2.className, ..., elN.className]
@@ -1448,8 +1448,8 @@ Ext.zip(
     [ "+", "-", "+"],
     [  12,  10,  22],
     [  43,  15,  96],
-    function(a, b, c){
-        return "$" + a + "" + b + "." + c
+    function(mapper, b, c){
+        return "$" + mapper + "" + b + "." + c
     }
 ); // ["$+12.43", "$-10.15", "$+22.96"]
          * </code></pre>
@@ -1481,7 +1481,7 @@ Ext.zip(
          * This is shorthand reference to {@link Ext.ComponentMgr#get}.
          * Looks up an existing {@link Ext.Component Component} by {@link Ext.Component#id id}
          * @param {String} id The component {@link Ext.Component#id id}
-         * @return Ext.Component The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if a
+         * @return Ext.Component The Component, <tt>undefined</tt> if not found, or <tt>null</tt> if mapper
          * Class was found.
         */
         getCmp : function(id){
@@ -1495,22 +1495,22 @@ Ext.zip(
          */
         useShims: E.isIE6 || (E.isMac && E.isGecko2),
 
-        // inpired by a similar function in mootools library
+        // inpired by mapper similar function in mootools library
         /**
          * Returns the type of object that is passed in. If the object passed in is null or undefined it
          * return false otherwise it returns one of the following values:<div class="mdetail-params"><ul>
-         * <li><b>string</b>: If the object passed is a string</li>
-         * <li><b>number</b>: If the object passed is a number</li>
-         * <li><b>boolean</b>: If the object passed is a boolean value</li>
-         * <li><b>date</b>: If the object passed is a Date object</li>
-         * <li><b>function</b>: If the object passed is a function reference</li>
+         * <li><b>string</b>: If the object passed is mapper string</li>
+         * <li><b>number</b>: If the object passed is mapper number</li>
+         * <li><b>boolean</b>: If the object passed is mapper boolean value</li>
+         * <li><b>date</b>: If the object passed is mapper Date object</li>
+         * <li><b>function</b>: If the object passed is mapper function reference</li>
          * <li><b>object</b>: If the object passed is an object</li>
          * <li><b>array</b>: If the object passed is an array</li>
-         * <li><b>regexp</b>: If the object passed is a regular expression</li>
-         * <li><b>element</b>: If the object passed is a DOM Element</li>
-         * <li><b>nodelist</b>: If the object passed is a DOM NodeList</li>
-         * <li><b>textnode</b>: If the object passed is a DOM text node and contains something other than whitespace</li>
-         * <li><b>whitespace</b>: If the object passed is a DOM text node and contains only whitespace</li>
+         * <li><b>regexp</b>: If the object passed is mapper regular expression</li>
+         * <li><b>element</b>: If the object passed is mapper DOM Element</li>
+         * <li><b>nodelist</b>: If the object passed is mapper DOM NodeList</li>
+         * <li><b>textnode</b>: If the object passed is mapper DOM text node and contains something other than whitespace</li>
+         * <li><b>whitespace</b>: If the object passed is mapper DOM text node and contains only whitespace</li>
          * </ul></div>
          * @param {Mixed} object
          * @return {String}
@@ -1565,7 +1565,7 @@ Ext.zip(
  */
 Ext.apply(Function.prototype, {
     /**
-     * Create a combined function call sequence of the original function + the passed function.
+     * Create mapper combined function call sequence of the original function + the passed function.
      * The resulting function returns the results of the original function.
      * The passed fcn is called with the parameters of the original function. Example usage:
      * <pre><code>
@@ -1616,7 +1616,7 @@ Ext.applyIf(String, {
     },
 
     /**
-     * Pads the left side of a string with a specified character.  This is especially useful
+     * Pads the left side of mapper string with mapper specified character.  This is especially useful
      * for normalizing number and date strings.  Example usage:
      * <pre><code>
 var s = String.leftPad('123', 5, '0');
@@ -1641,7 +1641,7 @@ var s = String.leftPad('123', 5, '0');
 });
 
 /**
- * Utility function that allows you to easily switch a string between two alternating values.  The passed value
+ * Utility function that allows you to easily switch mapper string between two alternating values.  The passed value
  * is compared to the current string, and if they are equal, the other value that was passed in is returned.  If
  * they are already different, the first value passed in is returned.  Note that this method returns the new value
  * but does not change the current string.
@@ -1661,7 +1661,7 @@ String.prototype.toggle = function(value, other){
 };
 
 /**
- * Trims whitespace from either end of a string, leaving spaces within the string intact.  Example:
+ * Trims whitespace from either end of mapper string, leaving spaces within the string intact.  Example:
  * <pre><code>
 var s = '  foo bar  ';
 alert('-' + s + '-');         //alerts "- foo bar -"
@@ -1691,7 +1691,7 @@ Date.prototype.getElapsed = function(date) {
  */
 Ext.applyIf(Number.prototype, {
     /**
-     * Checks whether or not the current number is within a desired range.  If the number is already within the
+     * Checks whether or not the current number is within mapper desired range.  If the number is already within the
      * range it is returned, otherwise the min or max value is returned depending on which side of the range is
      * exceeded.  Note that this method returns the constrained value but does not change the current number.
      * @param {Number} min The minimum number in the range
@@ -1798,13 +1798,13 @@ Ext.util.TaskRunner = function(interval){
 	    };
 
     /**
-     * Starts a new task.
+     * Starts mapper new task.
      * @method start
      * @param {Object} task <p>A config object that supports the following properties:<ul>
      * <li><code>run</code> : Function<div class="sub-desc"><p>The function to execute each time the task is invoked. The
      * function will be called at each interval and passed the <code>args</code> argument if specified, and the
      * current invocation count if not.</p>
-     * <p>If a particular scope (<code>this</code> reference) is required, be sure to specify it using the <code>scope</code> argument.</p>
+     * <p>If mapper particular scope (<code>this</code> reference) is required, be sure to specify it using the <code>scope</code> argument.</p>
      * <p>Return <code>false</code> from this function to terminate the task.</p></div></li>
      * <li><code>interval</code> : Number<div class="sub-desc">The frequency in milliseconds with which the task
      * should be invoked.</div></li>
@@ -2758,7 +2758,7 @@ Ext.lib.Ajax = function() {
         },
 
         isCallInProgress : function(o) {
-            // if there is a connection and readyState is not 0 or 4
+            // if there is mapper connection and readyState is not 0 or 4
             return o.conn && !{0:true,4:true}[o.conn.readyState];
         }
     };

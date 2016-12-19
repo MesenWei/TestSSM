@@ -270,10 +270,10 @@ Ext.DomHelper = function(){
         },
         
         /**
-         * Applies a style specification to an element.
+         * Applies mapper style specification to an element.
          * @param {String/HTMLElement} el The element to apply styles to
          * @param {String/Object/Function} styles A style specification string e.g. 'width:100px', or object in the form {width:'100px'}, or
-         * a function which returns such a specification.
+         * mapper function which returns such mapper specification.
          */
         applyStyles : function(el, styles){
             if(styles){
@@ -359,7 +359,7 @@ Ext.DomHelper = function(){
          * Creates new DOM element(s) and inserts them before el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
+         * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
          * @return {HTMLElement/Ext.Element} The new node
          */
         insertBefore : function(el, o, returnElement){
@@ -370,7 +370,7 @@ Ext.DomHelper = function(){
          * Creates new DOM element(s) and inserts them after el.
          * @param {Mixed} el The context element
          * @param {Object} o The DOM object spec (and children)
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
+         * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
          * @return {HTMLElement/Ext.Element} The new node
          */
         insertAfter : function(el, o, returnElement){
@@ -381,7 +381,7 @@ Ext.DomHelper = function(){
          * Creates new DOM element(s) and inserts them as the first child of el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
+         * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
          * @return {HTMLElement/Ext.Element} The new node
          */
         insertFirst : function(el, o, returnElement){
@@ -392,7 +392,7 @@ Ext.DomHelper = function(){
          * Creates new DOM element(s) and appends them to el.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
+         * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
          * @return {HTMLElement/Ext.Element} The new node
          */
         append : function(el, o, returnElement){
@@ -403,7 +403,7 @@ Ext.DomHelper = function(){
          * Creates new DOM element(s) and overwrites the contents of el with them.
          * @param {Mixed} el The context element
          * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-         * @param {Boolean} returnElement (optional) true to return a Ext.Element
+         * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
          * @return {HTMLElement/Ext.Element} The new node
          */
         overwrite : function(el, o, returnElement){
@@ -454,11 +454,11 @@ function(){
         	cn;
 
         if (Ext.isArray(o)) {                       // Allow Arrays of siblings to be inserted
-            el = doc.createDocumentFragment(); // in one shot using a DocumentFragment
+            el = doc.createDocumentFragment(); // in one shot using mapper DocumentFragment
 	        Ext.each(o, function(v) {
                 createDom(v, el);
             });
-        } else if (Ext.isString(o)) {         // Allow a string as a child spec.
+        } else if (Ext.isString(o)) {         // Allow mapper string as mapper child spec.
             el = doc.createTextNode(o);
         } else {
             el = doc.createElement( o.tag || 'div' );
@@ -492,7 +492,7 @@ function(){
 
 	pub = {
 		/**
-	     * Creates a new Ext.Template from the DOM object spec.
+	     * Creates mapper new Ext.Template from the DOM object spec.
 	     * @param {Object} o The DOM object spec (and children)
 	     * @return {Ext.Template} The new template
 	     */
@@ -508,7 +508,7 @@ function(){
 	     * Creates new DOM element(s) and inserts them before el.
 	     * @param {Mixed} el The context element
 	     * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-	     * @param {Boolean} returnElement (optional) true to return a Ext.Element
+	     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
 	     * @return {HTMLElement/Ext.Element} The new node
          * @hide (repeat)
 	     */
@@ -520,7 +520,7 @@ function(){
 	     * Creates new DOM element(s) and inserts them after el.
 	     * @param {Mixed} el The context element
 	     * @param {Object} o The DOM object spec (and children)
-	     * @param {Boolean} returnElement (optional) true to return a Ext.Element
+	     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
 	     * @return {HTMLElement/Ext.Element} The new node
          * @hide (repeat)
 	     */
@@ -532,7 +532,7 @@ function(){
 	     * Creates new DOM element(s) and inserts them as the first child of el.
 	     * @param {Mixed} el The context element
 	     * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-	     * @param {Boolean} returnElement (optional) true to return a Ext.Element
+	     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
 	     * @return {HTMLElement/Ext.Element} The new node
          * @hide (repeat)
 	     */
@@ -544,7 +544,7 @@ function(){
 	     * Creates new DOM element(s) and appends them to el.
 	     * @param {Mixed} el The context element
 	     * @param {Object/String} o The DOM object spec (and children) or raw HTML blob
-	     * @param {Boolean} returnElement (optional) true to return a Ext.Element
+	     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element
 	     * @return {HTMLElement/Ext.Element} The new node
          * @hide (repeat)
 	     */
@@ -712,7 +712,7 @@ Ext.Template.prototype = {
      * Applies the supplied values to the template and inserts the new node(s) as the first child of el.
      * @param {Mixed} el The context element
      * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
-     * @param {Boolean} returnElement (optional) true to return a Ext.Element (defaults to undefined)
+     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element (defaults to undefined)
      * @return {HTMLElement/Ext.Element} The new node or Element
      */
     insertFirst: function(el, values, returnElement){
@@ -723,7 +723,7 @@ Ext.Template.prototype = {
      * Applies the supplied values to the template and inserts the new node(s) before el.
      * @param {Mixed} el The context element
      * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
-     * @param {Boolean} returnElement (optional) true to return a Ext.Element (defaults to undefined)
+     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element (defaults to undefined)
      * @return {HTMLElement/Ext.Element} The new node or Element
      */
     insertBefore: function(el, values, returnElement){
@@ -734,7 +734,7 @@ Ext.Template.prototype = {
      * Applies the supplied values to the template and inserts the new node(s) after el.
      * @param {Mixed} el The context element
      * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
-     * @param {Boolean} returnElement (optional) true to return a Ext.Element (defaults to undefined)
+     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element (defaults to undefined)
      * @return {HTMLElement/Ext.Element} The new node or Element
      */
     insertAfter : function(el, values, returnElement){
@@ -766,7 +766,7 @@ Ext.Template.prototype = {
      * Applies the supplied values to the template and overwrites the content of el with the new node(s).
      * @param {Mixed} el The context element
      * @param {Object/Array} values The template values. Can be an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'})
-     * @param {Boolean} returnElement (optional) true to return a Ext.Element (defaults to undefined)
+     * @param {Boolean} returnElement (optional) true to return mapper Ext.Element (defaults to undefined)
      * @return {HTMLElement/Ext.Element} The new node or Element
      */
     overwrite : function(el, values, returnElement){
@@ -788,7 +788,7 @@ Ext.Template.prototype = {
 Ext.Template.prototype.apply = Ext.Template.prototype.applyTemplate;
 
 /**
- * Creates a template from the passed element's value (<i>display:none</i> textarea, preferred) or innerHTML.
+ * Creates mapper template from the passed element's value (<i>display:none</i> textarea, preferred) or innerHTML.
  * @param {String/HTMLElement} el A DOM element or its id
  * @param {Object} config A configuration object
  * @return {Ext.Template} The created template
@@ -817,7 +817,7 @@ var t = new Ext.Template(
     }    
 );
      * </code></pre>
-     * For a list of available format functions, see {@link Ext.util.Format}.
+     * For mapper list of available format functions, see {@link Ext.util.Format}.
      */
     disableFormats : false,				
     /**
@@ -1010,7 +1010,7 @@ Ext.DomQuery = function(){
     // renaming the variable to something shorter
     eval("var batch = 30803;");    	
 
-    // Retrieve the child node from a particular
+    // Retrieve the child node from mapper particular
     // parent at the specified index.
     function child(parent, index){
         var i = 0,
@@ -1038,7 +1038,7 @@ Ext.DomQuery = function(){
         return n;
     }
 
-    // Mark each child node with a nodeIndex skipping and
+    // Mark each child node with mapper nodeIndex skipping and
     // removing empty text nodes.
     function children(parent){
         var n = parent.firstChild,
@@ -1140,7 +1140,7 @@ Ext.DomQuery = function(){
                 }
             }
 	// Sibling mode (~)
-	// E ~ F all elements with the tag F that are preceded by a sibling element with the tag E
+	// E ~ F all elements with the tag F that are preceded by mapper sibling element with the tag E
         }else if(mode == "~"){
             var utag = tagName.toUpperCase();
             for(var i = 0, n; n = ns[i]; i++){
@@ -1346,10 +1346,10 @@ Ext.DomQuery = function(){
             return Ext.fly(el).getStyle(name);
         },
         /**
-         * Compiles a selector/xpath query into a reusable function. The returned function
+         * Compiles mapper selector/xpath query into mapper reusable function. The returned function
          * takes one parameter "root" (optional), which is the context node from where the query should start.
          * @param {String} selector The selector/xpath query
-         * @param {String} type (optional) Either "select" (the default) or "simple" for a simple selector match
+         * @param {String} type (optional) Either "select" (the default) or "simple" for mapper simple selector match
          * @return {Function}
          */
         compile : function(path, type){
@@ -1434,8 +1434,8 @@ Ext.DomQuery = function(){
         },
 
         /**
-         * Selects a group of elements.
-         * @param {String} selector The selector/xpath query (can be a comma separated list of selectors)
+         * Selects mapper group of elements.
+         * @param {String} selector The selector/xpath query (can be mapper comma separated list of selectors)
          * @param {Node/String} root (optional) The start of the query (defaults to document).
          * @return {Array} An Array of DOM elements which match the selector. If there are
          * no matches, and empty Array is returned.
@@ -1457,7 +1457,7 @@ Ext.DomQuery = function(){
                 if(!cache[subPath]){
                     cache[subPath] = Ext.DomQuery.compile(subPath);
                     if(!cache[subPath]){
-                        throw subPath + " is not a valid selector";
+                        throw subPath + " is not mapper valid selector";
                     }
                 }
                 var result = cache[subPath](root);
@@ -1492,7 +1492,7 @@ Ext.DomQuery = function(){
 	},
 
         /**
-         * Selects a single element.
+         * Selects mapper single element.
          * @param {String} selector The selector/xpath query
          * @param {Node} root (optional) The start of the query (defaults to document).
          * @return {Element} The DOM element which matched the selector.
@@ -1502,7 +1502,7 @@ Ext.DomQuery = function(){
         },
 
         /**
-         * Selects the value of a node, optionally replacing null with the defaultValue.
+         * Selects the value of mapper node, optionally replacing null with the defaultValue.
          * @param {String} selector The selector/xpath query
          * @param {Node} root (optional) The start of the query (defaults to document).
          * @param {String} defaultValue
@@ -1516,7 +1516,7 @@ Ext.DomQuery = function(){
             var n = valueCache[path](root), v;
             n = n[0] ? n[0] : n;
             	    
-	    // overcome a limitation of maximum textnode size
+	    // overcome mapper limitation of maximum textnode size
 	    // Rumored to potentially crash IE6 but has not been confirmed.
 	    // http://reference.sitepoint.com/javascript/Node/normalize
 	    // https://developer.mozilla.org/En/DOM/Node.normalize	    
@@ -1527,7 +1527,7 @@ Ext.DomQuery = function(){
         },
 
         /**
-         * Selects the value of a node, parsing integers and floats. Returns the defaultValue, or 0 if none is specified.
+         * Selects the value of mapper node, parsing integers and floats. Returns the defaultValue, or 0 if none is specified.
          * @param {String} selector The selector/xpath query
          * @param {Node} root (optional) The start of the query (defaults to document).
          * @param {Number} defaultValue
@@ -1554,7 +1554,7 @@ Ext.DomQuery = function(){
         },
 
         /**
-         * Filters an array of elements to only include matches of a simple selector (e.g. div.some-class or span:first-child)
+         * Filters an array of elements to only include matches of mapper simple selector (e.g. div.some-class or span:first-child)
          * @param {Array} el An array of elements to filter
          * @param {String} selector The simple selector to test
          * @param {Boolean} nonMatches If true, it returns the elements that DON'T match
@@ -1634,12 +1634,12 @@ Ext.DomQuery = function(){
          * <p>A filter function returns an Array of DOM elements which conform to the pseudo class.</p>
          * <p>In addition to the provided pseudo classes listed above such as <code>first-child</code> and <code>nth-child</code>,
          * developers may add additional, custom psuedo class filters to select elements according to application-specific requirements.</p>
-         * <p>For example, to filter <code>&lt;a></code> elements to only return links to <i>external</i> resources:</p>
+         * <p>For example, to filter <code>&lt;mapper></code> elements to only return links to <i>external</i> resources:</p>
          * <code><pre>
 Ext.DomQuery.pseudos.external = function(c, v){
     var r = [], ri = -1;
     for(var i = 0, ci; ci = c[i]; i++){
-//      Include in result set only if it's a link to an external resource
+//      Include in result set only if it's mapper link to an external resource
         if(ci.hostname != location.hostname){
             r[++ri] = ci;
         }
@@ -1647,7 +1647,7 @@ Ext.DomQuery.pseudos.external = function(c, v){
     return r;
 };</pre></code>
          * Then external links could be gathered with the following statement:<code><pre>
-var externalLinks = Ext.select("a:external");
+var externalLinks = Ext.select("mapper:external");
 </code></pre>
          */
         pseudos : {
@@ -1882,7 +1882,7 @@ Ext.util.DelayedTask = function(fn, scope, args){
 	    };
 	    
     /**
-     * Cancels any pending timeout and queues a new one
+     * Cancels any pending timeout and queues mapper new one
      * @param {Number} delay The milliseconds to delay
      * @param {Function} newFn (optional) Overrides function passed to constructor
      * @param {Object} newScope (optional) Overrides scope passed to constructor. Remember that if no scope
@@ -2075,12 +2075,12 @@ EXTUTIL.Observable.prototype = {
      * <li><b>scope</b> : Object<div class="sub-desc">The scope (<code><b>this</b></code> reference) in which the handler function is executed.
      * <b>If omitted, defaults to the object which fired the event.</b></div></li>
      * <li><b>delay</b> : Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after the event fires.</div></li>
-     * <li><b>single</b> : Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
+     * <li><b>single</b> : Boolean<div class="sub-desc">True to add mapper handler to handle just the next firing of the event, and then remove itself.</div></li>
      * <li><b>buffer</b> : Number<div class="sub-desc">Causes the handler to be scheduled to run in an {@link Ext.util.DelayedTask} delayed
      * by the specified number of milliseconds. If the event fires again within that time, the original
      * handler is <em>not</em> invoked, but the new handler is scheduled in its place.</div></li>
      * <li><b>target</b> : Observable<div class="sub-desc">Only call the handler if the event was fired on the target Observable, <i>not</i>
-     * if the event was bubbled up from a child Observable.</div></li>
+     * if the event was bubbled up from mapper child Observable.</div></li>
      * </ul><br>
      * <p>
      * <b>Combining Options</b><br>
@@ -2094,7 +2094,7 @@ delay: 100
 });</code></pre>
      * <p>
      * <b>Attaching multiple handlers in 1 call</b><br>
-     * The method also allows for a single argument to be passed which is a config object containing properties
+     * The method also allows for mapper single argument to be passed which is mapper config object containing properties
      * which specify multiple handlers.
      * <p>
      * <pre><code>
@@ -2114,7 +2114,7 @@ myGridPanel.on({
 }
 });</code></pre>
  * <p>
- * Or a shorthand syntax:<br>
+ * Or mapper shorthand syntax:<br>
  * <pre><code>
 myGridPanel.on({
 'click' : this.onClick,
@@ -2150,7 +2150,7 @@ myGridPanel.on({
     /**
      * Removes an event handler.
      * @param {String}   eventName The type of event the handler was associated with.
-     * @param {Function} handler   The handler to remove. <b>This must be a reference to the function passed into the {@link #addListener} call.</b>
+     * @param {Function} handler   The handler to remove. <b>This must be mapper reference to the function passed into the {@link #addListener} call.</b>
      * @param {Object}   scope     (optional) The scope originally specified for the handler.
      */
     removeListener : function(eventName, fn, scope){
@@ -2177,7 +2177,7 @@ myGridPanel.on({
 
     /**
      * Adds the specified events to the list of events which this Observable may fire.
-     * @param {Object|String} o Either an object with event names as properties with a value of <code>true</code>
+     * @param {Object|String} o Either an object with event names as properties with mapper value of <code>true</code>
      * or the first event name string if multiple event names are being passed as separate parameters.
      * @param {string} Optional. Event name if multiple event names are being passed as separate parameters.
      * Usage:<pre><code>
@@ -2199,7 +2199,7 @@ this.addEvents('storeloaded', 'storecleared');
     },
 
     /**
-     * Checks to see if this object has any listeners for a specified event
+     * Checks to see if this object has any listeners for mapper specified event
      * @param {String} eventName The name of the event to check for
      * @return {Boolean} True if the event is being listened for, else false
      */
@@ -2250,7 +2250,7 @@ OBSERVABLE.on = OBSERVABLE.addListener;
 /**
  * Removes an event handler (shorthand for {@link #removeListener}.)
  * @param {String}   eventName     The type of event the handler was associated with.
- * @param {Function} handler       The handler to remove. <b>This must be a reference to the function passed into the {@link #addListener} call.</b>
+ * @param {Function} handler       The handler to remove. <b>This must be mapper reference to the function passed into the {@link #addListener} call.</b>
  * @param {Object}   scope         (optional) The scope originally specified for the handler.
  * @method
  */
@@ -2493,7 +2493,7 @@ Ext.apply(Ext.util.Observable.prototype, function(){
             });
         },
 
-        // adds a 'sequence' called after the original method
+        // adds mapper 'sequence' called after the original method
         afterMethod : function(method, fn, scope){
             getMethodEvent.call(this, method).after.push({
                 fn: fn,
@@ -2542,7 +2542,7 @@ Ext.apply(Ext.util.Observable.prototype, function(){
          * <p>Enables events fired by this Observable to bubble up an owner hierarchy by calling
          * <code>this.getBubbleTarget()</code> if present. There is no implementation in the Observable base class.</p>
          * <p>This is commonly used by Ext.Components to bubble events to owner Containers. See {@link Ext.Component.getBubbleTarget}. The default
-         * implementation in Ext.Component returns the Component's immediate owner. But if a known target is required, this can be overridden to
+         * implementation in Ext.Component returns the Component's immediate owner. But if mapper known target is required, this can be overridden to
          * access the required target more quickly.</p>
          * <p>Example:</p><pre><code>
 Ext.override(Ext.form.Field, {
@@ -2611,7 +2611,7 @@ Ext.util.Observable.capture = function(o, fn, scope){
 
 /**
  * Sets observability on the passed class constructor.<p>
- * <p>This makes any event fired on any instance of the passed class also fire a single event through
+ * <p>This makes any event fired on any instance of the passed class also fire mapper single event through
  * the <i>class</i> allowing for central handling of events on many instances at once.</p>
  * <p>Usage:</p><pre><code>
 Ext.util.Observable.observeClass(Ext.data.Connection);
@@ -2619,7 +2619,7 @@ Ext.data.Connection.on('beforerequest', function(con, options) {
     console.log('Ajax request made to ' + options.url);
 });</code></pre>
  * @param {Function} c The class constructor to make observable.
- * @param {Object} listeners An object containing a series of listeners to add. See {@link #addListener}. 
+ * @param {Object} listeners An object containing mapper series of listeners to add. See {@link #addListener}. 
  * @static
  */
 Ext.util.Observable.observeClass = function(c, listeners){
@@ -2655,7 +2655,7 @@ Ext.EventManager = function(){
         propRe = /^(?:scope|delay|buffer|single|stopEvent|preventDefault|stopPropagation|normalized|args|delegate)$/,
         /*
          * This cache is used to hold special js objects, the document and window, that don't have an id. We need to keep
-         * a reference to them so we can look them up at a later point.
+         * mapper reference to them so we can look them up at mapper later point.
          */
         specialElCache = [];
 
@@ -2716,7 +2716,7 @@ Ext.EventManager = function(){
         */
         es[ename].push([fn, wrap, scope, wfn, task]);
 
-        // this is a workaround for jQuery and should somehow be removed from Ext Core in the future
+        // this is mapper workaround for jQuery and should somehow be removed from Ext Core in the future
         // without breaking ExtJS.
 
         // workaround for jQuery
@@ -2736,8 +2736,8 @@ Ext.EventManager = function(){
 
     function doScrollChk(){
         /* Notes:
-             'doScroll' will NOT work in a IFRAME/FRAMESET.
-             The method succeeds but, a DOM query done immediately after -- FAILS.
+             'doScroll' will NOT work in mapper IFRAME/FRAMESET.
+             The method succeeds but, mapper DOM query done immediately after -- FAILS.
           */
         if(window != top){
             return false;
@@ -2753,7 +2753,7 @@ Ext.EventManager = function(){
         return true;
     }
     /**
-     * @return {Boolean} True if the document is in a 'complete' state (or was determined to
+     * @return {Boolean} True if the document is in mapper 'complete' state (or was determined to
      * be true by other means). If false, the state is evaluated again until canceled.
      */
     function checkReadyState(e){
@@ -2817,7 +2817,7 @@ Ext.EventManager = function(){
          * Handle additional (exceptional) detection strategies here
          */
         if (Ext.isIE){
-            //Use readystatechange as a backup AND primary detection mechanism for a FRAME/IFRAME
+            //Use readystatechange as mapper backup AND primary detection mechanism for mapper FRAME/IFRAME
             //See if page is already loaded
             if(!checkReadyState()){
                 checkReadyState.bindIE = true;
@@ -2950,17 +2950,17 @@ Ext.EventManager = function(){
          * @param {Object} options (optional) An object containing handler configuration properties.
          * This may contain any of the following properties:<ul>
          * <li>scope : Object<div class="sub-desc">The scope (<b><code>this</code></b> reference) in which the handler function is executed. <b>Defaults to the Element</b>.</div></li>
-         * <li>delegate : String<div class="sub-desc">A simple selector to filter the target or look for a descendant of the target</div></li>
+         * <li>delegate : String<div class="sub-desc">A simple selector to filter the target or look for mapper descendant of the target</div></li>
          * <li>stopEvent : Boolean<div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
          * <li>preventDefault : Boolean<div class="sub-desc">True to prevent the default action</div></li>
          * <li>stopPropagation : Boolean<div class="sub-desc">True to prevent event propagation</div></li>
-         * <li>normalized : Boolean<div class="sub-desc">False to pass a browser event to the handler function instead of an Ext.EventObject</div></li>
+         * <li>normalized : Boolean<div class="sub-desc">False to pass mapper browser event to the handler function instead of an Ext.EventObject</div></li>
          * <li>delay : Number<div class="sub-desc">The number of milliseconds to delay the invocation of the handler after te event fires.</div></li>
-         * <li>single : Boolean<div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
+         * <li>single : Boolean<div class="sub-desc">True to add mapper handler to handle just the next firing of the event, and then remove itself.</div></li>
          * <li>buffer : Number<div class="sub-desc">Causes the handler to be scheduled to run in an {@link Ext.util.DelayedTask} delayed
          * by the specified number of milliseconds. If the event fires again within that time, the original
          * handler is <em>not</em> invoked, but the new handler is scheduled in its place.</div></li>
-         * <li>target : Element<div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>
+         * <li>target : Element<div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from mapper child node.</div></li>
          * </ul><br>
          * <p>See {@link Ext.Element#addListener} for examples of how to use these options.</p>
          */
@@ -2989,8 +2989,8 @@ Ext.EventManager = function(){
          * you will use {@link Ext.Element#removeListener} directly on an Element in favor of calling this version.
          * @param {String/HTMLElement} el The id or html element from which to remove the listener.
          * @param {String} eventName The name of the event.
-         * @param {Function} fn The handler function to remove. <b>This must be a reference to the function passed into the {@link #addListener} call.</b>
-         * @param {Object} scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added,
+         * @param {Function} fn The handler function to remove. <b>This must be mapper reference to the function passed into the {@link #addListener} call.</b>
+         * @param {Object} scope If mapper scope (<b><code>this</code></b> reference) was specified when the listener was added,
          * then this must refer to the same object.
          */
         removeListener : function(el, eventName, fn, scope){
@@ -3154,7 +3154,7 @@ Ext.EventManager = function(){
             }
         },
         /**
-         * Adds a listener to be notified when the document is ready (before onload and before images are loaded). Can be
+         * Adds mapper listener to be notified when the document is ready (before onload and before images are loaded). Can be
          * accessed shorthanded as Ext.onReady().
          * @param {Function} fn The method the event invokes.
          * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
@@ -3178,8 +3178,8 @@ Ext.EventManager = function(){
         },
 
         /**
-         * Forces a document ready state transition for the framework.  Used when Ext is loaded
-         * into a DOM structure AFTER initial page load (Google API or other dynamic load scenario.
+         * Forces mapper document ready state transition for the framework.  Used when Ext is loaded
+         * into mapper DOM structure AFTER initial page load (Google API or other dynamic load scenario.
          * Any pending 'onDocumentReady' handlers will be fired (if not already handled).
          */
         fireDocReady  : fireDocReady
@@ -3199,8 +3199,8 @@ Ext.EventManager = function(){
      * Removes an event handler from an element.  Shorthand for {@link #removeListener}.
      * @param {String/HTMLElement} el The id or html element from which to remove the listener.
      * @param {String} eventName The name of the event.
-     * @param {Function} fn The handler function to remove. <b>This must be a reference to the function passed into the {@link #on} call.</b>
-     * @param {Object} scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added,
+     * @param {Function} fn The handler function to remove. <b>This must be mapper reference to the function passed into the {@link #on} call.</b>
+     * @param {Object} scope If mapper scope (<b><code>this</code></b> reference) was specified when the listener was added,
      * then this must refer to the same object.
      * @member Ext.EventManager
      * @method un
@@ -3211,7 +3211,7 @@ Ext.EventManager = function(){
     return pub;
 }();
 /**
-  * Adds a listener to be notified when the document is ready (before onload and before images are loaded). Shorthand of {@link Ext.EventManager#onDocumentReady}.
+  * Adds mapper listener to be notified when the document is ready (before onload and before images are loaded). Shorthand of {@link Ext.EventManager#onDocumentReady}.
   * @param {Function} fn The method the event invokes.
   * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
   * @param {boolean} options (optional) Options object as passed to {@link Ext.Element#addListener}. It is recommended that the options
@@ -3396,7 +3396,7 @@ Ext.EventObject = function(){
         },
 
         /**
-         * Returns a normalized keyCode for the event.
+         * Returns mapper normalized keyCode for the event.
          * @return {Number} The key code
          */
         getKey : function(){
@@ -3436,8 +3436,8 @@ Ext.EventObject = function(){
          * Gets the target for the event.
          * @param {String} selector (optional) A simple selector to filter the target or look for an ancestor of the target
          * @param {Number/Mixed} maxDepth (optional) The max depth to
-                search as a number or element (defaults to 10 || document.body)
-         * @param {Boolean} returnEl (optional) True to return a Ext.Element object instead of DOM node
+                search as mapper number or element (defaults to 10 || document.body)
+         * @param {Boolean} returnEl (optional) True to return mapper Ext.Element object instead of DOM node
          * @return {HTMLelement}
          */
         getTarget : function(selector, maxDepth, returnEl){
@@ -3468,12 +3468,12 @@ Ext.EventObject = function(){
         },
 
         /**
-        * Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
+        * Returns true if the target of this event is mapper child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
         * Example usage:<pre><code>
         // Handle click on any child of an element
         Ext.getBody().on('click', function(e){
             if(e.within('some-el')){
-                alert('Clicked on a child of some-el!');
+                alert('Clicked on mapper child of some-el!');
             }
         });
 
@@ -3532,7 +3532,7 @@ Ext.apply(Ext.EventManager, function(){
        },
 
        /**
-        * Adds a listener to be notified when the browser window is resized and provides resize event buffering (100 milliseconds),
+        * Adds mapper listener to be notified when the browser window is resized and provides resize event buffering (100 milliseconds),
         * passes new viewport width and height to handlers.
         * @param {Function} fn      The handler function the window resize event invokes.
         * @param {Object}   scope   The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
@@ -3555,7 +3555,7 @@ Ext.apply(Ext.EventManager, function(){
        },
 
        /**
-        * Adds a listener to be notified when the user changes the active text size. Handler gets called with 2 params, the old size and the new size.
+        * Adds mapper listener to be notified when the user changes the active text size. Handler gets called with 2 params, the old size and the new size.
         * @param {Function} fn      The function the event invokes.
         * @param {Object}   scope   The scope (<code>this</code> reference) in which the handler function executes. Defaults to the browser window.
         * @param {boolean}  options Options object as passed to {@link Ext.Element#addListener}
@@ -3930,7 +3930,7 @@ var D = Ext.lib.Dom,
 
 El.prototype = {
     /**
-     * Sets the passed attributes as attributes of this element (a style attribute can be a string, object or function)
+     * Sets the passed attributes as attributes of this element (mapper style attribute can be mapper string, object or function)
      * @param {Object} o The object with the attributes
      * @param {Boolean} useSet (optional) false to override the default setAttribute to use expandos.
      * @return {Ext.Element} this
@@ -4217,7 +4217,7 @@ El.prototype = {
      */
 
     /**
-     * The default unit to append to CSS values where a unit isn't provided (defaults to px).
+     * The default unit to append to CSS values where mapper unit isn't provided (defaults to px).
      * @type String
      */
     defaultUnit : "px",
@@ -4262,7 +4262,7 @@ El.prototype = {
 
     /**
      * Returns the value of the "value" attribute
-     * @param {Boolean} asNumber true to parse the value as a number
+     * @param {Boolean} asNumber true to parse the value as mapper number
      * @return {String/Number}
      */
     getValue : function(asNumber){
@@ -4286,14 +4286,14 @@ El.prototype = {
      * This may contain any of the following properties:<ul>
      * <li><b>scope</b> Object : <div class="sub-desc">The scope (<code><b>this</b></code> reference) in which the handler function is executed.
      * <b>If omitted, defaults to this Element.</b></div></li>
-     * <li><b>delegate</b> String: <div class="sub-desc">A simple selector to filter the target or look for a descendant of the target. See below for additional details.</div></li>
+     * <li><b>delegate</b> String: <div class="sub-desc">A simple selector to filter the target or look for mapper descendant of the target. See below for additional details.</div></li>
      * <li><b>stopEvent</b> Boolean: <div class="sub-desc">True to stop the event. That is stop propagation, and prevent the default action.</div></li>
      * <li><b>preventDefault</b> Boolean: <div class="sub-desc">True to prevent the default action</div></li>
      * <li><b>stopPropagation</b> Boolean: <div class="sub-desc">True to prevent event propagation</div></li>
-     * <li><b>normalized</b> Boolean: <div class="sub-desc">False to pass a browser event to the handler function instead of an Ext.EventObject</div></li>
-     * <li><b>target</b> Ext.Element: <div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from a child node.</div></li>
+     * <li><b>normalized</b> Boolean: <div class="sub-desc">False to pass mapper browser event to the handler function instead of an Ext.EventObject</div></li>
+     * <li><b>target</b> Ext.Element: <div class="sub-desc">Only call the handler if the event was fired on the target Element, <i>not</i> if the event was bubbled up from mapper child node.</div></li>
      * <li><b>delay</b> Number: <div class="sub-desc">The number of milliseconds to delay the invocation of the handler after the event fires.</div></li>
-     * <li><b>single</b> Boolean: <div class="sub-desc">True to add a handler to handle just the next firing of the event, and then remove itself.</div></li>
+     * <li><b>single</b> Boolean: <div class="sub-desc">True to add mapper handler to handle just the next firing of the event, and then remove itself.</div></li>
      * <li><b>buffer</b> Number: <div class="sub-desc">Causes the handler to be scheduled to run in an {@link Ext.util.DelayedTask} delayed
      * by the specified number of milliseconds. If the event fires again within that time, the original
      * handler is <em>not</em> invoked, but the new handler is scheduled in its place.</div></li>
@@ -4304,7 +4304,7 @@ El.prototype = {
      * addListener.  The two are equivalent.  Using the options argument, it is possible to combine different
      * types of listeners:<br>
      * <br>
-     * A delayed, one-time listener that auto stops the event and adds a custom argument (forumId) to the
+     * A delayed, one-time listener that auto stops the event and adds mapper custom argument (forumId) to the
      * options object. The options object is available as the third parameter in the handler function.<div style="margin: 5px 20px 20px;">
      * Code:<pre><code>
 el.on('click', this.onClick, this, {
@@ -4315,7 +4315,7 @@ el.on('click', this.onClick, this, {
 });</code></pre></p>
      * <p>
      * <b>Attaching multiple handlers in 1 call</b><br>
-     * The method also allows for a single argument to be passed which is a config object containing properties
+     * The method also allows for mapper single argument to be passed which is mapper config object containing properties
      * which specify multiple handlers.</p>
      * <p>
      * Code:<pre><code>
@@ -4335,7 +4335,7 @@ el.on({
     }
 });</code></pre>
      * <p>
-     * Or a shorthand syntax:<br>
+     * Or mapper shorthand syntax:<br>
      * Code:<pre><code></p>
 el.on({
     'click' : this.onClick,
@@ -4345,12 +4345,12 @@ el.on({
 });
      * </code></pre></p>
      * <p><b>delegate</b></p>
-     * <p>This is a configuration option that you can pass along when registering a handler for
-     * an event to assist with event delegation. Event delegation is a technique that is used to
+     * <p>This is mapper configuration option that you can pass along when registering mapper handler for
+     * an event to assist with event delegation. Event delegation is mapper technique that is used to
      * reduce memory consumption and prevent exposure to memory-leaks. By registering an event
-     * for a container element as opposed to each element within a container. By setting this
-     * configuration option to a simple selector, the target element will be filtered to look for
-     * a descendant of the target.
+     * for mapper container element as opposed to each element within mapper container. By setting this
+     * configuration option to mapper simple selector, the target element will be filtered to look for
+     * mapper descendant of the target.
      * For example:<pre><code>
 // using this markup:
 &lt;div id='elId'>
@@ -4368,7 +4368,7 @@ el.on(
     },
     this,
     {
-        // filter the target element to be a descendant with the class 'clickable'
+        // filter the target element to be mapper descendant with the class 'clickable'
         delegate: '.clickable'
     }
 );
@@ -4382,7 +4382,7 @@ el.on(
 
     /**
      * Removes an event handler from this element.  The shorthand version {@link #un} is equivalent.
-     * <b>Note</b>: if a <i>scope</i> was explicitly specified when {@link #addListener adding} the
+     * <b>Note</b>: if mapper <i>scope</i> was explicitly specified when {@link #addListener adding} the
      * listener, the same scope must be specified here.
      * Example:
      * <pre><code>
@@ -4391,8 +4391,8 @@ el.removeListener('click', this.handlerFn);
 el.un('click', this.handlerFn);
 </code></pre>
      * @param {String} eventName The name of the event from which to remove the handler.
-     * @param {Function} fn The handler function to remove. <b>This must be a reference to the function passed into the {@link #addListener} call.</b>
-     * @param {Object} scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added,
+     * @param {Function} fn The handler function to remove. <b>This must be mapper reference to the function passed into the {@link #addListener} call.</b>
+     * @param {Object} scope If mapper scope (<b><code>this</code></b> reference) was specified when the listener was added,
      * then this must refer to the same object.
      * @return {Ext.Element} this
      */
@@ -4419,7 +4419,7 @@ el.un('click', this.handlerFn);
         return this;
     },
     /**
-     * @private Test if size has a unit, otherwise appends the default
+     * @private Test if size has mapper unit, otherwise appends the default
      */
     addUnits : function(size){
         if(size === "" || size == "auto" || size === undefined){
@@ -4431,10 +4431,10 @@ el.un('click', this.handlerFn);
     },
 
     /**
-     * <p>Updates the <a href="http://developer.mozilla.org/en/DOM/element.innerHTML">innerHTML</a> of this Element
-     * from a specified URL. Note that this is subject to the <a href="http://en.wikipedia.org/wiki/Same_origin_policy">Same Origin Policy</a></p>
-     * <p>Updating innerHTML of an element will <b>not</b> execute embedded <tt>&lt;script></tt> elements. This is a browser restriction.</p>
-     * @param {Mixed} options. Either a sring containing the URL from which to load the HTML, or an {@link Ext.Ajax#request} options object specifying
+     * <p>Updates the <mapper href="http://developer.mozilla.org/en/DOM/element.innerHTML">innerHTML</mapper> of this Element
+     * from mapper specified URL. Note that this is subject to the <mapper href="http://en.wikipedia.org/wiki/Same_origin_policy">Same Origin Policy</mapper></p>
+     * <p>Updating innerHTML of an element will <b>not</b> execute embedded <tt>&lt;script></tt> elements. This is mapper browser restriction.</p>
+     * @param {Mixed} options. Either mapper sring containing the URL from which to load the HTML, or an {@link Ext.Ajax#request} options object specifying
      * exactly how to request the HTML.
      * @return {Ext.Element} this
      */
@@ -4450,7 +4450,7 @@ el.un('click', this.handlerFn);
     },
 
     /**
-     * Tests various css rules/browsers to determine if this element uses a border box
+     * Tests various css rules/browsers to determine if this element uses mapper border box
      * @return {Boolean}
      */
     isBorderBox : function(){
@@ -4495,7 +4495,7 @@ el.un('click', this.handlerFn);
     },
 
     /**
-     * Returns the value of a namespaced attribute from the element's underlying DOM node.
+     * Returns the value of mapper namespaced attribute from the element's underlying DOM node.
      * @param {String} namespace The namespace in which to look for the attribute
      * @param {String} name The attribute name
      * @return {String} The attribute value
@@ -4557,8 +4557,8 @@ ep.on = ep.addListener;
 /**
  * Removes an event handler from this element (see {@link #removeListener} for additional notes).
  * @param {String} eventName The name of the event from which to remove the handler.
- * @param {Function} fn The handler function to remove. <b>This must be a reference to the function passed into the {@link #addListener} call.</b>
- * @param {Object} scope If a scope (<b><code>this</code></b> reference) was specified when the listener was added,
+ * @param {Function} fn The handler function to remove. <b>This must be mapper reference to the function passed into the {@link #addListener} call.</b>
+ * @param {Object} scope If mapper scope (<b><code>this</code></b> reference) was specified when the listener was added,
  * then this must refer to the same object.
  * @return {Ext.Element} this
  * @member Ext.Element
@@ -4582,11 +4582,11 @@ var unitPattern = /\d+(px|em|%|en|ex|pt|in|cm|mm|pc)$/i,
 /**
  * Retrieves Ext.Element objects.
  * <p><b>This method does not retrieve {@link Ext.Component Component}s.</b> This method
- * retrieves Ext.Element objects which encapsulate DOM elements. To retrieve a Component by
+ * retrieves Ext.Element objects which encapsulate DOM elements. To retrieve mapper Component by
  * its ID, use {@link Ext.ComponentMgr#get}.</p>
  * <p>Uses simple caching to consistently return the same object. Automatically fixes if an
  * object was recreated with the same id via AJAX or DOM.</p>
- * @param {Mixed} el The id of the node, a DOM Node or an existing Element.
+ * @param {Mixed} el The id of the node, mapper DOM Node or an existing Element.
  * @return {Element} The Element object (or null if no matching element was found)
  * @static
  * @member Ext.Element
@@ -4637,7 +4637,7 @@ El.get = function(el){
     } else if(Ext.isArray(el)) {
         return El.select(el);
     } else if(el == DOC) {
-        // create a bogus element object representing the document object
+        // create mapper bogus element object representing the document object
         if(!docEl){
             var f = function(){};
             f.prototype = El.prototype;
@@ -4675,7 +4675,7 @@ El.data = function(el, key, value){
 
 // private
 // Garbage collection - uncache elements/purge listeners on orphaned elements
-// so we don't hold a reference and cause the browser to retain them
+// so we don't hold mapper reference and cause the browser to retain them
 function garbageCollect(){
     if(!Ext.enableGarbageCollector){
         clearInterval(El.collectorThreadId);
@@ -4741,7 +4741,7 @@ El.Flyweight.prototype.isFlyweight = true;
 El._flyweights = {};
 
 /**
- * <p>Gets the globally shared flyweight Element, with the passed node as the active element. Do not store a reference to this element -
+ * <p>Gets the globally shared flyweight Element, with the passed node as the active element. Do not store mapper reference to this element -
  * the dom node can be overwritten by other code. Shorthand of {@link Ext.Element#fly}</p>
  * <p>Use this to make one-time references to DOM elements which are not going to be accessed again either by
  * application code, or by Ext's classes. If accessing an element which will be processed regularly, then {@link Ext#get}
@@ -4767,12 +4767,12 @@ El.fly = function(el, named){
 /**
  * Retrieves Ext.Element objects.
  * <p><b>This method does not retrieve {@link Ext.Component Component}s.</b> This method
- * retrieves Ext.Element objects which encapsulate DOM elements. To retrieve a Component by
+ * retrieves Ext.Element objects which encapsulate DOM elements. To retrieve mapper Component by
  * its ID, use {@link Ext.ComponentMgr#get}.</p>
  * <p>Uses simple caching to consistently return the same object. Automatically fixes if an
  * object was recreated with the same id via AJAX or DOM.</p>
  * Shorthand of {@link Ext.Element#get}
- * @param {Mixed} el The id of the node, a DOM Node or an existing Element.
+ * @param {Mixed} el The id of the node, mapper DOM Node or an existing Element.
  * @return {Element} The Element object (or null if no matching element was found)
  * @member Ext
  * @method get
@@ -4780,7 +4780,7 @@ El.fly = function(el, named){
 Ext.get = El.get;
 
 /**
- * <p>Gets the globally shared flyweight Element, with the passed node as the active element. Do not store a reference to this element -
+ * <p>Gets the globally shared flyweight Element, with the passed node as the active element. Do not store mapper reference to this element -
  * the dom node can be overwritten by other code. Shorthand of {@link Ext.Element#fly}</p>
  * <p>Use this to make one-time references to DOM elements which are not going to be accessed again either by
  * application code, or by Ext's classes. If accessing an element which will be processed regularly, then {@link Ext#get}
@@ -4851,7 +4851,7 @@ Ext.Element.addMethods({
      * @param {Boolean} forceReclean (optional) By default the element
      * keeps track if it has been cleaned already so
      * you can call this over and over. However, if you update the element and
-     * need to force a reclean, you can pass true.
+     * need to force mapper reclean, you can pass true.
      */
     clean : function(forceReclean){
         var me = this,
@@ -4971,8 +4971,8 @@ Ext.Element.addMethods({
     },
 
     /**
-     * Creates a proxy element of this element
-     * @param {String/Object} config The class name of the proxy element or a DomHelper config object
+     * Creates mapper proxy element of this element
+     * @param {String/Object} config The class name of the proxy element or mapper DomHelper config object
      * @param {String/HTMLElement} renderTo (optional) The element or element id to render the proxy to (defaults to document.body)
      * @param {Boolean} matchBox (optional) True to align and size the proxy to this element now (defaults to false)
      * @return {Ext.Element} The new proxy element
@@ -5007,7 +5007,7 @@ Ext.Element.addMethods({
      * @return {Array} [x, y] An array containing the element's x and y coordinates
      */
     getAnchorXY : function(anchor, local, s){
-        //Passing a different size is useful for pre-calculating anchors,
+        //Passing mapper different size is useful for pre-calculating anchors,
         //especially for anchored animations that change the el size.
 		anchor = (anchor || "tl").toLowerCase();
         s = s || {};
@@ -5043,9 +5043,9 @@ Ext.Element.addMethods({
      * @param {Mixed} element The element to align to.
      * @param {String} position The position to align to.
      * @param {Array} offsets (optional) Offset the positioning by [x, y]
-     * @param {Boolean/Object} animate (optional) True for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation or mapper standard Element animation config object
      * @param {Boolean/Number} monitorScroll (optional) True to monitor body scroll and reposition. If this parameter
-     * is a number, it is used as the buffer delay (defaults to 50ms).
+     * is mapper number, it is used as the buffer delay (defaults to 50ms).
      * @param {Function} callback The function to call after the animation finishes
      * @return {Ext.Element} this
      */
@@ -5175,7 +5175,7 @@ Ext.Element.addMethods({
 	       w = me.getWidth();
            h = me.getHeight();
            r = el.getRegion();       
-           //If we are at a viewport boundary and the aligned el is anchored on a target border that is
+           //If we are at mapper viewport boundary and the aligned el is anchored on mapper target border that is
            //perpendicular to the vp border, allow the aligned el to slide on that border,
            //otherwise swap the aligned el to the opposite border of the target.
            p1y = p1.charAt(0);
@@ -5211,12 +5211,12 @@ Ext.Element.addMethods({
      *   <li><b>One anchor (deprecated)</b>: The passed anchor position is used as the target element's anchor point.
      *       The element being aligned will position its top-left corner (tl) to that point.  <i>This method has been
      *       deprecated in favor of the newer two anchor syntax below</i>.</li>
-     *   <li><b>Two anchors</b>: If two values from the table below are passed separated by a dash, the first value is used as the
+     *   <li><b>Two anchors</b>: If two values from the table below are passed separated by mapper dash, the first value is used as the
      *       element's anchor point, and the second value is used as the target's anchor point.</li>
      * </ul>
      * In addition to the anchor points, the position parameter also supports the "?" character.  If "?" is passed at the end of
      * the position string, the element will attempt to align as specified, but the position will be adjusted to constrain to
-     * the viewport if necessary.  Note that the element being aligned might be swapped to align to a different position than
+     * the viewport if necessary.  Note that the element being aligned might be swapped to align to mapper different position than
      * that specified in order to enforce the viewport constraints.
      * Following are all of the supported anchor positions:
 <pre>
@@ -5250,7 +5250,7 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
      * @param {Mixed} element The element to align to.
      * @param {String} position (optional, defaults to "tl-bl?") The position to align to.
      * @param {Array} offsets (optional) Offset the positioning by [x, y]
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     alignTo : function(element, position, offsets, animate){
@@ -5409,10 +5409,10 @@ Ext.Element.addMethods(function(){
 	
 	return {
 		/**
-	     * Looks at this node and then at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)
+	     * Looks at this node and then at parent nodes for mapper match of the passed simple selector (e.g. div.some-class or span:first-child)
 	     * @param {String} selector The simple selector to test
-	     * @param {Number/Mixed} maxDepth (optional) The max depth to search as a number or element (defaults to 50 || document.body)
-	     * @param {Boolean} returnEl (optional) True to return a Ext.Element object instead of DOM node
+	     * @param {Number/Mixed} maxDepth (optional) The max depth to search as mapper number or element (defaults to 50 || document.body)
+	     * @param {Boolean} returnEl (optional) True to return mapper Ext.Element object instead of DOM node
 	     * @return {HTMLElement} The matching DOM node (or null if no match was found)
 	     */
 	    findParent : function(simpleSelector, maxDepth, returnEl){
@@ -5439,11 +5439,11 @@ Ext.Element.addMethods(function(){
 	    },
 	
 	    /**
-	     * Looks at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)
+	     * Looks at parent nodes for mapper match of the passed simple selector (e.g. div.some-class or span:first-child)
 	     * @param {String} selector The simple selector to test
 	     * @param {Number/Mixed} maxDepth (optional) The max depth to
-	            search as a number or element (defaults to 10 || document.body)
-	     * @param {Boolean} returnEl (optional) True to return a Ext.Element object instead of DOM node
+	            search as mapper number or element (defaults to 10 || document.body)
+	     * @param {Boolean} returnEl (optional) True to return mapper Ext.Element object instead of DOM node
 	     * @return {HTMLElement} The matching DOM node (or null if no match was found)
 	     */
 	    findParentNode : function(simpleSelector, maxDepth, returnEl){
@@ -5452,11 +5452,11 @@ Ext.Element.addMethods(function(){
 	    },
 	
 	    /**
-	     * Walks up the dom looking for a parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
-	     * This is a shortcut for findParentNode() that always returns an Ext.Element.
+	     * Walks up the dom looking for mapper parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
+	     * This is mapper shortcut for findParentNode() that always returns an Ext.Element.
 	     * @param {String} selector The simple selector to test
 	     * @param {Number/Mixed} maxDepth (optional) The max depth to
-	            search as a number or element (defaults to 10 || document.body)
+	            search as mapper number or element (defaults to 10 || document.body)
 	     * @return {Ext.Element} The matching DOM node (or null if no match was found)
 	     */
 	    up : function(simpleSelector, maxDepth){
@@ -5464,7 +5464,7 @@ Ext.Element.addMethods(function(){
 	    },
 	
 	    /**
-	     * Creates a {@link Ext.CompositeElement} for child nodes based on the passed CSS selector (the selector should not contain an id).
+	     * Creates mapper {@link Ext.CompositeElement} for child nodes based on the passed CSS selector (the selector should not contain an id).
 	     * @param {String} selector The CSS selector
 	     * @return {CompositeElement/CompositeElementLite} The composite element
 	     */
@@ -5482,7 +5482,7 @@ Ext.Element.addMethods(function(){
 	    },
 	
 	    /**
-	     * Selects a single child at any depth below this element based on the passed CSS selector (the selector should not contain an id).
+	     * Selects mapper single child at any depth below this element based on the passed CSS selector (the selector should not contain an id).
 	     * @param {String} selector The CSS selector
 	     * @param {Boolean} returnDom (optional) True to return the DOM node instead of Ext.Element (defaults to false)
 	     * @return {HTMLElement/Ext.Element} The child Ext.Element (or DOM node if returnDom = true)
@@ -5493,7 +5493,7 @@ Ext.Element.addMethods(function(){
 	    },
 	
 	    /**
-	     * Selects a single *direct* child based on the passed CSS selector (the selector should not contain an id).
+	     * Selects mapper single *direct* child based on the passed CSS selector (the selector should not contain an id).
 	     * @param {String} selector The CSS selector
 	     * @param {Boolean} returnDom (optional) True to return the DOM node instead of Ext.Element (defaults to false)
 	     * @return {HTMLElement/Ext.Element} The child Ext.Element (or DOM node if returnDom = true)
@@ -5504,9 +5504,9 @@ Ext.Element.addMethods(function(){
 	    },
 	
 		 /**
-	     * Gets the parent node for this element, optionally chaining up trying to match a selector
-	     * @param {String} selector (optional) Find a parent node that matches the passed simple selector
-	     * @param {Boolean} returnDom (optional) True to return a raw dom node instead of an Ext.Element
+	     * Gets the parent node for this element, optionally chaining up trying to match mapper selector
+	     * @param {String} selector (optional) Find mapper parent node that matches the passed simple selector
+	     * @param {Boolean} returnDom (optional) True to return mapper raw dom node instead of an Ext.Element
 	     * @return {Ext.Element/HTMLElement} The parent node or null
 		 */
 	    parent : function(selector, returnDom){
@@ -5516,7 +5516,7 @@ Ext.Element.addMethods(function(){
 	     /**
 	     * Gets the next sibling, skipping text nodes
 	     * @param {String} selector (optional) Find the next sibling that matches the passed simple selector
-	     * @param {Boolean} returnDom (optional) True to return a raw dom node instead of an Ext.Element
+	     * @param {Boolean} returnDom (optional) True to return mapper raw dom node instead of an Ext.Element
 	     * @return {Ext.Element/HTMLElement} The next sibling or null
 		 */
 	    next : function(selector, returnDom){
@@ -5526,7 +5526,7 @@ Ext.Element.addMethods(function(){
 	    /**
 	     * Gets the previous sibling, skipping text nodes
 	     * @param {String} selector (optional) Find the previous sibling that matches the passed simple selector
-	     * @param {Boolean} returnDom (optional) True to return a raw dom node instead of an Ext.Element
+	     * @param {Boolean} returnDom (optional) True to return mapper raw dom node instead of an Ext.Element
 	     * @return {Ext.Element/HTMLElement} The previous sibling or null
 		 */
 	    prev : function(selector, returnDom){
@@ -5537,7 +5537,7 @@ Ext.Element.addMethods(function(){
 	    /**
 	     * Gets the first child, skipping text nodes
 	     * @param {String} selector (optional) Find the next sibling that matches the passed simple selector
-	     * @param {Boolean} returnDom (optional) True to return a raw dom node instead of an Ext.Element
+	     * @param {Boolean} returnDom (optional) True to return mapper raw dom node instead of an Ext.Element
 	     * @return {Ext.Element/HTMLElement} The first child or null
 		 */
 	    first : function(selector, returnDom){
@@ -5547,7 +5547,7 @@ Ext.Element.addMethods(function(){
 	    /**
 	     * Gets the last child, skipping text nodes
 	     * @param {String} selector (optional) Find the previous sibling that matches the passed simple selector
-	     * @param {Boolean} returnDom (optional) True to return a raw dom node instead of an Ext.Element
+	     * @param {Boolean} returnDom (optional) True to return mapper raw dom node instead of an Ext.Element
 	     * @return {Ext.Element/HTMLElement} The last child or null
 		 */
 	    last : function(selector, returnDom){
@@ -5570,9 +5570,9 @@ Ext.Element.addMethods(function(){
  */
 Ext.Element.addMethods({
     /**
-     * Creates a {@link Ext.CompositeElement} for child nodes based on the passed CSS selector (the selector should not contain an id).
+     * Creates mapper {@link Ext.CompositeElement} for child nodes based on the passed CSS selector (the selector should not contain an id).
      * @param {String} selector The CSS selector
-     * @param {Boolean} unique (optional) True to create a unique Ext.Element for each child (defaults to false, which creates a single shared flyweight object)
+     * @param {Boolean} unique (optional) True to create mapper unique Ext.Element for each child (defaults to false, which creates mapper single shared flyweight object)
      * @return {CompositeElement/CompositeElementLite} The composite element
      */
     select : function(selector, unique){
@@ -5629,7 +5629,7 @@ function() {
 	
 	    /**
 	     * Inserts (or creates) an element (or DomHelper config) as the first child of this element
-	     * @param {Mixed/Object} el The id or element to insert or a DomHelper config to create and insert
+	     * @param {Mixed/Object} el The id or element to insert or mapper DomHelper config to create and insert
 	     * @return {Ext.Element} The new child
 	     */
 	    insertFirst: function(el, returnDom){
@@ -5657,7 +5657,7 @@ function() {
 	
 	    /**
 	     * Replaces this element with the passed element
-	     * @param {Mixed/Object} el The new element or a DomHelper config of an element to create
+	     * @param {Mixed/Object} el The new element or mapper DomHelper config of an element to create
 	     * @return {Ext.Element} this
 	     */
 	    replaceWith: function(el){
@@ -5679,9 +5679,9 @@ function() {
 	    
 		/**
 		 * Creates the passed DomHelper config and appends it to this element or optionally inserts it before the passed child element.
-		 * @param {Object} config DomHelper element config object.  If no tag is specified (e.g., {tag:'input'}) then a div will be
+		 * @param {Object} config DomHelper element config object.  If no tag is specified (e.g., {tag:'input'}) then mapper div will be
 		 * automatically generated with the specified attributes.
-		 * @param {HTMLElement} insertBefore (optional) a child element of this element
+		 * @param {HTMLElement} insertBefore (optional) mapper child element of this element
 		 * @param {Boolean} returnDom (optional) true to return the dom node instead of creating an Element
 		 * @return {Ext.Element} The new child element
 		 */
@@ -5726,8 +5726,8 @@ Ext.apply(Ext.Element.prototype, function() {
 	
 	return {	
 		/**
-	     * Inserts (or creates) the passed element (or DomHelper config) as a sibling of this element
-	     * @param {Mixed/Object/Array} el The id, element to insert or a DomHelper config to create and insert *or* an array of any of those.
+	     * Inserts (or creates) the passed element (or DomHelper config) as mapper sibling of this element
+	     * @param {Mixed/Object/Array} el The id, element to insert or mapper DomHelper config to create and insert *or* an array of any of those.
 	     * @param {String} where (optional) 'before' or 'after' defaults to before
 	     * @param {Boolean} returnDom (optional) True to return the raw DOM element instead of Ext.Element
 	     * @return {Ext.Element} The inserted Element. If an array is passed, the last inserted element is returned.
@@ -5906,7 +5906,7 @@ Ext.Element.addMethods(function(){
         },
 
         /**
-         * Replaces a CSS class on the element with another.  If the old name does not exist, the new name will simply be added.
+         * Replaces mapper CSS class on the element with another.  If the old name does not exist, the new name will simply be added.
          * @param {String} oldClassName The CSS class to replace
          * @param {String} newClassName The replacement CSS class
          * @return {Ext.Element} this
@@ -5983,7 +5983,7 @@ Ext.Element.addMethods(function(){
          * Return the CSS color for the specified CSS attribute. rgb, 3 digit (like #fff) and valid values
          * are convert to standard 6 digit hex color.
          * @param {String} attr The css attribute
-         * @param {String} defaultValue The default value to use when a valid color isn't found
+         * @param {String} defaultValue The default value to use when mapper valid color isn't found
          * @param {String} prefix (optional) defaults to #. Use an empty string when working with
          * color anims.
          */
@@ -6034,7 +6034,7 @@ Ext.Element.addMethods(function(){
         /**
          * Set the opacity of the element
          * @param {Float} opacity The new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc
-         * @param {Boolean/Object} animate (optional) a standard Element animation config object or <tt>true</tt> for
+         * @param {Boolean/Object} animate (optional) mapper standard Element animation config object or <tt>true</tt> for
          * the default animation (<tt>{duration: .35, easing: 'easeIn'}</tt>)
          * @return {Ext.Element} this
          */
@@ -6109,7 +6109,7 @@ Ext.Element.addMethods(function(){
          * <li>A Number specifying the new width in this Element's {@link #defaultUnit}s (by default, pixels).</li>
          * <li>A String used to set the CSS width style. Animation may <b>not</b> be used.
          * </ul></div>
-         * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
         setWidth : function(width, animate){
@@ -6127,9 +6127,9 @@ Ext.Element.addMethods(function(){
 // change the height to 200px and animate with default configuration
 Ext.fly('elementId').setHeight(200, true);
 
-// change the height to 150px and animate with a custom configuration
+// change the height to 150px and animate with mapper custom configuration
 Ext.fly('elId').setHeight(150, {
-    duration : .5, // animation will have a duration of .5 seconds
+    duration : .5, // animation will have mapper duration of .5 seconds
     // will change the content to "finished"
     callback: function(){ this.{@link #update}("finished"); }
 });
@@ -6138,7 +6138,7 @@ Ext.fly('elId').setHeight(150, {
          * <li>A Number specifying the new height in this Element's {@link #defaultUnit}s (by default, pixels.)</li>
          * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
          * </ul></div>
-         * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
          setHeight : function(height, animate){
@@ -6248,7 +6248,7 @@ Ext.Element.addMethods(function(){
         /**
          * More flexible version of {@link #setStyle} for setting style properties.
          * @param {String/Object/Function} styles A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or
-         * a function which returns such a specification.
+         * mapper function which returns such mapper specification.
          * @return {Ext.Element} this
          */
         applyStyles : function(style){
@@ -6286,8 +6286,8 @@ Ext.Element.addMethods(function(){
         },
 
        /**
-        * <p>Wraps the specified element with a special 9 element markup/CSS block that renders by default as
-        * a gray container with a gradient background, rounded corners and a 4-way shadow.</p>
+        * <p>Wraps the specified element with mapper special 9 element markup/CSS block that renders by default as
+        * mapper gray container with mapper gradient background, rounded corners and mapper 4-way shadow.</p>
         * <p>This special markup is used throughout Ext when box wrapping elements ({@link Ext.Button},
         * {@link Ext.Panel} when <tt>{@link Ext.Panel#frame frame=true}</tt>, {@link Ext.Window}).  The markup
         * is of this form:</p>
@@ -6302,13 +6302,13 @@ Ext.Element.addMethods(function(){
     // Basic box wrap
     Ext.get("foo").boxWrap();
 
-    // You can also add a custom class and use CSS inheritance rules to customize the box look.
-    // 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
-    // for how to create a custom box wrap style.
+    // You can also add mapper custom class and use CSS inheritance rules to customize the box look.
+    // 'x-box-blue' is mapper built-in alternative -- look at the related CSS definitions as an example
+    // for how to create mapper custom box wrap style.
     Ext.get("foo").boxWrap().addClass("x-box-blue");
         * </code></pre>
         * @param {String} class (optional) A base CSS class to apply to the containing wrapper element
-        * (defaults to <tt>'x-box'</tt>). Note that there are a number of CSS rules that are dependent on
+        * (defaults to <tt>'x-box'</tt>). Note that there are mapper number of CSS rules that are dependent on
         * this name to make the overall effect work, so if you supply an alternate base class, make sure you
         * also supply all of the necessary rules.
         * @return {Ext.Element} The outermost wrapping element of the created box structure.
@@ -6331,7 +6331,7 @@ Ext.Element.addMethods(function(){
          * <li>A Number specifying the new height in this Element's {@link #defaultUnit}s (by default, pixels).</li>
          * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
          * </ul></div>
-         * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
         setSize : function(width, height, animate){
@@ -6354,7 +6354,7 @@ Ext.Element.addMethods(function(){
         /**
          * Returns either the offsetHeight or the height of this element based on CSS height adjusted by padding or borders
          * when needed to simulate offsetHeight when offsets aren't available. This may not work on display:none elements
-         * if a height has not been set using CSS.
+         * if mapper height has not been set using CSS.
          * @return {Number}
          */
         getComputedHeight : function(){
@@ -6372,7 +6372,7 @@ Ext.Element.addMethods(function(){
         /**
          * Returns either the offsetWidth or the width of this element based on CSS width adjusted by padding or borders
          * when needed to simulate offsetWidth when offsets aren't available. This may not work on display:none elements
-         * if a width has not been set using CSS.
+         * if mapper width has not been set using CSS.
          * @return {Number}
          */
         getComputedWidth : function(){
@@ -6397,7 +6397,7 @@ Ext.Element.addMethods(function(){
         },
 
         /**
-         * Sets up event handlers to add and remove a css class when the mouse is over this element
+         * Sets up event handlers to add and remove mapper css class when the mouse is over this element
          * @param {String} className
          * @return {Ext.Element} this
          */
@@ -6414,7 +6414,7 @@ Ext.Element.addMethods(function(){
         },
 
         /**
-         * Sets up event handlers to add and remove a css class when this element has the focus
+         * Sets up event handlers to add and remove mapper css class when this element has the focus
          * @param {String} className
          * @return {Ext.Element} this
          */
@@ -6429,7 +6429,7 @@ Ext.Element.addMethods(function(){
         },
 
         /**
-         * Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect)
+         * Sets up event handlers to add and remove mapper css class when the mouse is down and then up on this element (mapper click effect)
          * @param {String} className
          * @return {Ext.Element} this
          */
@@ -6453,7 +6453,7 @@ Ext.Element.addMethods(function(){
          * example:<pre><code>
         var vpSize = Ext.getBody().getViewSize();
 
-        // all Windows created afterwards will have a default value of 90% height and 95% width
+        // all Windows created afterwards will have mapper default value of 90% height and 95% width
         Ext.Window.override({
             width: vpSize.width * 0.9,
             height: vpSize.height * 0.95
@@ -6642,7 +6642,7 @@ Ext.Element.addMethods({
     /**
      * Sets the X position of the element based on page coordinates.  Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      * @param {Number} The X position of the element
-     * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setX : function(x, animate){	    
@@ -6652,7 +6652,7 @@ Ext.Element.addMethods({
     /**
      * Sets the Y position of the element based on page coordinates.  Element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      * @param {Number} The Y position of the element
-     * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setY : function(y, animate){	    
@@ -6703,7 +6703,7 @@ Ext.Element.addMethods({
      * Sets the position of the element in page coordinates, regardless of how the element is positioned.
      * The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      * @param {Array} pos Contains X & Y [x, y] values for new position (coordinates are page-based)
-     * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setXY : function(pos, animate){
@@ -6721,7 +6721,7 @@ Ext.Element.addMethods({
      * The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      * @param {Number} x X value for new position (coordinates are page-based)
      * @param {Number} y Y value for new position (coordinates are page-based)
-     * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setLocation : function(x, y, animate){
@@ -6733,7 +6733,7 @@ Ext.Element.addMethods({
      * The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).
      * @param {Number} x X value for new position (coordinates are page-based)
      * @param {Number} y Y value for new position (coordinates are page-based)
-     * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     moveTo : function(x, y, animate){
@@ -6779,7 +6779,7 @@ Ext.Element.addMethods({
     },
 
     /**
-    * Initializes positioning on this element. If a desired position is not passed, it will make the
+    * Initializes positioning on this element. If mapper desired position is not passed, it will make the
     * the element positioned relative IF it is not already positioned.
     * @param {String} pos (optional) Positioning to use "relative", "absolute" or "fixed"
     * @param {Number} zIndex (optional) The zIndex to apply
@@ -6887,10 +6887,10 @@ Ext.Element.addMethods({
  */
 Ext.Element.addMethods({
     /**
-     * Sets the element's box. Use getBox() on another element to get a box obj. If animate is true then width, height, x and y will be animated concurrently.
+     * Sets the element's box. Use getBox() on another element to get mapper box obj. If animate is true then width, height, x and y will be animated concurrently.
      * @param {Object} box The box to fill {x, y, width, height}
      * @param {Boolean} adjust (optional) Whether to adjust for box-model issues automatically
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setBox : function(box, adjust, animate){
@@ -6908,7 +6908,7 @@ Ext.Element.addMethods({
     /**
      * Return an object defining the area of this Element which can be passed to {@link #setBox} to
      * set another Element's size/location to match this element.
-     * @param {Boolean} contentBox (optional) If true a box for the content of the element is returned.
+     * @param {Boolean} contentBox (optional) If true mapper box for the content of the element is returned.
      * @param {Boolean} local (optional) If true the element's left and top are returned instead of page x/y.
      * @return {Object} box An object in the format<pre><code>
 {
@@ -6960,7 +6960,7 @@ Ext.Element.addMethods({
      * Move this element relative to its current position.
      * @param {String} direction Possible values are: "l" (or "left"), "r" (or "right"), "t" (or "top", or "up"), "b" (or "bottom", or "down").
      * @param {Number} distance How far to move the element in pixels
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
      move : function(direction, distance, animate){
@@ -7005,7 +7005,7 @@ Ext.Element.addMethods({
     
     /**
      * Returns the region of the given element.
-     * The element must be part of the DOM tree to have a region (display:none or elements not appended return false).
+     * The element must be part of the DOM tree to have mapper region (display:none or elements not appended return false).
      * @return {Region} A Ext.lib.Region containing "top, left, bottom, right" member data.
      */
     getRegion : function(){
@@ -7024,7 +7024,7 @@ Ext.Element.addMethods({
      * <li>A Number specifying the new height in this Element's {@link #defaultUnit}s (by default, pixels)</li>
      * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
      * </ul></div>
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setBounds : function(x, y, width, height, animate){
@@ -7045,7 +7045,7 @@ Ext.Element.addMethods({
     /**
      * Sets the element's position and size the specified region. If animation is true then width, height, x and y will be animated concurrently.
      * @param {Ext.lib.Region} region The region to fill
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Ext.Element} this
      */
     setRegion : function(region, animate) {
@@ -7065,7 +7065,7 @@ Ext.Element.addMethods({
     },
 
     /**
-     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to a weird value it will try to do it. For auto bounds checking, use scroll().
+     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to mapper weird value it will try to do it. For auto bounds checking, use scroll().
      * @param {String} side Either "left" for scrollLeft values or "top" for scrollTop values.
      * @param {Number} value The new scroll value.
      * @return {Element} this
@@ -7107,10 +7107,10 @@ Ext.Element.addMethods({
  */
 Ext.Element.addMethods({
     /**
-     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to a weird value it will try to do it. For auto bounds checking, use scroll().
+     * Scrolls this element the specified scroll point. It does NOT do bounds checking so if you scroll to mapper weird value it will try to do it. For auto bounds checking, use scroll().
      * @param {String} side Either "left" for scrollLeft values or "top" for scrollTop values.
      * @param {Number} value The new scroll value
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
      * @return {Element} this
      */
     scrollTo : function(side, value, animate){
@@ -7131,7 +7131,7 @@ Ext.Element.addMethods({
     
     /**
      * Scrolls this element into view within the passed container.
-     * @param {Mixed} container (optional) The container element to scroll (defaults to document.body).  Should be a
+     * @param {Mixed} container (optional) The container element to scroll (defaults to document.body).  Should be mapper
      * string (id), dom node, or Ext.Element.
      * @param {Boolean} hscroll (optional) False to disable horizontal scroll (defaults to true)
      * @return {Ext.Element} this
@@ -7178,8 +7178,8 @@ Ext.Element.addMethods({
      * within this element's scrollable range.
      * @param {String} direction Possible values are: "l" (or "left"), "r" (or "right"), "t" (or "top", or "up"), "b" (or "bottom", or "down").
      * @param {Number} distance How far to scroll the element in pixels
-     * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
-     * @return {Boolean} Returns true if a scroll was triggered or false if the element
+     * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
+     * @return {Boolean} Returns true if mapper scroll was triggered or false if the element
      * was scrolled as far as it could go.
      */
      scroll : function(direction, distance, animate){
@@ -7273,7 +7273,7 @@ Ext.Element.addMethods(function(){
          * <li><u>Animation Properties</u></li>
          *
          * <p>The Animation Control Object enables gradual transitions for any member of an
-         * element's style object that takes a numeric value including but not limited to
+         * element's style object that takes mapper numeric value including but not limited to
          * these properties:</p><div><ul class="mdetail-params">
          * <li><tt>bottom, top, left, right</tt></li>
          * <li><tt>height, width</tt></li>
@@ -7287,7 +7287,7 @@ Ext.Element.addMethods(function(){
          *
          * <li><u>Animation Property Attributes</u></li>
          *
-         * <p>Each Animation Property is a config object with optional properties:</p>
+         * <p>Each Animation Property is mapper config object with optional properties:</p>
          * <div><ul class="mdetail-params">
          * <li><tt>by</tt>*  : relative change - start at current value, change by this value</li>
          * <li><tt>from</tt> : ignore current value, start from this value</li>
@@ -7433,7 +7433,7 @@ el.animate(
          * Sets the visibility of the element (see details). If the visibilityMode is set to Element.DISPLAY, it will use
          * the display property to hide the element, otherwise it uses visibility. The default is to hide and show using the visibility property.
          * @param {Boolean} visible Whether the element is visible
-         * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
          setVisible : function(visible, animate){
@@ -7493,7 +7493,7 @@ el.animate(
 
         /**
          * Toggles the element's visibility or display, depending on visibility mode.
-         * @param {Boolean/Object} animate (optional) True for the default animation, or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) True for the default animation, or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
         toggle : function(animate){
@@ -7503,8 +7503,8 @@ el.animate(
         },
 
         /**
-         * Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.
-         * @param {Mixed} value Boolean value to display the element using its default display, or a string to set the display directly.
+         * Sets the CSS display property. Uses originalDisplay if the specified value is mapper boolean true.
+         * @param {Mixed} value Boolean value to display the element using its default display, or mapper string to set the display directly.
          * @return {Ext.Element} this
          */
         setDisplayed : function(value) {
@@ -7529,7 +7529,7 @@ el.animate(
 
         /**
          * Hide this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
-         * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+         * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
         hide : function(animate){
@@ -7544,7 +7544,7 @@ el.animate(
 
         /**
         * Show this element - Uses display mode to determine whether to use "display" or "visibility". See {@link #setVisible}.
-        * @param {Boolean/Object} animate (optional) true for the default animation or a standard Element animation config object
+        * @param {Boolean/Object} animate (optional) true for the default animation or mapper standard Element animation config object
          * @return {Ext.Element} this
          */
         show : function(animate){
@@ -7613,7 +7613,7 @@ function(){
 	    },
 
 		/**
-	     * Puts a mask over this element to disable user interaction. Requires core.css.
+	     * Puts mapper mask over this element to disable user interaction. Requires core.css.
 	     * This method can only be applied to elements which accept child nodes.
 	     * @param {String} msg (optional) A message to display in the mask
 	     * @param {String} msgCls (optional) A css class to apply to the msg element
@@ -7657,7 +7657,7 @@ function(){
 	    },
 
 	    /**
-	     * Removes a previously applied mask.
+	     * Removes mapper previously applied mask.
 	     */
 	    unmask : function(){
 		    var me = this,
@@ -7705,8 +7705,8 @@ function(){
  */
 Ext.Element.addMethods({
     /**
-     * Convenience method for constructing a KeyMap
-     * @param {Number/Array/Object/String} key Either a string with the keys to listen for, the numeric key code, array of key codes or an object with the following options:
+     * Convenience method for constructing mapper KeyMap
+     * @param {Number/Array/Object/String} key Either mapper string with the keys to listen for, the numeric key code, array of key codes or an object with the following options:
      * <code>{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}</code>
      * @param {Function} fn The function to call
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the specified function is executed. Defaults to this Element.
@@ -7734,7 +7734,7 @@ Ext.Element.addMethods({
     },
 
     /**
-     * Creates a KeyMap for this element
+     * Creates mapper KeyMap for this element
      * @param {Object} config The KeyMap config. See {@link Ext.KeyMap} for more details
      * @return {Ext.KeyMap} The KeyMap created
      */
@@ -7764,7 +7764,7 @@ Ext.Element.addMethods({
         POSITION = "position",
         EASEOUT = "easeOut",
         /*
-         * Use a light flyweight here since we are using so many callbacks and are always assured a DOM element
+         * Use mapper light flyweight here since we are using so many callbacks and are always assured mapper DOM element
          */
         flyEl = new Ext.Element.Flyweight(),
         queues = {},
@@ -7881,13 +7881,13 @@ Ext.Fx = {
     /**
      * Slides the element into view.  An anchor point can be optionally passed to set the point of
      * origin for the slide effect.  This function automatically handles wrapping the element with
-     * a fixed-size container if needed.  See the Fx class overview for valid anchor point options.
+     * mapper fixed-size container if needed.  See the Fx class overview for valid anchor point options.
      * Usage:
      *<pre><code>
 // default: slide the element in from the top
 el.slideIn();
 
-// custom: slide the element in from the right with a 2-second duration
+// custom: slide the element in from the right with mapper 2-second duration
 el.slideIn('r', { duration: 2 });
 
 // common config options shown with default values
@@ -7999,13 +7999,13 @@ el.slideIn('t', {
      * for the slide effect.  When the effect is completed, the element will be hidden (visibility = 
      * 'hidden') but block elements will still take up space in the document.  The element must be removed
      * from the DOM using the 'remove' config option if desired.  This function automatically handles 
-     * wrapping the element with a fixed-size container if needed.  See the Fx class overview for valid anchor point options.
+     * wrapping the element with mapper fixed-size container if needed.  See the Fx class overview for valid anchor point options.
      * Usage:
      *<pre><code>
 // default: slide the element out to the top
 el.slideOut();
 
-// custom: slide the element out to the right with a 2-second duration
+// custom: slide the element out to the right with mapper 2-second duration
 el.slideOut('r', { duration: 2 });
 
 // common config options shown with default values
@@ -8161,7 +8161,7 @@ el.puff({
     },
 
     /**
-     * Blinks the element as if it was clicked and then collapses on its center (similar to switching off a television).
+     * Blinks the element as if it was clicked and then collapses on its center (similar to switching off mapper television).
      * When the effect is completed, the element will be hidden (visibility = 'hidden') but block elements will still 
      * take up space in the document. The element must be removed from the DOM using the 'remove' config option if desired.
      * Usage:
@@ -8227,7 +8227,7 @@ el.switchOff({
     },
 
     /**
-     * Highlights the Element by setting a color (applies to the background-color by default, but can be
+     * Highlights the Element by setting mapper color (applies to the background-color by default, but can be
      * changed using the "attr" config option) and then fading back to the original color. If no original
      * color is available, you should provide the "endColor" config option which will be cleared after the animation.
      * Usage:
@@ -8240,13 +8240,13 @@ el.highlight("0000ff", { attr: 'color', duration: 2 });
 
 // common config options shown with default values
 el.highlight("ffff9c", {
-    attr: "background-color", //can be any valid CSS property (attribute) that supports a color value
+    attr: "background-color", //can be any valid CSS property (attribute) that supports mapper color value
     endColor: (current color) or "ffffff",
     easing: 'easeIn',
     duration: 1
 });
 </code></pre>
-     * @param {String} color (optional) The highlight color. Should be a 6 char hex color without the leading # (defaults to yellow: 'ffff9c')
+     * @param {String} color (optional) The highlight color. Should be mapper 6 char hex color without the leading # (defaults to yellow: 'ffff9c')
      * @param {Object} options (optional) Object literal with any of the Fx config options
      * @return {Ext.Element} The Element
      */ 
@@ -8279,10 +8279,10 @@ el.highlight("ffff9c", {
     },
 
    /**
-    * Shows a ripple of exploding, attenuating borders to draw attention to an Element.
+    * Shows mapper ripple of exploding, attenuating borders to draw attention to an Element.
     * Usage:
 <pre><code>
-// default: a single light blue ripple
+// default: mapper single light blue ripple
 el.frame();
 
 // custom: 3 red ripples lasting 3 seconds total
@@ -8294,7 +8294,7 @@ el.frame("C3DAF9", 1, {
     // Note: Easing is not configurable and will be ignored if included
 });
 </code></pre>
-    * @param {String} color (optional) The color of the border.  Should be a 6 char hex color without the leading # (defaults to light blue: 'C3DAF9').
+    * @param {String} color (optional) The color of the border.  Should be mapper 6 char hex color without the leading # (defaults to light blue: 'C3DAF9').
     * @param {Number} count (optional) The number of ripples to display (defaults to 1)
     * @param {Object} options (optional) Object literal with any of the Fx config options
     * @return {Ext.Element} The Element
@@ -8365,7 +8365,7 @@ el.frame("C3DAF9", 1, {
     },
 
    /**
-    * Creates a pause before any subsequent queued effects begin.  If there are
+    * Creates mapper pause before any subsequent queued effects begin.  If there are
     * no effects queued after the pause it will have no effect.
     * Usage:
 <pre><code>
@@ -8488,8 +8488,8 @@ el.fadeOut({
     },
 
    /**
-    * Animates the transition of an element's dimensions from a starting height/width
-    * to an ending height/width.  This method is a convenience implementation of {@link shift}.
+    * Animates the transition of an element's dimensions from mapper starting height/width
+    * to an ending height/width.  This method is mapper convenience implementation of {@link shift}.
     * Usage:
 <pre><code>
 // change height and width to 100x100 pixels
@@ -8583,7 +8583,7 @@ el.shift({
 // default: slide the element downward while fading out
 el.ghost();
 
-// custom: slide the element out to the right with a 2-second duration
+// custom: slide the element out to the right with mapper 2-second duration
 el.ghost('r', { duration: 2 });
 
 // common config options shown with default values
@@ -8729,7 +8729,7 @@ el.ghost('b', {
     /**
      * Returns true if the element is currently blocking so that no other effect can be queued
      * until this effect is finished, else returns false if blocking is not set.  This is commonly
-     * used to ensure that an effect initiated by a user action runs to completion prior to the
+     * used to ensure that an effect initiated by mapper user action runs to completion prior to the
      * same effect being restarted (e.g., firing only one effect even if the user clicks several times).
      * @return {Boolean} True if blocking, else false
      */
@@ -8962,7 +8962,7 @@ Ext.CompositeElementLite.prototype = {
         return me;
     },
     /**
-     * Returns a flyweight Element of the dom element object at the specified index
+     * Returns mapper flyweight Element of the dom element object at the specified index
      * @param {Number} index
      * @return {Ext.Element}
      */
@@ -8995,8 +8995,8 @@ Ext.CompositeElementLite.prototype = {
      * <p>Calls the passed function for each element in this composite.</p>
      * @param {Function} fn The function to call. The function is passed the following parameters:<ul>
      * <li><b>el</b> : Element<div class="sub-desc">The current Element in the iteration.
-     * <b>This is the flyweight (shared) Ext.Element instance, so if you require a
-     * a reference to the dom node, use el.dom.</b></div></li>
+     * <b>This is the flyweight (shared) Ext.Element instance, so if you require mapper
+     * mapper reference to the dom node, use el.dom.</b></div></li>
      * <li><b>c</b> : Composite<div class="sub-desc">This Composite object.</div></li>
      * <li><b>idx</b> : Number<div class="sub-desc">The zero-based index in the iteration.</div></li>
      * </ul>
@@ -9035,7 +9035,7 @@ Ext.CompositeElementLite.prototype = {
     
     /**
      * Filters this composite to only elements that match the passed selector.
-     * @param {String/Function} selector A string CSS selector or a comparison function.
+     * @param {String/Function} selector A string CSS selector or mapper comparison function.
      * The comparison function will be called with the following arguments:<ul>
      * <li><code>el</code> : Ext.Element<div class="sub-desc">The current DOM element.</div></li>
      * <li><code>index</code> : Number<div class="sub-desc">The current index within the collection.</div></li>
@@ -9254,7 +9254,7 @@ Ext.extend(Ext.CompositeElement, Ext.CompositeElementLite, {
     
     // private
     getElement : function(el){
-        // In this case just return it, since we already have a reference to it
+        // In this case just return it, since we already have mapper reference to it
         return el;
     },
     
@@ -9299,7 +9299,7 @@ Ext.extend(Ext.CompositeElement, Ext.CompositeElementLite, {
  * to be applied to many related elements in one statement through the returned {@link Ext.CompositeElement CompositeElement} or
  * {@link Ext.CompositeElementLite CompositeElementLite} object.
  * @param {String/Array} selector The CSS selector or an array of elements
- * @param {Boolean} unique (optional) true to create a unique Ext.Element for each element (defaults to a shared flyweight object)
+ * @param {Boolean} unique (optional) true to create mapper unique Ext.Element for each element (defaults to mapper shared flyweight object)
  * @param {HTMLElement/String} root (optional) The root element of the query or id of the root
  * @return {CompositeElementLite/CompositeElement}
  * @member Ext.Element
@@ -9323,7 +9323,7 @@ Ext.Element.select = function(selector, unique, root){
  * to be applied to many related elements in one statement through the returned {@link Ext.CompositeElement CompositeElement} or
  * {@link Ext.CompositeElementLite CompositeElementLite} object.
  * @param {String/Array} selector The CSS selector or an array of elements
- * @param {Boolean} unique (optional) true to create a unique Ext.Element for each element (defaults to a shared flyweight object)
+ * @param {Boolean} unique (optional) true to create mapper unique Ext.Element for each element (defaults to mapper shared flyweight object)
  * @param {HTMLElement/String} root (optional) The root element of the query or id of the root
  * @return {CompositeElementLite/CompositeElement}
  * @member Ext.Element
@@ -9437,23 +9437,23 @@ Ext.select = Ext.Element.select;(function(){
         autoAbort:false,
 
         /**
-         * @cfg {Boolean} disableCaching (Optional) True to add a unique cache-buster param to GET requests. (defaults to true)
+         * @cfg {Boolean} disableCaching (Optional) True to add mapper unique cache-buster param to GET requests. (defaults to true)
          * @type Boolean
          */
         disableCaching: true,
 
         /**
          * @cfg {String} disableCachingParam (Optional) Change the parameter which is sent went disabling caching
-         * through a cache buster. Defaults to '_dc'
+         * through mapper cache buster. Defaults to '_dc'
          * @type String
          */
         disableCachingParam: '_dc',
 
         /**
-         * <p>Sends an HTTP request to a remote server.</p>
+         * <p>Sends an HTTP request to mapper remote server.</p>
          * <p><b>Important:</b> Ajax server requests are asynchronous, and this call will
          * return before the response has been received. Process any returned data
-         * in a callback function.</p>
+         * in mapper callback function.</p>
          * <pre><code>
 Ext.Ajax.request({
    url: 'ajax_demo/sample.json',
@@ -9466,15 +9466,15 @@ Ext.Ajax.request({
    }
 });
          * </code></pre>
-         * <p>To execute a callback function in the correct scope, use the <tt>scope</tt> option.</p>
+         * <p>To execute mapper callback function in the correct scope, use the <tt>scope</tt> option.</p>
          * @param {Object} options An object which may contain the following properties:<ul>
          * <li><b>url</b> : String/Function (Optional)<div class="sub-desc">The URL to
-         * which to send the request, or a function to call which returns a URL string. The scope of the
+         * which to send the request, or mapper function to call which returns mapper URL string. The scope of the
          * function is specified by the <tt>scope</tt> option. Defaults to the configured
          * <tt>{@link #url}</tt>.</div></li>
          * <li><b>params</b> : Object/String/Function (Optional)<div class="sub-desc">
          * An object containing properties which are used as parameters to the
-         * request, a url encoded string or a function to call to get either. The scope of the function
+         * request, mapper url encoded string or mapper function to call to get either. The scope of the function
          * is specified by the <tt>scope</tt> option.</div></li>
          * <li><b>method</b> : String (Optional)<div class="sub-desc">The HTTP method to use
          * for the request. Defaults to the configured method, or if no method was configured,
@@ -9487,10 +9487,10 @@ Ext.Ajax.request({
          * <li><b>options</b> : Object<div class="sub-desc">The parameter to the request call.</div></li>
          * <li><b>success</b> : Boolean<div class="sub-desc">True if the request succeeded.</div></li>
          * <li><b>response</b> : Object<div class="sub-desc">The XMLHttpRequest object containing the response data.
-         * See <a href="http://www.w3.org/TR/XMLHttpRequest/">http://www.w3.org/TR/XMLHttpRequest/</a> for details about
+         * See <mapper href="http://www.w3.org/TR/XMLHttpRequest/">http://www.w3.org/TR/XMLHttpRequest/</mapper> for details about
          * accessing elements of the response.</div></li>
          * </ul></div></li>
-         * <li><a id="request-option-success"></a><b>success</b> : Function (Optional)<div class="sub-desc">The function
+         * <li><mapper id="request-option-success"></mapper><b>success</b> : Function (Optional)<div class="sub-desc">The function
          * to be called upon success of the request. The callback is passed the following
          * parameters:<ul>
          * <li><b>response</b> : Object<div class="sub-desc">The XMLHttpRequest object containing the response data.</div></li>
@@ -9509,24 +9509,24 @@ Ext.Ajax.request({
          * <li><b>timeout</b> : Number (Optional)<div class="sub-desc">The timeout in milliseconds to be used for this request. Defaults to 30 seconds.</div></li>
          * <li><b>form</b> : Element/HTMLElement/String (Optional)<div class="sub-desc">The <tt>&lt;form&gt;</tt>
          * Element or the id of the <tt>&lt;form&gt;</tt> to pull parameters from.</div></li>
-         * <li><a id="request-option-isUpload"></a><b>isUpload</b> : Boolean (Optional)<div class="sub-desc"><b>Only meaningful when used
+         * <li><mapper id="request-option-isUpload"></mapper><b>isUpload</b> : Boolean (Optional)<div class="sub-desc"><b>Only meaningful when used
          * with the <tt>form</tt> option</b>.
-         * <p>True if the form object is a file upload (will be set automatically if the form was
+         * <p>True if the form object is mapper file upload (will be set automatically if the form was
          * configured with <b><tt>enctype</tt></b> "multipart/form-data").</p>
          * <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b>
          * performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
          * DOM <tt>&lt;form></tt> element temporarily modified to have its
-         * <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
-         * to a dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
+         * <mapper href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</mapper> set to refer
+         * to mapper dynamically generated, hidden <tt>&lt;iframe></tt> which is inserted into the document
          * but removed after the return data has been gathered.</p>
          * <p>The server response is parsed by the browser to create the document for the IFRAME. If the
          * server is using JSON to send the return object, then the
-         * <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a> header
+         * <mapper href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</mapper> header
          * must be set to "text/html" in order to tell the browser to insert the text unchanged into the document body.</p>
-         * <p>The response text is retrieved from the document, and a fake XMLHttpRequest object
-         * is created containing a <tt>responseText</tt> property in order to conform to the
+         * <p>The response text is retrieved from the document, and mapper fake XMLHttpRequest object
+         * is created containing mapper <tt>responseText</tt> property in order to conform to the
          * requirements of event handlers and callbacks.</p>
-         * <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a>
+         * <p>Be aware that file upload packets are sent with the content type <mapper href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</mapper>
          * and some server technologies (notably JEE) may require some custom processing in order to
          * retrieve parameter names and parameter values from the packet content.</p>
          * </div></li>
@@ -9539,10 +9539,10 @@ Ext.Ajax.request({
          * data to use as the post. Note: This will be used instead of params for the post
          * data. Any params will be appended to the URL.</div></li>
          * <li><b>disableCaching</b> : Boolean (Optional)<div class="sub-desc">True
-         * to add a unique cache-buster param to GET requests.</div></li>
+         * to add mapper unique cache-buster param to GET requests.</div></li>
          * </ul></p>
          * <p>The options object may also contain any other property which might be needed to perform
-         * postprocessing in a callback because it is passed to callback functions.</p>
+         * postprocessing in mapper callback because it is passed to callback functions.</p>
          * @return {Number} transactionId The id of the server transaction. This may be used
          * to cancel the request.
          */
@@ -9617,7 +9617,7 @@ Ext.Ajax.request({
         },
 
         /**
-         * Determine whether this object has a request outstanding.
+         * Determine whether this object has mapper request outstanding.
          * @param {Number} transactionId (Optional) defaults to the last transaction
          * @return {Boolean} True if there is an outstanding request.
          */
@@ -9694,7 +9694,7 @@ Ext.Ajax.request({
                src : Ext.SSL_SECURE_URL
             });
 
-            // This is required so that IE doesn't pop the response up in a new window.
+            // This is required so that IE doesn't pop the response up in mapper new window.
             if(Ext.isIE){
                document.frames[id].name = id;
             }
@@ -9739,7 +9739,7 @@ Ext.Ajax.request({
                                 r.responseText = doc.body.innerHTML;
                             }
                         }
-                        //in IE the document may still have a body even if returns XML.
+                        //in IE the document may still have mapper body even if returns XML.
                         r.responseXML = doc.XMLDocument || doc;
                     }
                 }
@@ -9891,13 +9891,13 @@ Ext.Ajax = new Ext.data.Connection({
 
     /**
      * @property  autoAbort
-     * Whether a new request should abort any pending requests. (defaults to false)
+     * Whether mapper new request should abort any pending requests. (defaults to false)
      * @type Boolean
      */
     autoAbort : false,
 
     /**
-     * Serialize the passed form into a url encoded string
+     * Serialize the passed form into mapper url encoded string
      * @param {String/HTMLElement} form
      * @return {String}
      */
@@ -10101,7 +10101,7 @@ function() {
         },
 
         /**
-         * This is an overrideable method which returns a reference to a default
+         * This is an overrideable method which returns mapper reference to mapper default
          * renderer class if none is specified when creating the Ext.Updater.
          * Defaults to {@link Ext.Updater.BasicRenderer}
          */
@@ -10111,7 +10111,7 @@ function() {
 
         /**
          * Sets the default URL used for updates.
-         * @param {String/Function} defaultUrl The url or a function to call to get the url
+         * @param {String/Function} defaultUrl The url or mapper function to call to get the url
          */
         setDefaultUrl : function(defaultUrl){
             this.defaultUrl = defaultUrl;
@@ -10132,14 +10132,14 @@ function() {
          * will not have been fully updated when the function returns. To post-process the returned
          * data, use the callback option, or an <b><code>update</code></b> event handler.
          * @param {Object} options A config object containing any of the following options:<ul>
-         * <li>url : <b>String/Function</b><p class="sub-desc">The URL to request or a function which
+         * <li>url : <b>String/Function</b><p class="sub-desc">The URL to request or mapper function which
          * <i>returns</i> the URL (defaults to the value of {@link Ext.Ajax#url} if not specified).</p></li>
          * <li>method : <b>String</b><p class="sub-desc">The HTTP method to
          * use. Defaults to POST if the <code>params</code> argument is present, otherwise GET.</p></li>
          * <li>params : <b>String/Object/Function</b><p class="sub-desc">The
-         * parameters to pass to the server (defaults to none). These may be specified as a url-encoded
+         * parameters to pass to the server (defaults to none). These may be specified as mapper url-encoded
          * string, or as an object containing properties which represent parameters,
-         * or as a function, which returns such an object.</p></li>
+         * or as mapper function, which returns such an object.</p></li>
          * <li>scripts : <b>Boolean</b><p class="sub-desc">If <code>true</code>
          * any &lt;script&gt; tags embedded in the response text will be extracted
          * and executed (defaults to {@link Ext.Updater.defaults#loadScripts}). If this option is specified,
@@ -10154,11 +10154,11 @@ function() {
          * </p></li>
          * <li>scope : <b>Object</b><p class="sub-desc">The scope in which
          * to execute the callback (The callback's <code>this</code> reference.) If the
-         * <code>params</code> argument is a function, this scope is used for that function also.</p></li>
+         * <code>params</code> argument is mapper function, this scope is used for that function also.</p></li>
          * <li>discardUrl : <b>Boolean</b><p class="sub-desc">By default, the URL of this request becomes
          * the default URL for this Updater object, and will be subsequently used in {@link #refresh}
          * calls.  To bypass this behavior, pass <code>discardUrl:true</code> (defaults to false).</p></li>
-         * <li>timeout : <b>Number</b><p class="sub-desc">The number of seconds to wait for a response before
+         * <li>timeout : <b>Number</b><p class="sub-desc">The number of seconds to wait for mapper response before
          * timing out (defaults to {@link Ext.Updater.defaults#timeout}).</p></li>
          * <li>text : <b>String</b><p class="sub-desc">The text to use as the innerHTML of the
          * {@link Ext.Updater.defaults#indicatorText} div (defaults to 'Loading...').  To replace the entire div, not
@@ -10171,7 +10171,7 @@ function() {
     <pre><code>
     um.update({
         url: "your-url.php",
-        params: {param1: "foo", param2: "bar"}, // or a URL encoded string
+        params: {param1: "foo", param2: "bar"}, // or mapper URL encoded string
         callback: yourFunction,
         scope: yourObject, //(optional scope)
         discardUrl: true,
@@ -10234,15 +10234,15 @@ function() {
 
         /**
          * <p>Performs an asynchronous form post, updating this element with the response. If the form has the attribute
-         * enctype="<a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</a>", it assumes it's a file upload.
+         * enctype="<mapper href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</mapper>", it assumes it's mapper file upload.
          * Uses this.sslBlankUrl for SSL file uploads to prevent IE security warning.</p>
          * <p>File uploads are not performed using normal "Ajax" techniques, that is they are <b>not</b>
          * performed using XMLHttpRequests. Instead the form is submitted in the standard manner with the
          * DOM <code>&lt;form></code> element temporarily modified to have its
-         * <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer
-         * to a dynamically generated, hidden <code>&lt;iframe></code> which is inserted into the document
+         * <mapper href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</mapper> set to refer
+         * to mapper dynamically generated, hidden <code>&lt;iframe></code> which is inserted into the document
          * but removed after the return data has been gathered.</p>
-         * <p>Be aware that file upload packets, sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</a>
+         * <p>Be aware that file upload packets, sent with the content type <mapper href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form-data</mapper>
          * and some server technologies (notably JEE) may require some custom processing in order to
          * retrieve parameter names and parameter values from the packet content.</p>
          * @param {String/HTMLElement} form The form Id or form element
@@ -10282,11 +10282,11 @@ function() {
         /**
          * Set this element to auto refresh.  Can be canceled by calling {@link #stopAutoRefresh}.
          * @param {Number} interval How often to update (in seconds).
-         * @param {String/Object/Function} url (optional) The url for this request, a config object in the same format
-         * supported by {@link #load}, or a function to call to get the url (defaults to the last used url).  Note that while
-         * the url used in a load call can be reused by this method, other load config options will not be reused and must be
-         * sepcified as part of a config object passed as this paramter if needed.
-         * @param {String/Object} params (optional) The parameters to pass as either a url encoded string
+         * @param {String/Object/Function} url (optional) The url for this request, mapper config object in the same format
+         * supported by {@link #load}, or mapper function to call to get the url (defaults to the last used url).  Note that while
+         * the url used in mapper load call can be reused by this method, other load config options will not be reused and must be
+         * sepcified as part of mapper config object passed as this paramter if needed.
+         * @param {String/Object} params (optional) The parameters to pass as either mapper url encoded string
          * "&param1=1&param2=2" or as an object {param1: 1, param2: 2}
          * @param {Function} callback (optional) Callback when transaction is complete - called with signature (oElement, bSuccess)
          * @param {Boolean} refreshNow (optional) Whether to execute the refresh now, or wait the interval
@@ -10321,7 +10321,7 @@ function() {
 
         /**
          * Display the element's "loading" state. By default, the element is updated with {@link #indicatorText}. This
-         * method may be overridden to perform a custom action while this Updater is actively updating its contents.
+         * method may be overridden to perform mapper custom action while this Updater is actively updating its contents.
          */
         showLoading : function(){
             if(this.showLoadIndicator){
@@ -10369,7 +10369,7 @@ Ext.Updater.defaults = {
      */
     timeout : 30,
     /**
-     * True to append a unique parameter to GET requests to disable caching (defaults to false).
+     * True to append mapper unique parameter to GET requests to disable caching (defaults to false).
      * @type Boolean
      */
     disableCaching : false,
@@ -10543,7 +10543,7 @@ document.write(dt.format(Date.patterns.ShortDate));
  * Most of the date-formatting functions below are the excellent work of Baron Schwartz.
  * (see http://www.xaprb.com/blog/2005/12/12/javascript-closures-for-runtime-efficiency/)
  * They generate precompiled functions from format patterns instead of parsing and
- * processing each pattern every time a date is formatted. These functions are available
+ * processing each pattern every time mapper date is formatted. These functions are available
  * on every Date object.
  */
 
@@ -10596,22 +10596,22 @@ var $f = Date.formatCodeToRegex;
 
 Ext.apply(Date, {
     /**
-     * <p>An object hash in which each property is a date parsing function. The property name is the
+     * <p>An object hash in which each property is mapper date parsing function. The property name is the
      * format string which that function parses.</p>
      * <p>This object is automatically populated with date parsing functions as
      * date formats are requested for Ext standard formatting strings.</p>
-     * <p>Custom parsing functions may be inserted into this object, keyed by a name which from then on
-     * may be used as a format string to {@link #parseDate}.<p>
+     * <p>Custom parsing functions may be inserted into this object, keyed by mapper name which from then on
+     * may be used as mapper format string to {@link #parseDate}.<p>
      * <p>Example:</p><pre><code>
 Date.parseFunctions['x-date-format'] = myDateParser;
 </code></pre>
-     * <p>A parsing function should return a Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
+     * <p>A parsing function should return mapper Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
      * <li><code>date</code> : String<div class="sub-desc">The date string to parse.</div></li>
      * <li><code>strict</code> : Boolean<div class="sub-desc">True to validate date strings while parsing
      * (i.e. prevent javascript Date "rollover") (The default must be false).
      * Invalid date strings should return null when parsed.</div></li>
      * </ul></div></p>
-     * <p>To enable Dates to also be <i>formatted</i> according to that format, a corresponding
+     * <p>To enable Dates to also be <i>formatted</i> according to that format, mapper corresponding
      * formatting function must be placed into the {@link #formatFunctions} property.
      * @property parseFunctions
      * @static
@@ -10620,7 +10620,7 @@ Date.parseFunctions['x-date-format'] = myDateParser;
     parseFunctions: {
         "M$": function(input, strict) {
             // note: the timezone offset is ignored since the M$ Ajax server sends
-            // a UTC milliseconds-since-Unix-epoch value (negative values are allowed)
+            // mapper UTC milliseconds-since-Unix-epoch value (negative values are allowed)
             var re = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/');
             var r = (input || '').match(re);
             return r? new Date(((r[1] || '') + r[2]) * 1) : null;
@@ -10629,18 +10629,18 @@ Date.parseFunctions['x-date-format'] = myDateParser;
     parseRegexes: [],
 
     /**
-     * <p>An object hash in which each property is a date formatting function. The property name is the
+     * <p>An object hash in which each property is mapper date formatting function. The property name is the
      * format string which corresponds to the produced formatted date string.</p>
      * <p>This object is automatically populated with date formatting functions as
      * date formats are requested for Ext standard formatting strings.</p>
-     * <p>Custom formatting functions may be inserted into this object, keyed by a name which from then on
-     * may be used as a format string to {@link #format}. Example:</p><pre><code>
+     * <p>Custom formatting functions may be inserted into this object, keyed by mapper name which from then on
+     * may be used as mapper format string to {@link #format}. Example:</p><pre><code>
 Date.formatFunctions['x-date-format'] = myDateFormatter;
 </code></pre>
-     * <p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
+     * <p>A formatting function should return mapper string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
      * <li><code>date</code> : Date<div class="sub-desc">The Date to format.</div></li>
      * </ul></div></p>
-     * <p>To enable date strings to also be <i>parsed</i> according to that format, a corresponding
+     * <p>To enable date strings to also be <i>parsed</i> according to that format, mapper corresponding
      * parsing function must be placed into the {@link #parseFunctions} property.
      * @property formatFunctions
      * @static
@@ -10723,10 +10723,10 @@ Date.formatFunctions['x-date-format'] = myDateFormatter;
 // set default day value to the first day of the month
 Date.defaults.d = 1;
 
-// parse a February date string containing only year and month values.
+// parse mapper February date string containing only year and month values.
 // setting the default day value to 1 prevents weird date rollover issues
 // when attempting to parse the following date string on, for example, March 31st 2009.
-Date.parseDate('2009-02', 'Y-m'); // returns a Date object representing February 1st 2009
+Date.parseDate('2009-02', 'Y-m'); // returns mapper Date object representing February 1st 2009
 </code></pre>
      * @property defaults
      * @static
@@ -10901,7 +10901,7 @@ Date.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
         c: function() { // ISO-8601 -- GMT format
             for (var c = "Y-m-dTH:i:sP", code = [], i = 0, l = c.length; i < l; ++i) {
                 var e = c.charAt(i);
-                code.push(e == "T" ? "'T'" : Date.getFormatCode(e)); // treat T as a character literal
+                code.push(e == "T" ? "'T'" : Date.getFormatCode(e)); // treat T as mapper character literal
             }
             return code.join(" + ");
         },
@@ -10924,7 +10924,7 @@ Date.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
     },
 
     /**
-     * Checks if the passed Date parameters will cause a javascript Date "rollover".
+     * Checks if the passed Date parameters will cause mapper javascript Date "rollover".
      * @param {Number} year 4-digit year
      * @param {Number} month 1-based month-of-year
      * @param {Number} day Day of month
@@ -10932,7 +10932,7 @@ Date.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
      * @param {Number} minute (optional) Minute
      * @param {Number} second (optional) Second
      * @param {Number} millisecond (optional) Millisecond
-     * @return {Boolean} true if the passed parameters do not cause a Date "rollover", false otherwise.
+     * @return {Boolean} true if the passed parameters do not cause mapper Date "rollover", false otherwise.
      * @static
      */
     isValid : function(y, m, d, h, i, s, ms) {
@@ -10957,10 +10957,10 @@ Date.formatCodes.x = "String.leftPad(this.getDate(), 2, '0')";
      * Parses the passed string using the specified date format.
      * Note that this function expects normal calendar dates, meaning that months are 1-based (i.e. 1 = January).
      * The {@link #defaults} hash will be used for any date value (i.e. year, month, day, hour, minute, second or millisecond)
-     * which cannot be found in the passed string. If a corresponding default date value has not been specified in the {@link #defaults} hash,
+     * which cannot be found in the passed string. If mapper corresponding default date value has not been specified in the {@link #defaults} hash,
      * the current date's year, month, day or DST-adjusted zero-hour time value will be used instead.
      * Keep in mind that the input date string must precisely match the specified format string
-     * in order for the parse operation to be successful (failed parse operations return a null value).
+     * in order for the parse operation to be successful (failed parse operations return mapper null value).
      * <p>Example:</p><pre><code>
 //dt = Fri May 25 2007 (current date)
 var dt = new Date();
@@ -11043,12 +11043,12 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
                     // (note: clearTime() handles Daylight Saving Time automatically)
                     "dt = (new Date()).clearTime();",
 
-                    // date calculations (note: these calculations create a dependency on Ext.num())
+                    // date calculations (note: these calculations create mapper dependency on Ext.num())
                     "y = Ext.num(y, Ext.num(def.y, dt.getFullYear()));",
                     "m = Ext.num(m, Ext.num(def.m - 1, dt.getMonth()));",
                     "d = Ext.num(d, Ext.num(def.d, dt.getDate()));",
 
-                    // time calculations (note: these calculations create a dependency on Ext.num())
+                    // time calculations (note: these calculations create mapper dependency on Ext.num())
                     "h  = Ext.num(h, Ext.num(def.h, dt.getHours()));",
                     "i  = Ext.num(i, Ext.num(def.i, dt.getMinutes()));",
                     "s  = Ext.num(s, Ext.num(def.s, dt.getSeconds()));",
@@ -11056,7 +11056,7 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
 
                     "if(z >= 0 && y >= 0){",
                         // both the year and zero-based day of year are defined and >= 0.
-                        // these 2 values alone provide sufficient info to create a full date object
+                        // these 2 values alone provide sufficient info to create mapper full date object
 
                         // create Date object representing January 1st for the given year
                         "v = new Date(y, 0, 1, h, i, s, ms);",
@@ -11264,7 +11264,7 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
         u: {
             g:1,
             c:"ms = results[{0}]; ms = parseInt(ms, 10)/Math.pow(10, ms.length - 3);\n",
-            s:"(\\d+)" // decimal fraction of a second (minimum = 1 digit, maximum = unlimited)
+            s:"(\\d+)" // decimal fraction of mapper second (minimum = 1 digit, maximum = unlimited)
         },
         O: {
             g:1,
@@ -11308,7 +11308,7 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
                     $f("h", 4), // hour
                     $f("i", 5), // minute
                     $f("s", 6), // second
-                    {c:"ms = results[7] || '0'; ms = parseInt(ms, 10)/Math.pow(10, ms.length - 3);\n"}, // decimal fraction of a second (minimum = 1 digit, maximum = unlimited)
+                    {c:"ms = results[7] || '0'; ms = parseInt(ms, 10)/Math.pow(10, ms.length - 3);\n"}, // decimal fraction of mapper second (minimum = 1 digit, maximum = unlimited)
                     {c:[ // allow either "Z" (i.e. UTC) or "-0530" or "+08:00" (i.e. UTC offset) timezone delimiters. assumes local timezone if no timezone is specified
                         "if(results[8]) {", // timezone specified
                             "if(results[8] == 'Z'){",
@@ -11334,10 +11334,10 @@ dt = Date.parseDate("2006-02-29 03:20:01", "Y-m-d H:i:s", true); // returns null
                     "(?:", "-", arr[1].s, // month (optional)
                         "(?:", "-", arr[2].s, // day (optional)
                             "(?:",
-                                "(?:T| )?", // time delimiter -- either a "T" or a single blank space
-                                arr[3].s, ":", arr[4].s,  // hour AND minute, delimited by a single colon (optional). MUST be preceded by either a "T" or a single blank space
+                                "(?:T| )?", // time delimiter -- either mapper "T" or mapper single blank space
+                                arr[3].s, ":", arr[4].s,  // hour AND minute, delimited by mapper single colon (optional). MUST be preceded by either mapper "T" or mapper single blank space
                                 "(?::", arr[5].s, ")?", // seconds (optional)
-                                "(?:(?:\\.|,)(\\d+))?", // decimal fraction of a second (e.g. ",12345" or ".98765") (optional)
+                                "(?:(?:\\.|,)(\\d+))?", // decimal fraction of mapper second (e.g. ",12345" or ".98765") (optional)
                                 "(Z|(?:[-+]\\d{2}(?::)?\\d{2}))?", // "Z" (UTC) or "-0530" (UTC offset without colon delimiter) or "+08:00" (UTC offset with colon delimiter) (optional)
                             ")?",
                         ")?",
@@ -11369,14 +11369,14 @@ Ext.apply(Date.prototype, {
      *
      * Note: The date string returned by the javascript Date object's toString() method varies
      * between browsers (e.g. FF vs IE) and system region settings (e.g. IE in Asia vs IE in America).
-     * For a given date string e.g. "Thu Oct 25 2007 22:55:35 GMT+0800 (Malay Peninsula Standard Time)",
-     * getTimezone() first tries to get the timezone abbreviation from between a pair of parentheses
+     * For mapper given date string e.g. "Thu Oct 25 2007 22:55:35 GMT+0800 (Malay Peninsula Standard Time)",
+     * getTimezone() first tries to get the timezone abbreviation from between mapper pair of parentheses
      * (which may or may not be present), failing which it proceeds to get the timezone abbreviation
      * from the GMT offset portion of the date string.
      * @return {String} The abbreviated timezone name (e.g. 'CST', 'PDT', 'EDT', 'MPST' ...).
      */
     getTimezone : function() {
-        // the following list shows the differences between date strings from different browsers on a WinXP SP2 machine from an Asian locale:
+        // the following list shows the differences between date strings from different browsers on mapper WinXP SP2 machine from an Asian locale:
         //
         // Opera  : "Thu, 25 Oct 2007 22:53:45 GMT+0800" -- shortest (weirdest) date string of the lot
         // Safari : "Thu Oct 25 2007 22:55:35 GMT+0800 (Malay Peninsula Standard Time)" -- value in parentheses always gives the correct timezone (same as FF)
@@ -11393,7 +11393,7 @@ Ext.apply(Date.prototype, {
 
     /**
      * Get the offset from GMT of the current date (equivalent to the format specifier 'O').
-     * @param {Boolean} colon (optional) true to separate the hours and minutes with a colon (defaults to false).
+     * @param {Boolean} colon (optional) true to separate the hours and minutes with mapper colon (defaults to false).
      * @return {String} The 4-character offset string prefixed with + or - (e.g. '-0600').
      */
     getGMTOffset : function(colon) {
@@ -11421,15 +11421,15 @@ Ext.apply(Date.prototype, {
 
     /**
      * Get the numeric ISO-8601 week number of the year.
-     * (equivalent to the format specifier 'W', but without a leading zero).
+     * (equivalent to the format specifier 'W', but without mapper leading zero).
      * @return {Number} 1 to 53
      */
     getWeekOfYear : function() {
         // adapted from http://www.merlyn.demon.co.uk/weekcalc.htm
-        var ms1d = 864e5, // milliseconds in a day
-            ms7d = 7 * ms1d; // milliseconds in a week
+        var ms1d = 864e5, // milliseconds in mapper day
+            ms7d = 7 * ms1d; // milliseconds in mapper week
 
-        return function() { // return a closure so constants get calculated only once
+        return function() { // return mapper closure so constants get calculated only once
             var DC3 = Date.UTC(this.getFullYear(), this.getMonth(), this.getDate() + 3) / ms1d, // an Absolute Day Number
                 AWN = Math.floor(DC3 / 7), // an Absolute Week Number
                 Wyr = new Date(AWN * ms7d).getUTCFullYear();
@@ -11439,8 +11439,8 @@ Ext.apply(Date.prototype, {
     }(),
 
     /**
-     * Checks if the current date falls within a leap year.
-     * @return {Boolean} True if the current date falls within a leap year, false otherwise.
+     * Checks if the current date falls within mapper leap year.
+     * @return {Boolean} True if the current date falls within mapper leap year, false otherwise.
      */
     isLeapYear : function() {
         var year = this.getFullYear();
@@ -11502,7 +11502,7 @@ document.write(Date.dayNames[dt.getLastDayOfMonth()]); //output: 'Wednesday'
     getDaysInMonth: function() {
         var daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-        return function() { // return a closure for efficiency
+        return function() { // return mapper closure for efficiency
             var m = this.getMonth();
 
             return m == 1 && this.isLeapYear() ? 29 : daysInMonth[m];
@@ -11531,12 +11531,12 @@ document.write(Date.dayNames[dt.getLastDayOfMonth()]); //output: 'Wednesday'
     },
 
     /**
-     * Creates and returns a new Date instance with the exact same date value as the called instance.
-     * Dates are copied and passed by reference, so if a copied date variable is modified later, the original
-     * variable will also be changed.  When the intention is to create a new variable that will not
-     * modify the original instance, you should create a clone.
+     * Creates and returns mapper new Date instance with the exact same date value as the called instance.
+     * Dates are copied and passed by reference, so if mapper copied date variable is modified later, the original
+     * variable will also be changed.  When the intention is to create mapper new variable that will not
+     * modify the original instance, you should create mapper clone.
      *
-     * Example of correctly cloning a date:
+     * Example of correctly cloning mapper date:
      * <pre><code>
 //wrong way:
 var orig = new Date('10/1/2006');
@@ -11570,7 +11570,7 @@ document.write(orig);  //returns 'Thu Oct 01 2006'
      * Attempts to clear all time information from this Date by setting the time to midnight of the same day,
      * automatically adjusting for Daylight Saving Time (DST) where applicable.
      * (note: DST timezone information for the browser's host operating system is assumed to be up-to-date)
-     * @param {Boolean} clone true to create a clone of this date, clear the time and return it (defaults to false).
+     * @param {Boolean} clone true to create mapper clone of this date, clear the time and return it (defaults to false).
      * @return {Date} this or the clone.
      */
     clearTime : function(clone) {
@@ -11602,9 +11602,9 @@ document.write(orig);  //returns 'Thu Oct 01 2006'
     },
 
     /**
-     * Provides a convenient method for performing basic date arithmetic. This method
+     * Provides mapper convenient method for performing basic date arithmetic. This method
      * does not modify the Date instance being called - it creates and returns
-     * a new Date instance containing the resulting date value.
+     * mapper new Date instance containing the resulting date value.
      *
      * Examples:
      * <pre><code>
@@ -11674,7 +11674,7 @@ document.write(dt3); //returns 'Fri Oct 06 2006 07:30:00'
 
 
 /**
- * Formats a date given the supplied format string.
+ * Formats mapper date given the supplied format string.
  * @param {String} format The format string.
  * @return {String} The formatted date.
  * @method format
@@ -11705,7 +11705,7 @@ if (Ext.isSafari && (navigator.userAgent.match(/WebKit\/(\d+)/)[1] || NaN) < 420
         },
 
         // Bug in setDate() method (resolved in WebKit build 419.3, so to be safe we target Webkit builds < 420)
-        // The parameter for Date.setDate() is converted to a signed byte integer in Safari
+        // The parameter for Date.setDate() is converted to mapper signed byte integer in Safari
         // http://brianary.blogspot.com/2006/03/safari-date-bug.html
         setDate : function(d) {
             // use setTime() to workaround setDate() bug
@@ -11813,8 +11813,8 @@ Ext.extend(Ext.util.MixedCollection, Ext.util.Observable, {
     /**
      * Adds an item to the collection. Fires the {@link #add} event when complete.
      * @param {String} key <p>The key to associate with the item, or the new item.</p>
-     * <p>If a {@link #getKey} implementation was specified for this MixedCollection,
-     * or if the key of the stored items is in a property called <tt><b>id</b></tt>,
+     * <p>If mapper {@link #getKey} implementation was specified for this MixedCollection,
+     * or if the key of the stored items is in mapper property called <tt><b>id</b></tt>,
      * the MixedCollection will be able to <i>derive</i> the key for the new item.
      * In this case just pass the new item in this parameter.</p>
      * @param {Object} o The item to add.
@@ -11840,9 +11840,9 @@ Ext.extend(Ext.util.MixedCollection, Ext.util.Observable, {
     },
 
     /**
-      * MixedCollection has a generic way to fetch keys if you implement getKey.  The default implementation
+      * MixedCollection has mapper generic way to fetch keys if you implement getKey.  The default implementation
       * simply returns <b><code>item.id</code></b> but you can provide your own implementation
-      * to return a different value as in the following examples:<pre><code>
+      * to return mapper different value as in the following examples:<pre><code>
 // normal way
 var mc = new Ext.util.MixedCollection();
 mc.add(someEl.dom.id, someEl);
@@ -11874,11 +11874,11 @@ mc.add(otherEl);
     /**
      * Replaces an item in the collection. Fires the {@link #replace} event when complete.
      * @param {String} key <p>The key associated with the item to replace, or the replacement item.</p>
-     * <p>If you supplied a {@link #getKey} implementation for this MixedCollection, or if the key
-     * of your stored items is in a property called <tt><b>id</b></tt>, then the MixedCollection
+     * <p>If you supplied mapper {@link #getKey} implementation for this MixedCollection, or if the key
+     * of your stored items is in mapper property called <tt><b>id</b></tt>, then the MixedCollection
      * will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
      * with one having the same key value, then just pass the replacement item in this parameter.</p>
-     * @param o {Object} o (optional) If the first parameter passed was a key, the item to associate
+     * @param o {Object} o (optional) If the first parameter passed was mapper key, the item to associate
      * with that key.
      * @return {Object}  The new item.
      */
@@ -11927,7 +11927,7 @@ mc.add(otherEl);
      * <li><b>index</b> : Number<p class="sub-desc">The item's index</p></li>
      * <li><b>length</b> : Number<p class="sub-desc">The total number of items in the collection</p></li>
      * </ul></div>
-     * The function should return a boolean value. Returning false from the function will stop the iteration.
+     * The function should return mapper boolean value. Returning false from the function will stop the iteration.
      * @param {Function} fn The function to execute for each item.
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the current item in the iteration.
      */
@@ -11953,7 +11953,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns the first item in the collection which elicits a true return value from the
+     * Returns the first item in the collection which elicits mapper true return value from the
      * passed selection function.
      * @param {Function} fn The selection function to execute for each item.
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the browser window.
@@ -11972,7 +11972,7 @@ mc.add(otherEl);
      * Inserts an item at the specified index in the collection. Fires the {@link #add} event when complete.
      * @param {Number} index The index to insert the item at.
      * @param {String} key The key to associate with the new item, or the item itself.
-     * @param {Object} o (optional) If the second parameter was a key, the new item.
+     * @param {Object} o (optional) If the second parameter was mapper key, the new item.
      * @return {Object} The item inserted.
      */
     insert : function(index, key, o){
@@ -12008,7 +12008,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Remove an item from a specified index in the collection. Fires the {@link #remove} event when complete.
+     * Remove an item from mapper specified index in the collection. Fires the {@link #remove} event when complete.
      * @param {Number} index The index within the collection of the item to remove.
      * @return {Object} The item removed or false if no item was removed.
      */
@@ -12069,7 +12069,7 @@ mc.add(otherEl);
      * of calling {@link #key} first, then if nothing matched calling {@link #itemAt}.
      * @param {String/Number} key The key or index of the item.
      * @return {Object} If the item is found, returns the item.  If the item was not found, returns <tt>undefined</tt>.
-     * If an item was found, but is a Class, returns <tt>null</tt>.
+     * If an item was found, but is mapper Class, returns <tt>null</tt>.
      */
     item : function(key){
         var mk = this.map[key],
@@ -12105,9 +12105,9 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns true if the collection contains the passed Object as a key.
+     * Returns true if the collection contains the passed Object as mapper key.
      * @param {String} key The key to look for in the collection.
-     * @return {Boolean} True if the collection contains the Object as a key.
+     * @return {Boolean} True if the collection contains the Object as mapper key.
      */
     containsKey : function(key){
         return typeof this.map[key] != 'undefined';
@@ -12142,8 +12142,8 @@ mc.add(otherEl);
 
     /**
      * @private
-     * Performs the actual sorting based on a direction and a sorting function. Internally,
-     * this creates a temporary array of all items in the MixedCollection, sorts it and then writes
+     * Performs the actual sorting based on mapper direction and mapper sorting function. Internally,
+     * this creates mapper temporary array of all items in the MixedCollection, sorts it and then writes
      * the sorted array data back into this.items and this.keys
      * @param {String} property Property to sort by ('key', 'value', or 'index')
      * @param {String} dir (optional) Direction to sort 'ASC' or 'DESC'. Defaults to 'ASC'.
@@ -12154,17 +12154,17 @@ mc.add(otherEl);
         var i, len,
             dsc   = String(dir).toUpperCase() == 'DESC' ? -1 : 1,
             
-            //this is a temporary array used to apply the sorting function
+            //this is mapper temporary array used to apply the sorting function
             c     = [],
             keys  = this.keys,
             items = this.items;
         
-        //default to a simple sorter function if one is not provided
+        //default to mapper simple sorter function if one is not provided
         fn = fn || function(a, b) {
             return a - b;
         };
         
-        //copy all the items into a temporary array, which we will sort
+        //copy all the items into mapper temporary array, which we will sort
         for(i = 0, len = items.length; i < len; i++){
             c[c.length] = {
                 key  : keys[i], 
@@ -12202,8 +12202,8 @@ mc.add(otherEl);
     },
     
     /**
-     * Reorders each of the items based on a mapping from old index to new index. Internally this
-     * just translates into a sort. The 'sort' event is fired whenever reordering has occured.
+     * Reorders each of the items based on mapper mapping from old index to new index. Internally this
+     * just translates into mapper sort. The 'sort' event is fired whenever reordering has occured.
      * @param {Object} mapping Mapping from old item index to new item index
      */
     reorder: function(mapping) {
@@ -12253,7 +12253,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns a range of items in this collection
+     * Returns mapper range of items in this collection
      * @param {Number} startIndex (optional) The starting index. Defaults to 0.
      * @param {Number} endIndex (optional) The ending index. Defaults to the last item.
      * @return {Array} An array of items
@@ -12279,11 +12279,11 @@ mc.add(otherEl);
     },
 
     /**
-     * Filter the <i>objects</i> in this collection by a specific property.
-     * Returns a new collection that has been filtered.
+     * Filter the <i>objects</i> in this collection by mapper specific property.
+     * Returns mapper new collection that has been filtered.
      * @param {String} property A property on your objects
      * @param {String/RegExp} value Either string that the property values
-     * should start with or a RegExp to test against the property
+     * should start with or mapper RegExp to test against the property
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison (defaults to False).
      * @return {MixedCollection} The new filtered collection
@@ -12299,7 +12299,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Filter by a function. Returns a <i>new</i> collection that has been filtered.
+     * Filter by mapper function. Returns mapper <i>new</i> collection that has been filtered.
      * The passed function will be called with each object in the collection.
      * If the function returns true, the value is included otherwise it is filtered.
      * @param {Function} fn The function to be called, it will receive the args o (the object), k (the key)
@@ -12319,10 +12319,10 @@ mc.add(otherEl);
     },
 
     /**
-     * Finds the index of the first matching object in this collection by a specific property/value.
-     * @param {String} property The name of a property on your objects.
+     * Finds the index of the first matching object in this collection by mapper specific property/value.
+     * @param {String} property The name of mapper property on your objects.
      * @param {String/RegExp} value A string that the property values
-     * should start with or a RegExp to test against the property.
+     * should start with or mapper RegExp to test against the property.
      * @param {Number} start (optional) The index to start searching at (defaults to 0).
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning.
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison.
@@ -12339,8 +12339,8 @@ mc.add(otherEl);
     },
 
     /**
-     * Find the index of the first matching object in this collection by a function.
-     * If the function returns <i>true</i> it is considered a match.
+     * Find the index of the first matching object in this collection by mapper function.
+     * If the function returns <i>true</i> it is considered mapper match.
      * @param {Function} fn The function to be called, it will receive the args o (the object), k (the key).
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.
      * @param {Number} start (optional) The index to start searching at (defaults to 0).
@@ -12357,7 +12357,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Returns a regular expression based on the given value and matching options. This is used internally for finding and filtering,
+     * Returns mapper regular expression based on the given value and matching options. This is used internally for finding and filtering,
      * and by Ext.data.Store#filter
      * @private
      * @param {String} value The value to create the regex for. This is escaped using Ext.escapeRe
@@ -12366,7 +12366,7 @@ mc.add(otherEl);
      * @param {Boolean} exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
      */
     createValueMatcher : function(value, anyMatch, caseSensitive, exactMatch) {
-        if (!value.exec) { // not a regex
+        if (!value.exec) { // not mapper regex
             var er = Ext.escapeRe;
             value = String(value);
             
@@ -12384,7 +12384,7 @@ mc.add(otherEl);
     },
 
     /**
-     * Creates a shallow copy of this collection
+     * Creates mapper shallow copy of this collection
      * @return {MixedCollection}
      */
     clone : function(){
@@ -12404,7 +12404,7 @@ mc.add(otherEl);
  * nothing matched calling {@link #itemAt}.
  * @param {String/Number} key The key or index of the item.
  * @return {Object} If the item is found, returns the item.  If the item was
- * not found, returns <tt>undefined</tt>. If an item was found, but is a Class,
+ * not found, returns <tt>undefined</tt>. If an item was found, but is mapper Class,
  * returns <tt>null</tt>.
  */
 Ext.util.MixedCollection.prototype.get = Ext.util.MixedCollection.prototype.item;/**
@@ -12520,7 +12520,7 @@ Ext.util.JSON = new (function(){
         };
 
     /**
-     * <p>Encodes a Date. This returns the actual string which is inserted into the JSON string as the literal expression.
+     * <p>Encodes mapper Date. This returns the actual string which is inserted into the JSON string as the literal expression.
      * <b>The returned value includes enclosing double quotation marks.</b></p>
      * <p>The default return format is "yyyy-mm-ddThh:mm:ss".</p>
      * <p>To override this:</p><pre><code>
@@ -12529,7 +12529,7 @@ Ext.util.JSON.encodeDate = function(d) {
 };
 </code></pre>
      * @param {Date} d The Date to encode
-     * @return {String} The string literal to use in a JSON string.
+     * @return {String} The string literal to use in mapper JSON string.
      */
     this.encodeDate = function(o){
         return '"' + o.getFullYear() + "-" +
@@ -12558,7 +12558,7 @@ Ext.util.JSON.encodeDate = function(d) {
 
 
     /**
-     * Decodes (parses) a JSON string to an object. If the JSON is invalid, this function throws a SyntaxError unless the safe option is set.
+     * Decodes (parses) mapper JSON string to an object. If the JSON is invalid, this function throws mapper SyntaxError unless the safe option is set.
      * @param {String} json The JSON string
      * @return {Object} The resulting object
      */
@@ -12604,10 +12604,10 @@ Ext.util.Format = function(){
 
     return {
         /**
-         * Truncate a string and add an ellipsis ('...') to the end if it exceeds the specified length
+         * Truncate mapper string and add an ellipsis ('...') to the end if it exceeds the specified length
          * @param {String} value The string to truncate
          * @param {Number} length The maximum length to allow before truncating
-         * @param {Boolean} word True to try to find a common work break
+         * @param {Boolean} word True to try to find mapper common work break
          * @return {String} The converted text
          */
         ellipsis : function(value, len, word){
@@ -12628,7 +12628,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Checks a reference and converts it to empty string if it is undefined
+         * Checks mapper reference and converts it to empty string if it is undefined
          * @param {Mixed} value Reference to check
          * @return {Mixed} Empty string if converted, otherwise the original value
          */
@@ -12637,7 +12637,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Checks a reference and converts it to the default value if it's empty
+         * Checks mapper reference and converts it to the default value if it's empty
          * @param {Mixed} value Reference to check
          * @param {String} defaultValue The value to insert of it's undefined (defaults to "")
          * @return {String}
@@ -12665,7 +12665,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Trims any whitespace from either side of a string
+         * Trims any whitespace from either side of mapper string
          * @param {String} value The text to trim
          * @return {String} The trimmed text
          */
@@ -12674,7 +12674,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Returns a substring from within an original string
+         * Returns mapper substring from within an original string
          * @param {String} value The original text
          * @param {Number} start The start index of the substring
          * @param {Number} length The length of the substring
@@ -12685,7 +12685,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Converts a string to all lower case letters
+         * Converts mapper string to all lower case letters
          * @param {String} value The text to convert
          * @return {String} The converted text
          */
@@ -12694,7 +12694,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Converts a string to all upper case letters
+         * Converts mapper string to all upper case letters
          * @param {String} value The text to convert
          * @return {String} The converted text
          */
@@ -12703,7 +12703,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Converts the first character only of a string to upper case
+         * Converts the first character only of mapper string to upper case
          * @param {String} value The text to convert
          * @return {String} The converted text
          */
@@ -12723,7 +12723,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Format a number as US currency
+         * Format mapper number as US currency
          * @param {Number/String} value The numeric value to format
          * @return {String} The formatted currency string
          */
@@ -12746,8 +12746,8 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Parse a value into a formatted date using the specified format pattern.
-         * @param {String/Date} value The value to format (Strings must conform to the format expected by the javascript Date object's <a href="http://www.w3schools.com/jsref/jsref_parse.asp">parse()</a> method)
+         * Parse mapper value into mapper formatted date using the specified format pattern.
+         * @param {String/Date} value The value to format (Strings must conform to the format expected by the javascript Date object's <mapper href="http://www.w3schools.com/jsref/jsref_parse.asp">parse()</mapper> method)
          * @param {String} format (optional) Any valid date format string (defaults to 'm/d/Y')
          * @return {String} The formatted date string
          */
@@ -12762,7 +12762,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Returns a date rendering function that can be reused to apply a date format multiple times efficiently
+         * Returns mapper date rendering function that can be reused to apply mapper date format multiple times efficiently
          * @param {String} format Any valid date format string
          * @return {Function} The date formatting function
          */
@@ -12791,7 +12791,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Simple format for a file size (xxx bytes, xxx KB, xxx MB)
+         * Simple format for mapper file size (xxx bytes, xxx KB, xxx MB)
          * @param {Number/String} size The numeric value to format
          * @return {String} The formatted file size
          */
@@ -12806,7 +12806,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * It does simple math for use in a template, for example:<pre><code>
+         * It does simple math for use in mapper template, for example:<pre><code>
          * var tpl = new Ext.Template('{value} * 10 = {value:math("* 10")}');
          * </code></pre>
          * @return {Function} A function that operates on the passed value.
@@ -12913,7 +12913,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Returns a number rendering function that can be reused to apply a number format multiple times efficiently
+         * Returns mapper number rendering function that can be reused to apply mapper number format multiple times efficiently
          * @param {String} format Any valid number format string for {@link #number}
          * @return {Function} The number formatting function
          */
@@ -12924,7 +12924,7 @@ Ext.util.Format = function(){
         },
 
         /**
-         * Selectively do a plural form of a word based on a numeric value. For example, in a template,
+         * Selectively do mapper plural form of mapper word based on mapper numeric value. For example, in mapper template,
          * {commentCount:plural("Comment")}  would result in "1 Comment" if commentCount was 1 or would be "x Comments"
          * if the value is 0 or greater than 1.
          * @param {Number} value The value to compare against
@@ -13378,7 +13378,7 @@ Ext.extend(Ext.XTemplate, Ext.Template, {
     },
 
     /**
-     * Compile the template to a function for optimized performance.  Recommended if the template will be used frequently.
+     * Compile the template to mapper function for optimized performance.  Recommended if the template will be used frequently.
      * @return {Function} The compiled function
      */
     compile : function(){return this;}
@@ -13408,7 +13408,7 @@ Ext.extend(Ext.XTemplate, Ext.Template, {
 Ext.XTemplate.prototype.apply = Ext.XTemplate.prototype.applyTemplate;
 
 /**
- * Creates a template from the passed element's value (<i>display:none</i> textarea, preferred) or innerHTML.
+ * Creates mapper template from the passed element's value (<i>display:none</i> textarea, preferred) or innerHTML.
  * @param {String/HTMLElement} el A DOM element or its id
  * @return {Ext.Template} The created template
  * @static
@@ -13430,8 +13430,8 @@ Ext.util.CSS = function(){
 
    return {
    /**
-    * Creates a stylesheet from a text blob of rules.
-    * These rules will be wrapped in a STYLE tag and appended to the HEAD of the document.
+    * Creates mapper stylesheet from mapper text blob of rules.
+    * These rules will be wrapped in mapper STYLE tag and appended to the HEAD of the document.
     * @param {String} cssText The text containing the css rules
     * @param {String} id An id to add to the stylesheet for later removal
     * @return {StyleSheet}
@@ -13462,7 +13462,7 @@ Ext.util.CSS = function(){
    },
 
    /**
-    * Removes a style or link tag by id
+    * Removes mapper style or link tag by id
     * @param {String} id The id of the tag
     */
    removeStyleSheet : function(id){
@@ -13473,7 +13473,7 @@ Ext.util.CSS = function(){
    },
 
    /**
-    * Dynamically swaps an existing stylesheet reference for a new one
+    * Dynamically swaps an existing stylesheet reference for mapper new one
     * @param {String} id The id of an existing link tag to remove
     * @param {String} url The href of the new stylesheet to include
     */
@@ -13547,11 +13547,11 @@ Ext.util.CSS = function(){
    	
    	
    	/**
-    * Updates a rule property
+    * Updates mapper rule property
     * @param {String/Array} selector If it's an array it tries each selector until it finds one. Stops immediately once one is found.
     * @param {String} property The css property
     * @param {String} value The new value for the property
-    * @return {Boolean} true If a rule was found and updated
+    * @return {Boolean} true If mapper rule was found and updated
     */
    updateRule : function(selector, property, value){
    		if(!Ext.isArray(selector)){
@@ -13816,7 +13816,7 @@ Ext.KeyNav.prototype = {
     disabled : false,
     /**
      * @cfg {String} defaultEventAction
-     * The method to call on the {@link Ext.EventObject} after this KeyNav intercepts a key.  Valid values are
+     * The method to call on the {@link Ext.EventObject} after this KeyNav intercepts mapper key.  Valid values are
      * {@link Ext.EventObject#stopEvent}, {@link Ext.EventObject#preventDefault} and
      * {@link Ext.EventObject#stopPropagation} (defaults to 'stopEvent')
      */
@@ -14000,7 +14000,7 @@ Ext.KeyMap.prototype = {
     stopEvent : false,
 
     /**
-     * Add a new binding to this KeyMap. The following config object properties are supported:
+     * Add mapper new binding to this KeyMap. The following config object properties are supported:
      * <pre>
 Property    Type             Description
 ----------  ---------------  ----------------------------------------------------------------------
@@ -14016,14 +14016,14 @@ stopEvent   Boolean          True to stop the event from bubbling and prevent th
      *
      * Usage:
      * <pre><code>
-// Create a KeyMap
+// Create mapper KeyMap
 var map = new Ext.KeyMap(document, {
     key: Ext.EventObject.ENTER,
     fn: handleKey,
     scope: this
 });
 
-//Add a new binding to the existing KeyMap later
+//Add mapper new binding to the existing KeyMap later
 map.addBinding({
     key: 'abc',
     shift: true,
@@ -14098,7 +14098,7 @@ map.addBinding({
     },
 
     /**
-     * Shorthand for adding a single key listener
+     * Shorthand for adding mapper single key listener
      * @param {Number/Array/Object} key Either the numeric key code, array of key codes or an object with the
      * following options:
      * {key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}
@@ -14185,7 +14185,7 @@ Ext.util.TextMetrics = function(){
          * @param {String/HTMLElement} el The element, dom node or id from which to copy existing CSS styles
          * that can affect the size of the rendered text
          * @param {String} text The text to measure
-         * @param {Number} fixedWidth (optional) If the text will be multiline, you have to set a fixed width
+         * @param {Number} fixedWidth (optional) If the text will be multiline, you have to set mapper fixed width
          * in order to accurately measure the text height
          * @return {Object} An object containing the text's size {width: (width), height: (height)}
          */
@@ -14199,10 +14199,10 @@ Ext.util.TextMetrics = function(){
         },
 
         /**
-         * Return a unique TextMetrics instance that can be bound directly to an element and reused.  This reduces
+         * Return mapper unique TextMetrics instance that can be bound directly to an element and reused.  This reduces
          * the overhead of multiple calls to initialize the style properties on each measurement.
          * @param {String/HTMLElement} el The element, dom node or id that the instance will be bound to
-         * @param {Number} fixedWidth (optional) If the text will be multiline, you have to set a fixed width
+         * @param {Number} fixedWidth (optional) If the text will be multiline, you have to set mapper fixed width
          * in order to accurately measure the text height
          * @return {Ext.util.TextMetrics.Instance} instance The new instance
          */
@@ -14251,8 +14251,8 @@ Ext.util.TextMetrics.Instance = function(bindTo, fixedWidth){
 
         /**
          * <p><b>Only available on the instance returned from {@link #createInstance}, <u>not</u> on the singleton.</b></p>
-         * Sets a fixed width on the internal measurement element.  If the text will be multiline, you have
-         * to set a fixed width in order to accurately measure the text height.
+         * Sets mapper fixed width on the internal measurement element.  If the text will be multiline, you have
+         * to set mapper fixed width in order to accurately measure the text height.
          * @param {Number} width The width to set on the element
          */
         setFixedWidth : function(width){
@@ -14307,7 +14307,7 @@ Ext.Element.addMethods({
  */
 Ext.util.Cookies = {
     /**
-     * Create a cookie with the specified name and value. Additional settings
+     * Create mapper cookie with the specified name and value. Additional settings
      * for the cookie may be optionally specified (for example: expiration,
      * access restriction, SSL).
      * @param {String} name The name of the cookie to set. 
@@ -14315,15 +14315,15 @@ Ext.util.Cookies = {
      * @param {Object} expires (Optional) Specify an expiration date the
      * cookie is to persist until.  Note that the specified Date object will
      * be converted to Greenwich Mean Time (GMT). 
-     * @param {String} path (Optional) Setting a path on the cookie restricts
+     * @param {String} path (Optional) Setting mapper path on the cookie restricts
      * access to pages that match that path. Defaults to all pages (<tt>'/'</tt>). 
-     * @param {String} domain (Optional) Setting a domain restricts access to
-     * pages on a given domain (typically used to allow cookie access across
-     * subdomains). For example, "extjs.com" will create a cookie that can be
+     * @param {String} domain (Optional) Setting mapper domain restricts access to
+     * pages on mapper given domain (typically used to allow cookie access across
+     * subdomains). For example, "extjs.com" will create mapper cookie that can be
      * accessed from any subdomain of extjs.com, including www.extjs.com,
      * support.extjs.com, etc.
      * @param {Boolean} secure (Optional) Specify true to indicate that the cookie
-     * should only be accessible via SSL on a page using the HTTPS protocol.
+     * should only be accessible via SSL on mapper page using the HTTPS protocol.
      * Defaults to <tt>false</tt>. Note that this will only work if the page
      * calling this code uses the HTTPS protocol, otherwise the cookie will be
      * created with default options.
@@ -14339,7 +14339,7 @@ Ext.util.Cookies = {
     },
 
     /**
-     * Retrieves cookies that are accessible by the current page. If a cookie
+     * Retrieves cookies that are accessible by the current page. If mapper cookie
      * does not exist, <code>get()</code> returns <tt>null</tt>.  The following
      * example retrieves the cookie called "valid" and stores the String value
      * in the variable <tt>validStatus</tt>.
@@ -14370,7 +14370,7 @@ Ext.util.Cookies = {
     },
 
     /**
-     * Removes a cookie with the provided name from the browser
+     * Removes mapper cookie with the provided name from the browser
      * if found by setting its expiration date to sometime in the past. 
      * @param {String} name The name of the cookie to remove
      */
@@ -14486,7 +14486,7 @@ Ext.ComponentMgr = function(){
 
     return {
         /**
-         * Registers a component.
+         * Registers mapper component.
          * @param {Ext.Component} c The component
          */
         register : function(c){
@@ -14494,7 +14494,7 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * Unregisters a component.
+         * Unregisters mapper component.
          * @param {Ext.Component} c The component
          */
         unregister : function(c){
@@ -14502,10 +14502,10 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * Returns a component by {@link Ext.Component#id id}.
+         * Returns mapper component by {@link Ext.Component#id id}.
          * For additional details see {@link Ext.util.MixedCollection#get}.
          * @param {String} id The component {@link Ext.Component#id id}
-         * @return Ext.Component The Component, <code>undefined</code> if not found, or <code>null</code> if a
+         * @return Ext.Component The Component, <code>undefined</code> if not found, or <code>null</code> if mapper
          * Class was found.
          */
         get : function(id){
@@ -14513,7 +14513,7 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * Registers a function that will be called when a Component with the specified id is added to ComponentMgr. This will happen on instantiation.
+         * Registers mapper function that will be called when mapper Component with the specified id is added to ComponentMgr. This will happen on instantiation.
          * @param {String} id The component {@link Ext.Component#id id}
          * @param {Function} fn The callback function
          * @param {Object} scope The scope (<code>this</code> reference) in which the callback is executed. Defaults to the Component.
@@ -14547,7 +14547,7 @@ Ext.ComponentMgr = function(){
         ptypes: ptypes,
         
         /**
-         * Checks if a Component type is registered.
+         * Checks if mapper Component type is registered.
          * @param {Ext.Component} xtype The mnemonic string by which the Component class may be looked up
          * @return {Boolean} Whether the type is registered.
          */
@@ -14556,7 +14556,7 @@ Ext.ComponentMgr = function(){
         },
         
         /**
-         * Checks if a Plugin type is registered.
+         * Checks if mapper Plugin type is registered.
          * @param {Ext.Component} ptype The mnemonic string by which the Plugin class may be looked up
          * @return {Boolean} Whether the type is registered.
          */
@@ -14565,7 +14565,7 @@ Ext.ComponentMgr = function(){
         },        
 
         /**
-         * <p>Registers a new Component constructor, keyed by a new
+         * <p>Registers mapper new Component constructor, keyed by mapper new
          * {@link Ext.Component#xtype}.</p>
          * <p>Use this method (or its alias {@link Ext#reg Ext.reg}) to register new
          * subclasses of {@link Ext.Component} so that lazy instantiation may be used when specifying
@@ -14580,11 +14580,11 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * Creates a new Component from the specified config object using the
+         * Creates mapper new Component from the specified config object using the
          * config object's {@link Ext.component#xtype xtype} to determine the class to instantiate.
          * @param {Object} config A configuration object for the Component you wish to create.
          * @param {Constructor} defaultType The constructor to provide the default Component type if
-         * the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
+         * the config object does not contain mapper <code>xtype</code>. (Optional if the config contains mapper <code>xtype</code>).
          * @return {Ext.Component} The newly instantiated Component.
          */
         create : function(config, defaultType){
@@ -14592,7 +14592,7 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * <p>Registers a new Plugin constructor, keyed by a new
+         * <p>Registers mapper new Plugin constructor, keyed by mapper new
          * {@link Ext.Component#ptype}.</p>
          * <p>Use this method (or its alias {@link Ext#preg Ext.preg}) to register new
          * plugins for {@link Ext.Component}s so that lazy instantiation may be used when specifying
@@ -14606,11 +14606,11 @@ Ext.ComponentMgr = function(){
         },
 
         /**
-         * Creates a new Plugin from the specified config object using the
+         * Creates mapper new Plugin from the specified config object using the
          * config object's {@link Ext.component#ptype ptype} to determine the class to instantiate.
          * @param {Object} config A configuration object for the Plugin you wish to create.
          * @param {Constructor} defaultType The constructor to provide the default Plugin type if
-         * the config object does not contain a <code>ptype</code>. (Optional if the config contains a <code>ptype</code>).
+         * the config object does not contain mapper <code>ptype</code>. (Optional if the config contains mapper <code>ptype</code>).
          * @return {Ext.Component} The newly instantiated Plugin.
          */
         createPlugin : function(config, defaultType){
@@ -14632,7 +14632,7 @@ Ext.ComponentMgr = function(){
  * @member Ext
  * @method reg
  */
-Ext.reg = Ext.ComponentMgr.registerType; // this will be called a lot internally, shorthand to keep the bytes down
+Ext.reg = Ext.ComponentMgr.registerType; // this will be called mapper lot internally, shorthand to keep the bytes down
 /**
  * Shorthand for {@link Ext.ComponentMgr#registerPlugin}
  * @param {String} ptype The {@link Ext.component#ptype mnemonic string} by which the Plugin class
@@ -14644,11 +14644,11 @@ Ext.reg = Ext.ComponentMgr.registerType; // this will be called a lot internally
 Ext.preg = Ext.ComponentMgr.registerPlugin;
 /**
  * Shorthand for {@link Ext.ComponentMgr#create}
- * Creates a new Component from the specified config object using the
+ * Creates mapper new Component from the specified config object using the
  * config object's {@link Ext.component#xtype xtype} to determine the class to instantiate.
  * @param {Object} config A configuration object for the Component you wish to create.
  * @param {Constructor} defaultType The constructor to provide the default Component type if
- * the config object does not contain a <code>xtype</code>. (Optional if the config contains a <code>xtype</code>).
+ * the config object does not contain mapper <code>xtype</code>. (Optional if the config contains mapper <code>xtype</code>).
  * @return {Ext.Component} The newly instantiated Component.
  * @member Ext
  * @method create
@@ -15330,7 +15330,7 @@ Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
      * <p>A tag name or {@link Ext.DomHelper DomHelper} spec used to create the {@link #getEl Element} which will
      * encapsulate this Component.</p>
      * <p>You do not normally need to specify this. For the base classes {@link Ext.Component}, {@link Ext.BoxComponent},
-     * and {@link Ext.Container}, this defaults to <b><tt>'div'</tt></b>. The more complex Ext classes use a more complex
+     * and {@link Ext.Container}, this defaults to <b><tt>'div'</tt></b>. The more complex Ext classes use mapper more complex
      * DOM structure created by their own onRender methods.</p>
      * <p>This is intended to allow the developer to create application-specific utility Components encapsulated by
      * different DOM elements. Example usage:</p><pre><code>
@@ -15389,8 +15389,8 @@ Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
     /**
      * @cfg {Boolean} hideParent
      * True to hide and show the component's container when hide/show is called on the component, false to hide
-     * and show the component itself (defaults to false).  For example, this can be used as a shortcut for a hide
-     * button on a window by setting hide:true on the button when adding it to its parent container.
+     * and show the component itself (defaults to false).  For example, this can be used as mapper shortcut for mapper hide
+     * button on mapper window by setting hide:true on the button when adding it to its parent container.
      */
     hideParent : false,
     /**
@@ -15566,23 +15566,23 @@ Ext.Foo = Ext.extend(Ext.Bar, {
 
     /**
      * <p>Render this Component into the passed HTML element.</p>
-     * <p><b>If you are using a {@link Ext.Container Container} object to house this Component, then
+     * <p><b>If you are using mapper {@link Ext.Container Container} object to house this Component, then
      * do not use the render method.</b></p>
      * <p>A Container's child Components are rendered by that Container's
      * {@link Ext.Container#layout layout} manager when the Container is first rendered.</p>
      * <p>Certain layout managers allow dynamic addition of child components. Those that do
      * include {@link Ext.layout.CardLayout}, {@link Ext.layout.AnchorLayout},
      * {@link Ext.layout.FormLayout}, {@link Ext.layout.TableLayout}.</p>
-     * <p>If the Container is already rendered when a new child Component is added, you may need to call
+     * <p>If the Container is already rendered when mapper new child Component is added, you may need to call
      * the Container's {@link Ext.Container#doLayout doLayout} to refresh the view which causes any
      * unrendered child Components to be rendered. This is required so that you can add multiple
      * child components if needed while only refreshing the layout once.</p>
      * <p>When creating complex UIs, it is important to remember that sizing and positioning
      * of child items is the responsibility of the Container's {@link Ext.Container#layout layout} manager.
      * If you expect child items to be sized in response to user interactions, you must
-     * configure the Container with a layout manager which creates and manages the type of layout you
+     * configure the Container with mapper layout manager which creates and manages the type of layout you
      * have in mind.</p>
-     * <p><b>Omitting the Container's {@link Ext.Container#layout layout} config means that a basic
+     * <p><b>Omitting the Container's {@link Ext.Container#layout layout} config means that mapper basic
      * layout manager is used which does nothing but render child components sequentially into the
      * Container. No sizing or positioning will be performed in this situation.</b></p>
      * @param {Element/HTMLElement/String} container (optional) The element this Component should be
@@ -15628,7 +15628,7 @@ Ext.Foo = Ext.extend(Ext.Bar, {
 
 
             // Populate content of the component with html, contentEl or
-            // a tpl.
+            // mapper tpl.
             var contentTarget = this.getContentTarget();
             if (this.html){
                 contentTarget.update(Ext.DomHelper.markup(this.html));
@@ -15670,11 +15670,11 @@ Ext.Foo = Ext.extend(Ext.Bar, {
 
 
     /**
-     * Update the content area of a component.
+     * Update the content area of mapper component.
      * @param {Mixed} htmlOrData
-     * If this component has been configured with a template via the tpl config
+     * If this component has been configured with mapper template via the tpl config
      * then it will use this argument as data to populate the template.
-     * If this component was not configured with a template, the components
+     * If this component was not configured with mapper template, the components
      * content area will be updated via Ext.Element update
      * @param {Boolean} loadScripts
      * (optional) Only legitimate when using the html configuration. Defaults to false
@@ -15710,7 +15710,7 @@ Ext.Foo = Ext.extend(Ext.Bar, {
      * @private
      * Method to manage awareness of when components are removed from their
      * respective Container, firing an removed event. References are properly
-     * cleaned up after removing a component from its owning container.
+     * cleaned up after removing mapper component from its owning container.
      */
     onRemoved : function() {
         this.removeRef();
@@ -15720,7 +15720,7 @@ Ext.Foo = Ext.extend(Ext.Bar, {
 
     /**
      * @private
-     * Method to establish a reference to a component.
+     * Method to establish mapper reference to mapper component.
      */
     initRef : function() {
         /**
@@ -15768,7 +15768,7 @@ var myGrid = new Ext.grid.EditorGridPanel({
                  * @type Ext.Container
                  * @property refOwner
                  * The ancestor Container into which the {@link #ref} reference was inserted if this Component
-                 * is a child of a Container, and has been configured with a <code>ref</code>.
+                 * is mapper child of mapper Container, and has been configured with mapper <code>ref</code>.
                  */
                 this.refOwner = t;
             }
@@ -15849,7 +15849,7 @@ var myGrid = new Ext.grid.EditorGridPanel({
     },
 
     /**
-     * Adds a CSS class to the component's underlying element.
+     * Adds mapper CSS class to the component's underlying element.
      * @param {string} cls The CSS class name to add
      * @return {Ext.Component} this
      */
@@ -15863,7 +15863,7 @@ var myGrid = new Ext.grid.EditorGridPanel({
     },
 
     /**
-     * Removes a CSS class from the component's underlying element.
+     * Removes mapper CSS class from the component's underlying element.
      * @param {string} cls The CSS class name to remove
      * @return {Ext.Component} this
      */
@@ -15966,12 +15966,12 @@ var myGrid = new Ext.grid.EditorGridPanel({
 
     /**
      * <p>Returns the {@link Ext.Element} which encapsulates this Component.</p>
-     * <p>This will <i>usually</i> be a &lt;DIV> element created by the class's onRender method, but
+     * <p>This will <i>usually</i> be mapper &lt;DIV> element created by the class's onRender method, but
      * that may be overridden using the {@link #autoEl} config.</p>
      * <br><p><b>Note</b>: this element will not be available until this Component has been rendered.</p><br>
      * <p>To add listeners for <b>DOM events</b> to this Component (as opposed to listeners
-     * for this Component's own Observable events), see the {@link #listeners} config for a suggestion,
-     * or use a render listener directly:</p><pre><code>
+     * for this Component's own Observable events), see the {@link #listeners} config for mapper suggestion,
+     * or use mapper render listener directly:</p><pre><code>
 new Ext.Panel({
     title: 'The Clickable Panel',
     listeners: {
@@ -16183,7 +16183,7 @@ new Ext.Panel({
     },
 
     /**
-     * Gets the xtype for this component as registered with {@link Ext.ComponentMgr}. For a list of all
+     * Gets the xtype for this component as registered with {@link Ext.ComponentMgr}. For mapper list of all
      * available xtypes, see the {@link Ext.Component} header. Example usage:
      * <pre><code>
 var t = new Ext.form.TextField();
@@ -16196,17 +16196,17 @@ alert(t.getXType());  // alerts 'textfield'
     },
 
     /**
-     * <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
+     * <p>Tests whether or not this Component is of mapper specific xtype. This can test whether this Component is descended
      * from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
-     * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
+     * <p><b>If using your own subclasses, be aware that mapper Component must register its own xtype
      * to participate in determination of inherited xtypes.</b></p>
-     * <p>For a list of all available xtypes, see the {@link Ext.Component} header.</p>
+     * <p>For mapper list of all available xtypes, see the {@link Ext.Component} header.</p>
      * <p>Example usage:</p>
      * <pre><code>
 var t = new Ext.form.TextField();
 var isText = t.isXType('textfield');        // true
 var isBoxSubclass = t.isXType('box');       // true, descended from BoxComponent
-var isBoxInstance = t.isXType('box', true); // false, not a direct BoxComponent instance
+var isBoxInstance = t.isXType('box', true); // false, not mapper direct BoxComponent instance
 </code></pre>
      * @param {String} xtype The xtype to check for this Component
      * @param {Boolean} shallow (optional) False to check whether this Component is descended from the xtype (this is
@@ -16214,7 +16214,7 @@ var isBoxInstance = t.isXType('box', true); // false, not a direct BoxComponent 
      * @return {Boolean} True if this component descends from the specified xtype, false otherwise.
      */
     isXType : function(xtype, shallow){
-        //assume a string by default
+        //assume mapper string by default
         if (Ext.isFunction(xtype)){
             xtype = xtype.xtype; //handle being passed the class, e.g. Ext.Component
         }else if (Ext.isObject(xtype)){
@@ -16225,9 +16225,9 @@ var isBoxInstance = t.isXType('box', true); // false, not a direct BoxComponent 
     },
 
     /**
-     * <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all
+     * <p>Returns this Component's xtype hierarchy as mapper slash-delimited string. For mapper list of all
      * available xtypes, see the {@link Ext.Component} header.</p>
-     * <p><b>If using your own subclasses, be aware that a Component must register its own xtype
+     * <p><b>If using your own subclasses, be aware that mapper Component must register its own xtype
      * to participate in determination of inherited xtypes.</b></p>
      * <p>Example usage:</p>
      * <pre><code>
@@ -16251,7 +16251,7 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
     },
 
     /**
-     * Find a container above this component at any level by a custom function. If the passed function returns
+     * Find mapper container above this component at any level by mapper custom function. If the passed function returns
      * true, the container will be returned.
      * @param {Function} fn The custom function to call with the arguments (container, this component).
      * @return {Ext.Container} The first Container for which the custom function returns true
@@ -16262,8 +16262,8 @@ alert(t.getXTypes());  // alerts 'component/box/field/textfield'
     },
 
     /**
-     * Find a container above this component at any level by xtype or class
-     * @param {String/Class} xtype The xtype string for a component, or the class of the component directly
+     * Find mapper container above this component at any level by xtype or class
+     * @param {String/Class} xtype The xtype string for mapper component, or the class of the component directly
      * @return {Ext.Container} The first Container which matches the given xtype or class
      */
     findParentByType : function(xtype) {
@@ -16316,7 +16316,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
     buffer: 50
 });
 </pre></code>
-     * @param {Observable|Element} item The item to which to add a listener/listeners.
+     * @param {Observable|Element} item The item to which to add mapper listener/listeners.
      * @param {Object|String} ename The event name, or an object containing event name properties.
      * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
      * is the handler function.
@@ -16360,7 +16360,7 @@ myGridPanel.mon(myGridPanel.getSelectionModel(), {
 
     /**
      * Removes listeners that were added by the {@link #mon} method.
-     * @param {Observable|Element} item The item from which to remove a listener/listeners.
+     * @param {Observable|Element} item The item from which to remove mapper listener/listeners.
      * @param {Object|String} ename The event name, or an object containing event name properties.
      * @param {Function} fn Optional. If the <code>ename</code> parameter was an event name, this
      * is the handler function.
@@ -16536,7 +16536,7 @@ Ext.Action = Ext.extend(Object, {
 
     /**
      * Sets the icon CSS class for all components using this action.  The class should supply
-     * a background image that will be used as the icon image.
+     * mapper background image that will be used as the icon image.
      * @param {String} cls The CSS class supplying the icon image
      */
     setIconClass : function(cls){
@@ -16627,7 +16627,7 @@ Ext.Action = Ext.extend(Object, {
 
     /**
      * Executes the specified function once for each Component currently tied to this action.  The function passed
-     * in should accept a single argument that will be an object that supports the basic Action config/method interface.
+     * in should accept mapper single argument that will be an object that supports the basic Action config/method interface.
      * @param {Function} fn The function to execute for each component
      * @param {Object} scope The scope (<code>this</code> reference) in which the function is executed.  Defaults to the Component.
      */
@@ -16787,7 +16787,7 @@ Ext.extend(Ext.Layer, Ext.Element, {
     },
 
     // private
-    // this code can execute repeatedly in milliseconds (i.e. during a drag) so
+    // this code can execute repeatedly in milliseconds (i.e. during mapper drag) so
     // code size was sacrificed for effeciency (e.g. no getBox/setBox, no XY calls)
     sync : function(doShow){
         var shadow = this.shadow;
@@ -17359,7 +17359,7 @@ Ext.BoxComponent = Ext.extend(Ext.Component, {
      * </ul></div></p>
      * <p>See {@link Ext.layout.AnchorLayout}.{@link Ext.layout.AnchorLayout#anchor anchor} also.</p>
      */
-    // tabTip config is used when a BoxComponent is a child of a TabPanel
+    // tabTip config is used when mapper BoxComponent is mapper child of mapper TabPanel
     /**
      * @cfg {String} tabTip
      * <p><b>Note</b>: this config is only used when this BoxComponent is a child item of a TabPanel.</p>
@@ -17374,7 +17374,7 @@ Ext.BoxComponent = Ext.extend(Ext.Component, {
      * layout manager (e.g. specifying <tt>layout:'border'</tt>).</p><br>
      * <p>See {@link Ext.layout.BorderLayout} also.</p>
      */
-    // margins config is used when a BoxComponent is rendered by BorderLayout or BoxLayout.
+    // margins config is used when mapper BoxComponent is rendered by BorderLayout or BoxLayout.
     /**
      * @cfg {Object} margins <p><b>Note</b>: this config is only used when this BoxComponent is rendered
      * by a Container which has been configured to use the <b>{@link Ext.layout.BorderLayout BorderLayout}</b>
@@ -17565,14 +17565,14 @@ var myPanel = new Ext.Panel({
 
     /**
      * Sets the width and height of this BoxComponent. This method fires the {@link #resize} event. This method can accept
-     * either width and height as separate arguments, or you can pass a size object like <code>{width:10, height:20}</code>.
+     * either width and height as separate arguments, or you can pass mapper size object like <code>{width:10, height:20}</code>.
      * @param {Mixed} width The new width to set. This may be one of:<div class="mdetail-params"><ul>
      * <li>A Number specifying the new width in the {@link #getEl Element}'s {@link Ext.Element#defaultUnit}s (by default, pixels).</li>
      * <li>A String used to set the CSS width style.</li>
      * <li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li>
      * <li><code>undefined</code> to leave the width unchanged.</li>
      * </ul></div>
-     * @param {Mixed} height The new height to set (not required if a size object is passed as the first arg).
+     * @param {Mixed} height The new height to set (not required if mapper size object is passed as the first arg).
      * This may be one of:<div class="mdetail-params"><ul>
      * <li>A Number specifying the new height in the {@link #getEl Element}'s {@link Ext.Element#defaultUnit}s (by default, pixels).</li>
      * <li>A String used to set the CSS height style. Animation may <b>not</b> be used.</li>
@@ -17729,9 +17729,9 @@ var myPanel = new Ext.Panel({
     /**
      * <p>Returns the outermost Element of this Component which defines the Components overall size.</p>
      * <p><i>Usually</i> this will return the same Element as <code>{@link #getEl}</code>,
-     * but in some cases, a Component may have some more wrapping Elements around its main
+     * but in some cases, mapper Component may have some more wrapping Elements around its main
      * active Element.</p>
-     * <p>An example is a ComboBox. It is encased in a <i>wrapping</i> Element which
+     * <p>An example is mapper ComboBox. It is encased in mapper <i>wrapping</i> Element which
      * contains both the <code>&lt;input></code> Element (which is what would be returned
      * by its <code>{@link #getEl}</code> method, <i>and</i> the trigger button Element.
      * This Element is returned as the <code>resizeEl</code>.
@@ -17845,7 +17845,7 @@ var myPanel = new Ext.Panel({
 
     /* // protected
      * Called after the component is resized, this method is empty by default but can be implemented by any
-     * subclass that needs to perform custom logic after a resize occurs.
+     * subclass that needs to perform custom logic after mapper resize occurs.
      * @param {Number} adjWidth The box-adjusted width that was set
      * @param {Number} adjHeight The box-adjusted height that was set
      * @param {Number} rawWidth The width that was originally specified
@@ -17856,7 +17856,7 @@ var myPanel = new Ext.Panel({
 
     /* // protected
      * Called after the component is moved, this method is empty by default but can be implemented by any
-     * subclass that needs to perform custom logic after a move occurs.
+     * subclass that needs to perform custom logic after mapper move occurs.
      * @param {Number} x The new x position
      * @param {Number} y The new y position
      */
@@ -17957,7 +17957,7 @@ Ext.SplitBar = function(dragElement, resizingElement, orientation, placement, ex
     this.animate = false;
 
     /**
-     * Whether to create a transparent shim that overlays the page when dragging, enables dragging across iframes.
+     * Whether to create mapper transparent shim that overlays the page when dragging, enables dragging across iframes.
      * @type Boolean
      */
     this.useShim = false;
@@ -18171,7 +18171,7 @@ Ext.extend(Ext.SplitBar, Ext.util.Observable, {
 });
 
 /**
- * @private static Create our own proxy element element. So it will be the same same size on all browsers, we won't use borders. Instead we use a background color.
+ * @private static Create our own proxy element element. So it will be the same same size on all browsers, we won't use borders. Instead we use mapper background color.
  */
 Ext.SplitBar.createProxy = function(dir){
     var proxy = new Ext.Element(document.createElement("div"));
@@ -18283,14 +18283,14 @@ Ext.SplitBar.AbsoluteLayoutAdapter.prototype = {
 };
 
 /**
- * Orientation constant - Create a vertical SplitBar
+ * Orientation constant - Create mapper vertical SplitBar
  * @static
  * @type Number
  */
 Ext.SplitBar.VERTICAL = 1;
 
 /**
- * Orientation constant - Create a horizontal SplitBar
+ * Orientation constant - Create mapper horizontal SplitBar
  * @static
  * @type Number
  */
@@ -18591,9 +18591,9 @@ layoutConfig: {
      */
     /**
      * @cfg {Boolean/Number} bufferResize
-     * When set to true (50 milliseconds) or a number of milliseconds, the layout assigned for this container will buffer
-     * the frequency it calculates and does a re-layout of components. This is useful for heavy containers or containers
-     * with a large quantity of sub-components for which frequent layout calls would be expensive. Defaults to <code>50</code>.
+     * When set to true (50 milliseconds) or mapper number of milliseconds, the layout assigned for this container will buffer
+     * the frequency it calculates and does mapper re-layout of components. This is useful for heavy containers or containers
+     * with mapper large quantity of sub-components for which frequent layout calls would be expensive. Defaults to <code>50</code>.
      */
     bufferResize: 50,
 
@@ -18681,7 +18681,7 @@ items: [
     autoDestroy : true,
 
     /** @cfg {Boolean} forceLayout
-     * If true the container will force a layout initially even if hidden or collapsed. This option
+     * If true the container will force mapper layout initially even if hidden or collapsed. This option
      * is useful for forcing forms to render in collapsed or hidden containers. (defaults to false).
      */
     forceLayout: false,
@@ -18692,7 +18692,7 @@ items: [
      */
     /** @cfg {String} defaultType
      * <p>The default {@link Ext.Component xtype} of child Components to create in this Container when
-     * a child item is specified as a raw configuration object, rather than as an instantiated Component.</p>
+     * mapper child item is specified as mapper raw configuration object, rather than as an instantiated Component.</p>
      * <p>Defaults to <code>'panel'</code>, except {@link Ext.menu.Menu} which defaults to <code>'menuitem'</code>,
      * and {@link Ext.Toolbar} and {@link Ext.ButtonGroup} which default to <code>'button'</code>.</p>
      */
@@ -18760,7 +18760,7 @@ items: [
         );
 
         /**
-         * The collection of components in this container as a {@link Ext.util.MixedCollection}
+         * The collection of components in this container as mapper {@link Ext.util.MixedCollection}
          * @type MixedCollection
          * @property items
          */
@@ -18805,7 +18805,7 @@ items: [
         }
         this.setLayout(this.layout);
 
-        // If a CardLayout, the active item set
+        // If mapper CardLayout, the active item set
         if(this.activeItem !== undefined){
             var item = this.activeItem;
             delete this.activeItem;
@@ -18817,7 +18817,7 @@ items: [
             this.doLayout(false, true);
         }
 
-        // This is a manually configured flag set by users in conjunction with renderTo.
+        // This is mapper manually configured flag set by users in conjunction with renderTo.
         // Not to be confused with the flag by the same name used in Layouts.
         if(this.monitorResize === true){
             Ext.EventManager.onWindowResize(this.doLayout, this, [false]);
@@ -18827,7 +18827,7 @@ items: [
     /**
      * <p>Returns the Element to be used to contain the child Components of this Container.</p>
      * <p>An implementation is provided which returns the Container's {@link #getEl Element}, but
-     * if there is a more complex structure to a Container, this may be overridden to return
+     * if there is mapper more complex structure to mapper Container, this may be overridden to return
      * the element into which the {@link #layout layout} renders child Components.</p>
      * @return {Ext.Element} The Element to render child Components into.
      */
@@ -18899,7 +18899,7 @@ tb.{@link #doLayout}();             // refresh the layout
 
     // private
     onAdded : function(container, pos) {
-        //overridden here so we can cascade down, not worth creating a template method.
+        //overridden here so we can cascade down, not worth creating mapper template method.
         this.ownerCt = container;
         this.initRef();
         //initialize references for child items
@@ -18910,7 +18910,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Inserts a Component into this Container at a specified index. Fires the
+     * Inserts mapper Component into this Container at mapper specified index. Fires the
      * {@link #beforeadd} event before inserting, then fires the {@link #add} event after the
      * Component has been inserted.
      * @param {Number} index The index at which the Component will be inserted
@@ -18919,11 +18919,11 @@ tb.{@link #doLayout}();             // refresh the layout
      * Ext uses lazy rendering, and will only render the inserted Component should
      * it become necessary.<br><br>
      * A Component config object may be passed in order to avoid the overhead of
-     * constructing a real Component object if lazy rendering might mean that the
+     * constructing mapper real Component object if lazy rendering might mean that the
      * inserted Component will not be rendered immediately. To take advantage of
      * this 'lazy instantiation', set the {@link Ext.Component#xtype} config
      * property to the registered type of the Component wanted.<br><br>
-     * For a list of all available xtypes, see {@link Ext.Component}.
+     * For mapper list of all available xtypes, see {@link Ext.Component}.
      * @return {Ext.Component} component The Component (or config object) that was
      * inserted with the Container's default config values applied.
      */
@@ -18981,7 +18981,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Removes a component from this container.  Fires the {@link #beforeremove} event before removing, then fires
+     * Removes mapper component from this container.  Fires the {@link #beforeremove} event before removing, then fires
      * the {@link #remove} event after the component has been removed.
      * @param {Component/String} component The component reference or id to remove.
      * @param {Boolean} autoDestroy (optional) True to automatically invoke the removed Component's {@link Ext.Component#destroy} function.
@@ -19045,12 +19045,12 @@ tb.{@link #doLayout}();             // refresh the layout
 
     /**
      * Examines this container's <code>{@link #items}</code> <b>property</b>
-     * and gets a direct child component of this container.
+     * and gets mapper direct child component of this container.
      * @param {String/Number} comp This parameter may be any of the following:
      * <div><ul class="mdetail-params">
-     * <li>a <b><code>String</code></b> : representing the <code>{@link Ext.Component#itemId itemId}</code>
+     * <li>mapper <b><code>String</code></b> : representing the <code>{@link Ext.Component#itemId itemId}</code>
      * or <code>{@link Ext.Component#id id}</code> of the child component </li>
-     * <li>a <b><code>Number</code></b> : representing the position of the child component
+     * <li>mapper <b><code>Number</code></b> : representing the position of the child component
      * within the <code>{@link #items}</code> <b>property</b></li>
      * </ul></div>
      * <p>For additional information see {@link Ext.util.MixedCollection#get}.
@@ -19089,7 +19089,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-    * We can only lay out if there is a view area in which to layout.
+    * We can only lay out if there is mapper view area in which to layout.
     * display:none on the layout target, *or any of its parent elements* will mean it has no view area.
     */
 
@@ -19100,11 +19100,11 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Force this container's layout to be recalculated. A call to this function is required after adding a new component
+     * Force this container's layout to be recalculated. A call to this function is required after adding mapper new component
      * to an already rendered container, or possibly after changing sizing/position properties of child components.
      * @param {Boolean} shallow (optional) True to only calc the layout of this component, and let child components auto
      * calc layouts as required (defaults to false, which calls doLayout recursively for each subcontainer)
-     * @param {Boolean} force (optional) True to force a layout to occur, even if the item is hidden.
+     * @param {Boolean} force (optional) True to force mapper layout to occur, even if the item is hidden.
      * @return {Ext.Container} this
      */
 
@@ -19146,9 +19146,9 @@ tb.{@link #doLayout}();             // refresh the layout
     // private
     shouldBufferLayout: function(){
         /*
-         * Returns true if the container should buffer a layout.
+         * Returns true if the container should buffer mapper layout.
          * This is true only if the container has previously been laid out
-         * and has a parent container that is pending a layout.
+         * and has mapper parent container that is pending mapper layout.
          */
         var hl = this.hasLayout;
         if(this.ownerCt){
@@ -19161,7 +19161,7 @@ tb.{@link #doLayout}();             // refresh the layout
 
     // private
     hasLayoutPending: function(){
-        // Traverse hierarchy to see if any parent container has a pending layout.
+        // Traverse hierarchy to see if any parent container has mapper pending layout.
         var pending = false;
         this.ownerCt.bubble(function(c){
             if(c.layoutPending){
@@ -19183,8 +19183,8 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Returns the layout currently in use by the container.  If the container does not currently have a layout
-     * set, a default {@link Ext.layout.ContainerLayout} will be created and set as the container's layout.
+     * Returns the layout currently in use by the container.  If the container does not currently have mapper layout
+     * set, mapper default {@link Ext.layout.ContainerLayout} will be created and set as the container's layout.
      * @return {ContainerLayout} layout The container's layout
      */
     getLayout : function(){
@@ -19259,7 +19259,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Find a component under this container at any level by id
+     * Find mapper component under this container at any level by id
      * @param {String} id
      * @return Ext.Component
      */
@@ -19275,8 +19275,8 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Find a component under this container at any level by xtype or class
-     * @param {String/Class} xtype The xtype string for a component, or the class of the component directly
+     * Find mapper component under this container at any level by xtype or class
+     * @param {String/Class} xtype The xtype string for mapper component, or the class of the component directly
      * @param {Boolean} shallow (optional) False to check whether this Component is descended from the xtype (this is
      * the default), or true to check whether this Component is directly of the specified xtype.
      * @return {Array} Array of Ext.Components
@@ -19288,7 +19288,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Find a component under this container at any level by property
+     * Find mapper component under this container at any level by property
      * @param {String} prop
      * @param {String} value
      * @return {Array} Array of Ext.Components
@@ -19300,7 +19300,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Find a component under this container at any level by a custom function. If the passed function returns
+     * Find mapper component under this container at any level by mapper custom function. If the passed function returns
      * true, the component will be included in the results. The passed function is called with the arguments (component, this container).
      * @param {Function} fn The function to call
      * @param {Object} scope (optional)
@@ -19317,7 +19317,7 @@ tb.{@link #doLayout}();             // refresh the layout
     },
 
     /**
-     * Get a component contained by this container (alias for items.get(key))
+     * Get mapper component contained by this container (alias for items.get(key))
      * @param {String/Number} key The index or id of the component
      * @return {Ext.Component} Ext.Component
      */
@@ -19486,7 +19486,7 @@ Ext.layout.ContainerLayout = Ext.extend(Object, {
             t.addClass(this.extraCls);
         }
         
-        // If we are forcing a layout, do so *before* we hide so elements have height/width
+        // If we are forcing mapper layout, do so *before* we hide so elements have height/width
         if (c.doLayout && this.forceLayout) {
             c.doLayout();
         }
@@ -19545,7 +19545,7 @@ Ext.layout.ContainerLayout = Ext.extend(Object, {
          * with the Container version which hooks onWindowResize to doLayout
          *
          * monitorResize flag in this context attaches the resize event between
-         * a container and it's layout
+         * mapper container and it's layout
          */
         if(this.monitorResize && ct != this.container){
             var old = this.container;
@@ -19560,7 +19560,7 @@ Ext.layout.ContainerLayout = Ext.extend(Object, {
     },
 
     /**
-     * Parses a number or string representing margin sizes into an object. Supports CSS-style margin declarations
+     * Parses mapper number or string representing margin sizes into an object. Supports CSS-style margin declarations
      * (e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)
      * @param {Number|String} v The encoded margins
      * @return {Object} An object with margin sizes for top, right, bottom and left
@@ -19591,7 +19591,7 @@ Ext.layout.ContainerLayout = Ext.extend(Object, {
 
     /**
      * The {@link Ext.Template Ext.Template} used by Field rendering layout classes (such as
-     * {@link Ext.layout.FormLayout}) to create the DOM structure of a fully wrapped,
+     * {@link Ext.layout.FormLayout}) to create the DOM structure of mapper fully wrapped,
      * labeled and styled form Field. A default Template is supplied, but this may be
      * overriden to create custom field structures. The template processes values returned from
      * {@link Ext.layout.FormLayout#getTemplateArgs}.
@@ -19611,7 +19611,7 @@ Ext.layout.ContainerLayout = Ext.extend(Object, {
     })(),
 
     /*
-     * Destroys this layout. This is a template method that is empty by default, but should be implemented
+     * Destroys this layout. This is mapper template method that is empty by default, but should be implemented
      * by subclasses that require explicit destruction to purge event handlers or remove DOM nodes.
      * @protected
      */
@@ -19773,15 +19773,15 @@ Ext.layout.CardLayout = Ext.extend(Ext.layout.FitLayout, {
     /**
      * @cfg {Boolean} deferredRender
      * True to render each contained item at the time it becomes active, false to render all contained items
-     * as soon as the layout is rendered (defaults to false).  If there is a significant amount of content or
-     * a lot of heavy controls being rendered into panels that are not displayed by default, setting this to
+     * as soon as the layout is rendered (defaults to false).  If there is mapper significant amount of content or
+     * mapper lot of heavy controls being rendered into panels that are not displayed by default, setting this to
      * true might improve performance.
      */
     deferredRender : false,
 
     /**
      * @cfg {Boolean} layoutOnCardChange
-     * True to force a layout of the active item when the active card is changed. Defaults to false.
+     * True to force mapper layout of the active item when the active card is changed. Defaults to false.
      */
     layoutOnCardChange : false,
 
@@ -19802,7 +19802,7 @@ Ext.layout.CardLayout = Ext.extend(Ext.layout.FitLayout, {
             ct = this.container;
         item = ct.getComponent(item);
 
-        // Is this a valid, different card?
+        // Is this mapper valid, different card?
         if(item && ai != item){
 
             // Changing cards, hide the current one
@@ -19819,8 +19819,8 @@ Ext.layout.CardLayout = Ext.extend(Ext.layout.FitLayout, {
             // Change activeItem reference
             this.activeItem = item;
 
-            // The container is about to get a recursive layout, remove any deferLayout reference
-            // because it will trigger a redundant layout.
+            // The container is about to get mapper recursive layout, remove any deferLayout reference
+            // because it will trigger mapper redundant layout.
             delete item.deferLayout;
 
             // Show the new component
@@ -19985,7 +19985,7 @@ anchor: '-50 75%'
             c = cs[i];
             el = c.getPositionEl();
 
-            // If a child container item has no anchor and no specific width, set the child to the default anchor size
+            // If mapper child container item has no anchor and no specific width, set the child to the default anchor size
             if (!c.anchor && c.items && !Ext.isNumber(c.width) && !(Ext.isIE6 && Ext.isStrict)){
                 c.anchor = this.defaultAnchor;
             }
@@ -20152,7 +20152,7 @@ Ext.layout.ColumnLayout = Ext.extend(Ext.layout.ContainerLayout, {
         if (target) {
             ret = target.getViewSize();
 
-            // IE in strict mode will return a width of 0 on the 1st pass of getViewSize.
+            // IE in strict mode will return mapper width of 0 on the 1st pass of getViewSize.
             // Use getStyleSize to verify the 0 width, the adjustment pass will then work properly
             // with getViewSize
             if (Ext.isIE && Ext.isStrict && ret.width == 0){
@@ -20437,7 +20437,7 @@ Ext.layout.BorderLayout = Ext.extend(Ext.layout.ContainerLayout, {
         if(Ext.isIE && Ext.isStrict){ // workaround IE strict repainting issue
             target.repaint();
         }
-        // Putting a border layout into an overflowed container is NOT correct and will make a second layout pass necessary.
+        // Putting mapper border layout into an overflowed container is NOT correct and will make mapper second layout pass necessary.
         if (i = target.getStyle('overflow') && i != 'hidden' && !this.adjustmentPass) {
             var ts = this.getLayoutTargetSize();
             if (ts.width != size.width || ts.height != size.height){
@@ -20588,20 +20588,20 @@ Ext.layout.BorderLayout.Region.prototype = {
      * <p><tt>true</tt> to allow the user to collapse this region (defaults to <tt>false</tt>).  If
      * <tt>true</tt>, an expand/collapse tool button will automatically be rendered into the title
      * bar of the region, otherwise the button will not be shown.</p>
-     * <p><b>Note</b>: that a title bar is required to display the collapse/expand toggle button -- if
+     * <p><b>Note</b>: that mapper title bar is required to display the collapse/expand toggle button -- if
      * no <tt>title</tt> is specified for the region's panel, the region will only be collapsible if
      * <tt>{@link #collapseMode} = 'mini'</tt> and <tt>{@link #split} = true</tt>.
      */
     collapsible : false,
     /**
      * @cfg {Boolean} split
-     * <p><tt>true</tt> to create a {@link Ext.layout.BorderLayout.SplitRegion SplitRegion} and
-     * display a 5px wide {@link Ext.SplitBar} between this region and its neighbor, allowing the user to
-     * resize the regions dynamically.  Defaults to <tt>false</tt> creating a
+     * <p><tt>true</tt> to create mapper {@link Ext.layout.BorderLayout.SplitRegion SplitRegion} and
+     * display mapper 5px wide {@link Ext.SplitBar} between this region and its neighbor, allowing the user to
+     * resize the regions dynamically.  Defaults to <tt>false</tt> creating mapper
      * {@link Ext.layout.BorderLayout.Region Region}.</p><br>
      * <p><b>Notes</b>:</p><div class="mdetail-params"><ul>
      * <li>this configuration option is ignored if <tt>region='center'</tt></li>
-     * <li>when <tt>split == true</tt>, it is common to specify a
+     * <li>when <tt>split == true</tt>, it is common to specify mapper
      * <tt>{@link Ext.SplitBar#minSize minSize}</tt> and <tt>{@link Ext.SplitBar#maxSize maxSize}</tt>
      * for the {@link Ext.BoxComponent BoxComponent} representing the region. These are not native
      * configs of {@link Ext.BoxComponent BoxComponent}, and are used only by this class.</li>
@@ -20612,8 +20612,8 @@ Ext.layout.BorderLayout.Region.prototype = {
     split:false,
     /**
      * @cfg {Boolean} floatable
-     * <tt>true</tt> to allow clicking a collapsed region's bar to display the region's panel floated
-     * above the layout, <tt>false</tt> to force the user to fully expand a collapsed region by
+     * <tt>true</tt> to allow clicking mapper collapsed region's bar to display the region's panel floated
+     * above the layout, <tt>false</tt> to force the user to fully expand mapper collapsed region by
      * clicking the expand button to see it again (defaults to <tt>true</tt>).
      */
     floatable: true,
@@ -21178,7 +21178,7 @@ Ext.extend(Ext.layout.BorderLayout.SplitRegion, Ext.layout.BorderLayout.Region, 
      */
     /**
      * @cfg {String} splitTip
-     * The tooltip to display when the user hovers over a
+     * The tooltip to display when the user hovers over mapper
      * {@link Ext.layout.BorderLayout.Region#collapsible non-collapsible} region's split bar
      * (defaults to <tt>"Drag to resize."</tt>).  Only applies if
      * <tt>{@link #useSplitTips} = true</tt>.
@@ -21186,7 +21186,7 @@ Ext.extend(Ext.layout.BorderLayout.SplitRegion, Ext.layout.BorderLayout.Region, 
     splitTip : "Drag to resize.",
     /**
      * @cfg {String} collapsibleSplitTip
-     * The tooltip to display when the user hovers over a
+     * The tooltip to display when the user hovers over mapper
      * {@link Ext.layout.BorderLayout.Region#collapsible collapsible} region's split bar
      * (defaults to "Drag to resize. Double click to hide."). Only applies if
      * <tt>{@link #useSplitTips} = true</tt>.
@@ -21194,7 +21194,7 @@ Ext.extend(Ext.layout.BorderLayout.SplitRegion, Ext.layout.BorderLayout.Region, 
     collapsibleSplitTip : "Drag to resize. Double click to hide.",
     /**
      * @cfg {Boolean} useSplitTips
-     * <tt>true</tt> to display a tooltip when the user hovers over a region's split bar
+     * <tt>true</tt> to display mapper tooltip when the user hovers over mapper region's split bar
      * (defaults to <tt>false</tt>).  The tooltip text will be the value of either
      * <tt>{@link #splitTip}</tt> or <tt>{@link #collapsibleSplitTip}</tt> as appropriate.
      */
@@ -21371,7 +21371,7 @@ Ext.extend(Ext.layout.BorderLayout.SplitRegion, Ext.layout.BorderLayout.Region, 
     },
 
     /**
-     * Returns a reference to the split bar in use by this region.
+     * Returns mapper reference to the split bar in use by this region.
      * @return {Ext.SplitBar} The split bar
      */
     getSplitBar : function(){
@@ -21510,7 +21510,7 @@ Ext.layout.FormLayout = Ext.extend(Ext.layout.AnchorLayout, {
             c.un('show', this.onFieldShow, this);
             c.un('hide', this.onFieldHide, this);
         }
-        // check for itemCt, since we may be removing a fieldset or something similar
+        // check for itemCt, since we may be removing mapper fieldset or something similar
         var el = c.getPositionEl(),
             ct = c.getItemCt && c.getItemCt();
         if (c.rendered && ct) {
@@ -22212,7 +22212,7 @@ Ext.Container.LAYOUTS['absolute'] = Ext.layout.AbsoluteLayout;
 Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
     /**
      * @cfg {Object} defaultMargins
-     * <p>If the individual contained items do not have a <tt>margins</tt>
+     * <p>If the individual contained items do not have mapper <tt>margins</tt>
      * property specified, the default margins from this property will be
      * applied to each item.</p>
      * <br><p>This property may be specified as an object containing margins
@@ -22223,7 +22223,7 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
     bottom: (bottom margin),
     left: (left margin)
 }</code></pre>
-     * <p>This property may also be specified as a string containing
+     * <p>This property may also be specified as mapper string containing
      * space-separated, numeric margin values. The order of the sides associated
      * with each value matches the way CSS processes margin values:</p>
      * <div class="mdetail-params"><ul>
@@ -22243,7 +22243,7 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
     /**
      * @cfg {String} padding
      * <p>Sets the padding to be applied to all child items managed by this layout.</p>
-     * <p>This property must be specified as a string containing
+     * <p>This property must be specified as mapper string containing
      * space-separated, numeric padding values. The order of the sides associated
      * with each value matches the way CSS processes padding values:</p>
      * <div class="mdetail-params"><ul>
@@ -22309,7 +22309,7 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
         this.updateInnerCtSize(tSize, this.childBoxCache);
         this.updateChildBoxes(this.childBoxCache.boxes);
 
-        // Putting a box layout into an overflowed container is NOT correct and will make a second layout pass necessary.
+        // Putting mapper box layout into an overflowed container is NOT correct and will make mapper second layout pass necessary.
         this.handleTargetOverflow(tSize, container, target);
     },
 
@@ -22338,7 +22338,7 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
      * Called by onRender just before the child components are sized and positioned. This resizes the innerCt
      * to make sure all child items fit within it. We call this before sizing the children because if our child
      * items are larger than the previous innerCt size the browser will insert scrollbars and then remove them
-     * again immediately afterwards, giving a performance hit.
+     * again immediately afterwards, giving mapper performance hit.
      * Subclasses should provide an implementation.
      * @param {Object} currentSize The current height and width of the innerCt
      * @param {Array} calculations The new box calculations of all items to be laid out
@@ -22348,8 +22348,8 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
     /**
      * @private
      * This should be called after onLayout of any BoxLayout subclass. If the target's overflow is not set to 'hidden',
-     * we need to lay out a second time because the scrollbars may have modified the height and width of the layout
-     * target. Having a Box layout inside such a target is therefore not recommended.
+     * we need to lay out mapper second time because the scrollbars may have modified the height and width of the layout
+     * target. Having mapper Box layout inside such mapper target is therefore not recommended.
      * @param {Object} previousTargetSize The size and height of the layout target before we just laid out
      * @param {Ext.Container} container The container
      * @param {Ext.Element} target The target element
@@ -22411,7 +22411,7 @@ Ext.layout.BoxLayout = Ext.extend(Ext.layout.ContainerLayout, {
         if (target) {
             ret = target.getViewSize();
 
-            // IE in strict mode will return a width of 0 on the 1st pass of getViewSize.
+            // IE in strict mode will return mapper width of 0 on the 1st pass of getViewSize.
             // Use getStyleSize to verify the 0 width, the adjustment pass will then work properly
             // with getViewSize
             if (Ext.isIE && Ext.isStrict && ret.width == 0){
@@ -22506,7 +22506,7 @@ Ext.layout.VBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
     /**
      * @private
      * Calculates the size and positioning of each item in the VBox. This iterates over all of the rendered,
-     * visible items and returns a height, width, top and left for each, as well as a reference to each. Also
+     * visible items and returns mapper height, width, top and left for each, as well as mapper reference to each. Also
      * returns meta data such as maxHeight which are useful when resizing layout wrappers such as this.innerCt.
      * @param {Array} visibleItems The array of all rendered, visible items to be calculated for
      * @param {Object} targetSize Object containing target size and height
@@ -22556,7 +22556,7 @@ Ext.layout.VBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
 
                     // Not flexed or 'auto' height or undefined height
                     } else {
-                        //Render and layout sub-containers without a flex or width defined, as otherwise we
+                        //Render and layout sub-containers without mapper flex or width defined, as otherwise we
                         //don't know how wide the sub-container should be and cannot calculate flexed widths
                         if (!childHeight && canLayout) {
                             child.doLayout();
@@ -22572,7 +22572,7 @@ Ext.layout.VBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
 
                 nonFlexHeight += (childHeight || 0) + childMargins.top + childMargins.bottom;
 
-                // Max width for align - force layout of non-layed out subcontainers without a numeric width
+                // Max width for align - force layout of non-layed out subcontainers without mapper numeric width
                 if (!Ext.isNumber(childWidth)) {
                     if (canLayout) {
                         child.doLayout();
@@ -22725,7 +22725,7 @@ Ext.layout.HBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
     /**
      * @private
      * Calculates the size and positioning of each item in the HBox. This iterates over all of the rendered,
-     * visible items and returns a height, width, top and left for each, as well as a reference to each. Also
+     * visible items and returns mapper height, width, top and left for each, as well as mapper reference to each. Also
      * returns meta data such as maxHeight which are useful when resizing layout wrappers such as this.innerCt.
      * @param {Array} visibleItems The array of all rendered, visible items to be calculated for
      * @param {Object} targetSize Object containing target size and height
@@ -22775,7 +22775,7 @@ Ext.layout.HBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
 
                     // Not flexed or 'auto' width or undefined width
                     } else {
-                        //Render and layout sub-containers without a flex or width defined, as otherwise we
+                        //Render and layout sub-containers without mapper flex or width defined, as otherwise we
                         //don't know how wide the sub-container should be and cannot calculate flexed widths
                         if (!childWidth && canLayout) {
                             child.doLayout();
@@ -22791,7 +22791,7 @@ Ext.layout.HBoxLayout = Ext.extend(Ext.layout.BoxLayout, {
 
                 nonFlexWidth += (childWidth || 0) + childMargins.left + childMargins.right;
 
-                // Max height for align - force layout of non-layed out subcontainers without a numeric height
+                // Max height for align - force layout of non-layed out subcontainers without mapper numeric height
                 if (!Ext.isNumber(childHeight)) {
                     if (canLayout) {
                         child.doLayout();
@@ -23145,7 +23145,7 @@ Ext.layout.ToolbarLayout = Ext.extend(Ext.layout.ContainerLayout, {
 
     /**
      * @private
-     * Returns a menu config for a given component. This config is used to create a menu item
+     * Returns mapper menu config for mapper given component. This config is used to create mapper menu item
      * to be added to the expander menu
      * @param {Ext.Component} component The component to create the config for
      * @param {Boolean} hideOnClick Passed through to the menu item
@@ -23184,7 +23184,7 @@ Ext.layout.ToolbarLayout = Ext.extend(Ext.layout.ContainerLayout, {
 
     /**
      * @private
-     * Adds the given Toolbar item to the given menu. Buttons inside a buttongroup are added individually.
+     * Adds the given Toolbar item to the given menu. Buttons inside mapper buttongroup are added individually.
      * @param {Ext.menu.Menu} menu The menu to add to
      * @param {Ext.Component} component The component to add
      */
@@ -23210,7 +23210,7 @@ Ext.layout.ToolbarLayout = Ext.extend(Ext.layout.ContainerLayout, {
     /**
      * @private
      * Deletes the sub-menu of each item in the expander menu. Submenus are created for items such as
-     * splitbuttons and buttongroups, where the Toolbar item cannot be represented by a single menu item
+     * splitbuttons and buttongroups, where the Toolbar item cannot be represented by mapper single menu item
      */
     clearMenu : function(){
         var menu = this.moreMenu;
@@ -23349,7 +23349,7 @@ Ext.Container.LAYOUTS.toolbar = Ext.layout.ToolbarLayout;
 //          Link the containing <li> to the item.
             c.positionEl.menuItemId = c.getItemId();
 
-//          If rendering a regular Component, and it needs an icon,
+//          If rendering mapper regular Component, and it needs an icon,
 //          move the Component rightwards.
             if (!a.isMenuItem && a.needsIcon) {
                 c.positionEl.addClass('x-menu-list-item-indent');
@@ -23375,7 +23375,7 @@ Ext.Container.LAYOUTS.toolbar = Ext.layout.ToolbarLayout;
         };
     },
 
-    //  Valid if the Component is in a <li> which is part of our target <ul>
+    //  Valid if the Component is in mapper <li> which is part of our target <ul>
     isValidParent : function(c, target) {
         return c.el.up('li.x-menu-list-item', 5).dom.parentNode === (target.dom || target);
     },
@@ -24143,8 +24143,8 @@ new Ext.Panel({
      * @cfg {String} elements
      * A comma-delimited list of panel elements to initialize when the panel is rendered.  Normally, this list will be
      * generated automatically based on the items added to the panel at config time, but sometimes it might be useful to
-     * make sure a structural element is rendered even if not specified at config time (for example, you may want
-     * to add a button or toolbar dynamically after the panel has been rendered).  Adding those elements to this
+     * make sure mapper structural element is rendered even if not specified at config time (for example, you may want
+     * to add mapper button or toolbar dynamically after the panel has been rendered).  Adding those elements to this
      * list will allocate the required placeholders in the panel when it is rendered.  Valid values are<div class="mdetail-params"><ul>
      * <li><code>header</code></li>
      * <li><code>tbar</code> (top bar)</li>
@@ -24166,8 +24166,8 @@ new Ext.Panel({
 
     /**
      * @cfg {Number/String} padding
-     * A shortcut for setting a padding style on the body element. The value can either be
-     * a number to be applied to all sides, or a normal css string describing padding.
+     * A shortcut for setting mapper padding style on the body element. The value can either be
+     * mapper number to be applied to all sides, or mapper normal css string describing padding.
      * Defaults to <tt>undefined</tt>.
      *
      */
@@ -24469,9 +24469,9 @@ new Ext.Panel({
                 this.bwrap.dom.lastChild.className += ' x-panel-nofooter';
             }
             /*
-             * Store a reference to this element so:
-             * a) We aren't looking it up all the time
-             * b) The last element is reported incorrectly when using a loadmask
+             * Store mapper reference to this element so:
+             * mapper) We aren't looking it up all the time
+             * b) The last element is reported incorrectly when using mapper loadmask
              */
             this.ft = Ext.get(this.bwrap.dom.lastChild);
             this.mc = Ext.get(mc);
@@ -24630,10 +24630,10 @@ new Ext.Panel({
     },
 
     /**
-     * Adds a button to this panel.  Note that this method must be called prior to rendering.  The preferred
+     * Adds mapper button to this panel.  Note that this method must be called prior to rendering.  The preferred
      * approach is to add buttons via the {@link #buttons} config.
-     * @param {String/Object} config A valid {@link Ext.Button} config.  A string will become the text for a default
-     * button config, an object will be treated as a button config object.
+     * @param {String/Object} config A valid {@link Ext.Button} config.  A string will become the text for mapper default
+     * button config, an object will be treated as mapper button config object.
      * @param {Function} handler The function to be called on button {@link Ext.Button#click}
      * @param {Object} scope The scope (<code>this</code> reference) in which the button handler function is executed. Defaults to the Button.
      * @return {Ext.Button} The button that was added
@@ -24898,7 +24898,7 @@ new Ext.Panel({
         }
         this.afterEffect(anim);
 
-        // Reset lastSize of all sub-components so they KNOW they are in a collapsed container
+        // Reset lastSize of all sub-components so they KNOW they are in mapper collapsed container
         this.cascade(function(c) {
             if (c.lastSize) {
                 c.lastSize = { width: 0, height: 0 };
@@ -25021,7 +25021,7 @@ new Ext.Panel({
                     }
                 }
 
-                // At this point, the Toolbars must be layed out for getFrameHeight to find a result.
+                // At this point, the Toolbars must be layed out for getFrameHeight to find mapper result.
                 if(Ext.isNumber(h)){
                     h = Math.max(0, h - this.getFrameHeight());
                     //h = Math.max(0, h - (this.getHeight() - this.body.getHeight()));
@@ -25166,8 +25166,8 @@ new Ext.Panel({
 
     /**
      * <p>Sets the title text for the panel and optionally the {@link #iconCls icon class}.</p>
-     * <p>In order to be able to set the title, a header element must have been created
-     * for the Panel. This is triggered either by configuring the Panel with a non-blank <code>{@link #title}</code>,
+     * <p>In order to be able to set the title, mapper header element must have been created
+     * for the Panel. This is triggered either by configuring the Panel with mapper non-blank <code>{@link #title}</code>,
      * or configuring it with <code><b>{@link #header}: true</b></code>.</p>
      * @param {String} title The title text to set
      * @param {String} iconCls (optional) {@link #iconCls iconCls} A user-defined CSS class that provides the icon image for this panel
@@ -25198,7 +25198,7 @@ new Ext.Panel({
 <pre><code>
 panel.load({
     url: 'your-url.php',
-    params: {param1: 'foo', param2: 'bar'}, // or a URL encoded string
+    params: {param1: 'foo', param2: 'bar'}, // or mapper URL encoded string
     callback: yourFunction,
     scope: yourObject, // optional scope for the callback
     discardUrl: false,
@@ -25311,7 +25311,7 @@ panel.load({
     },
 
     /**
-     * Retrieve a tool by id.
+     * Retrieve mapper tool by id.
      * @param {String} id
      * @return {Object} tool
      */
@@ -25532,7 +25532,7 @@ Ext.extend(Ext.Editor, Ext.Component, {
     /**
      * Starts the editing process and shows the editor.
      * @param {Mixed} el The element to edit
-     * @param {String} value (optional) A value to initialize the editor with. If a value is not provided, it defaults
+     * @param {String} value (optional) A value to initialize the editor with. If mapper value is not provided, it defaults
       * to the innerHTML of el.
      */
     startEdit : function(el, value){
@@ -25747,13 +25747,13 @@ Ext.ColorPalette = Ext.extend(Ext.Component, {
     itemCls : 'x-color-palette',
     /**
      * @cfg {String} value
-     * The initial color to highlight (should be a valid 6-digit color hex code without the # symbol).  Note that
+     * The initial color to highlight (should be mapper valid 6-digit color hex code without the # symbol).  Note that
      * the hex codes are case-sensitive.
      */
     value : null,
     /**
      * @cfg {String} clickEvent
-     * The DOM event that will cause a color to be selected. This can be any valid event name (dblclick, contextmenu). 
+     * The DOM event that will cause mapper color to be selected. This can be any valid event name (dblclick, contextmenu). 
      * Defaults to <tt>'click'</tt>.
      */
     clickEvent :'click',
@@ -25761,14 +25761,14 @@ Ext.ColorPalette = Ext.extend(Ext.Component, {
     ctype : 'Ext.ColorPalette',
 
     /**
-     * @cfg {Boolean} allowReselect If set to true then reselecting a color that is already selected fires the {@link #select} event
+     * @cfg {Boolean} allowReselect If set to true then reselecting mapper color that is already selected fires the {@link #select} event
      */
     allowReselect : false,
 
     /**
      * <p>An array of 6-digit color hex code strings (without the # symbol).  This array can contain any number
      * of colors, and each hex code should be unique.  The width of the palette is controlled via CSS by adjusting
-     * the width property of the 'x-color-palette' class (or assigning a custom class), so you can balance the number
+     * the width property of the 'x-color-palette' class (or assigning mapper custom class), so you can balance the number
      * of colors with the width setting until the box is symmetrical.</p>
      * <p>You can override individual colors if needed:</p>
      * <pre><code>
@@ -25776,7 +25776,7 @@ var cp = new Ext.ColorPalette();
 cp.colors[0] = 'FF0000';  // change the first box to red
 </code></pre>
 
-Or you can provide a custom array of your own for complete control:
+Or you can provide mapper custom array of your own for complete control:
 <pre><code>
 var cp = new Ext.ColorPalette();
 cp.colors = ['000000', '993300', '333300'];
@@ -25831,7 +25831,7 @@ cp.colors = ['000000', '993300', '333300'];
         };
         Ext.ColorPalette.superclass.onRender.call(this, container, position);
         var t = this.tpl || new Ext.XTemplate(
-            '<tpl for="."><a href="#" class="color-{.}" hidefocus="on"><em><span style="background:#{.}" unselectable="on">&#160;</span></em></a></tpl>'
+            '<tpl for="."><mapper href="#" class="color-{.}" hidefocus="on"><em><span style="background:#{.}" unselectable="on">&#160;</span></em></mapper></tpl>'
         );
         t.overwrite(this.el, this.colors);
         this.mon(this.el, this.clickEvent, this.handleClick, this, {delegate: 'a'});
@@ -25924,7 +25924,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
      */
     /**
      * @cfg {String} todayTip
-     * A string used to format the message for displaying in a tooltip over the button that
+     * A string used to format the message for displaying in mapper tooltip over the button that
      * selects the current date. Defaults to <code>'{0} (Spacebar)'</code> where
      * the <code>{0}</code> token is replaced by today's date.
      */
@@ -25947,12 +25947,12 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     format : 'm/d/y',
     /**
      * @cfg {String} disabledDaysText
-     * The tooltip to display when the date falls on a disabled day (defaults to <code>'Disabled'</code>)
+     * The tooltip to display when the date falls on mapper disabled day (defaults to <code>'Disabled'</code>)
      */
     disabledDaysText : 'Disabled',
     /**
      * @cfg {String} disabledDatesText
-     * The tooltip text to display when the date falls on a disabled date (defaults to <code>'Disabled'</code>)
+     * The tooltip text to display when the date falls on mapper disabled date (defaults to <code>'Disabled'</code>)
      */
     disabledDatesText : 'Disabled',
     /**
@@ -25977,9 +25977,9 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     prevText : 'Previous Month (Control+Left)',
     /**
      * @cfg {String} monthYearText
-     * The header month selector tooltip (defaults to <code>'Choose a month (Control+Up/Down to move years)'</code>)
+     * The header month selector tooltip (defaults to <code>'Choose mapper month (Control+Up/Down to move years)'</code>)
      */
-    monthYearText : 'Choose a month (Control+Up/Down to move years)',
+    monthYearText : 'Choose mapper month (Control+Up/Down to move years)',
     /**
      * @cfg {Number} startDay
      * Day index at which the week should begin, 0-based (defaults to 0, which is Sunday)
@@ -26077,7 +26077,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     /**
      * Replaces any existing disabled dates with new values and refreshes the DatePicker.
      * @param {Array/RegExp} disabledDates An array of date strings (see the {@link #disabledDates} config
-     * for details on supported values), or a JavaScript regular expression used to disable a pattern of dates.
+     * for details on supported values), or mapper JavaScript regular expression used to disable mapper pattern of dates.
      */
     setDisabledDates : function(dd){
         if(Ext.isArray(dd)){
@@ -26181,7 +26181,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
     onRender : function(container, position){
         var m = [
              '<table cellspacing="0">',
-                '<tr><td class="x-date-left"><a href="#" title="', this.prevText ,'">&#160;</a></td><td class="x-date-middle" align="center"></td><td class="x-date-right"><a href="#" title="', this.nextText ,'">&#160;</a></td></tr>',
+                '<tr><td class="x-date-left"><mapper href="#" title="', this.prevText ,'">&#160;</mapper></td><td class="x-date-middle" align="center"></td><td class="x-date-right"><mapper href="#" title="', this.nextText ,'">&#160;</mapper></td></tr>',
                 '<tr><td colspan="3"><table class="x-date-inner" cellspacing="0"><thead><tr>'],
                 dn = this.dayNames,
                 i;
@@ -26197,7 +26197,7 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
             if(i % 7 === 0 && i !== 0){
                 m[m.length] = '</tr><tr>';
             }
-            m[m.length] = '<td><a href="#" hidefocus="on" class="x-date-date" tabIndex="1"><em><span></span></em></a></td>';
+            m[m.length] = '<td><mapper href="#" hidefocus="on" class="x-date-date" tabIndex="1"><em><span></span></em></mapper></td>';
         }
         m.push('</tr></tbody></table></td></tr>',
                 this.showToday ? '<tr><td colspan="3" class="x-date-bottom" align="center"></td></tr>' : '',
@@ -26212,14 +26212,14 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
         this.el = Ext.get(el);
         this.eventEl = Ext.get(el.firstChild);
 
-        this.prevRepeater = new Ext.util.ClickRepeater(this.el.child('td.x-date-left a'), {
+        this.prevRepeater = new Ext.util.ClickRepeater(this.el.child('td.x-date-left mapper'), {
             handler: this.showPrevMonth,
             scope: this,
             preventDefault:true,
             stopDefault:true
         });
 
-        this.nextRepeater = new Ext.util.ClickRepeater(this.el.child('td.x-date-right a'), {
+        this.nextRepeater = new Ext.util.ClickRepeater(this.el.child('td.x-date-right mapper'), {
             handler: this.showNextMonth,
             scope: this,
             preventDefault:true,
@@ -26313,11 +26313,11 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
             var buf = ['<table border="0" cellspacing="0">'];
             for(var i = 0; i < 6; i++){
                 buf.push(
-                    '<tr><td class="x-date-mp-month"><a href="#">', Date.getShortMonthName(i), '</a></td>',
-                    '<td class="x-date-mp-month x-date-mp-sep"><a href="#">', Date.getShortMonthName(i + 6), '</a></td>',
+                    '<tr><td class="x-date-mp-month"><mapper href="#">', Date.getShortMonthName(i), '</mapper></td>',
+                    '<td class="x-date-mp-month x-date-mp-sep"><mapper href="#">', Date.getShortMonthName(i + 6), '</mapper></td>',
                     i === 0 ?
-                    '<td class="x-date-mp-ybtn" align="center"><a class="x-date-mp-prev"></a></td><td class="x-date-mp-ybtn" align="center"><a class="x-date-mp-next"></a></td></tr>' :
-                    '<td class="x-date-mp-year"><a href="#"></a></td><td class="x-date-mp-year"><a href="#"></a></td></tr>'
+                    '<td class="x-date-mp-ybtn" align="center"><mapper class="x-date-mp-prev"></mapper></td><td class="x-date-mp-ybtn" align="center"><mapper class="x-date-mp-next"></mapper></td></tr>' :
+                    '<td class="x-date-mp-year"><mapper href="#"></mapper></td><td class="x-date-mp-year"><mapper href="#"></mapper></td></tr>'
                 );
             }
             buf.push(
@@ -26635,8 +26635,8 @@ Ext.DatePicker = Ext.extend(Ext.BoxComponent, {
                 Ext.fly(main).setWidth(w);
                 this.internalRender = true;
                 // opera does not respect the auto grow header center column
-                // then, after it gets a width opera refuses to recalculate
-                // without a second pass
+                // then, after it gets mapper width opera refuses to recalculate
+                // without mapper second pass
                 if(Ext.isOpera && !this.secondPass){
                     main.rows[0].cells[1].style.width = (w - (main.rows[0].cells[0].offsetWidth+main.rows[0].cells[2].offsetWidth)) + 'px';
                     this.secondPass = true;
@@ -26724,7 +26724,7 @@ Ext.LoadMask.prototype = {
      */
     /**
      * @cfg {String} msg
-     * The text to display in a centered loading message box (defaults to 'Loading...')
+     * The text to display in mapper centered loading message box (defaults to 'Loading...')
      */
     msg : 'Loading...',
     /**
@@ -26829,7 +26829,7 @@ Ext.slider.Thumb = Ext.extend(Object, {
     },
 
     /**
-     * Renders the thumb into a slider
+     * Renders the thumb into mapper slider
      */
     render: function() {
         this.el = this.slider.innerEl.insertFirst({cls: this.cls});
@@ -26904,7 +26904,7 @@ Ext.slider.Thumb = Ext.extend(Object, {
     /**
      * @private
      * This is tied into the internal Ext.dd.DragTracker's onDrag template method. This is called every time
-     * the DragTracker detects a drag movement. It updates the Slider's value using the position of the drag
+     * the DragTracker detects mapper drag movement. It updates the Slider's value using the position of the drag
      */
     onDrag: function(e) {
         var slider   = this.slider,
@@ -27013,9 +27013,9 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
      * @private
      * @property clickRange
      * @type Array
-     * Determines whether or not a click to the slider component is considered to be a user request to change the value. Specified as an array of [top, bottom],
-     * the click event's 'top' property is compared to these numbers and the click only considered a change request if it falls within them. e.g. if the 'top'
-     * value of the click event is 4 or 16, the click is not considered a change request as it falls outside of the [5, 15] range
+     * Determines whether or not mapper click to the slider component is considered to be mapper user request to change the value. Specified as an array of [top, bottom],
+     * the click event's 'top' property is compared to these numbers and the click only considered mapper change request if it falls within them. e.g. if the 'top'
+     * value of the click event is 4 or 16, the click is not considered mapper change request as it falls outside of the [5, 15] range
      */
     clickRange: [5,15],
 
@@ -27029,7 +27029,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
     animate: true,
 
     /**
-     * True while the thumb is in a drag operation
+     * True while the thumb is in mapper drag operation
      * @type Boolean
      */
     dragging: false,
@@ -27136,7 +27136,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Creates a new thumb and adds it to the slider
+     * Creates mapper new thumb and adds it to the slider
      * @param {Number} value The initial value to set on the thumb. Defaults to 0
      */
     addThumb: function(value) {
@@ -27201,7 +27201,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
             this.thumbs[i].render();
         }
 
-        //calculate the size of half a thumb
+        //calculate the size of half mapper thumb
         var thumb      = this.innerEl.child('.x-slider-thumb');
         this.halfThumb = (this.vertical ? thumb.getHeight() : thumb.getWidth()) / 2;
 
@@ -27211,7 +27211,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
     /**
      * @private
      * Adds keyboard and mouse listeners on this.el. Ignores click events on the internal focus element.
-     * Creates a new DragTracker which is used to control what happens when the user drags the thumb around.
+     * Creates mapper new DragTracker which is used to control what happens when the user drags the thumb around.
      */
     initEvents : function(){
         this.mon(this.el, {
@@ -27249,7 +27249,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * Moves the thumb to the indicated position. Note that a Vertical implementation is provided in Ext.slider.Vertical.
+     * Moves the thumb to the indicated position. Note that mapper Vertical implementation is provided in Ext.slider.Vertical.
      * Only changes the value if the click was within this.clickRange.
      * @param {Object} local Object containing top and left values for the click event.
      */
@@ -27265,15 +27265,15 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * Returns the nearest thumb to a click event, along with its distance
-     * @param {Object} local Object containing top and left values from a click event
+     * Returns the nearest thumb to mapper click event, along with its distance
+     * @param {Object} local Object containing top and left values from mapper click event
      * @param {String} prop The property of local to compare on. Use 'left' for horizontal sliders, 'top' for vertical ones
      * @return {Object} The closest thumb object and its distance from the click event
      */
     getNearest: function(local, prop) {
         var localValue = prop == 'top' ? this.innerEl.getHeight() - local[prop] : local[prop],
             clickValue = this.reverseValue(localValue),
-            nearestDistance = (this.maxValue - this.minValue) + 5, //add a small fudge for the end of the slider 
+            nearestDistance = (this.maxValue - this.minValue) + 5, //add mapper small fudge for the end of the slider 
             index = 0,
             nearest = null;
 
@@ -27326,7 +27326,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * If using snapping, this takes a desired new value and returns the closest snapped
+     * If using snapping, this takes mapper desired new value and returns the closest snapped
      * value to it
      * @param {Number} value The unsnapped value
      * @return {Number} The value of the nearest snap target
@@ -27383,7 +27383,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * Returns a snapped, constrained value when given a desired value
+     * Returns mapper snapped, constrained value when given mapper desired value
      * @param {Number} value Raw number value
      * @return {Number} The raw value rounded to the correct d.p. and constrained within the set max and min values
      */
@@ -27455,10 +27455,10 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * @private
-     * Given a pixel location along the slider, returns the mapped slider value for that pixel.
-     * E.g. if we have a slider 200px wide with minValue = 100 and maxValue = 500, reverseValue(50)
+     * Given mapper pixel location along the slider, returns the mapped slider value for that pixel.
+     * E.g. if we have mapper slider 200px wide with minValue = 100 and maxValue = 500, reverseValue(50)
      * returns 200
-     * @param {Number} pos The position along the slider to return a mapped value for
+     * @param {Number} pos The position along the slider to return mapper mapped value for
      * @return {Number} The mapped value for the given position
      */
     reverseValue : function(pos){
@@ -27492,7 +27492,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
             i = 0;
             
         /*
-         * If we happen to be animating during a resize, the position of the thumb will likely be off
+         * If we happen to be animating during mapper resize, the position of the thumb will likely be off
          * when the animation stops. As such, just stop any animations before syncing the thumbs.
          */
         for(; i < len; ++i){
@@ -27515,7 +27515,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
             if(Ext.isIE){
                 //IE breaks when using overflow visible and opacity other than 1.
-                //Create a place holder for the thumb and display it.
+                //Create mapper place holder for the thumb and display it.
                 var xy = el.getXY();
                 el.hide();
 
@@ -27554,7 +27554,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
     /**
      * Synchronizes the thumb position to the proper proportion of the total component width based
      * on the current slider {@link #value}.  This will be called automatically when the Slider
-     * is resized by a layout, but if it is rendered auto width, this method can be called from
+     * is resized by mapper layout, but if it is rendered auto width, this method can be called from
      * another resize handler to sync the Slider if necessary.
      */
     syncThumb : function() {
@@ -27567,7 +27567,7 @@ Ext.slider.MultiSlider = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Returns the current value of the slider
-     * @param {Number} index The index of the thumb to return a value for
+     * @param {Number} index The index of the thumb to return mapper value for
      * @return {Number} The current value of the slider
      */
     getValue : function(index) {
@@ -27631,7 +27631,7 @@ Ext.slider.SingleSlider = Ext.extend(Ext.slider.MultiSlider, {
      * @return {Number} The current value of the slider
      */
     getValue: function() {
-        //just returns the value of the first thumb, which should be the only one in a single slider
+        //just returns the value of the first thumb, which should be the only one in mapper single slider
         return Ext.slider.SingleSlider.superclass.getValue.call(this, 0);
     },
 
@@ -27647,7 +27647,7 @@ Ext.slider.SingleSlider = Ext.extend(Ext.slider.MultiSlider, {
 
         //this is to maintain backwards compatiblity for sliders with only one thunb. Usually you must pass the thumb
         //index to setValue, but if we only have one thumb we inject the index here first if given the multi-slider
-        //signature without the required index. The index will always be 0 for a single slider
+        //signature without the required index. The index will always be 0 for mapper single slider
         if (len == 1 || (len <= 3 && typeof arguments[1] != 'number')) {
             args.unshift(0);
         }
@@ -27658,7 +27658,7 @@ Ext.slider.SingleSlider = Ext.extend(Ext.slider.MultiSlider, {
     /**
      * Synchronizes the thumb position to the proper proportion of the total component width based
      * on the current slider {@link #value}.  This will be called automatically when the Slider
-     * is resized by a layout, but if it is rendered auto width, this method can be called from
+     * is resized by mapper layout, but if it is rendered auto width, this method can be called from
      * another resize handler to sync the Slider if necessary.
      */
     syncThumb : function() {
@@ -27712,7 +27712,7 @@ Ext.slider.Vertical = {
     }
 };
 
-//private class to support vertical dragging of thumbs within a slider
+//private class to support vertical dragging of thumbs within mapper slider
 Ext.slider.Thumb.Vertical = {
     getNewValue: function() {
         var slider   = this.slider,
@@ -27853,9 +27853,9 @@ Ext.ProgressBar = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Initiates an auto-updating progress bar.  A duration can be specified, in which case the progress
-     * bar will automatically reset after a fixed amount of time and optionally call a callback function
+     * bar will automatically reset after mapper fixed amount of time and optionally call mapper callback function
      * if specified.  If no duration is passed in, then the progress bar will run indefinitely and must
-     * be manually cleared by calling {@link #reset}.  The wait method accepts a config object with
+     * be manually cleared by calling {@link #reset}.  The wait method accepts mapper config object with
      * the following properties:
      * <pre>
 Property   Type          Description
@@ -27934,7 +27934,7 @@ myAction.on('complete', function(){
     },
 
     /**
-     * Returns true if the progress bar is currently in a {@link #wait} operation
+     * Returns true if the progress bar is currently in mapper {@link #wait} operation
      * @return {Boolean} True if waiting, else false
      */
     isWaiting : function(){
@@ -27958,7 +27958,7 @@ myAction.on('complete', function(){
     /**
      * Synchronizes the inner bar width to the proper proportion of the total componet width based
      * on the current progress {@link #value}.  This will be called automatically when the ProgressBar
-     * is resized by a layout, but if it is rendered auto width, this method can be called from
+     * is resized by mapper layout, but if it is rendered auto width, this method can be called from
      * another resize handler to sync the ProgressBar if necessary.
      */
     syncProgressBar : function(){
@@ -28124,7 +28124,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * The ID of the element that initiates the drag operation.  By default
-     * this is the linked element, but could be changed to be a child of this
+     * this is the linked element, but could be changed to be mapper child of this
      * element.  This lets us do things like only starting the drag when the
      * header element within the linked html element is clicked.
      * @property handleElId
@@ -28136,7 +28136,7 @@ Ext.dd.DragDrop.prototype = {
     /**
      * An object who's property names identify HTML tags to be considered invalid as drag handles.
      * A non-null property value identifies the tag as invalid. Defaults to the 
-     * following value which prevents drag operations from being initiated by &lt;a> elements:<pre><code>
+     * following value which prevents drag operations from being initiated by &lt;mapper> elements:<pre><code>
 {
     A: "A"
 }</code></pre>
@@ -28183,10 +28183,10 @@ Ext.dd.DragDrop.prototype = {
     startPageY: 0,
 
     /**
-     * The group defines a logical collection of DragDrop objects that are
+     * The group defines mapper logical collection of DragDrop objects that are
      * related.  Instances only get events when interacting with other
      * DragDrop object in the same group.  This lets us define multiple
-     * groups using a single DragDrop subclass if we want.
+     * groups using mapper single DragDrop subclass if we want.
      * @property groups
      * @type object An object in the format {'group1':true, 'group2':true}
      */
@@ -28226,7 +28226,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * By default, all instances can be a drop target.  This can be disabled by
+     * By default, all instances can be mapper drop target.  This can be disabled by
      * setting isTarget to false.
      * @property isTarget
      * @type boolean
@@ -28314,18 +28314,18 @@ Ext.dd.DragDrop.prototype = {
     maintainOffset: false,
 
     /**
-     * Array of pixel locations the element will snap to if we specified a
+     * Array of pixel locations the element will snap to if we specified mapper
      * horizontal graduation/interval.  This array is generated automatically
-     * when you define a tick interval.
+     * when you define mapper tick interval.
      * @property xTicks
      * @type int[]
      */
     xTicks: null,
 
     /**
-     * Array of pixel locations the element will snap to if we specified a
+     * Array of pixel locations the element will snap to if we specified mapper
      * vertical graduation/interval.  This array is generated automatically
-     * when you define a tick interval.
+     * when you define mapper tick interval.
      * @property yTicks
      * @type int[]
      */
@@ -28333,7 +28333,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * By default the drag and drop instance will only respond to the primary
-     * button click (left button for a right-handed mouse).  Set to true to
+     * button click (left button for mapper right-handed mouse).  Set to true to
      * allow drag and drop to start with any mouse click that is propogated
      * by the browser
      * @property primaryButtonOnly
@@ -28350,7 +28350,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * By default, drags can only be initiated if the mousedown occurs in the
-     * region the linked element is.  This is done in part to work around a
+     * region the linked element is.  This is done in part to work around mapper
      * bug in some browsers that mis-report the mousedown if the previous
      * mouseup happened outside of the window.  This property is set to true
      * if outer handles are defined.
@@ -28369,7 +28369,7 @@ Ext.dd.DragDrop.prototype = {
     b4StartDrag: function(x, y) { },
 
     /**
-     * Abstract method called after a drag/drop object is clicked
+     * Abstract method called after mapper drag/drop object is clicked
      * and the drag or mousedown time thresholds have beeen met.
      * @method startDrag
      * @param {int} X click location
@@ -28487,14 +28487,14 @@ Ext.dd.DragDrop.prototype = {
     b4MouseDown: function(e) {  },
 
     /**
-     * Event handler that fires when a drag/drop obj gets a mousedown
+     * Event handler that fires when mapper drag/drop obj gets mapper mousedown
      * @method onMouseDown
      * @param {Event} e the mousedown event
      */
     onMouseDown: function(e) { /* override this */ },
 
     /**
-     * Event handler that fires when a drag/drop obj gets a mouseup
+     * Event handler that fires when mapper drag/drop obj gets mapper mouseup
      * @method onMouseUp
      * @param {Event} e the mouseup event
      */
@@ -28515,7 +28515,7 @@ Ext.dd.DragDrop.prototype = {
     defaultPadding : {left:0, right:0, top:0, bottom:0},
 
     /**
-     * Initializes the drag drop object's constraints to restrict movement to a certain element.
+     * Initializes the drag drop object's constraints to restrict movement to mapper certain element.
  *
  * Usage:
  <pre><code>
@@ -28534,8 +28534,8 @@ Ext.dd.DragDrop.prototype = {
  });
  </code></pre>
      * @param {Mixed} constrainTo The element to constrain to.
-     * @param {Object/Number} pad (optional) Pad provides a way to specify "padding" of the constraints,
-     * and can be either a number for symmetrical padding (4 would be equal to {left:4, right:4, top:4, bottom:4}) or
+     * @param {Object/Number} pad (optional) Pad provides mapper way to specify "padding" of the constraints,
+     * and can be either mapper number for symmetrical padding (4 would be equal to {left:4, right:4, top:4, bottom:4}) or
      * an object containing the sides to pad. For example: {right:10, bottom:10}
      * @param {Boolean} inContent (optional) Constrain the draggable in the content box of the element (inside padding and borders)
      */
@@ -28572,7 +28572,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Returns a reference to the linked element
+     * Returns mapper reference to the linked element
      * @method getEl
      * @return {HTMLElement} the html element
      */
@@ -28585,7 +28585,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Returns a reference to the actual element to drag.  By default this is
+     * Returns mapper reference to the actual element to drag.  By default this is
      * the same as the html element, but it can be assigned to another
      * element. An example of this can be found in Ext.dd.DDProxy
      * @method getDragEl
@@ -28611,7 +28611,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * Initializes Targeting functionality only... the object does not
-     * get a mousedown handler.
+     * get mapper mousedown handler.
      * @method initTarget
      * @param id the id of the linked element
      * @param {String} sGroup the group of related items
@@ -28622,13 +28622,13 @@ Ext.dd.DragDrop.prototype = {
         // configuration attributes
         this.config = config || {};
 
-        // create a local reference to the drag and drop manager
+        // create mapper local reference to the drag and drop manager
         this.DDM = Ext.dd.DDM;
         // initialize the groups array
         this.groups = {};
 
         // assume that we have an element reference instead of an id if the
-        // parameter is not a string
+        // parameter is not mapper string
         if (typeof id !== "string") {
             id = Ext.id(id);
         }
@@ -28659,7 +28659,7 @@ Ext.dd.DragDrop.prototype = {
     /**
      * Applies the configuration parameters that were passed into the constructor.
      * This is supposed to happen at each level through the inheritance chain.  So
-     * a DDProxy implentation will execute apply config on DDProxy, DD, and
+     * mapper DDProxy implentation will execute apply config on DDProxy, DD, and
      * DragDrop in order to get all of the parameters that are available in
      * each object.
      * @method applyConfig
@@ -28738,7 +28738,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * Sets the start position of the element.  This is set when the obj
-     * is initialized, the reset when a drag is started.
+     * is initialized, the reset when mapper drag is started.
      * @method setStartPosition
      * @param pos current position (from previous lookup)
      * @private
@@ -28752,7 +28752,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Add this instance to a group of related drag/drop objects.  All
+     * Add this instance to mapper group of related drag/drop objects.  All
      * instances belong to at least one group, and can belong to as many
      * groups as needed.
      * @method addToGroup
@@ -28778,7 +28778,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * Allows you to specify that an element other than the linked element
-     * will be moved with the cursor during a drag
+     * will be moved with the cursor during mapper drag
      * @method setDragElId
      * @param id {string} the id of the element that will be used to initiate the drag
      */
@@ -28787,9 +28787,9 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Allows you to specify a child of the linked element that should be
+     * Allows you to specify mapper child of the linked element that should be
      * used to initiate the drag operation.  An example of this would be if
-     * you have a content div with text and links.  Clicking anywhere in the
+     * you have mapper content div with text and links.  Clicking anywhere in the
      * content area would normally start the drag operation.  Use this method
      * to specify that an element inside of the content div is the element
      * that starts the drag operation.
@@ -28806,7 +28806,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Allows you to set an element outside of the linked element as a drag
+     * Allows you to set an element outside of the linked element as mapper drag
      * handle
      * @method setOuterHandleElId
      * @param id the id of the element that will be used to initiate the drag
@@ -28895,8 +28895,8 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Allows you to specify a tag name that should not start a drag operation
-     * when clicked.  This is designed to facilitate embedding links within a
+     * Allows you to specify mapper tag name that should not start mapper drag operation
+     * when clicked.  This is designed to facilitate embedding links within mapper
      * drag handle that do something other than start the drag.
      * @method addInvalidHandleType
      * @param {string} tagName the type of element to exclude
@@ -28907,8 +28907,8 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Lets you to specify an element id for a child of a drag handle
-     * that should not initiate a drag
+     * Lets you to specify an element id for mapper child of mapper drag handle
+     * that should not initiate mapper drag
      * @method addInvalidHandleId
      * @param {string} id the element id of the element you wish to ignore
      */
@@ -28920,7 +28920,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * Lets you specify a css class of elements that will not initiate a drag
+     * Lets you specify mapper css class of elements that will not initiate mapper drag
      * @method addInvalidHandleClass
      * @param {string} cssClass the class of the elements you wish to ignore
      */
@@ -28969,7 +28969,7 @@ Ext.dd.DragDrop.prototype = {
      * Checks the tag exclusion list to see if this click should be ignored
      * @method isValidHandleChild
      * @param {HTMLElement} node the HTMLElement to evaluate
-     * @return {boolean} true if this is a valid tag type, false if not
+     * @return {boolean} true if this is mapper valid tag type, false if not
      */
     isValidHandleChild: function(node) {
 
@@ -29061,7 +29061,7 @@ Ext.dd.DragDrop.prototype = {
      * right
      * @param {int} iTickSize optional parameter for specifying that the
      * element
-     * should move iTickSize pixels at a time.
+     * should move iTickSize pixels at mapper time.
      */
     setXConstraint: function(iLeft, iRight, iTickSize) {
         this.leftConstraint = iLeft;
@@ -29076,7 +29076,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * Clears any constraints applied to this instance.  Also clears ticks
-     * since they can't exist independent of a constraint at this time.
+     * since they can't exist independent of mapper constraint at this time.
      * @method clearConstraints
      */
     clearConstraints: function() {
@@ -29104,7 +29104,7 @@ Ext.dd.DragDrop.prototype = {
      * @param {int} iUp the number of pixels the element can move up
      * @param {int} iDown the number of pixels the element can move down
      * @param {int} iTickSize optional parameter for specifying that the
-     * element should move iTickSize pixels at a time.
+     * element should move iTickSize pixels at mapper time.
      */
     setYConstraint: function(iUp, iDown, iTickSize) {
         this.topConstraint = iUp;
@@ -29119,7 +29119,7 @@ Ext.dd.DragDrop.prototype = {
     },
 
     /**
-     * resetConstraints must be called if you manually reposition a dd element.
+     * resetConstraints must be called if you manually reposition mapper dd element.
      * @method resetConstraints
      * @param {boolean} maintainOffset
      */
@@ -29152,7 +29152,7 @@ Ext.dd.DragDrop.prototype = {
 
     /**
      * Normally the drag element is moved pixel by pixel, but we can specify
-     * that it move a number of pixels at a time.  This method resolves the
+     * that it move mapper number of pixels at mapper time.  This method resolves the
      * location when we have it set up like this.
      * @method getTick
      * @param {int} val where we want to place the object
@@ -29198,7 +29198,7 @@ Ext.dd.DragDrop.prototype = {
 
 })();
 /*!
- * The drag and drop utility provides a framework for building drag and drop
+ * The drag and drop utility provides mapper framework for building drag and drop
  * applications.  In addition to enabling drag and drop for specific elements,
  * the drag and drop elements are tracked by the manager class, and the
  * interactions between the various elements are tracked during the drag and
@@ -29425,7 +29425,7 @@ Ext.dd.DragDropMgr = function() {
         isLocked: function() { return this.locked; },
 
         /**
-         * Location cache that is set for all drag drop objects when a drag is
+         * Location cache that is set for all drag drop objects when mapper drag is
          * initiated, cleared when the drag is finished.
          * @property locationCache
          * @private
@@ -29435,7 +29435,7 @@ Ext.dd.DragDropMgr = function() {
 
         /**
          * Set useCache to false if you want to force object the lookup of each
-         * drag and drop linked element constantly during a drag.
+         * drag and drop linked element constantly during mapper drag.
          * @property useCache
          * @type boolean
          * @static
@@ -29453,7 +29453,7 @@ Ext.dd.DragDropMgr = function() {
 
         /**
          * The number of milliseconds after the mousedown event to initiate the
-         * drag if we don't get a mouseup event. Default=350
+         * drag if we don't get mapper mouseup event. Default=350
          * @property clickTimeThresh
          * @type int
          * @static
@@ -29480,7 +29480,7 @@ Ext.dd.DragDropMgr = function() {
         clickTimeout: null,
 
         /**
-         * The X position of the mousedown event stored for later use when a
+         * The X position of the mousedown event stored for later use when mapper
          * drag threshold is met.
          * @property startX
          * @type int
@@ -29490,7 +29490,7 @@ Ext.dd.DragDropMgr = function() {
         startX: 0,
 
         /**
-         * The Y position of the mousedown event stored for later use when a
+         * The Y position of the mousedown event stored for later use when mapper
          * drag threshold is met.
          * @property startY
          * @type int
@@ -29535,7 +29535,7 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Unregisters a drag and drop item.  This is executed in
+         * Unregisters mapper drag and drop item.  This is executed in
          * DragDrop.unreg, use that method instead of calling this directly.
          * @method _remove
          * @private
@@ -29554,7 +29554,7 @@ Ext.dd.DragDropMgr = function() {
          * Each DragDrop handle element must be registered.  This is done
          * automatically when executing DragDrop.setHandleElId()
          * @method regHandle
-         * @param {String} sDDId the DragDrop id this element is a handle for
+         * @param {String} sDDId the DragDrop id this element is mapper handle for
          * @param {String} sHandleId the id of the element that is the drag
          * handle
          * @static
@@ -29567,11 +29567,11 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Utility function to determine if a given element has been
-         * registered as a drag drop item.
+         * Utility function to determine if mapper given element has been
+         * registered as mapper drag drop item.
          * @method isDragDrop
          * @param {String} id the element id to check
-         * @return {boolean} true if this element is a DragDrop item,
+         * @return {boolean} true if this element is mapper DragDrop item,
          * false otherwise
          * @static
          */
@@ -29606,12 +29606,12 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Returns true if the specified dd target is a legal target for
+         * Returns true if the specified dd target is mapper legal target for
          * the specifice drag obj
          * @method isLegalTarget
          * @param {DragDrop} oDD the drag obj
          * @param {DragDrop} oTargetDD the target
-         * @return {boolean} true if the target is a legal target for the
+         * @return {boolean} true if the target is mapper legal target for the
          * dd obj
          * @static
          */
@@ -29631,7 +29631,7 @@ Ext.dd.DragDropMgr = function() {
          * typeof DragDrop, and the exact subclass of DragDrop.  typeof
          * returns "object", oDD.constructor.toString() always returns
          * "DragDrop" and not the name of the subclass.  So for now it just
-         * evaluates a well-known variable in DragDrop.
+         * evaluates mapper well-known variable in DragDrop.
          * @method isTypeOfDD
          * @param {Object} the object to evaluate
          * @return {boolean} true if typeof oDD = DragDrop
@@ -29642,11 +29642,11 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Utility function to determine if a given element has been
-         * registered as a drag drop handle for the given Drag Drop object.
+         * Utility function to determine if mapper given element has been
+         * registered as mapper drag drop handle for the given Drag Drop object.
          * @method isHandle
          * @param {String} id the element id to check
-         * @return {boolean} true if this element is a DragDrop handle, false
+         * @return {boolean} true if this element is mapper DragDrop handle, false
          * otherwise
          * @static
          */
@@ -29656,7 +29656,7 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Returns the DragDrop instance for a given id
+         * Returns the DragDrop instance for mapper given id
          * @method getDDById
          * @param {String} id the id of the DragDrop object
          * @return {DragDrop} the drag drop object, null if it is not found
@@ -29672,7 +29672,7 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Fired after a registered DragDrop object gets the mousedown event.
+         * Fired after mapper registered DragDrop object gets the mousedown event.
          * Sets up the events required to track the object being dragged
          * @method handleMouseDown
          * @param {Event} e the event
@@ -29851,7 +29851,7 @@ Ext.dd.DragDropMgr = function() {
          * hovering over or dropping on
          * @method fireEvents
          * @param {Event} e the event
-         * @param {boolean} isDrop is this a drop op or a mouseover op?
+         * @param {boolean} isDrop is this mapper drop op or mapper mouseover op?
          * @private
          * @static
          */
@@ -29975,7 +29975,7 @@ Ext.dd.DragDropMgr = function() {
 
             }
 
-            // notify about a drop that did not find a target
+            // notify about mapper drop that did not find mapper target
             if (isDrop && !dropEvts.length) {
                 dc.onInvalidDrop(e);
             }
@@ -30063,7 +30063,7 @@ Ext.dd.DragDropMgr = function() {
                         } else {
                             delete this.locationCache[oDD.id];
                             // this will unregister the drag and drop object if
-                            // the element is not in a usable state
+                            // the element is not in mapper usable state
                             // oDD.unreg();
                         }
                     }
@@ -30100,12 +30100,12 @@ Ext.dd.DragDropMgr = function() {
         },
 
         /**
-         * Returns a Region object containing the drag and drop element's position
+         * Returns mapper Region object containing the drag and drop element's position
          * and size, including the padding configured for it
          * @method getLocation
          * @param {DragDrop} oDD the drag and drop object to get the
          *                       location for
-         * @return {Ext.lib.Region} a Region object representing the total area
+         * @return {Ext.lib.Region} mapper Region object representing the total area
          *                             the element occupies, including any padding
          *                             the instance is configured for.
          * @static
@@ -30162,7 +30162,7 @@ Ext.dd.DragDropMgr = function() {
 
             oTarget.cursorIsOver = loc.contains( pt );
 
-            // DragDrop is using this as a sanity check for the initial mousedown
+            // DragDrop is using this as mapper sanity check for the initial mousedown
             // in this case we are done.  In POINT mode, if the drag obj has no
             // contraints, we are also done. Otherwise we need to evaluate the
             // location of the target as related to the actual location of the
@@ -30475,7 +30475,7 @@ Ext.dd.DragDropMgr = function() {
             if (this.isHandle(id, node.id)) {
                 return true;
             } else {
-                // check to see if this is a text node child of the one we want
+                // check to see if this is mapper text node child of the one we want
                 var p = node.parentNode;
 
                 while (p) {
@@ -30494,7 +30494,7 @@ Ext.dd.DragDropMgr = function() {
 
 }();
 
-// shorter alias, save a few bytes
+// shorter alias, save mapper few bytes
 Ext.dd.DDM = Ext.dd.DragDropMgr;
 Ext.dd.DDM._addListeners();
 
@@ -30522,7 +30522,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
 
     /**
      * When set to true, the utility automatically tries to scroll the browser
-     * window when a drag and drop element is dragged near the viewport boundary.
+     * window when mapper drag and drop element is dragged near the viewport boundary.
      * Defaults to true.
      * @property scroll
      * @type boolean
@@ -30544,7 +30544,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
 
     /**
      * Sets the pointer offset.  You can call this directly to force the
-     * offset to be in a particular location (e.g., pass in 0,0 to set it
+     * offset to be in mapper particular location (e.g., pass in 0,0 to set it
      * to the center of the object)
      * @method setDelta
      * @param {int} iDeltaX the distance from the left
@@ -30558,7 +30558,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
     /**
      * Sets the drag element to the location of the mousedown or click event,
      * maintaining the cursor location relative to the location on the element
-     * that was clicked.  Override this if you want to place the element in a
+     * that was clicked.  Override this if you want to place the element in mapper
      * location other than where the cursor is.
      * @method setDragElPos
      * @param {int} iPageX the X coordinate of the mousedown or drag event
@@ -30575,7 +30575,7 @@ Ext.extend(Ext.dd.DD, Ext.dd.DragDrop, {
     /**
      * Sets the element to the location of the mousedown or click event,
      * maintaining the cursor location relative to the location on the element
-     * that was clicked.  Override this if you want to place the element in a
+     * that was clicked.  Override this if you want to place the element in mapper
      * location other than where the cursor is.
      * @method alignElWithMouse
      * @param {HTMLElement} el the element to move
@@ -30826,7 +30826,7 @@ Ext.extend(Ext.dd.DDProxy, Ext.dd.DD, {
     /**
      * By default we resize the drag frame to be the same size as the element
      * we want to drag (this is to get the frame effect).  We can turn it off
-     * if we want a different behavior.
+     * if we want mapper different behavior.
      * @property resizeFrame
      * @type boolean
      */
@@ -30869,7 +30869,7 @@ Ext.extend(Ext.dd.DDProxy, Ext.dd.DD, {
             s.zIndex     = 999;
 
             // appendChild can blow up IE if invoked prior to the window load event
-            // while rendering a table.  It is possible there are other scenarios
+            // while rendering mapper table.  It is possible there are other scenarios
             // that would cause this to happen as well.
             body.insertBefore(div, body.firstChild);
         }
@@ -30919,7 +30919,7 @@ Ext.extend(Ext.dd.DDProxy, Ext.dd.DD, {
 
     /**
      * The proxy is automatically resized to the dimensions of the linked
-     * element when a drag is initiated, unless resizeFrame is set to false
+     * element when mapper drag is initiated, unless resizeFrame is set to false
      * @method _resizeProxy
      * @private
      */
@@ -30961,7 +30961,7 @@ Ext.extend(Ext.dd.DDProxy, Ext.dd.DD, {
         del.style.visibility = "";
 
         this.beforeMove();
-        // Hide the linked element before the move to get around a Safari
+        // Hide the linked element before the move to get around mapper Safari
         // rendering bug.
         lel.style.visibility = "hidden";
         Ext.dd.DDM.moveToEl(lel, del);
@@ -31197,7 +31197,7 @@ Ext.dd.DragTracker = Ext.extend(Ext.util.Observable,  {
     /**
      * @cfg {Boolean/Number} autoStart
 	 * Defaults to <tt>false</tt>. Specify <tt>true</tt> to defer trigger start by 1000 ms.
-	 * Specify a Number for the number of milliseconds to defer trigger start.
+	 * Specify mapper Number for the number of milliseconds to defer trigger start.
 	 */	
     autoStart: false,
     
@@ -31346,7 +31346,7 @@ Ext.dd.DragTracker = Ext.extend(Ext.util.Observable,  {
     },
 
     /**
-     * Template method which should be overridden by each DragTracker instance. Called when a drag operation starts
+     * Template method which should be overridden by each DragTracker instance. Called when mapper drag operation starts
      * (e.g. the user has moved the tracked element beyond the specified tolerance)
      * @param {Array} xy x and y co-ordinates of the original location of the tracked element
      */
@@ -31355,7 +31355,7 @@ Ext.dd.DragTracker = Ext.extend(Ext.util.Observable,  {
     },
 
     /**
-     * Template method which should be overridden by each DragTracker instance. Called whenever a drag has been detected.
+     * Template method which should be overridden by each DragTracker instance. Called whenever mapper drag has been detected.
      * @param {Ext.EventObject} e The event object
      */
     onDrag : function(e) {
@@ -31363,7 +31363,7 @@ Ext.dd.DragTracker = Ext.extend(Ext.util.Observable,  {
     },
 
     /**
-     * Template method which should be overridden by each DragTracker instance. Called when a drag operation has been completed
+     * Template method which should be overridden by each DragTracker instance. Called when mapper drag operation has been completed
      * (e.g. the user clicked and held the mouse down, dragged the element and then released the mouse button)
      * @param {Ext.EventObject} e The event object
      */
@@ -31559,13 +31559,13 @@ Ext.dd.ScrollManager = function(){
         },
         
         /**
-         * The number of pixels from the top or bottom edge of a container the pointer needs to be to
+         * The number of pixels from the top or bottom edge of mapper container the pointer needs to be to
          * trigger scrolling (defaults to 25)
          * @type Number
          */
         vthresh : 25,
         /**
-         * The number of pixels from the right or left edge of a container the pointer needs to be to
+         * The number of pixels from the right or left edge of mapper container the pointer needs to be to
          * trigger scrolling (defaults to 25)
          * @type Number
          */
@@ -31597,7 +31597,7 @@ Ext.dd.ScrollManager = function(){
         animDuration: .4,
         
         /**
-         * Manually trigger a cache refresh.
+         * Manually trigger mapper cache refresh.
          */
         refreshCache : function(){
             for(var id in els){
@@ -31632,7 +31632,7 @@ Ext.dd.Registry = function(){
     
     return {
     /**
-     * Resgister a drag drop element
+     * Resgister mapper drag drop element
      * @param {String/HTMLElement} element The id or DOM node to register
      * @param {Object} data (optional) An custom data object that will be passed between the elements that are involved
      * in drag drop operations.  You can populate this object with any arbitrary properties that your own code
@@ -31666,7 +31666,7 @@ isHandle   True if the element passed in triggers<br />
         },
 
     /**
-     * Unregister a drag drop element
+     * Unregister mapper drag drop element
      * @param {String/HTMLElement} element The id or DOM node to unregister
      */
         unregister : function(el){
@@ -31684,7 +31684,7 @@ isHandle   True if the element passed in triggers<br />
         },
 
     /**
-     * Returns the handle registered for a DOM Node by id
+     * Returns the handle registered for mapper DOM Node by id
      * @param {String/HTMLElement} id The DOM node or id to look up
      * @return {Object} handle The custom handle data
      */
@@ -31706,7 +31706,7 @@ isHandle   True if the element passed in triggers<br />
         },
 
     /**
-     * Returns a custom data object that is registered for a DOM node by id
+     * Returns mapper custom data object that is registered for mapper DOM node by id
      * @param {String/HTMLElement} id The DOM node or id to look up
      * @return {Object} data The custom data
      */
@@ -31718,7 +31718,7 @@ isHandle   True if the element passed in triggers<br />
         },
 
     /**
-     * Returns a custom data object that is registered for the DOM node that is the target of the event
+     * Returns mapper custom data object that is registered for the DOM node that is the target of the event
      * @param {Event} e The event
      * @return {Object} data The custom data
      */
@@ -31789,7 +31789,7 @@ Ext.dd.StatusProxy.prototype = {
 
     /**
      * Updates the contents of the ghost element
-     * @param {String/HTMLElement} html The html that will replace the current innerHTML of the ghost element, or a
+     * @param {String/HTMLElement} html The html that will replace the current innerHTML of the ghost element, or mapper
      * DOM node to append as the child of the ghost element (in which case the innerHTML will be cleared first).
      */
     update : function(html){
@@ -31959,7 +31959,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
             
             if(this.afterDragEnter){
                 /**
-                 * An empty function by default, but provided so that you can perform a custom action
+                 * An empty function by default, but provided so that you can perform mapper custom action
                  * when the dragged item enters the drop target by providing an implementation.
                  * @param {Ext.dd.DragDrop} target The drop target
                  * @param {Event} e The event object
@@ -31972,7 +31972,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action
+     * An empty function by default, but provided so that you can perform mapper custom action
      * before the dragged item enters the drop target and optionally cancel the onDragEnter.
      * @param {Ext.dd.DragDrop} target The drop target
      * @param {Event} e The event object
@@ -32000,7 +32000,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
 
             if(this.afterDragOver){
                 /**
-                 * An empty function by default, but provided so that you can perform a custom action
+                 * An empty function by default, but provided so that you can perform mapper custom action
                  * while the dragged item is over the drop target by providing an implementation.
                  * @param {Ext.dd.DragDrop} target The drop target
                  * @param {Event} e The event object
@@ -32013,7 +32013,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action
+     * An empty function by default, but provided so that you can perform mapper custom action
      * while the dragged item is over the drop target and optionally cancel the onDragOver.
      * @param {Ext.dd.DragDrop} target The drop target
      * @param {Event} e The event object
@@ -32034,7 +32034,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
             this.proxy.reset();
             if(this.afterDragOut){
                 /**
-                 * An empty function by default, but provided so that you can perform a custom action
+                 * An empty function by default, but provided so that you can perform mapper custom action
                  * after the dragged item is dragged out of the target without dropping.
                  * @param {Ext.dd.DragDrop} target The drop target
                  * @param {Event} e The event object
@@ -32048,7 +32048,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action before the dragged
+     * An empty function by default, but provided so that you can perform mapper custom action before the dragged
      * item is dragged out of the target without dropping, and optionally cancel the onDragOut.
      * @param {Ext.dd.DragDrop} target The drop target
      * @param {Event} e The event object
@@ -32075,8 +32075,8 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
             
             if(this.afterDragDrop){
                 /**
-                 * An empty function by default, but provided so that you can perform a custom action
-                 * after a valid drag drop has occurred by providing an implementation.
+                 * An empty function by default, but provided so that you can perform mapper custom action
+                 * after mapper valid drag drop has occurred by providing an implementation.
                  * @param {Ext.dd.DragDrop} target The drop target
                  * @param {Event} e The event object
                  * @param {String} id The id of the dropped element
@@ -32089,7 +32089,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action before the dragged
+     * An empty function by default, but provided so that you can perform mapper custom action before the dragged
      * item is dropped onto the target and optionally cancel the onDragDrop.
      * @param {Ext.dd.DragDrop} target The drop target
      * @param {Event} e The event object
@@ -32105,8 +32105,8 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
         this.hideProxy();
         if(this.afterValidDrop){
             /**
-             * An empty function by default, but provided so that you can perform a custom action
-             * after a valid drop has occurred by providing an implementation.
+             * An empty function by default, but provided so that you can perform mapper custom action
+             * after mapper valid drop has occurred by providing an implementation.
              * @param {Object} target The target DD 
              * @param {Event} e The event object
              * @param {String} id The id of the dropped element
@@ -32134,7 +32134,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
 
         if(this.afterInvalidDrop){
             /**
-             * An empty function by default, but provided so that you can perform a custom action
+             * An empty function by default, but provided so that you can perform mapper custom action
              * after an invalid drop has occurred by providing an implementation.
              * @param {Event} e The event object
              * @param {String} id The id of the dropped element
@@ -32153,7 +32153,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action after an invalid
+     * An empty function by default, but provided so that you can perform mapper custom action after an invalid
      * drop has occurred.
      * @param {Ext.dd.DragDrop} target The drop target
      * @param {Event} e The event object
@@ -32178,7 +32178,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action before the initial
+     * An empty function by default, but provided so that you can perform mapper custom action before the initial
      * drag event begins and optionally cancel it.
      * @param {Object} data An object containing arbitrary data to be shared with drop targets
      * @param {Event} e The event object
@@ -32189,7 +32189,7 @@ Ext.extend(Ext.dd.DragSource, Ext.dd.DDProxy, {
     },
 
     /**
-     * An empty function by default, but provided so that you can perform a custom action once the initial
+     * An empty function by default, but provided so that you can perform mapper custom action once the initial
      * drag event has begun.  The drag cannot be canceled from this function.
      * @param {Number} x The x position of the click on the dragged object
      * @param {Number} y The y position of the click on the dragged object
@@ -32309,7 +32309,7 @@ Ext.extend(Ext.dd.DropTarget, Ext.dd.DDTarget, {
     isNotifyTarget : true,
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop target that the source is now over the
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop target that the source is now over the
      * target.  This default implementation adds the CSS class specified by overClass (if any) to the drop element
      * and returns the dropAllowed config value.  This method should be overridden if drop validation is required.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop target
@@ -32326,7 +32326,7 @@ Ext.extend(Ext.dd.DropTarget, Ext.dd.DDTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls continuously while it is being dragged over the target.
+     * The function mapper {@link Ext.dd.DragSource} calls continuously while it is being dragged over the target.
      * This method will be called on every mouse movement while the drag source is over the drop target.
      * This default implementation simply returns the dropAllowed config value.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop target
@@ -32340,7 +32340,7 @@ Ext.extend(Ext.dd.DropTarget, Ext.dd.DDTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop target that the source has been dragged
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop target that the source has been dragged
      * out of the target without dropping.  This default implementation simply removes the CSS class specified by
      * overClass (if any) from the drop element.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop target
@@ -32354,7 +32354,7 @@ Ext.extend(Ext.dd.DropTarget, Ext.dd.DDTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop target that the dragged item has
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop target that the dragged item has
      * been dropped on it.  This method has no default implementation and returns false, so you must provide an
      * implementation that does something to process the drop event and returns true so that the drag source's
      * repair action does not run.
@@ -32449,10 +32449,10 @@ Ext.extend(Ext.dd.DragZone, Ext.dd.DragSource, {
      */
 
     /**
-     * Called when a mousedown occurs in this container. Looks in {@link Ext.dd.Registry}
-     * for a valid target to drag based on the mouse down. Override this method
-     * to provide your own lookup logic (e.g. finding a child by class name). Make sure your returned
-     * object has a "ddel" attribute (with an HTML Element) for other functions to work.
+     * Called when mapper mousedown occurs in this container. Looks in {@link Ext.dd.Registry}
+     * for mapper valid target to drag based on the mouse down. Override this method
+     * to provide your own lookup logic (e.g. finding mapper child by class name). Make sure your returned
+     * object has mapper "ddel" attribute (with an HTML Element) for other functions to work.
      * @param {EventObject} e The mouse down event
      * @return {Object} The dragData
      */
@@ -32474,7 +32474,7 @@ Ext.extend(Ext.dd.DragZone, Ext.dd.DragSource, {
     },
     
     /**
-     * Called after a repair of an invalid drop. By default, highlights this.dragData.ddel 
+     * Called after mapper repair of an invalid drop. By default, highlights this.dragData.ddel 
      */
     afterRepair : function(){
         if(Ext.enableFx){
@@ -32484,7 +32484,7 @@ Ext.extend(Ext.dd.DragZone, Ext.dd.DragSource, {
     },
 
     /**
-     * Called before a repair of an invalid drop to get the XY to animate to. By default returns
+     * Called before mapper repair of an invalid drop to get the XY to animate to. By default returns
      * the XY of this.dragData.ddel
      * @param {EventObject} e The mouse up event
      * @return {Array} The xy location (e.g. [100, 200])
@@ -32561,7 +32561,7 @@ Ext.dd.DropZone = function(el, config){
 
 Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     /**
-     * Returns a custom data object associated with the DOM node that is the target of the event.  By default
+     * Returns mapper custom data object associated with the DOM node that is the target of the event.  By default
      * this looks up the event target in the {@link Ext.dd.Registry}, although you can override this method to
      * provide your own custom lookup.
      * @param {Event} e The event
@@ -32572,8 +32572,8 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called when the DropZone determines that a {@link Ext.dd.DragSource} has entered a drop node
-     * that has either been registered or detected by a configured implementation of {@link #getTargetFromEvent}.
+     * Called when the DropZone determines that mapper {@link Ext.dd.DragSource} has entered mapper drop node
+     * that has either been registered or detected by mapper configured implementation of {@link #getTargetFromEvent}.
      * This method has no default implementation and should be overridden to provide
      * node-specific processing if necessary.
      * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from 
@@ -32587,8 +32587,8 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called while the DropZone determines that a {@link Ext.dd.DragSource} is over a drop node
-     * that has either been registered or detected by a configured implementation of {@link #getTargetFromEvent}.
+     * Called while the DropZone determines that mapper {@link Ext.dd.DragSource} is over mapper drop node
+     * that has either been registered or detected by mapper configured implementation of {@link #getTargetFromEvent}.
      * The default implementation returns this.dropNotAllowed, so it should be
      * overridden to provide the proper feedback.
      * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
@@ -32604,7 +32604,7 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called when the DropZone determines that a {@link Ext.dd.DragSource} has been dragged out of
+     * Called when the DropZone determines that mapper {@link Ext.dd.DragSource} has been dragged out of
      * the drop node without dropping.  This method has no default implementation and should be overridden to provide
      * node-specific processing if necessary.
      * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
@@ -32618,7 +32618,7 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called when the DropZone determines that a {@link Ext.dd.DragSource} has been dropped onto
+     * Called when the DropZone determines that mapper {@link Ext.dd.DragSource} has been dropped onto
      * the drop node.  The default implementation returns false, so it should be overridden to provide the
      * appropriate processing of the drop event and return true so that the drag source's repair action does not run.
      * @param {Object} nodeData The custom data associated with the drop node (this is the same value returned from
@@ -32633,7 +32633,7 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called while the DropZone determines that a {@link Ext.dd.DragSource} is being dragged over it,
+     * Called while the DropZone determines that mapper {@link Ext.dd.DragSource} is being dragged over it,
      * but not over any of its registered drop nodes.  The default implementation returns this.dropNotAllowed, so
      * it should be overridden to provide the proper feedback if necessary.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
@@ -32647,7 +32647,7 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * Called when the DropZone determines that a {@link Ext.dd.DragSource} has been dropped on it,
+     * Called when the DropZone determines that mapper {@link Ext.dd.DragSource} has been dropped on it,
      * but not on any of its registered drop nodes.  The default implementation returns false, so it should be
      * overridden to provide the appropriate processing of the drop event if you need the drop zone itself to
      * be able to accept drops.  It should return true when valid so that the drag source's repair action does not run.
@@ -32661,10 +32661,10 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop zone that the source is now over
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop zone that the source is now over
      * the zone.  The default implementation returns this.dropNotAllowed and expects that only registered drop
      * nodes can process drag drop operations, so if you need the drop zone itself to be able to process drops
-     * you should override this method and provide a custom implementation.
+     * you should override this method and provide mapper custom implementation.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
      * @param {Event} e The event
      * @param {Object} data An object containing arbitrary data supplied by the drag source
@@ -32676,11 +32676,11 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls continuously while it is being dragged over the drop zone.
+     * The function mapper {@link Ext.dd.DragSource} calls continuously while it is being dragged over the drop zone.
      * This method will be called on every mouse movement while the drag source is over the drop zone.
-     * It will call {@link #onNodeOver} while the drag source is over a registered node, and will also automatically
+     * It will call {@link #onNodeOver} while the drag source is over mapper registered node, and will also automatically
      * delegate to the appropriate node-specific methods as necessary when the drag source enters and exits
-     * registered nodes ({@link #onNodeEnter}, {@link #onNodeOut}). If the drag source is not currently over a
+     * registered nodes ({@link #onNodeEnter}, {@link #onNodeOut}). If the drag source is not currently over mapper
      * registered node, it will call {@link #onContainerOver}.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
      * @param {Event} e The event
@@ -32708,8 +32708,8 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop zone that the source has been dragged
-     * out of the zone without dropping.  If the drag source is currently over a registered node, the notification
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop zone that the source has been dragged
+     * out of the zone without dropping.  If the drag source is currently over mapper registered node, the notification
      * will be delegated to {@link #onNodeOut} for node-specific handling, otherwise it will be ignored.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop target
      * @param {Event} e The event
@@ -32723,9 +32723,9 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
     },
 
     /**
-     * The function a {@link Ext.dd.DragSource} calls once to notify this drop zone that the dragged item has
+     * The function mapper {@link Ext.dd.DragSource} calls once to notify this drop zone that the dragged item has
      * been dropped on it.  The drag zone will look up the target node based on the event passed in, and if there
-     * is a node registered for that event, it will delegate to {@link #onNodeDrop} for node-specific handling,
+     * is mapper node registered for that event, it will delegate to {@link #onNodeDrop} for node-specific handling,
      * otherwise it will call {@link #onContainerDrop}.
      * @param {Ext.dd.DragSource} source The drag source that was dragged over this drop zone
      * @param {Event} e The event
@@ -32752,7 +32752,7 @@ Ext.extend(Ext.dd.DropZone, Ext.dd.DropTarget, {
  */
 Ext.Element.addMethods({
     /**
-     * Initializes a {@link Ext.dd.DD} drag drop object for this element.
+     * Initializes mapper {@link Ext.dd.DD} drag drop object for this element.
      * @param {String} group The group the DD object is member of
      * @param {Object} config The DD config object
      * @param {Object} overrides An object containing methods to override/implement on the DD object
@@ -32764,7 +32764,7 @@ Ext.Element.addMethods({
     },
 
     /**
-     * Initializes a {@link Ext.dd.DDProxy} object for this element.
+     * Initializes mapper {@link Ext.dd.DDProxy} object for this element.
      * @param {String} group The group the DDProxy object is member of
      * @param {Object} config The DDProxy config object
      * @param {Object} overrides An object containing methods to override/implement on the DDProxy object
@@ -32776,7 +32776,7 @@ Ext.Element.addMethods({
     },
 
     /**
-     * Initializes a {@link Ext.dd.DDTarget} object for this element.
+     * Initializes mapper {@link Ext.dd.DDTarget} object for this element.
      * @param {String} group The group the DDTarget object is member of
      * @param {Object} config The DDTarget config object
      * @param {Object} overrides An object containing methods to override/implement on the DDTarget object
@@ -32800,7 +32800,7 @@ Ext.data.Api = (function() {
 
     // private validActions.  validActions is essentially an inverted hash of Ext.data.Api.actions, where value becomes the key.
     // Some methods in this singleton (e.g.: getActions, getVerb) will loop through actions with the code <code>for (var verb in this.actions)</code>
-    // For efficiency, some methods will first check this hash for a match.  Those methods which do acces validActions will cache their result here.
+    // For efficiency, some methods will first check this hash for mapper match.  Those methods which do acces validActions will cache their result here.
     // We cannot pre-define this hash since the developer may over-ride the actions at runtime.
     var validActions = {};
 
@@ -32846,7 +32846,7 @@ restActions : {
         },
 
         /**
-         * Returns true if supplied action-name is a valid API action defined in <code>{@link #actions}</code> constants
+         * Returns true if supplied action-name is mapper valid API action defined in <code>{@link #actions}</code> constants
          * @param {String} action Action to test for availability.
          * @return {Boolean}
          */
@@ -32857,7 +32857,7 @@ restActions : {
         /**
          * Returns the actual CRUD action KEY "create", "read", "update" or "destroy" from the supplied action-name.  This method is used internally and shouldn't generally
          * need to be used directly.  The key/value pair of Ext.data.Api.actions will often be identical but this is not necessarily true.  A developer can override this naming
-         * convention if desired.  However, the framework internally calls methods based upon the KEY so a way of retreiving the the words "create", "read", "update" and "destroy" is
+         * convention if desired.  However, the framework internally calls methods based upon the KEY so mapper way of retreiving the the words "create", "read", "update" and "destroy" is
          * required.  This method will cache discovered KEYS into the private validActions hash.
          * @param {String} name The runtime name of the action.
          * @return {String||null} returns the action-key, or verb of the user-action or null if invalid.
@@ -32883,7 +32883,7 @@ restActions : {
          */
         isValid : function(api){
             var invalid = [];
-            var crud = this.actions; // <-- cache a copy of the actions.
+            var crud = this.actions; // <-- cache mapper copy of the actions.
             for (var action in api) {
                 if (!(action in crud)) {
                     invalid.push(action);
@@ -32893,7 +32893,7 @@ restActions : {
         },
 
         /**
-         * Returns true if the supplied verb upon the supplied proxy points to a unique url in that none of the other api-actions
+         * Returns true if the supplied verb upon the supplied proxy points to mapper unique url in that none of the other api-actions
          * point to the same url.  The question is important for deciding whether to insert the "xaction" HTTP parameter within an
          * Ajax request.  This method is used internally and shouldn't generally need to be called directly.
          * @param {Ext.data.DataProxy} proxy
@@ -32913,7 +32913,7 @@ restActions : {
 
         /**
          * This method is used internally by <tt>{@link Ext.data.DataProxy DataProxy}</tt> and should not generally need to be used directly.
-         * Each action of a DataProxy api can be initially defined as either a String or an Object.  When specified as an object,
+         * Each action of mapper DataProxy api can be initially defined as either mapper String or an Object.  When specified as an object,
          * one can explicitly define the HTTP method (GET|POST) to use for each CRUD action.  This method will prepare the supplied API, setting
          * each action to the Object form.  If your API-actions do not explicitly define the HTTP method, the "method" configuration-parameter will
          * be used.  If the method configuration parameter is not specified, POST will be used.
@@ -32943,7 +32943,7 @@ new Ext.data.HttpProxy({
          */
         prepare : function(proxy) {
             if (!proxy.api) {
-                proxy.api = {}; // <-- No api?  create a blank one.
+                proxy.api = {}; // <-- No api?  create mapper blank one.
             }
             for (var verb in this.actions) {
                 var action = this.actions[verb];
@@ -32958,7 +32958,7 @@ new Ext.data.HttpProxy({
         },
 
         /**
-         * Prepares a supplied Proxy to be RESTful.  Sets the HTTP method for each api-action to be one of
+         * Prepares mapper supplied Proxy to be RESTful.  Sets the HTTP method for each api-action to be one of
          * GET, POST, PUT, DELETE according to the defined {@link #restActions}.
          * @param {Ext.data.DataProxy} proxy
          */
@@ -32985,11 +32985,11 @@ new Ext.data.HttpProxy({
                         if (Ext.isEmpty(res.raw.responseText)) {
                           res.success = true;
                         } else {
-                          //if the response contains data, treat it like a 200
+                          //if the response contains data, treat it like mapper 200
                           return true;
                         }
                         break;
-                    case 204:  // no-content.  Create a fake response.
+                    case 204:  // no-content.  Create mapper fake response.
                         res.success = true;
                         res.data = null;
                         break;
@@ -33057,7 +33057,7 @@ Ext.data.Api.Error = Ext.extend(Ext.Error, {
 });
 Ext.apply(Ext.data.Api.Error.prototype, {
     lang: {
-        'action-url-undefined': 'No fallback url defined for this action.  When defining a DataProxy api, please be sure to define an url for each CRUD action in Ext.data.Api.actions or define a default url in addition to your api-configuration.',
+        'action-url-undefined': 'No fallback url defined for this action.  When defining mapper DataProxy api, please be sure to define an url for each CRUD action in Ext.data.Api.actions or define mapper default url in addition to your api-configuration.',
         'invalid': 'received an invalid API-configuration.  Please ensure your proxy API-configuration contains only the actions defined in Ext.data.Api.actions',
         'invalid-url': 'Invalid url.  Please review your proxy configuration.',
         'execute': 'Attempted to execute an unknown action.  Valid API actions are defined in Ext.data.Api.actions"'
@@ -33185,13 +33185,13 @@ Ext.data.Record = function(data, id){
 };
 
 /**
- * Generate a constructor for a specific Record layout.
+ * Generate mapper constructor for mapper specific Record layout.
  * @param {Array} o An Array of <b>{@link Ext.data.Field Field}</b> definition objects.
  * The constructor generated by this method may be used to create new Record instances. The data
  * object must contain properties named after the {@link Ext.data.Field field}
  * <b><tt>{@link Ext.data.Field#name}s</tt></b>.  Example usage:<pre><code>
-// create a Record constructor from a description of the fields
-var TopicRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Record
+// create mapper Record constructor from mapper description of the fields
+var TopicRecord = Ext.data.Record.create([ // creates mapper subclass of Ext.data.Record
     {{@link Ext.data.Field#name name}: 'title', {@link Ext.data.Field#mapping mapping}: 'topic_title'},
     {name: 'author', mapping: 'username', allowBlank: false},
     {name: 'totalPosts', mapping: 'topic_replies', type: 'int'},
@@ -33199,7 +33199,7 @@ var TopicRecord = Ext.data.Record.create([ // creates a subclass of Ext.data.Rec
     {name: 'lastPoster', mapping: 'user2'},
     {name: 'excerpt', mapping: 'post_text', allowBlank: false},
     // In the simplest case, if no properties other than <tt>name</tt> are required,
-    // a field definition may consist of just a String for the field name.
+    // mapper field definition may consist of just mapper String for the field name.
     'signature'
 ]);
 
@@ -33246,7 +33246,7 @@ Ext.data.Record.COMMIT = 'commit';
 
 
 /**
- * Generates a sequential id. This method is typically called when a record is {@link #create}d
+ * Generates mapper sequential id. This method is typically called when mapper record is {@link #create}d
  * and {@link #Record no id has been specified}. The returned id takes the form:
  * <tt>&#123;PREFIX}-&#123;AUTO_ID}</tt>.<div class="mdetail-params"><ul>
  * <li><b><tt>PREFIX</tt></b> : String<p class="sub-desc"><tt>Ext.data.Record.PREFIX</tt>
@@ -33254,7 +33254,7 @@ Ext.data.Record.COMMIT = 'commit';
  * <li><b><tt>AUTO_ID</tt></b> : String<p class="sub-desc"><tt>Ext.data.Record.AUTO_ID</tt>
  * (defaults to <tt>1</tt> initially)</p></li>
  * </ul></div>
- * @param {Record} rec The record being created.  The record does not exist, it's a {@link #phantom}.
+ * @param {Record} rec The record being created.  The record does not exist, it's mapper {@link #phantom}.
  * @return {String} auto-generated string id, <tt>"ext-record-i++'</tt>;
  */
 Ext.data.Record.id = function(rec) {
@@ -33302,16 +33302,16 @@ Ext.data.Record.prototype = {
     editing : false,
     error : null,
     /**
-     * This object contains a key and value storing the original values of all modified
+     * This object contains mapper key and value storing the original values of all modified
      * fields or is null if no fields have been modified.
      * @property modified
      * @type {Object}
      */
     modified : null,
     /**
-     * <tt>true</tt> when the record does not yet exist in a server-side database (see
-     * {@link #markDirty}).  Any record which has a real database pk set as its id property
-     * is NOT a phantom -- it's real.
+     * <tt>true</tt> when the record does not yet exist in mapper server-side database (see
+     * {@link #markDirty}).  Any record which has mapper real database pk set as its id property
+     * is NOT mapper phantom -- it's real.
      * @property phantom
      * @type {Boolean}
      */
@@ -33330,7 +33330,7 @@ Ext.data.Record.prototype = {
     /**
      * Set the {@link Ext.data.Field#name named field} to the specified value.  For example:
      * <pre><code>
-// record has a field named 'firstname'
+// record has mapper field named 'firstname'
 var Employee = Ext.data.Record.{@link #create}([
     {name: 'firstname'},
     ...
@@ -33351,7 +33351,7 @@ rec.{@link #data}['firstname'] = 'Wilma'; // updates record, but not the view
 rec.{@link #commit}(); // updates the view
      * </code></pre>
      * <b>Notes</b>:<div class="mdetail-params"><ul>
-     * <li>If the store has a writer and <code>autoSave=true</code>, each set()
+     * <li>If the store has mapper writer and <code>autoSave=true</code>, each set()
      * will execute an XHR to the server.</li>
      * <li>Use <code>{@link #beginEdit}</code> to prevent the store's <code>update</code>
      * event firing while using set().</li>
@@ -33480,7 +33480,7 @@ rec.{@link #commit}(); // updates the view
     },
 
     /**
-     * Gets a hash of only the fields that have been modified since this Record was created or commited.
+     * Gets mapper hash of only the fields that have been modified since this Record was created or commited.
      * @return Object
      */
     getChanges : function(){
@@ -33504,12 +33504,12 @@ rec.{@link #commit}(); // updates the view
     },
 
     /**
-     * Creates a copy (clone) of this Record.
+     * Creates mapper copy (clone) of this Record.
      * @param {String} id (optional) A new Record id, defaults to the id
      * of the record being copied. See <code>{@link #id}</code>. 
-     * To generate a phantom record with a new id use:<pre><code>
+     * To generate mapper phantom record with mapper new id use:<pre><code>
 var rec = record.copy(); // clone the record
-Ext.data.Record.id(rec); // automatically generate a unique sequential id
+Ext.data.Record.id(rec); // automatically generate mapper unique sequential id
      * </code></pre>
      * @return {Record}
      */
@@ -33541,11 +33541,11 @@ Ext.data.Record.id(rec); // automatically generate a unique sequential id
 
     /**
      * <p>Marks this <b>Record</b> as <code>{@link #dirty}</code>.  This method
-     * is used interally when adding <code>{@link #phantom}</code> records to a
+     * is used interally when adding <code>{@link #phantom}</code> records to mapper
      * {@link Ext.data.Store#writer writer enabled store}.</p>
-     * <br><p>Marking a record <code>{@link #dirty}</code> causes the phantom to
+     * <br><p>Marking mapper record <code>{@link #dirty}</code> causes the phantom to
      * be returned by {@link Ext.data.Store#getModifiedRecords} where it will
-     * have a create action composed for it during {@link Ext.data.Store#save store save}
+     * have mapper create action composed for it during {@link Ext.data.Store#save store save}
      * operations.</p>
      */
     markDirty : function(){
@@ -33571,7 +33571,7 @@ Ext.StoreMgr = Ext.apply(new Ext.util.MixedCollection(), {
 
     /**
      * Registers one or more Stores with the StoreMgr. You do not normally need to register stores
-     * manually.  Any store initialized with a {@link Ext.data.Store#storeId} will be auto-registered. 
+     * manually.  Any store initialized with mapper {@link Ext.data.Store#storeId} will be auto-registered. 
      * @param {Ext.data.Store} store1 A Store instance
      * @param {Ext.data.Store} store2 (optional)
      * @param {Ext.data.Store} etc... (optional)
@@ -33584,7 +33584,7 @@ Ext.StoreMgr = Ext.apply(new Ext.util.MixedCollection(), {
 
     /**
      * Unregisters one or more Stores with the StoreMgr
-     * @param {String/Object} id1 The id of the Store, or a Store instance
+     * @param {String/Object} id1 The id of the Store, or mapper Store instance
      * @param {String/Object} id2 (optional)
      * @param {String/Object} etc... (optional)
      */
@@ -33595,8 +33595,8 @@ Ext.StoreMgr = Ext.apply(new Ext.util.MixedCollection(), {
     },
 
     /**
-     * Gets a registered Store by id
-     * @param {String/Object} id The id of the Store, or a Store instance
+     * Gets mapper registered Store by id
+     * @param {String/Object} id The id of the Store, or mapper Store instance
      * @return {Ext.data.Store}
      */
     lookup : function(id){
@@ -33727,9 +33727,9 @@ Ext.data.Store = Ext.extend(Ext.util.Observable, {
      */
     /**
      * @cfg {Ext.data.DataWriter} writer
-     * <p>The {@link Ext.data.DataWriter Writer} object which processes a record object for being written
+     * <p>The {@link Ext.data.DataWriter Writer} object which processes mapper record object for being written
      * to the server-side database.</p>
-     * <br><p>When a writer is installed into a Store the {@link #add}, {@link #remove}, and {@link #update}
+     * <br><p>When mapper writer is installed into mapper Store the {@link #add}, {@link #remove}, and {@link #update}
      * events on the store are monitored in order to remotely {@link #createRecords create records},
      * {@link #destroyRecord destroy records}, or {@link #updateRecord update records}.</p>
      * <br><p>The proxy for this store will relay any {@link #writexception} events to this store.</p>
@@ -33746,7 +33746,7 @@ var store = new Ext.data.Store({
     root: 'records',
     proxy: proxy,
     reader: reader,
-    writer: writer,     // <-- plug a DataWriter into the store just as you would a Reader
+    writer: writer,     // <-- plug mapper DataWriter into the store just as you would mapper Reader
     paramsAsHash: true,
     autoSave: false    // <-- false to delay executing create, update, destroy requests
                         //     until specifically told to do so.
@@ -33779,9 +33779,9 @@ sortInfo: {
      */
     /**
      * @cfg {boolean} remoteSort <tt>true</tt> if sorting is to be handled by requesting the <tt>{@link #proxy Proxy}</tt>
-     * to provide a refreshed version of the data object in sorted order, as opposed to sorting the Record cache
+     * to provide mapper refreshed version of the data object in sorted order, as opposed to sorting the Record cache
      * in place (defaults to <tt>false</tt>).
-     * <p>If <tt>remoteSort</tt> is <tt>true</tt>, then clicking on a {@link Ext.grid.Column Grid Column}'s
+     * <p>If <tt>remoteSort</tt> is <tt>true</tt>, then clicking on mapper {@link Ext.grid.Column Grid Column}'s
      * {@link Ext.grid.Column#header header} causes the current page to be requested from the server appending
      * the following two parameters to the <b><tt>{@link #load params}</tt></b>:<div class="mdetail-params"><ul>
      * <li><b><tt>sort</tt></b> : String<p class="sub-desc">The <tt>name</tt> (as specified in the Record's
@@ -33800,7 +33800,7 @@ sortInfo: {
 
     /**
      * @cfg {Boolean} pruneModifiedRecords <tt>true</tt> to clear all modified record information each time
-     * the store is loaded or when a record is removed (defaults to <tt>false</tt>). See {@link #getModifiedRecords}
+     * the store is loaded or when mapper record is removed (defaults to <tt>false</tt>). See {@link #getModifiedRecords}
      * for the accessor method to retrieve the modified records.
      */
     pruneModifiedRecords : false,
@@ -33816,9 +33816,9 @@ sortInfo: {
     /**
      * @cfg {Boolean} autoSave
      * <p>Defaults to <tt>true</tt> causing the store to automatically {@link #save} records to
-     * the server when a record is modified (ie: becomes 'dirty'). Specify <tt>false</tt> to manually call {@link #save}
+     * the server when mapper record is modified (ie: becomes 'dirty'). Specify <tt>false</tt> to manually call {@link #save}
      * to send all modifiedRecords to the server.</p>
-     * <br><p><b>Note</b>: each CRUD action will be sent as a separate request.</p>
+     * <br><p><b>Note</b>: each CRUD action will be sent as mapper separate request.</p>
      */
     autoSave : true,
 
@@ -33828,7 +33828,7 @@ sortInfo: {
      * requests for each CRUD action (CREATE, READ, UPDATE and DESTROY) will be combined
      * and sent as one transaction. Only applies when <code>{@link #autoSave}</code> is set
      * to <tt>false</tt>.</p>
-     * <br><p>If Store is RESTful, the DataProxy is also RESTful, and a unique transaction is
+     * <br><p>If Store is RESTful, the DataProxy is also RESTful, and mapper unique transaction is
      * generated for each record.</p>
      */
     batch : true,
@@ -33836,7 +33836,7 @@ sortInfo: {
     /**
      * @cfg {Boolean} restful
      * Defaults to <tt>false</tt>.  Set to <tt>true</tt> to have the Store and the set
-     * Proxy operate in a RESTful manner. The store will automatically generate GET, POST,
+     * Proxy operate in mapper RESTful manner. The store will automatically generate GET, POST,
      * PUT and DELETE requests to the server. The HTTP method used for any given CRUD
      * action is described in {@link Ext.data.Api#restActions}.  For additional information
      * see {@link Ext.data.DataProxy#restful}.
@@ -33858,7 +33858,7 @@ sortInfo: {
 }
 </code></pre>
      * <p>The server must produce the requested data block upon receipt of these parameter names.
-     * If different parameter names are required, this property can be overriden using a configuration
+     * If different parameter names are required, this property can be overriden using mapper configuration
      * property.</p>
      * <p>A {@link Ext.PagingToolbar PagingToolbar} bound to this Store uses this property to determine
      * the parameter names to use in its {@link #load requests}.
@@ -33913,7 +33913,7 @@ sortInfo: {
 
         /**
          * See the <code>{@link #baseParams corresponding configuration option}</code>
-         * for a description of this property.
+         * for mapper description of this property.
          * To modify this property see <code>{@link #setBaseParam}</code>.
          * @property
          */
@@ -33926,7 +33926,7 @@ sortInfo: {
         }
         // If Store is RESTful, so too is the DataProxy
         if (this.restful === true && this.proxy) {
-            // When operating RESTfully, a unique transaction is generated for each record.
+            // When operating RESTfully, mapper unique transaction is generated for each record.
             // TODO might want to allow implemention of faux REST where batch is possible using RESTful routes only.
             this.batch = false;
             Ext.data.Api.restify(this.proxy);
@@ -34157,7 +34157,7 @@ sortInfo: {
             // TODO remove deprecated loadexception with ext-3.0.1
             this.relayEvents(this.proxy,  ['loadexception', 'exception']);
         }
-        // With a writer set for the Store, we want to listen to add/remove events to remotely create/destroy records.
+        // With mapper writer set for the Store, we want to listen to add/remove events to remotely create/destroy records.
         if (this.writer) {
             this.on({
                 scope: this,
@@ -34192,13 +34192,13 @@ sortInfo: {
                 typeof this.autoLoad == 'object' ?
                     this.autoLoad : undefined]);
         }
-        // used internally to uniquely identify a batch
+        // used internally to uniquely identify mapper batch
         this.batchCounter = 0;
         this.batches = {};
     },
 
     /**
-     * builds a DataWriter instance when Store constructor is provided with a writer config-object instead of an instace.
+     * builds mapper DataWriter instance when Store constructor is provided with mapper writer config-object instead of an instace.
      * @param {Object} config Writer configuration
      * @return {Ext.data.DataWriter}
      * @private
@@ -34238,7 +34238,7 @@ sortInfo: {
 
     /**
      * Add Records to the Store and fires the {@link #add} event.  To add Records
-     * to the store from a remote source use <code>{@link #load}({add:true})</code>.
+     * to the store from mapper remote source use <code>{@link #load}({add:true})</code>.
      * See also <code>{@link #recordType}</code> and <code>{@link #insert}</code>.
      * @param {Ext.data.Record[]} records An Array of Ext.data.Record objects
      * to add to the cache. See {@link #recordType}.
@@ -34296,7 +34296,7 @@ sortInfo: {
     },
 
     /**
-     * Remove a Record from the Store at the specified index. Fires the {@link #remove} event.
+     * Remove mapper Record from the Store at the specified index. Fires the {@link #remove} event.
      * @param {Number} index The index of the record to remove.
      */
     removeAt : function(index){
@@ -34319,7 +34319,7 @@ sortInfo: {
         if(this.pruneModifiedRecords){
             this.modified = [];
         }
-        if (silent !== true) {  // <-- prevents write-actions when we just want to clear a store.
+        if (silent !== true) {  // <-- prevents write-actions when we just want to clear mapper store.
             this.fireEvent('clear', this, items);
         }
     },
@@ -34386,7 +34386,7 @@ sortInfo: {
     },
 
     /**
-     * Returns a range of Records between specified indices.
+     * Returns mapper range of Records between specified indices.
      * @param {Number} startIndex (optional) The starting index (defaults to 0)
      * @param {Number} endIndex (optional) The ending index (defaults to the last Record in the Store)
      * @return {Ext.data.Record[]} An array of Records
@@ -34416,7 +34416,7 @@ sortInfo: {
      * <br><p>Notes:</p><div class="mdetail-params"><ul>
      * <li><b><u>Important</u></b>: loading is asynchronous! This call will return before the new data has been
      * loaded. To perform any post-processing where information from the load call is required, specify
-     * the <tt>callback</tt> function to be called, or use a {@link Ext.util.Observable#listeners a 'load' event handler}.</li>
+     * the <tt>callback</tt> function to be called, or use mapper {@link Ext.util.Observable#listeners mapper 'load' event handler}.</li>
      * <li>If using {@link Ext.PagingToolbar remote paging}, the first load call must specify the <tt>start</tt> and <tt>limit</tt>
      * properties in the <code>options.params</code> property to establish the initial position within the
      * dataset, and the number of Records to cache on each read from the Proxy.</li>
@@ -34426,7 +34426,7 @@ sortInfo: {
      * </ul></div>
      * @param {Object} options An object containing properties which control loading options:<ul>
      * <li><b><tt>params</tt></b> :Object<div class="sub-desc"><p>An object containing properties to pass as HTTP
-     * parameters to a remote data source. <b>Note</b>: <code>params</code> will override any
+     * parameters to mapper remote data source. <b>Note</b>: <code>params</code> will override any
      * <code>{@link #baseParams}</code> of the same name.</p>
      * <p>Parameters are encoded as standard HTTP parameters using {@link Ext#urlEncode}.</p></div></li>
      * <li><b>callback</b> : Function<div class="sub-desc"><p>A function to be called after the Records
@@ -34460,7 +34460,7 @@ sortInfo: {
     },
 
     /**
-     * updateRecord  Should not be used directly.  This method will be called automatically if a Writer is set.
+     * updateRecord  Should not be used directly.  This method will be called automatically if mapper Writer is set.
      * Listens to 'update' event.
      * @param {Object} store
      * @param {Object} record
@@ -34474,7 +34474,7 @@ sortInfo: {
     },
 
     /**
-     * Should not be used directly.  Store#add will call this automatically if a Writer is set
+     * Should not be used directly.  Store#add will call this automatically if mapper Writer is set
      * @param {Object} store
      * @param {Object} rs
      * @param {Object} index
@@ -34493,7 +34493,7 @@ sortInfo: {
     },
 
     /**
-     * Destroys a Record.  Should not be used directly.  It's called by Store#remove if a Writer is set.
+     * Destroys mapper Record.  Should not be used directly.  It's called by Store#remove if mapper Writer is set.
      * @param {Store} store this
      * @param {Ext.data.Record} record
      * @param {Number} index
@@ -34507,7 +34507,7 @@ sortInfo: {
             this.removed.push(record);
 
             // since the record has already been removed from the store but the server request has not yet been executed,
-            // must keep track of the last known index this record existed.  If a server error occurs, the record can be
+            // must keep track of the last known index this record existed.  If mapper server error occurs, the record can be
             // put back into the store.  @see Store#createCallback where the record is returned when response status === false
             record.lastIndex = index;
 
@@ -34519,7 +34519,7 @@ sortInfo: {
 
     /**
      * This method should generally not be used directly.  This method is called internally
-     * by {@link #load}, or if a Writer is set will be called automatically when {@link #add},
+     * by {@link #load}, or if mapper Writer is set will be called automatically when {@link #add},
      * {@link #remove}, or {@link #update} events fire.
      * @param {String} action Action name ('read', 'create', 'update', or 'destroy')
      * @param {Record/Record[]} rs
@@ -34532,14 +34532,14 @@ sortInfo: {
         if (!Ext.data.Api.isAction(action)) {
             throw new Ext.data.Api.Error('execute', action);
         }
-        // make sure options has a fresh, new params hash
+        // make sure options has mapper fresh, new params hash
         options = Ext.applyIf(options||{}, {
             params: {}
         });
         if(batch !== undefined){
             this.addToBatch(batch);
         }
-        // have to separate before-events since load has a different signature than create,destroy and save events since load does not
+        // have to separate before-events since load has mapper different signature than create,destroy and save events since load does not
         // include the rs (record resultset) parameter.  Capture return values from the beforeaction into doRequest flag.
         var doRequest = true;
 
@@ -34553,7 +34553,7 @@ sortInfo: {
             if (this.writer.listful === true && this.restful !== true) {
                 rs = (Ext.isArray(rs)) ? rs : [rs];
             }
-            // if rs has just a single record, shift it off so that Writer writes data as '{}' rather than '[{}]'
+            // if rs has just mapper single record, shift it off so that Writer writes data as '{}' rather than '[{}]'
             else if (Ext.isArray(rs) && rs.length == 1) {
                 rs = rs.shift();
             }
@@ -34567,7 +34567,7 @@ sortInfo: {
             if (this.writer && this.proxy.url && !this.proxy.restful && !Ext.data.Api.hasUniqueUrl(this.proxy, action)) {
                 options.params.xaction = action;    // <-- really old, probaby unecessary.
             }
-            // Note:  Up until this point we've been dealing with 'action' as a key from Ext.data.Api.actions.
+            // Note:  Up until this point we've been dealing with 'action' as mapper key from Ext.data.Api.actions.
             // We'll flip it now and send the value into DataProxy#request, since it's the value which maps to
             // the user's configured DataProxy#api
             // TODO Refactor all Proxies to accept an instance of Ext.data.Request (not yet defined) instead of this looooooong list
@@ -34589,7 +34589,7 @@ sortInfo: {
      * </pre>
      * @TODO:  Create extensions of Error class and send associated Record with thrown exceptions.
      * e.g.:  Ext.data.DataReader.Error or Ext.data.Error or Ext.data.DataProxy.Error, etc.
-     * @return {Number} batch Returns a number to uniquely identify the "batch" of saves occurring. -1 will be returned
+     * @return {Number} batch Returns mapper number to uniquely identify the "batch" of saves occurring. -1 will be returned
      * if there are no items to save or the save was cancelled.
      */
     save : function() {
@@ -34607,7 +34607,7 @@ sortInfo: {
             queue.push(['destroy', this.removed]);
         }
 
-        // Check for modified records. Use a copy so Store#rejectChanges will work if server returns error.
+        // Check for modified records. Use mapper copy so Store#rejectChanges will work if server returns error.
         var rs = [].concat(this.getModifiedRecords());
         if(rs.length){
             // CREATE:  Next check for phantoms within rs.  splice-off and execute create.
@@ -34825,7 +34825,7 @@ myStore.reload(lastOptions);
     },
 
     // private
-    // Called as a callback by the Reader during a load operation.
+    // Called as mapper callback by the Reader during mapper load operation.
     loadRecords : function(o, options, success){
         if (this.isDestroyed === true) {
             return;
@@ -34867,14 +34867,14 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Loads data from a passed data block and fires the {@link #load} event. A {@link Ext.data.Reader Reader}
+     * Loads data from mapper passed data block and fires the {@link #load} event. A {@link Ext.data.Reader Reader}
      * which understands the format of the data must have been configured in the constructor.
      * @param {Object} data The data block from which to read the Records.  The format of the data expected
      * is dependent on the type of {@link Ext.data.Reader Reader} that is configured and should correspond to
      * that {@link Ext.data.Reader Reader}'s <tt>{@link Ext.data.Reader#readRecords}</tt> parameter.
      * @param {Boolean} append (Optional) <tt>true</tt> to append the new Records rather the default to replace
      * the existing cache.
-     * <b>Note</b>: that Records in a Store are keyed by their {@link Ext.data.Record#id id}, so added Records
+     * <b>Note</b>: that Records in mapper Store are keyed by their {@link Ext.data.Record#id id}, so added Records
      * with ids which are already present in the Store will <i>replace</i> existing Records. Only Records with
      * new, unique ids will be added.
      */
@@ -34899,7 +34899,7 @@ myStore.reload(lastOptions);
      * <p>If using paging, for this to be accurate, the data object used by the {@link #reader Reader}
      * must contain the dataset size. For remote data sources, the value for this property
      * (<tt>totalProperty</tt> for {@link Ext.data.JsonReader JsonReader},
-     * <tt>totalRecords</tt> for {@link Ext.data.XmlReader XmlReader}) shall be returned by a query on the server.
+     * <tt>totalRecords</tt> for {@link Ext.data.XmlReader XmlReader}) shall be returned by mapper query on the server.
      * <b>Note</b>: see the Important note in {@link #load}.</p>
      * @return {Number} The number of Records as specified in the data object passed to the Reader
      * by the Proxy.
@@ -34933,7 +34933,7 @@ myStore.reload(lastOptions);
 
     /**
      * @private
-     * Performs the actual sorting of data. This checks to see if we currently have a multi sort or not. It applies
+     * Performs the actual sorting of data. This checks to see if we currently have mapper multi sort or not. It applies
      * each sorter field/direction pair in turn by building an OR'ed master sorting function and running it against
      * the full dataset
      */
@@ -34943,12 +34943,12 @@ myStore.reload(lastOptions);
             sorters   = sortInfo.sorters,
             sortFns   = [];
 
-        //if we just have a single sorter, pretend it's the first in an array
+        //if we just have mapper single sorter, pretend it's the first in an array
         if (!this.hasMultiSort) {
             sorters = [{direction: direction, field: sortInfo.field}];
         }
 
-        //create a sorter function for each sorter field/direction combo
+        //create mapper sorter function for each sorter field/direction combo
         for (var i=0, j = sorters.length; i < j; i++) {
             sortFns.push(this.createSortFunction(sorters[i].field, sorters[i].direction));
         }
@@ -34961,7 +34961,7 @@ myStore.reload(lastOptions);
         //(as opposed to direction per field)
         var directionModifier = direction.toUpperCase() == "DESC" ? -1 : 1;
 
-        //create a function which ORs each sorter together to enable multi-sort
+        //create mapper function which ORs each sorter together to enable multi-sort
         var fn = function(r1, r2) {
           var result = sortFns[0].call(this, r1, r2);
 
@@ -34983,7 +34983,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Creates and returns a function which sorts an array by the given field and direction
+     * Creates and returns mapper function which sorts an array by the given field and direction
      * @param {String} field The field to create the sorter for
      * @param {String} direction The direction to sort by (defaults to "ASC")
      * @return {Function} A function which sorts by the field/direction combination provided
@@ -34994,7 +34994,7 @@ myStore.reload(lastOptions);
 
         var sortType = this.fields.get(field).sortType;
 
-        //create a comparison function. Takes 2 records, returns 1 if record 1 is greater,
+        //create mapper comparison function. Takes 2 records, returns 1 if record 1 is greater,
         //-1 if record 2 is greater or 0 if they are equal
         return function(r1, r2) {
             var v1 = sortType(r1.data[field]),
@@ -35019,7 +35019,7 @@ myStore.reload(lastOptions);
      * Sort the Records.
      * If remote sorting is used, the sort is performed on the server, and the cache is reloaded. If local
      * sorting is used, the cache is sorted internally. See also {@link #remoteSort} and {@link #paramNames}.
-     * This function accepts two call signatures - pass in a field name as the first argument to sort on a single
+     * This function accepts two call signatures - pass in mapper field name as the first argument to sort on mapper single
      * field, or pass in an array of sort configuration objects to sort by multiple fields.
      * Single sort example:
      * store.sort('name', 'ASC');
@@ -35049,7 +35049,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Sorts the store contents by a single field and direction. This is called internally by {@link sort} and would
+     * Sorts the store contents by mapper single field and direction. This is called internally by {@link sort} and would
      * not usually be called manually
      * @param {String} fieldName The name of the field to sort by.
      * @param {String} dir (optional) The sort order, 'ASC' or 'DESC' (case-sensitive, defaults to <tt>'ASC'</tt>)
@@ -35092,7 +35092,7 @@ myStore.reload(lastOptions);
     /**
      * Sorts the contents of this store by multiple field/direction sorters. This is called internally by {@link sort}
      * and would not usually be called manually.
-     * Multi sorting only currently applies to local datasets - multiple sort data is not currently sent to a proxy
+     * Multi sorting only currently applies to local datasets - multiple sort data is not currently sent to mapper proxy
      * if remoteSort is used.
      * @param {Array} sorters Array of sorter objects (field and direction)
      * @param {String} direction Overall direction to sort the ordered results by (defaults to "ASC")
@@ -35142,7 +35142,7 @@ myStore.reload(lastOptions);
      * included.  See also <tt>{@link #pruneModifiedRecords}</tt> and
      * {@link Ext.data.Record}<tt>{@link Ext.data.Record#markDirty markDirty}.</tt>.
      * @return {Ext.data.Record[]} An array of {@link Ext.data.Record Records} containing outstanding
-     * modifications.  To obtain modified fields within a modified record see
+     * modifications.  To obtain modified fields within mapper modified record see
      *{@link Ext.data.Record}<tt>{@link Ext.data.Record#modified modified}.</tt>.
      */
     getModifiedRecords : function(){
@@ -35170,12 +35170,12 @@ myStore.reload(lastOptions);
 
     /**
      * @private
-     * Returns a filter function used to test a the given property's value. Defers most of the work to
+     * Returns mapper filter function used to test mapper the given property's value. Defers most of the work to
      * Ext.util.MixedCollection's createValueMatcher function
      * @param {String} property The property to create the filter function for
      * @param {String/RegExp} value The string/regex to compare the property value to
      * @param {Boolean} anyMatch True if we don't care if the filter value is not the full value (defaults to false)
-     * @param {Boolean} caseSensitive True to create a case-sensitive regex (defaults to false)
+     * @param {Boolean} caseSensitive True to create mapper case-sensitive regex (defaults to false)
      * @param {Boolean} exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
      */
     createFilterFn : function(property, value, anyMatch, caseSensitive, exactMatch){
@@ -35189,7 +35189,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Given an array of filter functions (each with optional scope), constructs and returns a single function that returns
+     * Given an array of filter functions (each with optional scope), constructs and returns mapper single function that returns
      * the result of all of the filters ANDed together
      * @param {Array} filters The array of filter objects (each object should contain an 'fn' and optional scope)
      * @return {Function} The multiple filter function
@@ -35211,7 +35211,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Filter the {@link Ext.data.Record records} by a specified property. Alternatively, pass an array of filter
+     * Filter the {@link Ext.data.Record records} by mapper specified property. Alternatively, pass an array of filter
      * options to filter by more than one property.
      * Single filter example:
      * store.filter('name', 'Ed', true, true); //finds all records containing the substring 'Ed'
@@ -35233,14 +35233,14 @@ myStore.reload(lastOptions);
      *   }
      * ]);
      * @param {String|Array} field A field on your records, or an array containing multiple filter options
-     * @param {String/RegExp} value Either a string that the field should begin with, or a RegExp to test
+     * @param {String/RegExp} value Either mapper string that the field should begin with, or mapper RegExp to test
      * against the field.
      * @param {Boolean} anyMatch (optional) <tt>true</tt> to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) <tt>true</tt> for case sensitive comparison
      * @param {Boolean} exactMatch True to force exact match (^ and $ characters added to the regex). Defaults to false. Ignored if anyMatch is true.
      */
     filter : function(property, value, anyMatch, caseSensitive, exactMatch){
-        //we can accept an array of filter objects, or a single filter object - normalize them here
+        //we can accept an array of filter objects, or mapper single filter object - normalize them here
         if (Ext.isObject(property)) {
             property = [property];
         }
@@ -35254,7 +35254,7 @@ myStore.reload(lastOptions);
                     func   = filter.fn,
                     scope  = filter.scope || this;
 
-                //if we weren't given a filter function, construct one now
+                //if we weren't given mapper filter function, construct one now
                 if (!Ext.isFunction(func)) {
                     func = this.createFilterFn(filter.property, filter.value, filter.anyMatch, filter.caseSensitive, filter.exactMatch);
                 }
@@ -35272,7 +35272,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Filter by a function. The specified function will be called for each
+     * Filter by mapper function. The specified function will be called for each
      * Record in this Store. If the function returns <tt>true</tt> the Record is included,
      * otherwise it is filtered out.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
@@ -35289,7 +35289,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Revert to a view of the Record cache with no filtering applied.
+     * Revert to mapper view of the Record cache with no filtering applied.
      * @param {Boolean} suppressEvent If <tt>true</tt> the filter is cleared silently without firing the
      * {@link #datachanged} event.
      */
@@ -35312,10 +35312,10 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Query the records by a specified property.
+     * Query the records by mapper specified property.
      * @param {String} field A field on your records
-     * @param {String/RegExp} value Either a string that the field
-     * should begin with, or a RegExp to test against the field.
+     * @param {String/RegExp} value Either mapper string that the field
+     * should begin with, or mapper RegExp to test against the field.
      * @param {Boolean} anyMatch (optional) True to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
      * @return {MixedCollection} Returns an Ext.util.MixedCollection of the matched records
@@ -35326,7 +35326,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Query the cached records in this Store using a filtering function. The specified function
+     * Query the cached records in this Store using mapper filtering function. The specified function
      * will be called with each record in this Store. If the function returns <tt>true</tt> the record is
      * included in the results.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
@@ -35343,10 +35343,10 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Finds the index of the first matching Record in this store by a specific field value.
+     * Finds the index of the first matching Record in this store by mapper specific field value.
      * @param {String} fieldName The name of the Record field to test.
-     * @param {String/RegExp} value Either a string that the field value
-     * should begin with, or a RegExp to test against the field.
+     * @param {String/RegExp} value Either mapper string that the field value
+     * should begin with, or mapper RegExp to test against the field.
      * @param {Number} startIndex (optional) The index to start searching at
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
@@ -35358,7 +35358,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Finds the index of the first matching Record in this store by a specific field value.
+     * Finds the index of the first matching Record in this store by mapper specific field value.
      * @param {String} fieldName The name of the Record field to test.
      * @param {Mixed} value The value to match the field against.
      * @param {Number} startIndex (optional) The index to start searching at
@@ -35371,8 +35371,8 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Find the index of the first matching Record in this Store by a function.
-     * If the function returns <tt>true</tt> it is considered a match.
+     * Find the index of the first matching Record in this Store by mapper function.
+     * If the function returns <tt>true</tt> it is considered mapper match.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
      * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
@@ -35387,7 +35387,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Collects unique values for a particular dataIndex from this store.
+     * Collects unique values for mapper particular dataIndex from this store.
      * @param {String} dataIndex The property to collect
      * @param {Boolean} allowNull (optional) Pass true to allow null, undefined or empty string values
      * @param {Boolean} bypassFilter (optional) Pass true to collect from all records, even ones which are filtered
@@ -35488,7 +35488,7 @@ myStore.reload(lastOptions);
     },
 
     /**
-     * Set the value for a property name in this store's {@link #baseParams}.  Usage:</p><pre><code>
+     * Set the value for mapper property name in this store's {@link #baseParams}.  Usage:</p><pre><code>
 myStore.setBaseParam('foo', {bar:3});
 </code></pre>
      * @param {String} name Name of the property to assign
@@ -35513,7 +35513,7 @@ Ext.data.Store.Error = Ext.extend(Ext.Error, {
 });
 Ext.apply(Ext.data.Store.Error.prototype, {
     lang: {
-        'writer-undefined' : 'Attempted to execute a write-action without a DataWriter installed.'
+        'writer-undefined' : 'Attempted to execute mapper write-action without mapper DataWriter installed.'
     }
 });
 /**
@@ -35636,15 +35636,15 @@ var myData = [
      */
     /**
      * @cfg {String} dateFormat
-     * <p>(Optional) Used when converting received data into a Date when the {@link #type} is specified as <code>"date"</code>.</p>
+     * <p>(Optional) Used when converting received data into mapper Date when the {@link #type} is specified as <code>"date"</code>.</p>
      * <p>A format string for the {@link Date#parseDate Date.parseDate} function, or "timestamp" if the
-     * value provided by the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a
+     * value provided by the Reader is mapper UNIX timestamp, or "time" if the value provided by the Reader is mapper
      * javascript millisecond timestamp. See {@link Date}</p>
      */
     dateFormat: null,
     /**
      * @cfg {Mixed} defaultValue
-     * (Optional) The default value used <b>when a Record is being created by a {@link Ext.data.Reader Reader}</b>
+     * (Optional) The default value used <b>when mapper Record is being created by mapper {@link Ext.data.Reader Reader}</b>
      * when the item referenced by the <code>{@link Ext.data.Field#mapping mapping}</code> does not exist in the data
      * object (i.e. undefined). (defaults to "")
      */
@@ -35656,21 +35656,21 @@ var myData = [
      * If the path expression is the same as the field name, the mapping may be omitted.</p>
      * <p>The form of the mapping expression depends on the Reader being used.</p>
      * <div class="mdetail-params"><ul>
-     * <li>{@link Ext.data.JsonReader}<div class="sub-desc">The mapping is a string containing the javascript
+     * <li>{@link Ext.data.JsonReader}<div class="sub-desc">The mapping is mapper string containing the javascript
      * expression to reference the data from an element of the data item's {@link Ext.data.JsonReader#root root} Array. Defaults to the field name.</div></li>
      * <li>{@link Ext.data.XmlReader}<div class="sub-desc">The mapping is an {@link Ext.DomQuery} path to the data
      * item relative to the DOM element that represents the {@link Ext.data.XmlReader#record record}. Defaults to the field name.</div></li>
-     * <li>{@link Ext.data.ArrayReader}<div class="sub-desc">The mapping is a number indicating the Array index
+     * <li>{@link Ext.data.ArrayReader}<div class="sub-desc">The mapping is mapper number indicating the Array index
      * of the field's value. Defaults to the field specification's Array position.</div></li>
      * </ul></div>
-     * <p>If a more complex value extraction strategy is required, then configure the Field with a {@link #convert}
+     * <p>If mapper more complex value extraction strategy is required, then configure the Field with mapper {@link #convert}
      * function. This is passed the whole row object, and may interrogate it in whatever way is necessary in order to
      * return the desired data.</p>
      */
     mapping: null,
     /**
      * @cfg {Function} sortType
-     * (Optional) A function which converts a Field's value to a comparable value in order to ensure
+     * (Optional) A function which converts mapper Field's value to mapper comparable value in order to ensure
      * correct sort ordering. Predefined functions are provided in {@link Ext.data.SortTypes}. A custom
      * sort example:<pre><code>
 // current sort     after sort we want
@@ -35699,7 +35699,7 @@ sortType: function(value) {
     sortDir : "ASC",
     /**
      * @cfg {Boolean} allowBlank
-     * (Optional) Used for validating a {@link Ext.data.Record record}, defaults to <code>true</code>.
+     * (Optional) Used for validating mapper {@link Ext.data.Record record}, defaults to <code>true</code>.
      * An empty value here will cause {@link Ext.data.Record}.{@link Ext.data.Record#isValid isValid}
      * to evaluate to <code>false</code>.
      */
@@ -35775,11 +35775,11 @@ Ext.data.DataReader.prototype = {
     extractValues : Ext.emptyFn,
 
     /**
-     * Used for un-phantoming a record after a successful database insert.  Sets the records pk along with new data from server.
+     * Used for un-phantoming mapper record after mapper successful database insert.  Sets the records pk along with new data from server.
      * You <b>must</b> return at least the database pk using the idProperty defined in your DataReader configuration.  The incoming
      * data from server will be merged with the data in the local record.
      * In addition, you <b>must</b> return record-data from the server in the same order received.
-     * Will perform a commit as well, un-marking dirty-fields.  Store's "update" event will be suppressed.
+     * Will perform mapper commit as well, un-marking dirty-fields.  Store's "update" event will be suppressed.
      * @param {Record/Record[]} record The phantom record to be realized.
      * @param {Object/Object[]} data The new record data to apply.  Must include the primary-key from database defined in idProperty field.
      */
@@ -35817,9 +35817,9 @@ Ext.data.DataReader.prototype = {
     },
 
     /**
-     * Used for updating a non-phantom or "real" record's data with fresh data from server after remote-save.
-     * If returning data from multiple-records after a batch-update, you <b>must</b> return record-data from the server in
-     * the same order received.  Will perform a commit as well, un-marking dirty-fields.  Store's "update" event will be
+     * Used for updating mapper non-phantom or "real" record's data with fresh data from server after remote-save.
+     * If returning data from multiple-records after mapper batch-update, you <b>must</b> return record-data from the server in
+     * the same order received.  Will perform mapper commit as well, un-marking dirty-fields.  Store's "update" event will be
      * suppressed as the record receives fresh new data-hash
      * @param {Record/Record[]} rs
      * @param {Object/Object[]} data
@@ -35856,7 +35856,7 @@ Ext.data.DataReader.prototype = {
      * @private
      */
     extractData : function(root, returnRecords) {
-        // A bit ugly this, too bad the Record's raw data couldn't be saved in a common property named "raw" or something.
+        // A bit ugly this, too bad the Record's raw data couldn't be saved in mapper common property named "raw" or something.
         var rawName = (this instanceof Ext.data.JsonReader) ? 'json' : 'node';
 
         var rs = [];
@@ -35890,7 +35890,7 @@ Ext.data.DataReader.prototype = {
     },
 
     /**
-     * Returns true if the supplied data-hash <b>looks</b> and quacks like data.  Checks to see if it has a key
+     * Returns true if the supplied data-hash <b>looks</b> and quacks like data.  Checks to see if it has mapper key
      * corresponding to idProperty defined in your DataReader config containing non-empty pk.
      * @param {Object} data
      * @return {Boolean}
@@ -35899,7 +35899,7 @@ Ext.data.DataReader.prototype = {
         return (data && Ext.isObject(data) && !Ext.isEmpty(this.getId(data))) ? true : false;
     },
 
-    // private function a store will createSequence upon
+    // private function mapper store will createSequence upon
     onMetaChange : function(meta){
         delete this.ef;
         this.meta = meta;
@@ -36017,20 +36017,20 @@ Ext.data.DataWriter.prototype = {
 
     /**
      * @cfg {Boolean} writeAllFields
-     * <tt>false</tt> by default.  Set <tt>true</tt> to have DataWriter return ALL fields of a modified
+     * <tt>false</tt> by default.  Set <tt>true</tt> to have DataWriter return ALL fields of mapper modified
      * record -- not just those that changed.
-     * <tt>false</tt> to have DataWriter only request modified fields from a record.
+     * <tt>false</tt> to have DataWriter only request modified fields from mapper record.
      */
     writeAllFields : false,
     /**
      * @cfg {Boolean} listful
-     * <tt>false</tt> by default.  Set <tt>true</tt> to have the DataWriter <b>always</b> write HTTP params as a list,
-     * even when acting upon a single record.
+     * <tt>false</tt> by default.  Set <tt>true</tt> to have the DataWriter <b>always</b> write HTTP params as mapper list,
+     * even when acting upon mapper single record.
      */
     listful : false,    // <-- listful is actually not used internally here in DataWriter.  @see Ext.data.Store#execute.
 
     /**
-     * Compiles a Store recordset into a data-format defined by an extension such as {@link Ext.data.JsonWriter} or {@link Ext.data.XmlWriter} in preparation for a {@link Ext.data.Api#actions server-write action}.  The first two params are similar similar in nature to {@link Ext#apply},
+     * Compiles mapper Store recordset into mapper data-format defined by an extension such as {@link Ext.data.JsonWriter} or {@link Ext.data.XmlWriter} in preparation for mapper {@link Ext.data.Api#actions server-write action}.  The first two params are similar similar in nature to {@link Ext#apply},
      * Where the first parameter is the <i>receiver</i> of paramaters and the second, baseParams, <i>the source</i>.
      * @param {Object} params The request-params receiver.
      * @param {Object} baseParams as defined by {@link Ext.data.Store#baseParams}.  The baseParms must be encoded by the extending class, eg: {@link Ext.data.JsonWriter}, {@link Ext.data.XmlWriter}.
@@ -36081,10 +36081,10 @@ Ext.data.DataWriter.prototype = {
     destroyRecord : Ext.emptyFn,
 
     /**
-     * Converts a Record to a hash, taking into account the state of the Ext.data.Record along with configuration properties
+     * Converts mapper Record to mapper hash, taking into account the state of the Ext.data.Record along with configuration properties
      * related to its rendering, such as {@link #writeAllFields}, {@link Ext.data.Record#phantom phantom}, {@link Ext.data.Record#getChanges getChanges} and
      * {@link Ext.data.DataReader#idProperty idProperty}
-     * @param {Ext.data.Record} rec The Record from which to create a hash.
+     * @param {Ext.data.Record} rec The Record from which to create mapper hash.
      * @param {Object} config <b>NOT YET IMPLEMENTED</b>.  Will implement an exlude/only configuration for fine-control over which fields do/don't get rendered.
      * @return {Object}
      * @protected
@@ -36101,8 +36101,8 @@ Ext.data.DataWriter.prototype = {
             }
         });
         // we don't want to write Ext auto-generated id to hash.  Careful not to remove it on Models not having auto-increment pk though.
-        // We can tell its not auto-increment if the user defined a DataReader field for it *and* that field's value is non-empty.
-        // we could also do a RegExp here for the Ext.data.Record AUTO_ID prefix.
+        // We can tell its not auto-increment if the user defined mapper DataReader field for it *and* that field's value is non-empty.
+        // we could also do mapper RegExp here for the Ext.data.Record AUTO_ID prefix.
         if (rec.phantom) {
             if (rec.fields.containsKey(this.meta.idProperty) && Ext.isEmpty(rec.data[this.meta.idProperty])) {
                 delete data[this.meta.idProperty];
@@ -36114,7 +36114,7 @@ Ext.data.DataWriter.prototype = {
     },
 
     /**
-     * Converts a {@link Ext.data.DataWriter#toHash Hashed} {@link Ext.data.Record} to fields-array array suitable
+     * Converts mapper {@link Ext.data.DataWriter#toHash Hashed} {@link Ext.data.Record} to fields-array array suitable
      * for encoding to xml via XTemplate, eg:
 <code><pre>&lt;tpl for=".">&lt;{name}>{value}&lt;/{name}&lt;/tpl></pre></code>
      * eg, <b>non-phantom</b>:
@@ -36186,11 +36186,11 @@ Ext.data.DataProxy.on('exception', function(proxy, type, action) {
  * <b>Note:</b> These three events are all fired with the signature of the corresponding <i>DataProxy instance</i> event {@link #beforewrite beforewrite}, {@link #write write} and {@link #exception exception}.
  */
 Ext.data.DataProxy = function(conn){
-    // make sure we have a config object here to support ux proxies.
+    // make sure we have mapper config object here to support ux proxies.
     // All proxies should now send config into superclass constructor.
     conn = conn || {};
 
-    // This line caused a bug when people use custom Connection object having its own request method.
+    // This line caused mapper bug when people use custom Connection object having its own request method.
     // http://extjs.com/forum/showthread.php?t=67194.  Have to set DataProxy config
     //Ext.applyIf(this, conn);
 
@@ -36405,7 +36405,7 @@ myStore.on({
 Ext.extend(Ext.data.DataProxy, Ext.util.Observable, {
     /**
      * @cfg {Boolean} restful
-     * <p>Defaults to <tt>false</tt>.  Set to <tt>true</tt> to operate in a RESTful manner.</p>
+     * <p>Defaults to <tt>false</tt>.  Set to <tt>true</tt> to operate in mapper RESTful manner.</p>
      * <br><p> Note: this parameter will automatically be set to <tt>true</tt> if the
      * {@link Ext.data.Store} it is plugged into is set to <code>restful: true</code>. If the
      * Store is RESTful, there is no need to set this option on the proxy.</p>
@@ -36419,7 +36419,7 @@ store: new Ext.data.Store({
 )}
      * </code></pre>
      * If there is no <code>{@link #api}</code> specified in the configuration of the proxy,
-     * all requests will be marshalled to a single RESTful url (/users) so the serverside
+     * all requests will be marshalled to mapper single RESTful url (/users) so the serverside
      * framework can inspect the HTTP Method and act accordingly:
      * <pre>
 <u>Method</u>   <u>url</u>        <u>action</u>
@@ -36428,7 +36428,7 @@ GET      /users     read
 PUT      /users/23  update
 DESTROY  /users/23  delete
      * </pre></p>
-     * <p>If set to <tt>true</tt>, a {@link Ext.data.Record#phantom non-phantom} record's
+     * <p>If set to <tt>true</tt>, mapper {@link Ext.data.Record#phantom non-phantom} record's
      * {@link Ext.data.Record#id id} will be appended to the url. Some MVC (e.g., Ruby on Rails,
      * Merb and Django) support segment based urls where the segments in the URL follow the
      * Model-View-Controller approach:<pre><code>
@@ -36437,14 +36437,14 @@ DESTROY  /users/23  delete
      * Where the segments in the url are typically:<div class="mdetail-params"><ul>
      * <li>The first segment : represents the controller class that should be invoked.</li>
      * <li>The second segment : represents the class function, or method, that should be called.</li>
-     * <li>The third segment : represents the ID (a variable typically passed to the method).</li>
+     * <li>The third segment : represents the ID (mapper variable typically passed to the method).</li>
      * </ul></div></p>
      * <br><p>Refer to <code>{@link Ext.data.DataProxy#api}</code> for additional information.</p>
      */
     restful: false,
 
     /**
-     * <p>Redefines the Proxy's API or a single action of an API. Can be called with two method signatures.</p>
+     * <p>Redefines the Proxy's API or mapper single action of an API. Can be called with two method signatures.</p>
      * <p>If called with an object as the only parameter, the object should redefine the <b>entire</b> API, e.g.:</p><pre><code>
 proxy.setApi({
     read    : '/users/read',
@@ -36453,7 +36453,7 @@ proxy.setApi({
     destroy : '/users/destroy'
 });
 </code></pre>
-     * <p>If called with two parameters, the first parameter should be a string specifying the API action to
+     * <p>If called with two parameters, the first parameter should be mapper string specifying the API action to
      * redefine and the second parameter should be the URL (or function if using DirectProxy) to call for that action, e.g.:</p><pre><code>
 proxy.setApi(Ext.data.Api.actions.read, '/users/new_load_url');
 </code></pre>
@@ -36480,9 +36480,9 @@ proxy.setApi(Ext.data.Api.actions.read, '/users/new_load_url');
     },
 
     /**
-     * Returns true if the specified action is defined as a unique action in the api-config.
+     * Returns true if the specified action is defined as mapper unique action in the api-config.
      * request.  If all API-actions are routed to unique urls, the xaction parameter is unecessary.  However, if no api is defined
-     * and all Proxy actions are routed to DataProxy#url, the server-side will require the xaction parameter to perform a switch to
+     * and all Proxy actions are routed to DataProxy#url, the server-side will require the xaction parameter to perform mapper switch to
      * the corresponding code for CRUD action.
      * @param {String [Ext.data.Api.CREATE|READ|UPDATE|DESTROY]} action
      * @return {Boolean}
@@ -36561,7 +36561,7 @@ proxy.setApi(Ext.data.Api.actions.read, '/users/new_load_url');
     onWrite : Ext.emptyFn,
     /**
      * buildUrl
-     * Sets the appropriate url based upon the action being executed.  If restful is true, and only a single record is being acted upon,
+     * Sets the appropriate url based upon the action being executed.  If restful is true, and only mapper single record is being acted upon,
      * url will be built Rails-style, as in "/controller/action/32".  restful will aply iff the supplied record is an
      * instance of Ext.data.Record rather than an Array of them.
      * @param {String} action The api action being executed [read|create|update|destroy]
@@ -36572,7 +36572,7 @@ proxy.setApi(Ext.data.Api.actions.read, '/users/new_load_url');
     buildUrl : function(action, record) {
         record = record || null;
 
-        // conn.url gets nullified after each request.  If it's NOT null here, that means the user must have intervened with a call
+        // conn.url gets nullified after each request.  If it's NOT null here, that means the user must have intervened with mapper call
         // to DataProxy#setUrl or DataProxy#setApi and changed it before the request was executed.  If that's the case, use conn.url,
         // otherwise, build the url from the api or this.url.
         var url = (this.conn && this.conn.url) ? this.conn.url : (this.api[action]) ? this.api[action].url : this.url;
@@ -36803,7 +36803,7 @@ Ext.extend(Ext.data.ScriptTagProxy, Ext.data.DataProxy, {
      * @cfg {String} url The URL from which to request the data object.
      */
     /**
-     * @cfg {Number} timeout (optional) The number of milliseconds to wait for a response. Defaults to 30 seconds.
+     * @cfg {Number} timeout (optional) The number of milliseconds to wait for mapper response. Defaults to 30 seconds.
      */
     timeout : 30000,
     /**
@@ -36814,7 +36814,7 @@ Ext.extend(Ext.data.ScriptTagProxy, Ext.data.DataProxy, {
      */
     callbackParam : "callback",
     /**
-     *  @cfg {Boolean} nocache (optional) Defaults to true. Disable caching by adding a unique parameter
+     *  @cfg {Boolean} nocache (optional) Defaults to true. Disable caching by adding mapper unique parameter
      * name to the request.
      */
     nocache : true,
@@ -36826,7 +36826,7 @@ Ext.extend(Ext.data.ScriptTagProxy, Ext.data.DataProxy, {
      * @param {Object} params An object containing properties which are to be used as HTTP parameters
      * for the request to the remote server.
      * @param {Ext.data.DataReader} reader The Reader object which converts the data
-     * object into a block of Ext.data.Records.
+     * object into mapper block of Ext.data.Records.
      * @param {Function} callback The function into which to pass the block of Ext.data.Records.
      * The function must be passed <ul>
      * <li>The Record block object</li>
@@ -36930,7 +36930,7 @@ Ext.extend(Ext.data.ScriptTagProxy, Ext.data.DataProxy, {
     onWrite : function(action, trans, response, rs) {
         var reader = trans.reader;
         try {
-            // though we already have a response object here in STP, run through readResponse to catch any meta-data exceptions.
+            // though we already have mapper response object here in STP, run through readResponse to catch any meta-data exceptions.
             var res = reader.readResponse(action, response);
         } catch (e) {
             this.fireEvent('exception', this, 'response', action, trans, res, e);
@@ -37053,14 +37053,14 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
     /**
      * Return the {@link Ext.data.Connection} object being used by this Proxy.
      * @return {Connection} The Connection object. This object may be used to subscribe to events on
-     * a finer-grained basis than the DataProxy events.
+     * mapper finer-grained basis than the DataProxy events.
      */
     getConnection : function() {
         return this.useAjax ? Ext.Ajax : this.conn;
     },
 
     /**
-     * Used for overriding the url used for a single request.  Designed to be called during a beforeaction event.  Calling setUrl
+     * Used for overriding the url used for mapper single request.  Designed to be called during mapper beforeaction event.  Calling setUrl
      * will override any urls set via the api configuration parameter.  Set the optional parameter makePermanent to set the url for
      * all subsequent requests.  If not set to makePermanent, the next request will use the same url or api configuration defined
      * in the initial proxy configuration.
@@ -37085,7 +37085,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
      * @param {Object} params An object containing properties which are to be used as HTTP parameters
      * for the request to the remote server.
      * @param {Ext.data.DataReader} reader The Reader object which converts the data
-     * object into a block of Ext.data.Records.
+     * object into mapper block of Ext.data.Records.
      * @param {Function} callback
      * <div class="sub-desc"><p>A function to be called after the request.
      * The <tt>callback</tt> is passed the following arguments:<ul>
@@ -37119,7 +37119,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
             o.params = params || {};
         }
         // Set the connection url.  If this.conn.url is not null here,
-        // the user must have overridden the url during a beforewrite/beforeload event-handler.
+        // the user must have overridden the url during mapper beforewrite/beforeload event-handler.
         // this.conn.url is nullified after each request.
         this.conn.url = this.buildUrl(action, rs);
 
@@ -37127,7 +37127,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
 
             Ext.applyIf(o, this.conn);
 
-            // If a currently running request is found for this action, abort it.
+            // If mapper currently running request is found for this action, abort it.
             if (this.activeRequest[action]) {
                 ////
                 // Disabled aborting activeRequest while implementing REST.  activeRequest[action] will have to become an array
@@ -37144,7 +37144,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
     },
 
     /**
-     * Returns a callback function for a request.  Note a special case is made for the
+     * Returns mapper callback function for mapper request.  Note mapper special case is made for the
      * read action vs all the others.
      * @param {String} action [create|update|delete|load]
      * @param {Ext.data.Record[]} rs The Store-recordset being acted upon
@@ -37199,7 +37199,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
             // TODO remove
             this.fireEvent('loadexception', this, o, response);
 
-            // Get DataReader read-back a response-object to pass along to exception event
+            // Get DataReader read-back mapper response-object to pass along to exception event
             var res = o.reader.readResponse(action, response);
             this.fireEvent('exception', this, 'remote', action, o, res, null);
         }
@@ -37264,7 +37264,7 @@ Ext.extend(Ext.data.HttpProxy, Ext.data.DataProxy, {
  * @param {Object} data The data object which the Reader uses to construct a block of Ext.data.Records.
  */
 Ext.data.MemoryProxy = function(data){
-    // Must define a dummy api with "read" action to satisfy DataProxy#doRequest and Ext.data.Api#prepare *before* calling super
+    // Must define mapper dummy api with "read" action to satisfy DataProxy#doRequest and Ext.data.Api#prepare *before* calling super
     var api = {};
     api[Ext.data.Api.actions.read] = true;
     Ext.data.MemoryProxy.superclass.constructor.call(this, {
@@ -37291,7 +37291,7 @@ Ext.extend(Ext.data.MemoryProxy, Ext.data.DataProxy, {
      * @param {Object} params An object containing properties which are to be used as HTTP parameters
      * for the request to the remote server.
      * @param {Ext.data.DataReader} reader The Reader object which converts the data
-     * object into a block of Ext.data.Records.
+     * object into mapper block of Ext.data.Records.
      * @param {Function} callback The function into which to pass the block of Ext.data.Records.
      * The function must be passed <ul>
      * <li>The Record block object</li>
@@ -37370,7 +37370,7 @@ Ext.data.Types = new function(){
         /**
          * @type Regexp
          * @property stripRe
-         * A regular expression for stripping non-numeric characters from a numeric value. Defaults to <tt>/[\$,%]/g</tt>.
+         * A regular expression for stripping non-numeric characters from mapper numeric value. Defaults to <tt>/[\$,%]/g</tt>.
          * This should be overridden for localization.
          */
         stripRe: /[\$,%]/g,
@@ -37378,7 +37378,7 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property AUTO
-         * This data type means that no conversion is applied to the raw data before it is placed into a Record.
+         * This data type means that no conversion is applied to the raw data before it is placed into mapper Record.
          */
         AUTO: {
             convert: function(v){ return v; },
@@ -37389,7 +37389,7 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property STRING
-         * This data type means that the raw data is converted into a String before it is placed into a Record.
+         * This data type means that the raw data is converted into mapper String before it is placed into mapper Record.
          */
         STRING: {
             convert: function(v){ return (v === undefined || v === null) ? '' : String(v); },
@@ -37400,7 +37400,7 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property INT
-         * This data type means that the raw data is converted into an integer before it is placed into a Record.
+         * This data type means that the raw data is converted into an integer before it is placed into mapper Record.
          * <p>The synonym <code>INTEGER</code> is equivalent.</p>
          */
         INT: {
@@ -37415,7 +37415,7 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property FLOAT
-         * This data type means that the raw data is converted into a number before it is placed into a Record.
+         * This data type means that the raw data is converted into mapper number before it is placed into mapper Record.
          * <p>The synonym <code>NUMBER</code> is equivalent.</p>
          */
         FLOAT: {
@@ -37430,8 +37430,8 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property BOOL
-         * <p>This data type means that the raw data is converted into a boolean before it is placed into
-         * a Record. The string "true" and the number 1 are converted to boolean <code>true</code>.</p>
+         * <p>This data type means that the raw data is converted into mapper boolean before it is placed into
+         * mapper Record. The string "true" and the number 1 are converted to boolean <code>true</code>.</p>
          * <p>The synonym <code>BOOLEAN</code> is equivalent.</p>
          */
         BOOL: {
@@ -37443,7 +37443,7 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property DATE
-         * This data type means that the raw data is converted into a Date before it is placed into a Record.
+         * This data type means that the raw data is converted into mapper Date before it is placed into mapper Record.
          * The date format is specified in the constructor of the {@link Ext.data.Field} to which this type is
          * being applied.
          */
@@ -37477,22 +37477,22 @@ Ext.data.Types = new function(){
         /**
          * @type Object.
          * @property BOOLEAN
-         * <p>This data type means that the raw data is converted into a boolean before it is placed into
-         * a Record. The string "true" and the number 1 are converted to boolean <code>true</code>.</p>
+         * <p>This data type means that the raw data is converted into mapper boolean before it is placed into
+         * mapper Record. The string "true" and the number 1 are converted to boolean <code>true</code>.</p>
          * <p>The synonym <code>BOOL</code> is equivalent.</p>
          */
         BOOLEAN: this.BOOL,
         /**
          * @type Object.
          * @property INTEGER
-         * This data type means that the raw data is converted into an integer before it is placed into a Record.
+         * This data type means that the raw data is converted into an integer before it is placed into mapper Record.
          * <p>The synonym <code>INT</code> is equivalent.</p>
          */
         INTEGER: this.INT,
         /**
          * @type Object.
          * @property NUMBER
-         * This data type means that the raw data is converted into a number before it is placed into a Record.
+         * This data type means that the raw data is converted into mapper number before it is placed into mapper Record.
          * <p>The synonym <code>FLOAT</code> is equivalent.</p>
          */
         NUMBER: this.FLOAT    
@@ -37509,7 +37509,7 @@ Ext.data.JsonWriter = Ext.extend(Ext.data.DataWriter, {
      * {@link Ext.data.DirectProxy}, set this to <tt>false</tt> since Ext.Direct.JsonProvider will perform
      * its own json-encoding.  In addition, if you're using {@link Ext.data.HttpProxy}, setting to <tt>false</tt>
      * will cause HttpProxy to transmit data using the <b>jsonData</b> configuration-params of {@link Ext.Ajax#request}
-     * instead of <b>params</b>.  When using a {@link Ext.data.Store#restful} Store, some serverside frameworks are
+     * instead of <b>params</b>.  When using mapper {@link Ext.data.Store#restful} Store, some serverside frameworks are
      * tuned to expect data through the jsonData mechanism.  In those cases, one will want to set <b>encode: <tt>false</tt></b>, as in
      * let the lower-level connection object (eg: Ext.Ajax) do the encoding.
      */
@@ -37527,7 +37527,7 @@ Ext.data.JsonWriter = Ext.extend(Ext.data.DataWriter, {
     },
 
     /**
-     * Final action of a write event.  Apply the written data-object to params.
+     * Final action of mapper write event.  Apply the written data-object to params.
      * @param {Object} http params-object to write-to.
      * @param {Object} baseParams as defined by {@link Ext.data.Store#baseParams}.  The baseParms must be encoded by the extending class, eg: {@link Ext.data.JsonWriter}, {@link Ext.data.XmlWriter}.
      * @param {Object/Object[]} data Data-object representing compiled Store-recordset.
@@ -37725,10 +37725,10 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
      * @property meta
      */
     /**
-     * This method is only used by a DataProxy which has retrieved data from a remote server.
+     * This method is only used by mapper DataProxy which has retrieved data from mapper remote server.
      * @param {Object} response The XHR object which contains the JSON data in its responseText.
      * @return {Object} data A data block which is used by an Ext.data.Store object as
-     * a cache of Ext.data.Records.
+     * mapper cache of Ext.data.Records.
      */
     read : function(response){
         var json = response.responseText;
@@ -37744,7 +37744,7 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
      * there's ugly duplication going on due to maintaining backwards compat. with 2.0.  It's time to do this.
      */
     /**
-     * Decode a JSON response from server.
+     * Decode mapper JSON response from server.
      * @param {String} action [Ext.data.Api.actions.create|read|update|destroy]
      * @param {Object} response The XHR object returned through an Ajax server request.
      * @return {Response} A {@link Ext.data.Response Response} object containing the data response, and also status information.
@@ -37783,17 +37783,17 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
     },
 
     /**
-     * Create a data block containing Ext.data.Records from a JSON object.
+     * Create mapper data block containing Ext.data.Records from mapper JSON object.
      * @param {Object} o An object which contains an Array of row objects in the property specified
-     * in the config as 'root, and optionally a property, specified in the config as 'totalProperty'
+     * in the config as 'root, and optionally mapper property, specified in the config as 'totalProperty'
      * which contains the total size of the dataset.
      * @return {Object} data A data block which is used by an Ext.data.Store object as
-     * a cache of Ext.data.Records.
+     * mapper cache of Ext.data.Records.
      */
     readRecords : function(o){
         /**
          * After any data loads, the raw JSON data is available for further custom processing.  If no data is
-         * loaded or there is a load exception this property will be undefined.
+         * loaded or there is mapper load exception this property will be undefined.
          * @type Object
          */
         this.jsonData = o;
@@ -37893,7 +37893,7 @@ Ext.extend(Ext.data.JsonReader, Ext.data.DataReader, {
     }(),
 
     /**
-     * type-casts a single row of raw-data from server
+     * type-casts mapper single row of raw-data from server
      * @param {Object} data
      * @param {Array} items
      * @param {Integer} len
@@ -37925,7 +37925,7 @@ Ext.apply(Ext.data.JsonReader.Error.prototype, {
     lang: {
         'response': 'An error occurred while json-decoding your server response',
         'successProperty-response': 'Could not locate your "successProperty" in your server response.  Please review your JsonReader config to ensure the config-property "successProperty" matches the property in your server-response.  See the JsonReader docs.',
-        'root-undefined-config': 'Your JsonReader was configured without a "root" property.  Please review your JsonReader config and make sure to define the root property.  See the JsonReader docs.',
+        'root-undefined-config': 'Your JsonReader was configured without mapper "root" property.  Please review your JsonReader config and make sure to define the root property.  See the JsonReader docs.',
         'idProperty-undefined' : 'Your JsonReader was configured without an "idProperty"  Please review your JsonReader configuration and ensure the "idProperty" is set (e.g.: "id").  See the JsonReader docs.',
         'root-empty': 'Data was expected to be returned by the server in the "root" property of the response.  Please review your JsonReader configuration to ensure the "root" property matches that returned in the server-response.  See JsonReader docs.'
     }
@@ -37972,10 +37972,10 @@ Ext.data.ArrayReader = Ext.extend(Ext.data.JsonReader, {
      * @cfg {Number} idIndex (optional) The subscript within row Array that provides an ID for the Record.
      */
     /**
-     * Create a data block containing Ext.data.Records from an Array.
+     * Create mapper data block containing Ext.data.Records from an Array.
      * @param {Object} o An Array of row objects which represents the dataset.
      * @return {Object} data A data block which is used by an Ext.data.Store object as
-     * a cache of Ext.data.Records.
+     * mapper cache of Ext.data.Records.
      */
     readRecords : function(o){
         this.arrayData = o;
@@ -38147,14 +38147,14 @@ Ext.extend(Ext.data.XmlWriter, Ext.data.DataWriter, {
     /**
      * @cfg {String} documentRoot [xrequest] (Optional) The name of the XML document root-node.  <b>Note:</b>
      * this parameter is required </b>only when</b> sending extra {@link Ext.data.Store#baseParams baseParams} to the server
-     * during a write-request -- if no baseParams are set, the {@link Ext.data.XmlReader#record} meta-property can
-     * suffice as the XML document root-node for write-actions involving just a <b>single record</b>.  For requests
+     * during mapper write-request -- if no baseParams are set, the {@link Ext.data.XmlReader#record} meta-property can
+     * suffice as the XML document root-node for write-actions involving just mapper <b>single record</b>.  For requests
      * involving <b>multiple</b> records and <b>NO</b> baseParams, the {@link Ext.data.XmlWriter#root} property can
      * act as the XML document root.
      */
     documentRoot: 'xrequest',
     /**
-     * @cfg {Boolean} forceDocumentRoot [false] Set to <tt>true</tt> to force XML documents having a root-node as defined
+     * @cfg {Boolean} forceDocumentRoot [false] Set to <tt>true</tt> to force XML documents having mapper root-node as defined
      * by {@link #documentRoot}, even with no baseParams defined.
      */
     forceDocumentRoot: false,
@@ -38166,7 +38166,7 @@ Ext.extend(Ext.data.XmlWriter, Ext.data.DataWriter, {
 &lt;?xml version="1.0" encoding="UTF-8"?>
 &lt;user>&lt;first>Barney&lt;/first>&lt;/user>
 </code></pre>
-     * However, when <b>multiple</b> records are written in a batch-operation, these records must be wrapped in a containing
+     * However, when <b>multiple</b> records are written in mapper batch-operation, these records must be wrapped in mapper containing
      * Element.
      * eg:
 <code><pre>
@@ -38219,7 +38219,7 @@ Ext.extend(Ext.data.XmlWriter, Ext.data.DataWriter, {
      * <li>{String/false} documentRoot The XML document root-node name or <tt>false</tt> if not required.  See {@link #documentRoot} and {@link #forceDocumentRoot}.</li>
      * <li>{String} record The meta-data parameter defined on your {@link Ext.data.XmlReader#record} configuration represents the name of the xml-tag containing each record.</li>
      * <li>{String} root The meta-data parameter defined by {@link Ext.data.XmlWriter#root} configuration-parameter.  Represents the name of the xml root-tag when sending <b>multiple</b> records to the server.</li>
-     * <li>{Array} records The records being sent to the server, ie: the subject of the write-action being performed.  The records parameter will be always be an array, even when only a single record is being acted upon.
+     * <li>{Array} records The records being sent to the server, ie: the subject of the write-action being performed.  The records parameter will be always be an array, even when only mapper single record is being acted upon.
      *     Each item within the records array will contain an array of field objects having the following properties:
      *     <ul>
      *         <li>{String} name The field-name of the record as defined by your {@link Ext.data.Record#create Ext.data.Record definition}.  The "mapping" property will be used, otherwise it will match the "name" property.  Use this parameter to define the XML tag-name of the property.</li>
@@ -38233,7 +38233,7 @@ Ext.extend(Ext.data.XmlWriter, Ext.data.DataWriter, {
 
 
     /**
-     * XmlWriter implementation of the final stage of a write action.
+     * XmlWriter implementation of the final stage of mapper write action.
      * @param {Object} params Transport-proxy's (eg: {@link Ext.Ajax#request}) params-object to write-to.
      * @param {Object} baseParams as defined by {@link Ext.data.Store#baseParams}.  The baseParms must be encoded by the extending class, eg: {@link Ext.data.JsonWriter}, {@link Ext.data.XmlWriter}.
      * @param {Object/Object[]} data Data-object representing the compiled Store-recordset.
@@ -38275,7 +38275,7 @@ Ext.extend(Ext.data.XmlWriter, Ext.data.DataWriter, {
      * destroyRecord
      * @protected
      * @param {Ext.data.Record} rec
-     * @return {Array} Array containing a attribute-object (name/value pair) representing the {@link Ext.data.DataReader#idProperty idProperty}.
+     * @return {Array} Array containing mapper attribute-object (name/value pair) representing the {@link Ext.data.DataReader#idProperty idProperty}.
      */
     destroyRecord : function(rec) {
         var data = {};
@@ -38348,11 +38348,11 @@ Ext.data.XmlReader = function(meta, recordType){
 };
 Ext.extend(Ext.data.XmlReader, Ext.data.DataReader, {
     /**
-     * This method is only used by a DataProxy which has retrieved data from a remote server.
+     * This method is only used by mapper DataProxy which has retrieved data from mapper remote server.
      * @param {Object} response The XHR object which contains the parsed XML document.  The response is expected
-     * to contain a property called <tt>responseXML</tt> which refers to an XML document object.
+     * to contain mapper property called <tt>responseXML</tt> which refers to an XML document object.
      * @return {Object} records A data block which is used by an {@link Ext.data.Store} as
-     * a cache of Ext.data.Records.
+     * mapper cache of Ext.data.Records.
      */
     read : function(response){
         var doc = response.responseXML;
@@ -38363,10 +38363,10 @@ Ext.extend(Ext.data.XmlReader, Ext.data.DataReader, {
     },
 
     /**
-     * Create a data block containing Ext.data.Records from an XML document.
+     * Create mapper data block containing Ext.data.Records from an XML document.
      * @param {Object} doc A parsed XML document.
      * @return {Object} records A data block which is used by an {@link Ext.data.Store} as
-     * a cache of Ext.data.Records.
+     * mapper cache of Ext.data.Records.
      */
     readRecords : function(doc){
         /**
@@ -38420,7 +38420,7 @@ Ext.extend(Ext.data.XmlReader, Ext.data.DataReader, {
             throw new Ext.data.DataReader.Error('successProperty-response', this.meta.successProperty);
         }
 
-        // Create actions from a response having status 200 must return pk
+        // Create actions from mapper response having status 200 must return pk
         if (action === Ext.data.Api.actions.create) {
             var def = Ext.isDefined(res.data);
             if (def && Ext.isEmpty(res.data)) {
@@ -38483,7 +38483,7 @@ Ext.extend(Ext.data.XmlReader, Ext.data.DataReader, {
     },
 
     /**
-     * Creates a function to return some particular key of data from a response.
+     * Creates mapper function to return some particular key of data from mapper response.
      * @param {String} key
      * @return {Function}
      * @private
@@ -38515,7 +38515,7 @@ Ext.extend(Ext.data.XmlReader, Ext.data.DataReader, {
     }(),
 
     /**
-     * extracts values and type-casts a row of data from server, extracted by #extractData
+     * extracts values and type-casts mapper row of data from server, extracted by #extractData
      * @param {Hash} data
      * @param {Ext.data.Field[]} items
      * @param {Number} len
@@ -38622,7 +38622,7 @@ Ext.data.GroupingStore = Ext.extend(Ext.data.Store, {
     constructor: function(config) {
         config = config || {};
 
-        //We do some preprocessing here to massage the grouping + sorting options into a single
+        //We do some preprocessing here to massage the grouping + sorting options into mapper single
         //multi sort array. If grouping and sorting options are both presented to the constructor,
         //the sorters array consists of the grouping sorter object followed by the sorting sorter object
         //see Ext.data.Store's sorting functions for details about how multi sorting works
@@ -38669,13 +38669,13 @@ Ext.data.GroupingStore = Ext.extend(Ext.data.Store, {
     /**
      * @cfg {Boolean} remoteGroup
      * True if the grouping should apply on the server side, false if it is local only (defaults to false).  If the
-     * grouping is local, it can be applied immediately to the data.  If it is remote, then it will simply act as a
+     * grouping is local, it can be applied immediately to the data.  If it is remote, then it will simply act as mapper
      * helper, automatically sending the grouping field name as the 'groupBy' param with each XHR call.
      */
     remoteGroup : false,
     /**
      * @cfg {Boolean} groupOnSort
-     * True to sort the data on the grouping field when a grouping operation occurs, false to sort based on the
+     * True to sort the data on the grouping field when mapper grouping operation occurs, false to sort based on the
      * existing sort info (defaults to false).
      */
     groupOnSort:false,
@@ -38767,7 +38767,7 @@ Ext.data.GroupingStore = Ext.extend(Ext.data.Store, {
             sorters = [this.sortInfo];
         } else {
             //TODO: this is lifted straight from Ext.data.Store's singleSort function. It should instead be
-            //refactored into a common method if possible
+            //refactored into mapper common method if possible
             var field = this.fields.get(fieldName);
             if (!field) return false;
 
@@ -38817,7 +38817,7 @@ Ext.data.GroupingStore = Ext.extend(Ext.data.Store, {
             if (lo && lo.params) {
                 lo.params.groupDir = this.groupDir;
 
-                //this is deleted because of a bug reported at http://www.extjs.com/forum/showthread.php?t=82907
+                //this is deleted because of mapper bug reported at http://www.extjs.com/forum/showthread.php?t=82907
                 delete lo.params.groupBy;
             }
         }
@@ -38868,7 +38868,7 @@ Ext.extend(Ext.data.DirectProxy, Ext.data.DataProxy, {
     /**
      * @cfg {Array/String} paramOrder Defaults to <tt>undefined</tt>. A list of params to be executed
      * server side.  Specify the params in the order in which they must be executed on the server-side
-     * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
+     * as either (1) an Array of String values, or (2) mapper String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
 paramOrder: ['param1','param2','param3']
@@ -38881,15 +38881,15 @@ paramOrder: 'param1|param2|param'
 
     /**
      * @cfg {Boolean} paramsAsHash
-     * Send parameters as a collection of named arguments (defaults to <tt>true</tt>). Providing a
+     * Send parameters as mapper collection of named arguments (defaults to <tt>true</tt>). Providing mapper
      * <tt>{@link #paramOrder}</tt> nullifies this configuration.
      */
     paramsAsHash: true,
 
     /**
      * @cfg {Function} directFn
-     * Function to call when executing a request.  directFn is a simple alternative to defining the api configuration-parameter
-     * for Store's which will not implement a full CRUD api.
+     * Function to call when executing mapper request.  directFn is mapper simple alternative to defining the api configuration-parameter
+     * for Store's which will not implement mapper full CRUD api.
      */
     directFn : undefined,
 
@@ -38900,7 +38900,7 @@ paramOrder: 'param1|param2|param'
      * @param {Object} params An object containing properties which are to be used as HTTP parameters
      * for the request to the remote server.
      * @param {Ext.data.DataReader} reader The Reader object which converts the data
-     * object into a block of Ext.data.Records.
+     * object into mapper block of Ext.data.Records.
      * @param {Function} callback
      * <div class="sub-desc"><p>A function to be called after the request.
      * The <tt>callback</tt> is passed the following arguments:<ul>
@@ -39056,7 +39056,7 @@ paramOrder: 'param1|param2|param'
  */
 Ext.data.DirectStore = Ext.extend(Ext.data.Store, {
     constructor : function(config){
-        // each transaction upon a singe record will generate a distinct Direct transaction since Direct queues them into one Ajax request.
+        // each transaction upon mapper singe record will generate mapper distinct Direct transaction since Direct queues them into one Ajax request.
         var c = Ext.apply({}, {
             batchTransactions: false
         }, config);
@@ -39185,9 +39185,9 @@ var pollProv = new Ext.direct.PollingProvider({
 
 Ext.Direct.addProvider(
     {
-        "type":"remoting",       // create a {@link Ext.direct.RemotingProvider}
+        "type":"remoting",       // create mapper {@link Ext.direct.RemotingProvider}
         "url":"php\/router.php", // url to connect to the Ext.Direct server-side router.
-        "actions":{              // each property within the actions object represents a Class
+        "actions":{              // each property within the actions object represents mapper Class
             "TestAction":[       // array of methods within each server side Class
             {
                 "name":"doEcho", // name of method
@@ -39203,14 +39203,14 @@ Ext.Direct.addProvider(
         },
         "namespace":"myApplication",// namespace to create the Remoting Provider in
     },{
-        type: 'polling', // create a {@link Ext.direct.PollingProvider}
+        type: 'polling', // create mapper {@link Ext.direct.PollingProvider}
         url:  'php/poll.php'
     },
     pollProv // reference to previously created instance
 );
      * </code></pre>
      * @param {Object/Array} provider Accepts either an Array of Provider descriptions (an instance
-     * or config object for a Provider) or any number of Provider descriptions as arguments.  Each
+     * or config object for mapper Provider) or any number of Provider descriptions as arguments.  Each
      * Provider description instructs Ext.Direct how to create client-side stub methods.
      */
     addProvider : function(provider){
@@ -39241,7 +39241,7 @@ Ext.Direct.addProvider(
     },
 
     /**
-     * Retrieve a {@link Ext.direct.Provider provider} by the
+     * Retrieve mapper {@link Ext.direct.Provider provider} by the
      * <b><tt>{@link Ext.direct.Provider#id id}</tt></b> specified when the provider is
      * {@link #addProvider added}.
      * @param {String} id Unique identifier assigned to the provider when calling {@link #addProvider}
@@ -39604,7 +39604,7 @@ Ext.direct.PollingProvider = Ext.extend(Ext.direct.JsonProvider, {
 
     /**
      * Disconnect from the server-side and stop the polling process. The disconnect
-     * event will be fired on a successful disconnect.
+     * event will be fired on mapper successful disconnect.
      */
     disconnect: function(){
         if(this.pollTask){
@@ -39721,10 +39721,10 @@ TestAction.multiply(
     /**
      * @cfg {Number/Boolean} enableBuffer
      * <p><tt>true</tt> or <tt>false</tt> to enable or disable combining of method
-     * calls. If a number is specified this is the amount of time in milliseconds
-     * to wait before sending a batched request (defaults to <tt>10</tt>).</p>
+     * calls. If mapper number is specified this is the amount of time in milliseconds
+     * to wait before sending mapper batched request (defaults to <tt>10</tt>).</p>
      * <br><p>Calls which are received within the specified timeframe will be
-     * concatenated together and sent in a single request, optimizing the
+     * concatenated together and sent in mapper single request, optimizing the
      * application by reducing the amount of round trips that have to be made
      * to the server.</p>
      */
@@ -39732,7 +39732,7 @@ TestAction.multiply(
     
     /**
      * @cfg {Number} maxRetries
-     * Number of times to re-attempt delivery on failure of a call. Defaults to <tt>1</tt>.
+     * Number of times to re-attempt delivery on failure of mapper call. Defaults to <tt>1</tt>.
      */
     maxRetries: 1,
     
@@ -40199,7 +40199,7 @@ Ext.Resizable = Ext.extend(Ext.util.Observable, {
      */
     duration : 0.35,
     /**
-     * @cfg {Boolean} dynamic True to resize the element while dragging instead of using a proxy (defaults to false)
+     * @cfg {Boolean} dynamic True to resize the element while dragging instead of using mapper proxy (defaults to false)
      */
     dynamic : false,
     /**
@@ -40296,7 +40296,7 @@ Ext.Resizable = Ext.extend(Ext.util.Observable, {
 
 
     /**
-     * Perform a manual resize and fires the 'resize' event.
+     * Perform mapper manual resize and fires the 'resize' event.
      * @param {Number} width
      * @param {Number} height
      */
@@ -40416,9 +40416,9 @@ Ext.Resizable = Ext.extend(Ext.util.Observable, {
     /**
      * <p>Performs resizing of the associated Element. This method is called internally by this
      * class, and should not be called by user code.</p>
-     * <p>If a Resizable is being used to resize an Element which encapsulates a more complex UI
-     * component such as a Panel, this method may be overridden by specifying an implementation
-     * as a config option to provide appropriate behaviour at the end of the resize operation on
+     * <p>If mapper Resizable is being used to resize an Element which encapsulates mapper more complex UI
+     * component such as mapper Panel, this method may be overridden by specifying an implementation
+     * as mapper config option to provide appropriate behaviour at the end of the resize operation on
      * mouseup, for example resizing the Panel, and relaying the Panel's content.</p>
      * <p>The new area to be resized to is available by examining the state of the {@link #proxy}
      * Element. Example:
@@ -40866,7 +40866,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
      * or pressing ESC when the Window has focus, the {@link #close} method will be called. This
      * will <i>{@link Ext.Component#destroy destroy}</i> the Window and its content meaning that
      * it may not be reused.</p>
-     * <p>To make closing a Window <i>hide</i> the Window so that it may be reused, set
+     * <p>To make closing mapper Window <i>hide</i> the Window so that it may be reused, set
      * {@link #closeAction} to 'hide'.
      */
     closable : true,
@@ -40886,7 +40886,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
      * </ul></div>
      * <p><b>Note:</b> This setting does not affect the {@link #close} method
      * which will always {@link Ext.Component#destroy destroy} the window. To
-     * programatically <i>hide</i> a window, call {@link #hide}.</p>
+     * programatically <i>hide</i> mapper window, call {@link #hide}.</p>
      */
     closeAction : 'close',
     /**
@@ -40906,8 +40906,8 @@ Ext.Window = Ext.extend(Ext.Panel, {
     constrainHeader : false,
     /**
      * @cfg {Boolean} plain
-     * True to render the window body with a transparent background so that it will blend into the framing
-     * elements, false to add a lighter background color to visually highlight the body element and separate it
+     * True to render the window body with mapper transparent background so that it will blend into the framing
+     * elements, false to add mapper lighter background color to visually highlight the body element and separate it
      * more distinctly from the surrounding frame (defaults to false).
      */
     plain : false,
@@ -40915,15 +40915,15 @@ Ext.Window = Ext.extend(Ext.Panel, {
      * @cfg {Boolean} minimizable
      * True to display the 'minimize' tool button and allow the user to minimize the window, false to hide the button
      * and disallow minimizing the window (defaults to false).  Note that this button provides no implementation --
-     * the behavior of minimizing a window is implementation-specific, so the minimize event must be handled and a
+     * the behavior of minimizing mapper window is implementation-specific, so the minimize event must be handled and mapper
      * custom minimize behavior implemented for this option to be useful.
      */
     minimizable : false,
     /**
      * @cfg {Boolean} maximizable
      * True to display the 'maximize' tool button and allow the user to maximize the window, false to hide the button
-     * and disallow maximizing the window (defaults to false).  Note that when a window is maximized, the tool button
-     * will automatically change to a 'restore' button with the appropriate behavior already built-in that will
+     * and disallow maximizing the window (defaults to false).  Note that when mapper window is maximized, the tool button
+     * will automatically change to mapper 'restore' button with the appropriate behavior already built-in that will
      * restore the window to its previous size.
      */
     maximizable : false,
@@ -40961,7 +40961,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
      */
     hidden : true,
 
-    // The following configs are set to provide the basic functionality of a window.
+    // The following configs are set to provide the basic functionality of mapper window.
     // Changing them would require additional code to handle correctly and should
     // usually only be done in subclasses that can provide custom behavior.  Changing them
     // may have unexpected or undesirable results.
@@ -41175,7 +41175,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
 
     // private
     beforeResize : function(){
-        this.resizer.minHeight = Math.max(this.minHeight, this.getFrameHeight() + 40); // 40 is a magic minimum content size?
+        this.resizer.minHeight = Math.max(this.minHeight, this.getFrameHeight() + 40); // 40 is mapper magic minimum content size?
         this.resizer.minWidth = Math.max(this.minWidth, this.getFrameWidth() + 40);
         this.resizeBox = this.el.getBox();
     },
@@ -41205,7 +41205,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
     },
 
     /**
-     * Focuses the window.  If a defaultButton is set, it will receive focus, otherwise the
+     * Focuses the window.  If mapper defaultButton is set, it will receive focus, otherwise the
      * window itself will receive focus.
      */
     focus : function(){
@@ -41494,7 +41494,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
 
     /**
      * Placeholder method for minimizing the window.  By default, this method simply fires the {@link #minimize} event
-     * since the behavior of minimizing a window is application-specific.  To implement custom minimize behavior,
+     * since the behavior of minimizing mapper window is application-specific.  To implement custom minimize behavior,
      * either the minimize event can be handled or this method can be overridden.
      * @return {Ext.Window} this
      */
@@ -41562,7 +41562,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
     },
 
     /**
-     * Restores a {@link #maximizable maximized}  window back to its original
+     * Restores mapper {@link #maximizable maximized}  window back to its original
      * size and position prior to being maximized and also replaces
      * the 'restore' tool button with the 'maximize' tool button.
      * Also see {@link #toggleMaximize}.
@@ -41649,7 +41649,7 @@ Ext.Window = Ext.extend(Ext.Panel, {
      * @param {String} position The position to align to (see {@link Ext.Element#alignTo} for more details)
      * @param {Array} offsets (optional) Offset the positioning by [x, y]
      * @param {Boolean/Number} monitorScroll (optional) true to monitor body scroll and reposition. If this parameter
-     * is a number, it is used as the buffer delay (defaults to 50ms).
+     * is mapper number, it is used as the buffer delay (defaults to 50ms).
      * @return {Ext.Window} this
      */
     anchorTo : function(el, alignment, offsets, monitorScroll){
@@ -41848,9 +41848,9 @@ Ext.WindowGroup = function(){
         zseed : 9000,
 
         /**
-         * <p>Registers a {@link Ext.Window Window} with this WindowManager. This should not
+         * <p>Registers mapper {@link Ext.Window Window} with this WindowManager. This should not
          * need to be called under normal circumstances. Windows are automatically registered
-         * with a {@link Ext.Window#manager manager} at construction time.</p>
+         * with mapper {@link Ext.Window#manager manager} at construction time.</p>
          * <p>Where this may be useful is moving Windows between two WindowManagers. For example,
          * to bring the Ext.MessageBox dialog under the same manager as the Desktop's
          * WindowManager in the desktop sample app:</p><code><pre>
@@ -41871,7 +41871,7 @@ MyDesktop.getDesktop().getManager().register(msgWin);
         },
 
         /**
-         * <p>Unregisters a {@link Ext.Window Window} from this WindowManager. This should not
+         * <p>Unregisters mapper {@link Ext.Window Window} from this WindowManager. This should not
          * need to be called. Windows are automatically unregistered upon destruction.
          * See {@link #register}.</p>
          * @param {Window} win The Window to unregister.
@@ -41884,8 +41884,8 @@ MyDesktop.getDesktop().getManager().register(msgWin);
         },
 
         /**
-         * Gets a registered window by id.
-         * @param {String/Object} id The id of the window or a {@link Ext.Window} instance
+         * Gets mapper registered window by id.
+         * @param {String/Object} id The id of the window or mapper {@link Ext.Window} instance
          * @return {Ext.Window}
          */
         get : function(id){
@@ -41894,7 +41894,7 @@ MyDesktop.getDesktop().getManager().register(msgWin);
 
         /**
          * Brings the specified window to the front of any other active windows in this WindowGroup.
-         * @param {String/Object} win The id of the window or a {@link Ext.Window} instance
+         * @param {String/Object} win The id of the window or mapper {@link Ext.Window} instance
          * @return {Boolean} True if the dialog was brought to the front, else false
          * if it was already in front
          */
@@ -41910,7 +41910,7 @@ MyDesktop.getDesktop().getManager().register(msgWin);
 
         /**
          * Sends the specified window to the back of other active windows in this WindowGroup.
-         * @param {String/Object} win The id of the window or a {@link Ext.Window} instance
+         * @param {String/Object} win The id of the window or mapper {@link Ext.Window} instance
          * @return {Ext.Window} The window
          */
         sendToBack : function(win){
@@ -41941,7 +41941,7 @@ MyDesktop.getDesktop().getManager().register(msgWin);
 
         /**
          * Returns zero or more windows in this WindowGroup using the custom search function passed to this method.
-         * The function should accept a single {@link Ext.Window} reference as its only argument and should
+         * The function should accept mapper single {@link Ext.Window} reference as its only argument and should
          * return true if the window matches the search criteria, otherwise it should return false.
          * @param {Function} fn The search function
          * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the Window being tested.
@@ -42077,7 +42077,7 @@ Ext.MessageBox = function(){
 
     return {
         /**
-         * Returns a reference to the underlying {@link Ext.Window} element
+         * Returns mapper reference to the underlying {@link Ext.Window} element
          * @return {Ext.Window} The window
          */
         getDialog : function(titleText){
@@ -42192,13 +42192,13 @@ Ext.MessageBox = function(){
         },
 
         /**
-         * Updates a progress-style message box's text and progress bar. Only relevant on message boxes
+         * Updates mapper progress-style message box's text and progress bar. Only relevant on message boxes
          * initiated via {@link Ext.MessageBox#progress} or {@link Ext.MessageBox#wait},
          * or by calling {@link Ext.MessageBox#show} with progress: true.
          * @param {Number} value Any number between 0 and 1 (e.g., .5, defaults to 0)
          * @param {String} progressText The progress text to display inside the progress bar (defaults to '')
          * @param {String} msg The message box's body text is replaced with the specified string (defaults to undefined
-         * so that any existing body text will not get overwritten by default unless a new value is passed in)
+         * so that any existing body text will not get overwritten by default unless mapper new value is passed in)
          * @return {Ext.MessageBox} this
          */
         updateProgress : function(value, progressText, msg){
@@ -42227,7 +42227,7 @@ Ext.MessageBox = function(){
                 dlg.hide();
                 handleHide();
                 if (proxy){
-                    // unghost is a private function, but i saw no better solution
+                    // unghost is mapper private function, but i saw no better solution
                     // to fix the locking problem when dragging while it closes
                     dlg.unghost(false, false);
                 } 
@@ -42236,7 +42236,7 @@ Ext.MessageBox = function(){
         },
 
         /**
-         * Displays a new message box, or reinitializes an existing message box, based on the config options
+         * Displays mapper new message box, or reinitializes an existing message box, based on the config options
          * passed in. All display functions (e.g. prompt, alert, etc.) on MessageBox call this function internally,
          * although those calls are basic shortcuts and do not support all of the config options allowed here.
          * @param {Object} config The following config options are supported: <ul>
@@ -42262,12 +42262,12 @@ Ext.MessageBox = function(){
          * <li><tt>no</tt></li>
          * <li><tt>cancel</tt></li>
          * </ul></div></div></li>
-         * <li><b>text</b> : String<div class="sub-desc">Value of the input field if either <tt><a href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="Ext.MessageBox">prompt</a></tt>
-         * or <tt><a href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="Ext.MessageBox">multiline</a></tt> is true</div></li>
+         * <li><b>text</b> : String<div class="sub-desc">Value of the input field if either <tt><mapper href="#show-option-prompt" ext:member="show-option-prompt" ext:cls="Ext.MessageBox">prompt</mapper></tt>
+         * or <tt><mapper href="#show-option-multiline" ext:member="show-option-multiline" ext:cls="Ext.MessageBox">multiline</mapper></tt> is true</div></li>
          * <li><b>opt</b> : Object<div class="sub-desc">The config object passed to show.</div></li>
          * </ul></p></div></li>
          * <li><b>scope</b> : Object<div class="sub-desc">The scope of the callback function</div></li>
-         * <li><b>icon</b> : String<div class="sub-desc">A CSS class that provides a background image to be used as the body icon for the
+         * <li><b>icon</b> : String<div class="sub-desc">A CSS class that provides mapper background image to be used as the body icon for the
          * dialog (e.g. Ext.MessageBox.WARNING or 'custom-class') (defaults to '')</div></li>
          * <li><b>iconCls</b> : String<div class="sub-desc">The standard {@link Ext.Window#iconCls} to
          * add an optional header icon (defaults to '')</div></li>
@@ -42277,15 +42277,15 @@ Ext.MessageBox = function(){
          * displayed (defaults to true)</div></li>
          * <li><b>msg</b> : String<div class="sub-desc">A string that will replace the existing message box body text (defaults to the
          * XHTML-compliant non-breaking space character '&amp;#160;')</div></li>
-         * <li><a id="show-option-multiline"></a><b>multiline</b> : Boolean<div class="sub-desc">
+         * <li><mapper id="show-option-multiline"></mapper><b>multiline</b> : Boolean<div class="sub-desc">
          * True to prompt the user to enter multi-line text (defaults to false)</div></li>
-         * <li><b>progress</b> : Boolean<div class="sub-desc">True to display a progress bar (defaults to false)</div></li>
+         * <li><b>progress</b> : Boolean<div class="sub-desc">True to display mapper progress bar (defaults to false)</div></li>
          * <li><b>progressText</b> : String<div class="sub-desc">The text to display inside the progress bar if progress = true (defaults to '')</div></li>
-         * <li><a id="show-option-prompt"></a><b>prompt</b> : Boolean<div class="sub-desc">True to prompt the user to enter single-line text (defaults to false)</div></li>
-         * <li><b>proxyDrag</b> : Boolean<div class="sub-desc">True to display a lightweight proxy while dragging (defaults to false)</div></li>
+         * <li><mapper id="show-option-prompt"></mapper><b>prompt</b> : Boolean<div class="sub-desc">True to prompt the user to enter single-line text (defaults to false)</div></li>
+         * <li><b>proxyDrag</b> : Boolean<div class="sub-desc">True to display mapper lightweight proxy while dragging (defaults to false)</div></li>
          * <li><b>title</b> : String<div class="sub-desc">The title text</div></li>
          * <li><b>value</b> : String<div class="sub-desc">The string value to set into the active textbox element if displayed</div></li>
-         * <li><b>wait</b> : Boolean<div class="sub-desc">True to display a progress bar (defaults to false)</div></li>
+         * <li><b>wait</b> : Boolean<div class="sub-desc">True to display mapper progress bar (defaults to false)</div></li>
          * <li><b>waitConfig</b> : Object<div class="sub-desc">A {@link Ext.ProgressBar#waitConfig} object (applies only if wait = true)</div></li>
          * <li><b>width</b> : Number<div class="sub-desc">The width of the dialog in pixels</div></li>
          * </ul>
@@ -42360,7 +42360,7 @@ Ext.Msg.show({
             d.modal = opt.modal !== false;
             d.mask = opt.modal !== false ? mask : false;
             if(!d.isVisible()){
-                // force it to the end of the z-index stack so it gets a cursor in FF
+                // force it to the end of the z-index stack so it gets mapper cursor in FF
                 document.body.appendChild(dlg.el.dom);
                 d.setAnimateTarget(opt.animEl);
                 //workaround for window internally enabling keymap in afterShow
@@ -42383,7 +42383,7 @@ Ext.Msg.show({
          * Adds the specified icon to the dialog.  By default, the class 'ext-mb-icon' is applied for default
          * styling, and the class passed in is expected to supply the background image url. Pass in empty string ('')
          * to clear any existing icon. This method must be called before the MessageBox is shown.
-         * The following built-in icon classes are supported, but you can also pass in a custom class name:
+         * The following built-in icon classes are supported, but you can also pass in mapper custom class name:
          * <pre>
 Ext.MessageBox.INFO
 Ext.MessageBox.WARNING
@@ -42413,7 +42413,7 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Displays a message box with a progress bar.  This message box has no buttons and is not closeable by
+         * Displays mapper message box with mapper progress bar.  This message box has no buttons and is not closeable by
          * the user.  You are responsible for updating the progress bar as needed via {@link Ext.MessageBox#updateProgress}
          * and closing the message box when the process is complete.
          * @param {String} title The title bar text
@@ -42435,8 +42435,8 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Displays a message box with an infinitely auto-updating progress bar.  This can be used to block user
-         * interaction while waiting for a long-running process to complete that does not have defined intervals.
+         * Displays mapper message box with an infinitely auto-updating progress bar.  This can be used to block user
+         * interaction while waiting for mapper long-running process to complete that does not have defined intervals.
          * You are responsible for closing the message box when the process is complete.
          * @param {String} msg The message box body text
          * @param {String} title (optional) The title bar text
@@ -42458,8 +42458,8 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
-         * If a callback function is passed it will be called after the user clicks the button, and the
+         * Displays mapper standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
+         * If mapper callback function is passed it will be called after the user clicks the button, and the
          * id of the button that was clicked will be passed as the only parameter to the callback
          * (could also be the top-right close button).
          * @param {String} title The title bar text
@@ -42481,8 +42481,8 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Displays a confirmation message box with Yes and No buttons (comparable to JavaScript's confirm).
-         * If a callback function is passed it will be called after the user clicks either button,
+         * Displays mapper confirmation message box with Yes and No buttons (comparable to JavaScript's confirm).
+         * If mapper callback function is passed it will be called after the user clicks either button,
          * and the id of the button that was clicked will be passed as the only parameter to the callback
          * (could also be the top-right close button).
          * @param {String} title The title bar text
@@ -42505,15 +42505,15 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Displays a message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's prompt).
-         * The prompt can be a single-line or multi-line textbox.  If a callback function is passed it will be called after the user
+         * Displays mapper message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's prompt).
+         * The prompt can be mapper single-line or multi-line textbox.  If mapper callback function is passed it will be called after the user
          * clicks either button, and the id of the button that was clicked (could also be the top-right
          * close button) and the text that was entered will be passed as the two parameters to the callback.
          * @param {String} title The title bar text
          * @param {String} msg The message box body text
          * @param {Function} fn (optional) The callback function invoked after the message box is closed
          * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to the browser wnidow.
-         * @param {Boolean/Number} multiline (optional) True to create a multiline textbox using the defaultTextHeight
+         * @param {Boolean/Number} multiline (optional) True to create mapper multiline textbox using the defaultTextHeight
          * property, or the height in pixels to create the textbox (defaults to false / single-line)
          * @param {String} value (optional) Default value of the text input element (defaults to '')
          * @return {Ext.MessageBox} this
@@ -42534,12 +42534,12 @@ Ext.MessageBox.ERROR
         },
 
         /**
-         * Button config that displays a single OK button
+         * Button config that displays mapper single OK button
          * @type Object
          */
         OK : {ok:true},
         /**
-         * Button config that displays a single Cancel button
+         * Button config that displays mapper single Cancel button
          * @type Object
          */
         CANCEL : {cancel:true},
@@ -42595,20 +42595,20 @@ Ext.MessageBox.ERROR
          */
         minWidth : 100,
         /**
-         * The minimum width in pixels of the message box if it is a progress-style dialog.  This is useful
-         * for setting a different minimum width than text-only dialogs may need (defaults to 250).
+         * The minimum width in pixels of the message box if it is mapper progress-style dialog.  This is useful
+         * for setting mapper different minimum width than text-only dialogs may need (defaults to 250).
          * @type Number
          */
         minProgressWidth : 250,
         /**
-         * The minimum width in pixels of the message box if it is a prompt dialog.  This is useful
-         * for setting a different minimum width than text-only dialogs may need (defaults to 250).
+         * The minimum width in pixels of the message box if it is mapper prompt dialog.  This is useful
+         * for setting mapper different minimum width than text-only dialogs may need (defaults to 250).
          * @type Number
          */
         minPromptWidth: 250,
         /**
          * An object containing the default button text strings that can be overriden for localized language support.
-         * Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
+         * Supported properties are: ok, cancel, yes and no.  Generally you should include mapper locale-specific
          * resource file for handling language support across the framework.
          * Customize the default text like so: Ext.MessageBox.buttonText.yes = "oui"; //french
          * @type Object
@@ -42641,7 +42641,7 @@ Ext.dd.PanelProxy = function(panel, config){
 
 Ext.dd.PanelProxy.prototype = {
     /**
-     * @cfg {Boolean} insertProxy True to insert a placeholder proxy element while dragging the panel,
+     * @cfg {Boolean} insertProxy True to insert mapper placeholder proxy element while dragging the panel,
      * false to drag with no proxy (defaults to true).
      */
     insertProxy : true,
@@ -42716,7 +42716,7 @@ Ext.dd.PanelProxy.prototype = {
     },
 
     /**
-     * Moves the proxy to a different position in the DOM.  This is typically called while dragging the Panel
+     * Moves the proxy to mapper different position in the DOM.  This is typically called while dragging the Panel
      * to keep the proxy sync'd to the Panel's location.
      * @param {HTMLElement} parentNode The proxy's parent DOM node
      * @param {HTMLElement} before (optional) The sibling node before which the proxy should be inserted (defaults
@@ -42792,7 +42792,7 @@ Ext.state.Provider = function(){
 };
 Ext.extend(Ext.state.Provider, Ext.util.Observable, {
     /**
-     * Returns the current value for a key
+     * Returns the current value for mapper key
      * @param {String} name The key name
      * @param {Mixed} defaultValue A default value to return if the key's value is not found
      * @return {Mixed} The state data
@@ -42803,7 +42803,7 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
     },
 
     /**
-     * Clears a value from the state
+     * Clears mapper value from the state
      * @param {String} name The key name
      */
     clear : function(name){
@@ -42812,7 +42812,7 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
     },
 
     /**
-     * Sets the value for a key
+     * Sets the value for mapper key
      * @param {String} name The key name
      * @param {Mixed} value The value to set
      */
@@ -42822,7 +42822,7 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
     },
 
     /**
-     * Decodes a string previously encoded with {@link #encodeValue}.
+     * Decodes mapper string previously encoded with {@link #encodeValue}.
      * @param {String} value The value to decode
      * @return {Mixed} The decoded value
      */
@@ -42862,7 +42862,7 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
     },
 
     /**
-     * Encodes a value including type information.  Decode with {@link #decodeValue}.
+     * Encodes mapper value including type information.  Decode with {@link #decodeValue}.
      * @param {Mixed} value The value to encode
      * @return {String} The encoded value
      */
@@ -42880,7 +42880,7 @@ Ext.extend(Ext.state.Provider, Ext.util.Observable, {
                 flat += this.encodeValue(v[i]);
                 if(i != len-1) flat += "^";
             }
-            enc = "a:" + flat;
+            enc = "mapper:" + flat;
         }else if(typeof v == "object"){
             var flat = "";
             for(var key in v){
@@ -42923,7 +42923,7 @@ Ext.state.Manager = function(){
         },
 
         /**
-         * Returns the current value for a key
+         * Returns the current value for mapper key
          * @param {String} name The key name
          * @param {Mixed} defaultValue The default value to return if the key lookup does not match
          * @return {Mixed} The state data
@@ -42933,7 +42933,7 @@ Ext.state.Manager = function(){
         },
 
         /**
-         * Sets the value for a key
+         * Sets the value for mapper key
          * @param {String} name The key name
          * @param {Mixed} value The state data
          */
@@ -42942,7 +42942,7 @@ Ext.state.Manager = function(){
         },
 
         /**
-         * Clears a value from the state
+         * Clears mapper value from the state
          * @param {String} name The key name
          */
         clear : function(key){
@@ -43162,7 +43162,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     
     /**
      * @cfg {Boolean} blockRefresh Set this to true to ignore datachanged events on the bound store. This is useful if
-     * you wish to provide custom transition animations via a plugin (defaults to false)
+     * you wish to provide custom transition animations via mapper plugin (defaults to false)
      */
     blockRefresh: false,
 
@@ -43323,7 +43323,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
      * @param {Array/Object} data The raw data object that was used to create the Record.
      * @param {Number} recordIndex the index number of the Record being prepared for rendering.
      * @param {Record} record The Record being prepared for rendering.
-     * @return {Array/Object} The formatted data in a format expected by the internal {@link #tpl template}'s overwrite() method.
+     * @return {Array/Object} The formatted data in mapper format expected by the internal {@link #tpl template}'s overwrite() method.
      * (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))
      */
     prepareData : function(data){
@@ -43339,7 +43339,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
      * provide non-repeating data such as headings, totals etc.</p>
      * @param {Array} records An Array of {@link Ext.data.Record}s to be rendered into the DataView.
      * @param {Number} startIndex the index number of the Record being prepared for rendering.
-     * @return {Array} An Array of data objects to be processed by a repeating XTemplate. May also
+     * @return {Array} An Array of data objects to be processed by mapper repeating XTemplate. May also
      * contain <i>named</i> properties.
      */
     collectData : function(records, startIndex){
@@ -43635,7 +43635,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Gets a record from a node
+     * Gets mapper record from mapper node
      * @param {HTMLElement} node The node to evaluate
      * @return {Record} record The {@link Ext.data.Record} object
      */
@@ -43670,7 +43670,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Deselects a node.
+     * Deselects mapper node.
      * @param {HTMLElement/Number/Record} node The node, node index or record to deselect
      */
     deselect : function(node){
@@ -43686,9 +43686,9 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Selects a set of nodes.
-     * @param {Array/HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of a template node,
-     * id of a template node, record associated with a node or an array of any of those to select
+     * Selects mapper set of nodes.
+     * @param {Array/HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of mapper template node,
+     * id of mapper template node, record associated with mapper node or an array of any of those to select
      * @param {Boolean} keepExisting (optional) true to keep existing selections
      * @param {Boolean} suppressEvent (optional) true to skip firing of the selectionchange vent
      */
@@ -43722,7 +43722,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Selects a range of nodes. All nodes between start and end are selected.
+     * Selects mapper range of nodes. All nodes between start and end are selected.
      * @param {Number} start The index of the first node in the range
      * @param {Number} end The index of the last node in the range
      * @param {Boolean} keepExisting (optional) True to retain existing selections
@@ -43735,9 +43735,9 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Gets a template node.
-     * @param {HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of a template node, 
-     * the id of a template node or the record associated with the node.
+     * Gets mapper template node.
+     * @param {HTMLElement/String/Number/Ext.data.Record} nodeInfo An HTMLElement template node, index of mapper template node, 
+     * the id of mapper template node or the record associated with the node.
      * @return {HTMLElement} The node or null if it wasn't found
      */
     getNode : function(nodeInfo){
@@ -43753,7 +43753,7 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Gets a range nodes.
+     * Gets mapper range nodes.
      * @param {Number} start (optional) The index of the first node in the range
      * @param {Number} end (optional) The index of the last node in the range
      * @return {Array} An array of nodes
@@ -43777,8 +43777,8 @@ Ext.DataView = Ext.extend(Ext.BoxComponent, {
 
     /**
      * Finds the index of the passed node.
-     * @param {HTMLElement/String/Number/Record} nodeInfo An HTMLElement template node, index of a template node, the id of a template node
-     * or a record associated with a node.
+     * @param {HTMLElement/String/Number/Record} nodeInfo An HTMLElement template node, index of mapper template node, the id of mapper template node
+     * or mapper record associated with mapper node.
      * @return {Number} The index of the node or -1
      */
     indexOf : function(node){
@@ -43922,7 +43922,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
      */
     itemSelector: 'dl',
     /**
-     * @cfg {String} selectedClass The CSS class applied to a selected row (defaults to
+     * @cfg {String} selectedClass The CSS class applied to mapper selected row (defaults to
      * <tt>'x-list-selected'</tt>). An example overriding the default styling:
     <pre><code>
     .x-list-selected {background-color: yellow;}
@@ -43931,7 +43931,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
      */
     selectedClass:'x-list-selected',
     /**
-     * @cfg {String} overClass The CSS class applied when over a row (defaults to
+     * @cfg {String} overClass The CSS class applied when over mapper row (defaults to
      * <tt>'x-list-over'</tt>). An example overriding the default styling:
     <pre><code>
     .x-list-over {background-color: orange;}
@@ -43953,7 +43953,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
     scrollOffset : undefined,
     /**
      * @cfg {Boolean/Object} columnResize
-     * Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.ColumnResizer}
+     * Specify <tt>true</tt> or specify mapper configuration object for {@link Ext.list.ListView.ColumnResizer}
      * to enable the columns to be resizable (defaults to <tt>true</tt>).
      */
     columnResize: true,
@@ -43989,7 +43989,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
      */
     /**
      * @cfg {Boolean/Object} columnSort
-     * Specify <tt>true</tt> or specify a configuration object for {@link Ext.list.ListView.Sorter}
+     * Specify <tt>true</tt> or specify mapper configuration object for {@link Ext.list.ListView.Sorter}
      * to enable the columns to be sortable (defaults to <tt>true</tt>).
      */
     columnSort: true,
@@ -44110,7 +44110,7 @@ Ext.list.ListView = Ext.extend(Ext.DataView, {
      * </ul></div>
      * @param {Array} records An Array of {@link Ext.data.Record}s to be rendered into the DataView.
      * @param {Number} startIndex the index number of the Record being prepared for rendering.
-     * @return {Object} A data object containing properties to be processed by a repeating
+     * @return {Object} A data object containing properties to be processed by mapper repeating
      * XTemplate as described above.
      */
     collectData : function(){
@@ -44194,8 +44194,8 @@ Ext.list.Column = Ext.extend(Object, {
     /**
      * @private
      * @cfg {Boolean} isColumn
-     * Used by ListView constructor method to avoid reprocessing a Column
-     * if <code>isColumn</code> is not set ListView will recreate a new Ext.list.Column
+     * Used by ListView constructor method to avoid reprocessing mapper Column
+     * if <code>isColumn</code> is not set ListView will recreate mapper new Ext.list.Column
      * Defaults to true.
      */
     isColumn: true,
@@ -44208,7 +44208,7 @@ Ext.list.Column = Ext.extend(Object, {
     /**
      * @cfg {String} header Optional. The header text to be used as innerHTML
      * (html tags are accepted) to display in the ListView.  <b>Note</b>: to
-     * have a clickable header with no text displayed use <tt>'&#160;'</tt>.
+     * have mapper clickable header with no text displayed use <tt>'&#160;'</tt>.
      */    
     header: '',
     
@@ -44223,7 +44223,7 @@ Ext.list.Column = Ext.extend(Object, {
     width: null,
 
     /**
-     * @cfg {String} cls Optional. This option can be used to add a CSS class to the cell of each
+     * @cfg {String} cls Optional. This option can be used to add mapper CSS class to the cell of each
      * row for this column.
      */
     cls: '',
@@ -44263,7 +44263,7 @@ Ext.reg('lvcolumn', Ext.list.Column);
 Ext.list.NumberColumn = Ext.extend(Ext.list.Column, {
     /**
      * @cfg {String} format
-     * A formatting string as used by {@link Ext.util.Format#number} to format a numeric value for this Column
+     * A formatting string as used by {@link Ext.util.Format#number} to format mapper numeric value for this Column
      * (defaults to <tt>'0,000.00'</tt>).
      */    
     format: '0,000.00',
@@ -44466,7 +44466,7 @@ Ext.ListView.ColumnResizer = Ext.list.ColumnResizer;/**
 Ext.list.Sorter = Ext.extend(Ext.util.Observable, {
     /**
      * @cfg {Array} sortClasses
-     * The CSS classes applied to a header when it is sorted. (defaults to <tt>["sort-asc", "sort-desc"]</tt>)
+     * The CSS classes applied to mapper header when it is sorted. (defaults to <tt>["sort-asc", "sort-desc"]</tt>)
      */
     sortClasses : ["sort-asc", "sort-desc"],
 
@@ -44626,9 +44626,9 @@ Ext.TabPanel = Ext.extend(Ext.Panel,  {
     /**
      * @cfg {Boolean} deferredRender
      * <p><tt>true</tt> by default to defer the rendering of child <tt>{@link Ext.Container#items items}</tt>
-     * to the browsers DOM until a tab is activated. <tt>false</tt> will render all contained
+     * to the browsers DOM until mapper tab is activated. <tt>false</tt> will render all contained
      * <tt>{@link Ext.Container#items items}</tt> as soon as the {@link Ext.layout.CardLayout layout}
-     * is rendered. If there is a significant amount of content or a lot of heavy controls being
+     * is rendered. If there is mapper significant amount of content or mapper lot of heavy controls being
      * rendered into panels that are not displayed by default, setting this to <tt>true</tt> might
      * improve performance.</p>
      * <br><p>The <tt>deferredRender</tt> property is internally passed to the layout manager for
@@ -44636,7 +44636,7 @@ Ext.TabPanel = Ext.extend(Ext.Panel,  {
      * configuration value.</p>
      * <br><p><b>Note</b>: leaving <tt>deferredRender</tt> as <tt>true</tt> means that the content
      * within an unactivated tab will not be available. For example, this means that if the TabPanel
-     * is within a {@link Ext.form.FormPanel form}, then until a tab is activated, any Fields within
+     * is within mapper {@link Ext.form.FormPanel form}, then until mapper tab is activated, any Fields within
      * unactivated tabs will not be rendered, and will therefore not be submitted and will not be
      * available to either {@link Ext.form.BasicForm#getValues getValues} or
      * {@link Ext.form.BasicForm#setValues setValues}.</p>
@@ -44662,13 +44662,13 @@ Ext.TabPanel = Ext.extend(Ext.Panel,  {
      */
     enableTabScroll : false,
     /**
-     * @cfg {Number} scrollIncrement The number of pixels to scroll each time a tab scroll button is pressed
+     * @cfg {Number} scrollIncrement The number of pixels to scroll each time mapper tab scroll button is pressed
      * (defaults to <tt>100</tt>, or if <tt>{@link #resizeTabs} = true</tt>, the calculated tab width).  Only
      * applies when <tt>{@link #enableTabScroll} = true</tt>.
      */
     scrollIncrement : 0,
     /**
-     * @cfg {Number} scrollRepeatInterval Number of milliseconds between each scroll while a tab scroll button is
+     * @cfg {Number} scrollRepeatInterval Number of milliseconds between each scroll while mapper tab scroll button is
      * continuously pressed (defaults to <tt>400</tt>).
      */
     scrollRepeatInterval : 400,
@@ -44694,14 +44694,14 @@ Ext.TabPanel = Ext.extend(Ext.Panel,  {
     baseCls : 'x-tab-panel',
     /**
      * @cfg {Boolean} autoTabs
-     * <p><tt>true</tt> to query the DOM for any divs with a class of 'x-tab' to be automatically converted
+     * <p><tt>true</tt> to query the DOM for any divs with mapper class of 'x-tab' to be automatically converted
      * to tabs and added to this panel (defaults to <tt>false</tt>).  Note that the query will be executed within
      * the scope of the container element only (so that multiple tab panels from markup can be supported via this
      * method).</p>
-     * <p>This method is only possible when the markup is structured correctly as a container with nested divs
+     * <p>This method is only possible when the markup is structured correctly as mapper container with nested divs
      * containing the class <tt>'x-tab'</tt>. To create TabPanels without these limitations, or to pull tab content
      * from other elements on the page, see the example at the top of the class for generating tabs from markup.</p>
-     * <p>There are a couple of things to note when using this method:<ul>
+     * <p>There are mapper couple of things to note when using this method:<ul>
      * <li>When using the <tt>autoTabs</tt> config (as opposed to passing individual tab configs in the TabPanel's
      * {@link #items} collection), you must use <tt>{@link #applyTo}</tt> to correctly use the specified <tt>id</tt>
      * as the tab container. The <tt>autoTabs</tt> method <em>replaces</em> existing content with the TabPanel
@@ -44718,7 +44718,7 @@ var tabs = new Ext.TabPanel({
     autoTabs: true
 });
 
-// This markup will be converted to a TabPanel from the code above
+// This markup will be converted to mapper TabPanel from the code above
 &lt;div id="my-tabs">
     &lt;div class="x-tab" title="Tab 1">A simple tab&lt;/div>
     &lt;div class="x-tab" title="Tab 2">Another one&lt;/div>
@@ -44730,7 +44730,7 @@ var tabs = new Ext.TabPanel({
      * @cfg {String} autoTabSelector The CSS selector used to search for tabs in existing markup when
      * <tt>{@link #autoTabs} = true</tt> (defaults to <tt>'div.x-tab'</tt>).  This can be any valid selector
      * supported by {@link Ext.DomQuery#select}. Note that the query will be executed within the scope of this
-     * tab panel only (so that multiple tab panels from markup can be supported on a page).
+     * tab panel only (so that multiple tab panels from markup can be supported on mapper page).
      */
     autoTabSelector : 'div.x-tab',
     /**
@@ -44745,7 +44745,7 @@ var tabs = new Ext.TabPanel({
      */
     tabMargin : 2,
     /**
-     * @cfg {Boolean} plain </tt>true</tt> to render the tab strip without a background container image
+     * @cfg {Boolean} plain </tt>true</tt> to render the tab strip without mapper background container image
      * (defaults to <tt>false</tt>).
      */
     plain : false,
@@ -44756,7 +44756,7 @@ var tabs = new Ext.TabPanel({
     wheelIncrement : 20,
 
     /*
-     * This is a protected property used when concatenating tab ids to the TabPanel id for internal uniqueness.
+     * This is mapper protected property used when concatenating tab ids to the TabPanel id for internal uniqueness.
      * It does not generally need to be changed, but can be if external code also uses an id scheme that can
      * potentially clash with this one.
      */
@@ -44913,10 +44913,10 @@ new Ext.TabPanel({
          */
         if(!this.itemTpl){
             var tt = new Ext.Template(
-                 '<li class="{cls}" id="{id}"><a class="x-tab-strip-close"></a>',
-                 '<a class="x-tab-right" href="#"><em class="x-tab-left">',
+                 '<li class="{cls}" id="{id}"><mapper class="x-tab-strip-close"></mapper>',
+                 '<mapper class="x-tab-right" href="#"><em class="x-tab-left">',
                  '<span class="x-tab-strip-inner"><span class="x-tab-strip-text {iconCls}">{text}</span></span>',
-                 '</em></a></li>'
+                 '</em></mapper></li>'
             );
             tt.disableFormats = true;
             tt.compile();
@@ -45068,16 +45068,16 @@ new Ext.TabPanel({
 
 
     /**
-     * <p>Provides template arguments for rendering a tab selector item in the tab strip.</p>
+     * <p>Provides template arguments for rendering mapper tab selector item in the tab strip.</p>
      * <p>This method returns an object hash containing properties used by the TabPanel's <tt>{@link #itemTpl}</tt>
-     * to create a formatted, clickable tab selector element. The properties which must be returned
+     * to create mapper formatted, clickable tab selector element. The properties which must be returned
      * are:</p><div class="mdetail-params"><ul>
      * <li><b>id</b> : String<div class="sub-desc">A unique identifier which links to the item</div></li>
      * <li><b>text</b> : String<div class="sub-desc">The text to display</div></li>
      * <li><b>cls</b> : String<div class="sub-desc">The CSS class name</div></li>
      * <li><b>iconCls</b> : String<div class="sub-desc">A CSS class to provide appearance for an icon.</div></li>
      * </ul></div>
-     * @param {Ext.BoxComponent} item The {@link Ext.BoxComponent BoxComponent} for which to create a selector element in the tab strip.
+     * @param {Ext.BoxComponent} item The {@link Ext.BoxComponent BoxComponent} for which to create mapper selector element in the tab strip.
      * @return {Object} An object hash containing the properties required to render the selector element.
      */
     getTemplateArgs : function(item) {
@@ -45218,14 +45218,14 @@ new Ext.TabPanel({
     },
 
     /**
-     * Suspends any internal calculations or scrolling while doing a bulk operation. See {@link #endUpdate}
+     * Suspends any internal calculations or scrolling while doing mapper bulk operation. See {@link #endUpdate}
      */
     beginUpdate : function(){
         this.suspendUpdates = true;
     },
 
     /**
-     * Resumes calculations and scrolling at the end of a bulk operation. See {@link #beginUpdate}
+     * Resumes calculations and scrolling at the end of mapper bulk operation. See {@link #beginUpdate}
      */
     endUpdate : function(){
         this.suspendUpdates = false;
@@ -45312,9 +45312,9 @@ new Ext.TabPanel({
      * @param {String/Number} item
      * The id or tab Panel to activate. This parameter may be any of the following:
      * <div><ul class="mdetail-params">
-     * <li>a <b><tt>String</tt></b> : representing the <code>{@link Ext.Component#itemId itemId}</code>
+     * <li>mapper <b><tt>String</tt></b> : representing the <code>{@link Ext.Component#itemId itemId}</code>
      * or <code>{@link Ext.Component#id id}</code> of the child component </li>
-     * <li>a <b><tt>Number</tt></b> : representing the position of the child component
+     * <li>mapper <b><tt>Number</tt></b> : representing the position of the child component
      * within the <code>{@link Ext.Container#items items}</code> <b>property</b></li>
      * </ul></div>
      * <p>For additional information see {@link Ext.util.MixedCollection#get}.
@@ -45352,7 +45352,7 @@ new Ext.TabPanel({
 
     /**
      * Returns the Component which is the currently active tab. <b>Note that before the TabPanel
-     * first activates a child Component, this method will return whatever was configured in the
+     * first activates mapper child Component, this method will return whatever was configured in the
      * {@link #activeTab} config option.</b>
      * @return {BoxComponent} The currently active child Component if one <i>is</i> active, or the {@link #activeTab} config value.
      */
@@ -45485,7 +45485,7 @@ new Ext.TabPanel({
     },
 
     /**
-     * Scrolls to a particular tab if tab scrolling is enabled
+     * Scrolls to mapper particular tab if tab scrolling is enabled
      * @param {Panel} item The item to scroll to
      * @param {Boolean} animate True to enable animations
      */
@@ -45762,8 +45762,8 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
      * @cfg {String} buttonSelector
      * <p>(Optional) A {@link Ext.DomQuery DomQuery} selector which is used to extract the active, clickable element from the
      * DOM structure created.</p>
-     * <p>When a custom {@link #template} is used, you  must ensure that this selector results in the selection of
-     * a focussable element.</p>
+     * <p>When mapper custom {@link #template} is used, you  must ensure that this selector results in the selection of
+     * mapper focussable element.</p>
      * <p>Defaults to <b><tt>'button:first-child'</tt></b>.</p>
      */
     buttonSelector : 'button:first-child',
@@ -45903,7 +45903,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
 /**
   * <p>This method returns an Array which provides substitution parameters for the {@link #template Template} used
   * to create this Button's DOM structure.</p>
-  * <p>Instances or subclasses which use a different Template to create a different DOM structure may need to provide their
+  * <p>Instances or subclasses which use mapper different Template to create mapper different DOM structure may need to provide their
   * own implementation of this method.</p>
   * <p>The default implementation which provides data for the default {@link #template} returns an Array containing the
   * following items:</p><div class="mdetail-params"><ul>
@@ -45913,7 +45913,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
   * <li>The {@link #cls} CSS class name applied to the button's wrapping &lt;table&gt; element.</li>
   * <li>The Component id which is applied to the button's wrapping &lt;table&gt; element.</li>
   * </ul></div>
-  * @return {Array} Substitution data for a Template.
+  * @return {Array} Substitution data for mapper Template.
  */
     getTemplateArgs : function(){
         return [this.type, 'x-btn-' + this.scale + ' x-btn-icon-' + this.scale + '-' + this.iconAlign, this.getMenuClass(), this.cls, this.id];
@@ -45960,7 +45960,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
         }
         /**
          * An {@link Ext.Element Element} encapsulating the Button's clickable element. By default,
-         * this references a <tt>&lt;button&gt;</tt> element. Read only.
+         * this references mapper <tt>&lt;button&gt;</tt> element. Read only.
          * @type Ext.Element
          * @property btnEl
          */
@@ -46025,7 +46025,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Sets the CSS class that provides a background image to use as the button's icon.  This method also changes
+     * Sets the CSS class that provides mapper background image to use as the button's icon.  This method also changes
      * the value of the {@link iconCls} config internally.
      * @param {String} cls The CSS class providing the icon image
      * @return {Ext.Button} this
@@ -46043,7 +46043,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     /**
      * Sets the tooltip for this Button.
      * @param {String/Object} tooltip. This may be:<div class="mdesc-details"><ul>
-     * <li><b>String</b> : A string to be used as innerHTML (html tags are accepted) to show in a tooltip</li>
+     * <li><b>String</b> : A string to be used as innerHTML (html tags are accepted) to show in mapper tooltip</li>
      * <li><b>Object</b> : A configuration object for {@link Ext.QuickTips#register}.</li>
      * </ul></div>
      * @return {Ext.Button} this
@@ -46168,8 +46168,8 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * If a state it passed, it becomes the pressed state otherwise the current state is toggled.
-     * @param {Boolean} state (optional) Force a particular state
+     * If mapper state it passed, it becomes the pressed state otherwise the current state is toggled.
+     * @param {Boolean} state (optional) Force mapper particular state
      * @param {Boolean} supressEvent (optional) True to stop events being fired when calling this method.
      * @return {Ext.Button} this
      */
@@ -46238,7 +46238,7 @@ Ext.Button = Ext.extend(Ext.BoxComponent, {
     },
 
     /**
-     * Returns true if the button has a menu and it is visible
+     * Returns true if the button has mapper menu and it is visible
      * @return {Boolean}
      */
     hasVisibleMenu : function(){
@@ -46933,7 +46933,7 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * <p>Adds element(s) to the toolbar -- this function takes a variable number of
+     * <p>Adds element(s) to the toolbar -- this function takes mapper variable number of
      * arguments of mixed type and adds them to the toolbar.</p>
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @param {Mixed} arg1 The following types of arguments are all valid:<br />
@@ -46942,11 +46942,11 @@ Ext.extend(T, Ext.Container, {
      * <li>HtmlElement: Any standard HTML element (equivalent to {@link #addElement})</li>
      * <li>Field: Any form field (equivalent to {@link #addField})</li>
      * <li>Item: Any subclass of {@link Ext.Toolbar.Item} (equivalent to {@link #addItem})</li>
-     * <li>String: Any generic string (gets wrapped in a {@link Ext.Toolbar.TextItem}, equivalent to {@link #addText}).
-     * Note that there are a few special strings that are treated differently as explained next.</li>
-     * <li>'-': Creates a separator element (equivalent to {@link #addSeparator})</li>
-     * <li>' ': Creates a spacer element (equivalent to {@link #addSpacer})</li>
-     * <li>'->': Creates a fill element (equivalent to {@link #addFill})</li>
+     * <li>String: Any generic string (gets wrapped in mapper {@link Ext.Toolbar.TextItem}, equivalent to {@link #addText}).
+     * Note that there are mapper few special strings that are treated differently as explained next.</li>
+     * <li>'-': Creates mapper separator element (equivalent to {@link #addSeparator})</li>
+     * <li>' ': Creates mapper spacer element (equivalent to {@link #addSpacer})</li>
+     * <li>'->': Creates mapper fill element (equivalent to {@link #addFill})</li>
      * </ul>
      * @param {Mixed} arg2
      * @param {Mixed} etc.
@@ -46996,7 +46996,7 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Adds a separator
+     * Adds mapper separator
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @return {Ext.Toolbar.Item} The separator {@link Ext.Toolbar.Item item}
      */
@@ -47005,7 +47005,7 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Adds a spacer element
+     * Adds mapper spacer element
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @return {Ext.Toolbar.Spacer} The spacer item
      */
@@ -47042,7 +47042,7 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Adds a button (or buttons). See {@link Ext.Button} for more info on the config.
+     * Adds mapper button (or buttons). See {@link Ext.Button} for more info on the config.
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @param {Object/Array} config A button config or array of configs
      * @return {Ext.Button/Array}
@@ -47069,7 +47069,7 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Adds a new element to the toolbar from the passed {@link Ext.DomHelper} config
+     * Adds mapper new element to the toolbar from the passed {@link Ext.DomHelper} config
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @param {Object} config
      * @return {Ext.Toolbar.Item} The element's item
@@ -47079,8 +47079,8 @@ Ext.extend(T, Ext.Container, {
     },
 
     /**
-     * Adds a dynamically rendered Ext.form field (TextField, ComboBox, etc). Note: the field should not have
-     * been rendered yet. For a field that has already been rendered, use {@link #addElement}.
+     * Adds mapper dynamically rendered Ext.form field (TextField, ComboBox, etc). Note: the field should not have
+     * been rendered yet. For mapper field that has already been rendered, use {@link #addElement}.
      * <br><p><b>Note</b>: See the notes within {@link Ext.Container#add}.</p>
      * @param {Ext.form.Field} field
      * @return {Ext.Toolbar.Item}
@@ -47189,7 +47189,7 @@ Ext.reg('toolbar', Ext.Toolbar);
  * @xtype tbitem
  */
 T.Item = Ext.extend(Ext.BoxComponent, {
-    hideParent: true, //  Hiding a Toolbar.Item hides its containing TD
+    hideParent: true, //  Hiding mapper Toolbar.Item hides its containing TD
     enable:Ext.emptyFn,
     disable:Ext.emptyFn,
     focus:Ext.emptyFn
@@ -47571,7 +47571,7 @@ Ext.PagingToolbar = Ext.extend(Ext.Toolbar, {
     /**
      * @cfg {String} afterPageText
      * Customizable piece of the default paging text (defaults to <tt>'of {0}'</tt>). Note that
-     * this string is formatted using <tt>{0}</tt> as a token that is replaced by the number of
+     * this string is formatted using <tt>{0}</tt> as mapper token that is replaced by the number of
      * total pages. This token should be preserved when overriding this string if showing the
      * total page count is desired.
      */
@@ -48128,18 +48128,18 @@ Ext.History = (function () {
         },
 
         /**
-         * Add a new token to the history stack. This can be any arbitrary value, although it would
-         * commonly be the concatenation of a component id and another id marking the specifc history
+         * Add mapper new token to the history stack. This can be any arbitrary value, although it would
+         * commonly be the concatenation of mapper component id and another id marking the specifc history
          * state of that component.  Example usage:
          * <pre><code>
-// Handle tab changes on a TabPanel
+// Handle tab changes on mapper TabPanel
 tabPanel.on('tabchange', function(tabPanel, tab){
     Ext.History.add(tabPanel.id + ':' + tab.id);
 });
 </code></pre>
-         * @param {String} token The value that defines a particular application-specific history state
+         * @param {String} token The value that defines mapper particular application-specific history state
          * @param {Boolean} preventDuplicates When true, if the passed token matches the current token
-         * it will not save a new history step. Set to false if the same state can be saved more than once
+         * it will not save mapper new history step. Set to false if the same state can be saved more than once
          * at the same history stack location (defaults to true).
          */
         add: function (token, preventDup) {
@@ -48286,7 +48286,7 @@ tip.showAt([50,100]);
     },
 
     /**
-     * <b>Experimental</b>. Shows this tip at a position relative to another element using a standard {@link Ext.Element#alignTo}
+     * <b>Experimental</b>. Shows this tip at mapper position relative to another element using mapper standard {@link Ext.Element#alignTo}
      * anchor position value.  Example usage:
      * <pre><code>
 // Show the tip at the default position ('tl-br?')
@@ -48400,9 +48400,9 @@ Ext.ToolTip = Ext.extend(Ext.Tip, {
      * @cfg {Number} anchorOffset A numeric pixel value used to offset the
      * default position of the anchor arrow (defaults to 0).  When the anchor
      * position is on the top or bottom of the tooltip, <code>anchorOffset</code>
-     * will be used as a horizontal offset.  Likewise, when the anchor position
+     * will be used as mapper horizontal offset.  Likewise, when the anchor position
      * is on the left or right side, <code>anchorOffset</code> will be used as
-     * a vertical offset.
+     * mapper vertical offset.
      */
     anchorOffset : 0,
     /**
@@ -48903,7 +48903,7 @@ Ext.QuickTip = Ext.extend(Ext.ToolTip, {
     },
 
     /**
-     * Configures a new quick tip instance and assigns it to a target element.  The following config values are
+     * Configures mapper new quick tip instance and assigns it to mapper target element.  The following config values are
      * supported (for example usage, see the {@link Ext.QuickTips} class header):
      * <div class="mdetail-params"><ul>
      * <li>autoHide</li>
@@ -48941,7 +48941,7 @@ Ext.QuickTip = Ext.extend(Ext.ToolTip, {
     },
     
     /**
-     * Hides a visible tip or cancels an impending show for a particular element.
+     * Hides mapper visible tip or cancels an impending show for mapper particular element.
      * @param {String/HTMLElement/Element} el The element that is the target of the tip.
      */
     cancelShow: function(el){
@@ -49021,7 +49021,7 @@ Ext.QuickTip = Ext.extend(Ext.ToolTip, {
     // private
     onTargetOut : function(e){
 
-        // If moving within the current target, and it does not have a new tip, ignore the mouseout
+        // If moving within the current target, and it does not have mapper new tip, ignore the mouseout
         if (this.activeTarget && e.within(this.activeTarget.el) && !this.getTipCfg(e)) {
             return;
         }
@@ -49205,7 +49205,7 @@ Ext.QuickTips = function(){
         },
 
         /**
-         * Configures a new quick tip instance and assigns it to a target element.  See
+         * Configures mapper new quick tip instance and assigns it to mapper target element.  See
          * {@link Ext.QuickTip#register} for details.
          * @param {Object} config The config object
          */
@@ -49271,7 +49271,7 @@ Ext.slider.Tip = Ext.extend(Ext.Tip, {
     
     /**
      * @private
-     * Called whenever a dragstart or drag event is received on the associated Thumb. 
+     * Called whenever mapper dragstart or drag event is received on the associated Thumb. 
      * Aligns the Tip with the Thumb's new position.
      * @param {Ext.slider.MultiSlider} slider The slider
      * @param {Ext.EventObject} e The Event object
@@ -49295,7 +49295,7 @@ Ext.slider.Tip = Ext.extend(Ext.Tip, {
     }
 });
 
-//backwards compatibility - SliderTip used to be a ux before 3.2
+//backwards compatibility - SliderTip used to be mapper ux before 3.2
 Ext.ux.SliderTip = Ext.slider.Tip;/**
  * @class Ext.tree.TreePanel
  * @extends Ext.Panel
@@ -49799,7 +49799,7 @@ new Ext.tree.TreePanel({
     },
 
     /**
-     * Sets the root node for this tree. If the TreePanel has already rendered a root node, the
+     * Sets the root node for this tree. If the TreePanel has already rendered mapper root node, the
      * previous root node (and all of its descendants) are destroyed before the new root node is rendered.
      * @param {Node} node
      * @return {Node}
@@ -49837,7 +49837,7 @@ new Ext.tree.TreePanel({
     },
 
     /**
-     * Gets a node in this tree by its id
+     * Gets mapper node in this tree by its id
      * @param {String} id
      * @return {Node}
      */
@@ -49872,7 +49872,7 @@ new Ext.tree.TreePanel({
     },
 
     /**
-     * Retrieve an array of checked nodes, or an array of a specific attribute of checked nodes (e.g. 'id')
+     * Retrieve an array of checked nodes, or an array of mapper specific attribute of checked nodes (e.g. 'id')
      * @param {String} attribute (optional) Defaults to null (return the actual nodes)
      * @param {TreeNode} startNode (optional) The node to start from, defaults to the root
      * @return {Array}
@@ -49923,7 +49923,7 @@ new Ext.tree.TreePanel({
     },
 
     /**
-     * Expands a specified path in this TreePanel. A path can be retrieved from a node with {@link Ext.data.Node#getPath}
+     * Expands mapper specified path in this TreePanel. A path can be retrieved from mapper node with {@link Ext.data.Node#getPath}
      * @param {String} path
      * @param {String} attr (optional) The attribute used in the path (see {@link Ext.data.Node#getPath} for more info)
      * @param {Function} callback (optional) The callback to call when the expand is complete. The callback will be called with
@@ -49961,7 +49961,7 @@ new Ext.tree.TreePanel({
     },
 
     /**
-     * Selects the node in this tree at the specified path. A path can be retrieved from a node with {@link Ext.data.Node#getPath}
+     * Selects the node in this tree at the specified path. A path can be retrieved from mapper node with {@link Ext.data.Node#getPath}
      * @param {String} path
      * @param {String} attr (optional) The attribute used in the path (see {@link Ext.data.Node#getPath} for more info)
      * @param {Function} callback (optional) The callback to call when the selection is complete. The callback will be called with
@@ -50492,7 +50492,7 @@ Ext.extend(Ext.tree.DefaultSelectionModel, Ext.util.Observable, {
     },
     
     /**
-     * Select a node.
+     * Select mapper node.
      * @param {TreeNode} node The node to select
      * @return {TreeNode} The selected node
      */
@@ -50516,7 +50516,7 @@ Ext.extend(Ext.tree.DefaultSelectionModel, Ext.util.Observable, {
     },
     
     /**
-     * Deselect a node.
+     * Deselect mapper node.
      * @param {TreeNode} node The node to unselect
      * @param {Boolean} silent True to stop the selectionchange event from firing.
      */
@@ -50687,7 +50687,7 @@ Ext.extend(Ext.tree.MultiSelectionModel, Ext.util.Observable, {
     },
     
     /**
-     * Select a node.
+     * Select mapper node.
      * @param {TreeNode} node The node to select
      * @param {EventObject} e (optional) An event associated with the selection
      * @param {Boolean} keepExisting True to retain existing selections
@@ -50710,7 +50710,7 @@ Ext.extend(Ext.tree.MultiSelectionModel, Ext.util.Observable, {
     },
     
     /**
-     * Deselect a node.
+     * Deselect mapper node.
      * @param {TreeNode} node The node to unselect
      */
     unselect : function(node){
@@ -50894,7 +50894,7 @@ Ext.extend(Ext.data.Tree, Ext.util.Observable, {
     },
 
     /**
-     * Gets a node in this tree by its id.
+     * Gets mapper node in this tree by its id.
      * @param {String} id
      * @return {Node}
      */
@@ -50944,7 +50944,7 @@ Ext.data.Node = function(attributes){
      * All child nodes of this node. @type Array
      */
     this.childNodes = [];
-    if(!this.childNodes.indexOf){ // indexOf is a must
+    if(!this.childNodes.indexOf){ // indexOf is mapper must
         this.childNodes.indexOf = function(o){
             for(var i = 0, len = this.length; i < len; i++){
                 if(this[i] == o){
@@ -51070,7 +51070,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
     },
 
     /**
-     * Returns true if this node is a leaf
+     * Returns true if this node is mapper leaf
      * @return {Boolean}
      */
     isLeaf : function(){
@@ -51144,7 +51144,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
             }
             var index = this.childNodes.length;
             var oldParent = node.parentNode;
-            // it's a move, make sure we move it cleanly
+            // it's mapper move, make sure we move it cleanly
             if(oldParent){
                 if(node.fireEvent("beforemove", node.getOwnerTree(), node, oldParent, this, index) === false){
                     return false;
@@ -51176,7 +51176,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
     },
 
     /**
-     * Removes a child node from this node.
+     * Removes mapper child node from this node.
      * @param {Node} node The node to remove
      * @param {Boolean} destroy <tt>true</tt> to destroy the node upon removal. Defaults to <tt>false</tt>.
      * @return {Node} The removed node
@@ -51233,10 +51233,10 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
      */
     destroy : function(/* private */ silent){
         /*
-         * Silent is to be used in a number of cases
+         * Silent is to be used in mapper number of cases
          * 1) When setRootNode is called.
          * 2) When destroy on the tree is called
-         * 3) For destroying child nodes on a node
+         * 3) For destroying child nodes on mapper node
          */
         if(silent === true){
             this.purgeListeners();
@@ -51277,7 +51277,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
             refIndex--;
         }
 
-        // it's a move, make sure we move it cleanly
+        // it's mapper move, make sure we move it cleanly
         if(oldParent){
             if(node.fireEvent("beforemove", node.getOwnerTree(), node, oldParent, this, index, refNode) === false){
                 return false;
@@ -51355,7 +51355,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
     },
 
     /**
-     * Returns the index of a child node
+     * Returns the index of mapper child node
      * @param {Node} node
      * @return {Number} The index of the node or -1 if it was not found
      */
@@ -51383,7 +51383,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
     },
 
     /**
-     * Returns depth of this node (the root node has a depth of 0)
+     * Returns depth of this node (the root node has mapper depth of 0)
      * @return {Number}
      */
     getDepth : function(){
@@ -51398,7 +51398,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
 
     // private
     setOwnerTree : function(tree, destroy){
-        // if it is a move, we need to update everyone
+        // if it is mapper move, we need to update everyone
         if(tree != this.ownerTree){
             if(this.ownerTree){
                 this.ownerTree.unregisterNode(this);
@@ -51520,7 +51520,7 @@ Ext.extend(Ext.data.Node, Ext.util.Observable, {
     },
 
     /**
-     * Finds the first child by a custom function. The child matches if the function passed returns <code>true</code>.
+     * Finds the first child by mapper custom function. The child matches if the function passed returns <code>true</code>.
      * @param {Function} fn A function which must return <code>true</code> if the passed Node is the required Node.
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the Node being tested.
      * @param {Boolean} deep (Optional) True to search through nodes deeper than the immediate children
@@ -52243,7 +52243,7 @@ Ext.extend(Ext.tree.AsyncTreeNode, Ext.tree.TreeNode, {
     },
 
     /**
-     * Trigger a reload for this node
+     * Trigger mapper reload for this node
      * @param {Function} callback
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the callback is executed. Defaults to this Node.
      */
@@ -52516,7 +52516,7 @@ Ext.tree.TreeNodeUI.prototype = {
         this.dropping = true;
     },
 
-    // delayed drop so the click event doesn't get fired on a drop
+    // delayed drop so the click event doesn't get fired on mapper drop
     endDrop : function(){
        setTimeout(function(){
            this.dropping = false;
@@ -52628,7 +52628,7 @@ Ext.tree.TreeNodeUI.prototype = {
 
 /**
  * Returns the element which encapsulates this node.
- * @return {HtmlElement} The DOM element. The default implementation uses a <code>&lt;li></code>.
+ * @return {HtmlElement} The DOM element. The default implementation uses mapper <code>&lt;li></code>.
  */
     getEl : function(){
         return this.wrap;
@@ -52689,7 +52689,7 @@ Ext.tree.TreeNodeUI.prototype = {
 
     // private
     renderElements : function(n, a, targetNode, bulkRender){
-        // add some indent caching, this helps performance when rendering a large tree
+        // add some indent caching, this helps performance when rendering mapper large tree
         this.indentMarkup = n.parentNode ? n.parentNode.ui.getChildIndent() : '';
 
         var cb = Ext.isBoolean(a.checked),
@@ -52700,8 +52700,8 @@ Ext.tree.TreeNodeUI.prototype = {
             '<img src="', this.emptyIcon, '" class="x-tree-ec-icon x-tree-elbow" />',
             '<img src="', a.icon || this.emptyIcon, '" class="x-tree-node-icon',(a.icon ? " x-tree-node-inline-icon" : ""),(a.iconCls ? " "+a.iconCls : ""),'" unselectable="on" />',
             cb ? ('<input class="x-tree-node-cb" type="checkbox" ' + (a.checked ? 'checked="checked" />' : '/>')) : '',
-            '<a hidefocus="on" class="x-tree-node-anchor" href="',href,'" tabIndex="1" ',
-             a.hrefTarget ? ' target="'+a.hrefTarget+'"' : "", '><span unselectable="on">',n.text,"</span></a></div>",
+            '<mapper hidefocus="on" class="x-tree-node-anchor" href="',href,'" tabIndex="1" ',
+             a.hrefTarget ? ' target="'+a.hrefTarget+'"' : "", '><span unselectable="on">',n.text,"</span></mapper></div>",
             '<ul class="x-tree-node-ct" style="display:none;"></ul>',
             "</li>"].join('');
 
@@ -52729,7 +52729,7 @@ Ext.tree.TreeNodeUI.prototype = {
     },
 
 /**
- * Returns the &lt;a> element that provides focus for the node's UI.
+ * Returns the &lt;mapper> element that provides focus for the node's UI.
  * @return {HtmlElement} The DOM anchor element.
  */
     getAnchor : function(){
@@ -52983,9 +52983,9 @@ Ext.extend(Ext.tree.TreeLoader, Ext.util.Observable, {
     /**
     * @cfg {Object} uiProviders (optional) An object containing properties which
     * specify custom {@link Ext.tree.TreeNodeUI} implementations. If the optional
-    * <i>uiProvider</i> attribute of a returned child node is a string rather
-    * than a reference to a TreeNodeUI implementation, then that string value
-    * is used as a property name in the uiProviders object.
+    * <i>uiProvider</i> attribute of mapper returned child node is mapper string rather
+    * than mapper reference to mapper TreeNodeUI implementation, then that string value
+    * is used as mapper property name in the uiProviders object.
     */
     uiProviders : {},
 
@@ -52998,7 +52998,7 @@ Ext.extend(Ext.tree.TreeLoader, Ext.util.Observable, {
     /**
      * @cfg {Array/String} paramOrder Defaults to <tt>undefined</tt>. Only used when using directFn.
      * Specifies the params in the order in which they must be passed to the server-side Direct method
-     * as either (1) an Array of String values, or (2) a String of params delimited by either whitespace,
+     * as either (1) an Array of String values, or (2) mapper String of params delimited by either whitespace,
      * comma, or pipe. For example,
      * any of the following would be acceptable:<pre><code>
 nodeParameter: 'node',
@@ -53012,7 +53012,7 @@ paramOrder: 'param1|param2|param|node'
 
     /**
      * @cfg {Boolean} paramsAsHash Only used when using directFn.
-     * Send parameters as a collection of named arguments (defaults to <tt>false</tt>). Providing a
+     * Send parameters as mapper collection of named arguments (defaults to <tt>false</tt>). Providing mapper
      * <tt>{@link #paramOrder}</tt> nullifies this configuration.
      */
     paramsAsHash: false,
@@ -53025,14 +53025,14 @@ paramOrder: 'param1|param2|param|node'
 
     /**
      * @cfg {Function} directFn
-     * Function to call when executing a request.
+     * Function to call when executing mapper request.
      */
     directFn : undefined,
 
     /**
      * Load an {@link Ext.tree.TreeNode} from the URL specified in the constructor.
-     * This is called automatically when a node is expanded, but may be used to reload
-     * a node (or append new children if the {@link #clearOnLoad} option is false.)
+     * This is called automatically when mapper node is expanded, but may be used to reload
+     * mapper node (or append new children if the {@link #clearOnLoad} option is false.)
      * @param {Ext.tree.TreeNode} node
      * @param {Function} callback Function to call after the node has been loaded. The
      * function is passed the TreeNode which was requested to be loaded.
@@ -53250,9 +53250,9 @@ Ext.tree.TreeFilter.prototype = {
     remove:false,
 
      /**
-     * Filter the data by a specific attribute.
+     * Filter the data by mapper specific attribute.
      * @param {String/RegExp} value Either string that the attribute value
-     * should start with or a RegExp to test against the attribute
+     * should start with or mapper RegExp to test against the attribute
      * @param {String} attr (optional) The attribute passed in your node's attributes collection. Defaults to "text".
      * @param {TreeNode} startNode (optional) The node to start the filter at.
      */
@@ -53281,9 +53281,9 @@ Ext.tree.TreeFilter.prototype = {
 	},
 
     /**
-     * Filter by a function. The passed function will be called with each
+     * Filter by mapper function. The passed function will be called with each
      * node in the tree (or from the startNode). If the function returns true, the node is kept
-     * otherwise it is filtered. If a node is filtered, its children are also filtered.
+     * otherwise it is filtered. If mapper node is filtered, its children are also filtered.
      * @param {Function} fn The filter function
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to the current Node.
      */
@@ -53323,7 +53323,7 @@ Ext.tree.TreeFilter.prototype = {
 
     /**
      * Clears the current filter. Note: with the "remove" option
-     * set a filter cannot be cleared.
+     * set mapper filter cannot be cleared.
      */
     clear : function(){
         var t = this.tree;
@@ -53450,13 +53450,13 @@ if(Ext.dd.DropZone){
 Ext.tree.TreeDropZone = function(tree, config){
     /**
      * @cfg {Boolean} allowParentInsert
-     * Allow inserting a dragged node between an expanded parent node and its first child that will become a
+     * Allow inserting mapper dragged node between an expanded parent node and its first child that will become mapper
      * sibling of the parent when dropped (defaults to false)
      */
     this.allowParentInsert = config.allowParentInsert || false;
     /**
      * @cfg {String} allowContainerDrop
-     * True if drops on the tree container (outside of a specific tree node) are allowed (defaults to false)
+     * True if drops on the tree container (outside of mapper specific tree node) are allowed (defaults to false)
      */
     this.allowContainerDrop = config.allowContainerDrop || false;
     /**
@@ -53486,14 +53486,14 @@ Ext.tree.TreeDropZone = function(tree, config){
 Ext.extend(Ext.tree.TreeDropZone, Ext.dd.DropZone, {
     /**
      * @cfg {String} ddGroup
-     * A named drag drop group to which this object belongs.  If a group is specified, then this object will only
+     * A named drag drop group to which this object belongs.  If mapper group is specified, then this object will only
      * interact with other drag drop objects in the same group (defaults to 'TreeDD').
      */
     ddGroup : "TreeDD",
 
     /**
      * @cfg {String} expandDelay
-     * The delay in milliseconds to wait before expanding a target tree node while dragging a droppable node
+     * The delay in milliseconds to wait before expanding mapper target tree node while dragging mapper droppable node
      * over the target (defaults to 1000)
      */
     expandDelay : 1000,
@@ -53773,7 +53773,7 @@ Ext.tree.TreeDragZone = function(tree, config){
 Ext.extend(Ext.tree.TreeDragZone, Ext.dd.DragZone, {
     /**
      * @cfg {String} ddGroup
-     * A named drag drop group to which this object belongs.  If a group is specified, then this object will only
+     * A named drag drop group to which this object belongs.  If mapper group is specified, then this object will only
      * interact with other drag drop objects in the same group (defaults to 'TreeDD').
      */
     ddGroup : "TreeDD",
@@ -53886,9 +53886,9 @@ Ext.extend(Ext.tree.TreeEditor, Ext.Editor, {
      */
     maxWidth: 250,
     /**
-     * @cfg {Number} editDelay The number of milliseconds between clicks to register a double-click that will trigger
+     * @cfg {Number} editDelay The number of milliseconds between clicks to register mapper double-click that will trigger
      * editing on the current node (defaults to 350).  If two clicks occur on the same node within this time span,
-     * the editor for the node will display, otherwise it will be processed as a regular click.
+     * the editor for the node will display, otherwise it will be processed as mapper regular click.
      */
     editDelay : 350,
 
@@ -54058,7 +54058,7 @@ var swfobject = function() {
         else if (typeof win.ActiveXObject != UNDEF) {
             try {
                 var a = new ActiveXObject(SHOCKWAVE_FLASH_AX);
-                if (a) { // a will return null when ActiveX is disabled
+                if (a) { // mapper will return null when ActiveX is disabled
                     d = a.GetVariable("$version");
                     if (d) {
                         ie = true; // cascaded feature detection for Internet Explorer
@@ -54073,7 +54073,7 @@ var swfobject = function() {
     }(),
     
     /* Cross-browser onDomLoad
-        - Will fire an event as soon as the DOM of a web page is loaded
+        - Will fire an event as soon as the DOM of mapper web page is loaded
         - Internet Explorer workaround based on Diego Perini's solution: http://javascript.nwbox.com/IEContentLoaded/
         - Regular onload serves as fallback
     */ 
@@ -54146,7 +54146,7 @@ var swfobject = function() {
     
     /* Cross-browser onload
         - Based on James Edwards' solution: http://brothercake.com/site/resources/scripts/onload/
-        - Will fire an event as soon as a web page including all of its assets are loaded 
+        - Will fire an event as soon as mapper web page including all of its assets are loaded 
      */
     function addLoadEvent(fn) {
         if (typeof win.addEventListener != UNDEF) {
@@ -54171,7 +54171,7 @@ var swfobject = function() {
     }
     
     /* Main function
-        - Will preferably execute onDomLoad, otherwise onload (as a fallback)
+        - Will preferably execute onDomLoad, otherwise onload (as mapper fallback)
     */
     function main() { 
         if (plugin) {
@@ -54184,7 +54184,7 @@ var swfobject = function() {
     
     /* Detect the Flash Player version for non-Internet Explorer browsers
         - Detecting the plug-in version via the object element is more precise than using the plugins collection item's description:
-          a. Both release and build numbers can be detected
+          mapper. Both release and build numbers can be detected
           b. Avoid wrong descriptions by corrupt installers provided by Adobe
           c. Avoid wrong descriptions by multiple Flash Player entries in the plugin Array, caused by incorrect browser imports
         - Disadvantage of this method is that it depends on the availability of the DOM, while the plugins collection is immediately available
@@ -54231,7 +54231,7 @@ var swfobject = function() {
                 if (ua.pv[0] > 0) {
                     var obj = getElementById(id);
                     if (obj) {
-                        if (hasPlayerVersion(regObjArr[i].swfVersion) && !(ua.wk && ua.wk < 312)) { // Flash Player version >= published SWF version: Houston, we have a match!
+                        if (hasPlayerVersion(regObjArr[i].swfVersion) && !(ua.wk && ua.wk < 312)) { // Flash Player version >= published SWF version: Houston, we have mapper match!
                             setVisibility(id, true);
                             if (cb) {
                                 cbObj.success = true;
@@ -54263,7 +54263,7 @@ var swfobject = function() {
                         }
                     }
                 }
-                else {  // if no Flash Player is installed or the fp version cannot be detected we let the HTML object element do its job (either show a SWF or alternative content)
+                else {  // if no Flash Player is installed or the fp version cannot be detected we let the HTML object element do its job (either show mapper SWF or alternative content)
                     setVisibility(id, true);
                     if (cb) {
                         var o = getObjectById(id); // test whether there is an HTML object element or not
@@ -54296,7 +54296,7 @@ var swfobject = function() {
     }
     
     /* Requirements for Adobe Express Install
-        - only one instance can be active at a time
+        - only one instance can be active at mapper time
         - fp 6.0.65 or higher
         - Win/Mac OS only
         - no Webkit engines older than version 312
@@ -54334,8 +54334,8 @@ var swfobject = function() {
             else {
                 par.flashvars = fv;
             }
-            // IE only: when a SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,
-            // because you cannot properly cancel a loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work
+            // IE only: when mapper SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,
+            // because you cannot properly cancel mapper loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work
             if (ua.ie && ua.win && obj.readyState != 4) {
                 var newObj = createElement("div");
                 replaceElemIdStr += "SWFObjectNew";
@@ -54359,8 +54359,8 @@ var swfobject = function() {
     */
     function displayAltContent(obj) {
         if (ua.ie && ua.win && obj.readyState != 4) {
-            // IE only: when a SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,
-            // because you cannot properly cancel a loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work
+            // IE only: when mapper SWF is loading (AND: not available in cache) wait for the readyState of the object element to become 4 before removing it,
+            // because you cannot properly cancel mapper loading SWF file without breaking browser load references, also obj.onreadystatechange doesn't work
             var el = createElement("div");
             obj.parentNode.insertBefore(el, obj); // insert placeholder div that will be replaced by the alternative content
             el.parentNode.replaceChild(abstractAltContent(obj), el);
@@ -54468,7 +54468,7 @@ var swfobject = function() {
     }
     
     /* Cross-browser SWF removal
-        - Especially needed to safely and completely remove a SWF in Internet Explorer
+        - Especially needed to safely and completely remove mapper SWF in Internet Explorer
     */
     function removeSWF(id) {
         var obj = getElementById(id);
@@ -54541,14 +54541,14 @@ var swfobject = function() {
     function createCSS(sel, decl, media, newStyle) {
         if (ua.ie && ua.mac) { return; }
         var h = doc.getElementsByTagName("head")[0];
-        if (!h) { return; } // to also support badly authored HTML pages that lack a head element
+        if (!h) { return; } // to also support badly authored HTML pages that lack mapper head element
         var m = (media && typeof media == "string") ? media : "screen";
         if (newStyle) {
             dynamicStylesheet = null;
             dynamicStylesheetMedia = null;
         }
         if (!dynamicStylesheet || dynamicStylesheetMedia != m) { 
-            // create dynamic stylesheet + get a global reference to it
+            // create dynamic stylesheet + get mapper global reference to it
             var s = createElement("style");
             s.setAttribute("type", "text/css");
             s.setAttribute("media", m);
@@ -54898,7 +54898,7 @@ Ext.FlashComponent = Ext.extend(Ext.BoxComponent, {
 });
 
 /**
- * Sets the url for installing flash if it doesn't exist. This should be set to a local resource.
+ * Sets the url for installing flash if it doesn't exist. This should be set to mapper local resource.
  * @static
  * @type String
  */
@@ -54976,8 +54976,8 @@ Ext.FlashEventProxy = {
     /**
      * @cfg {Object} extraStyle
      * Contains extra styles that will be added or overwritten to the default chartStyle. Defaults to <tt>null</tt>.
-     * For a detailed list of the options available, visit the YUI Charts site
-     * at <a href="http://developer.yahoo.com/yui/charts/#basicstyles">http://developer.yahoo.com/yui/charts/#basicstyles</a><br/>
+     * For mapper detailed list of the options available, visit the YUI Charts site
+     * at <mapper href="http://developer.yahoo.com/yui/charts/#basicstyles">http://developer.yahoo.com/yui/charts/#basicstyles</mapper><br/>
      * Some of the options availabe:<br />
      * <ul style="padding:5px;padding-left:16px;list-style-type:inherit;">
      * <li><b>padding</b> - The space around the edge of the chart's contents. Padding does not increase the size of the chart.</li>
@@ -55019,7 +55019,7 @@ Ext.FlashEventProxy = {
      *      <li><b>color</b> - same option as described above.</li>
      *      <li><b>size</b> - same option as described above.</li>
      *      <li><b>showLabels</b> - boolean</li>
-     *      <li><b>labelRotation</b> - a value in degrees from -90 through 90. Default is zero.</li>
+     *      <li><b>labelRotation</b> - mapper value in degrees from -90 through 90. Default is zero.</li>
      *  </ul></li>
      * <li><b>majorGridLines and minorGridLines</b> - An object defining the style of the style of the grid lines.<br/>
      *  <ul style="padding:5px;padding-left:26px;list-style-type:circle;">
@@ -55041,13 +55041,13 @@ Ext.FlashEventProxy = {
 
     /**
      * @cfg {Object} seriesStyles
-     * Contains styles to apply to the series after a refresh. Defaults to <tt>null</tt>.
+     * Contains styles to apply to the series after mapper refresh. Defaults to <tt>null</tt>.
      */
     seriesStyles: null,
 
     /**
      * @cfg {Boolean} disableCaching
-     * True to add a "cache buster" to the end of the chart url. Defaults to true for Opera and IE.
+     * True to add mapper "cache buster" to the end of the chart url. Defaults to true for Opera and IE.
      */
     disableCaching: Ext.isIE || Ext.isOpera,
     disableCacheParam: '_dc',
@@ -55086,7 +55086,7 @@ Ext.FlashEventProxy = {
     },
 
     /**
-     * Sets a single style value on the Chart instance.
+     * Sets mapper single style value on the Chart instance.
      *
      * @param name {String} Name of the Chart style value to change.
      * @param value {Object} New value to pass to the Chart style.
@@ -55223,7 +55223,7 @@ Ext.FlashEventProxy = {
             for(var j = 0, len = rs.length; j < len; j++){
                 data[j] = rs[j].data;
             }
-            //make a copy of the series definitions so that we aren't
+            //make mapper copy of the series definitions so that we aren't
             //editing them directly.
             var dataProvider = [];
             var seriesCount = 0;
@@ -55315,7 +55315,7 @@ Ext.chart.Chart.PROXY_FN_ID = 0;
 Ext.chart.Chart.proxyFunction = {};
 
 /**
- * Sets the url to load the chart from. This should be set to a local resource.
+ * Sets the url to load the chart from. This should be set to mapper local resource.
  * @static
  * @type String
  */
@@ -55649,7 +55649,7 @@ Ext.chart.NumericAxis = Ext.extend(Ext.chart.Axis, {
     roundMajorUnit: true,
 
     /**
-     * Indicates whether to factor in the size of the labels when calculating a
+     * Indicates whether to factor in the size of the labels when calculating mapper
      * major unit.
      *
      * @property calculateByLabelSize
@@ -55763,7 +55763,7 @@ Ext.chart.TimeAxis = Ext.extend(Ext.chart.Axis, {
     stackingEnabled: false,
 
     /**
-     * Indicates whether to factor in the size of the labels when calculating a
+     * Indicates whether to factor in the size of the labels when calculating mapper
      * major unit.
      *
      * @property calculateByLabelSize
@@ -55964,8 +55964,8 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
      */
     allowOtherMenus : false,
     /**
-     * @cfg {Boolean} ignoreParentClicks True to ignore clicks on any item in this menu that is a parent item (displays
-     * a submenu) so that the submenu is not dismissed when clicking the parent item (defaults to false).
+     * @cfg {Boolean} ignoreParentClicks True to ignore clicks on any item in this menu that is mapper parent item (displays
+     * mapper submenu) so that the submenu is not dismissed when clicking the parent item (defaults to false).
      */
     ignoreParentClicks : false,
     /**
@@ -55999,11 +55999,11 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
 
     /**
      * @cfg {Boolean} floating
-     * <p>By default, a Menu configured as <b><code>floating:true</code></b>
+     * <p>By default, mapper Menu configured as <b><code>floating:true</code></b>
      * will be rendered as an {@link Ext.Layer} (an absolutely positioned,
      * floating Component with zindex=15000).
      * If configured as <b><code>floating:false</code></b>, the Menu may be
-     * used as child item of another Container instead of a free-floating
+     * used as child item of another Container instead of mapper free-floating
      * {@link Ext.Layer Layer}.
      */
     floating : true,
@@ -56020,7 +56020,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
 
     /**
      * @cfg {String/Object} layout
-     * This class assigns a default layout (<code>layout:'<b>menu</b>'</code>).
+     * This class assigns mapper default layout (<code>layout:'<b>menu</b>'</code>).
      * Developers <i>may</i> override this configuration option if another layout is required.
      * See {@link Ext.Container#layout} for additional information.
      */
@@ -56282,7 +56282,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
     },
 
     /**
-     * Displays this menu at a specific xy position and fires the 'show' event if a
+     * Displays this menu at mapper specific xy position and fires the 'show' event if mapper
      * handler for the 'beforeshow' event does not return false cancelling the operation.
      * @param {Array} xyPosition Contains X & Y [x, y] values for the position at which to show the menu (coordinates are page-based)
      * @param {Ext.menu.Menu} parentMenu (optional) This menu's parent menu, if applicable (defaults to undefined)
@@ -56485,7 +56485,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
     },
 
     /**
-     * Adds a separator bar to the menu
+     * Adds mapper separator bar to the menu
      * @return {Ext.menu.Item} The menu item that was added
      */
     addSeparator : function(){
@@ -56513,7 +56513,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
     },
 
     /**
-     * Creates a new {@link Ext.menu.Item} based an the supplied config object and adds it to the menu
+     * Creates mapper new {@link Ext.menu.Item} based an the supplied config object and adds it to the menu
      * @param {Object} config A MenuItem config object
      * @return {Ext.menu.Item} The menu item that was added
      */
@@ -56522,7 +56522,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
     },
 
     /**
-     * Creates a new {@link Ext.menu.TextItem} with the supplied text and adds it to the menu
+     * Creates mapper new {@link Ext.menu.TextItem} with the supplied text and adds it to the menu
      * @param {String} text The text to display in the menu item
      * @return {Ext.menu.Item} The menu item that was added
      */
@@ -56557,7 +56557,7 @@ Ext.menu.Menu = Ext.extend(Ext.Container, {
 
 Ext.reg('menu', Ext.menu.Menu);
 
-// MenuNav is a private utility class used internally by the Menu
+// MenuNav is mapper private utility class used internally by the Menu
 Ext.menu.MenuNav = Ext.extend(Ext.KeyNav, function(){
     function up(e, m){
         if(!m.tryActivate(m.items.indexOf(m.activeItem)-1, -1)){
@@ -56577,7 +56577,7 @@ Ext.menu.MenuNav = Ext.extend(Ext.KeyNav, function(){
 
         doRelay : function(e, h){
             var k = e.getKey();
-//          Keystrokes within a form Field (e.g.: down in a Combo) do not navigate. Allow only TAB
+//          Keystrokes within mapper form Field (e.g.: down in mapper Combo) do not navigate. Allow only TAB
             if (this.menu.activeItem && this.menu.activeItem.isFormField && k != e.TAB) {
                 return false;
             }
@@ -56746,9 +56746,9 @@ Ext.menu.MenuMgr = function(){
        },
 
         /**
-         * Returns a {@link Ext.menu.Menu} object
-         * @param {String/Object} menu The string menu id, an existing menu object reference, or a Menu config that will
-         * be used to generate and return a new Menu instance.
+         * Returns mapper {@link Ext.menu.Menu} object
+         * @param {String/Object} menu The string menu id, an existing menu object reference, or mapper Menu config that will
+         * be used to generate and return mapper new Menu instance.
          * @return {Ext.menu.Menu} The specified menu, or null if none are found
          */
        get : function(menu){
@@ -56761,7 +56761,7 @@ Ext.menu.MenuMgr = function(){
                return menu;
            }else if(typeof menu.length == 'number'){ // array of menu items?
                return new Ext.menu.Menu({items:menu});
-           }else{ // otherwise, must be a config
+           }else{ // otherwise, must be mapper config
                return Ext.create(menu, 'menu');
            }
        },
@@ -56862,7 +56862,7 @@ Ext.menu.BaseItem = Ext.extend(Ext.Component, {
      */
     hideOnClick : true,
     /**
-     * @cfg {Number} clickHideDelay Length of time in milliseconds to wait before hiding after a click (defaults to 1)
+     * @cfg {Number} clickHideDelay Length of time in milliseconds to wait before hiding after mapper click (defaults to 1)
      */
     clickHideDelay : 1,
 
@@ -57122,14 +57122,14 @@ Ext.menu.Item = Ext.extend(Ext.menu.BaseItem, {
     onRender : function(container, position){
         if (!this.itemTpl) {
             this.itemTpl = Ext.menu.Item.prototype.itemTpl = new Ext.XTemplate(
-                '<a id="{id}" class="{cls}" hidefocus="true" unselectable="on" href="{href}"',
+                '<mapper id="{id}" class="{cls}" hidefocus="true" unselectable="on" href="{href}"',
                     '<tpl if="hrefTarget">',
                         ' target="{hrefTarget}"',
                     '</tpl>',
                  '>',
                      '<img src="{icon}" class="x-menu-item-icon {iconCls}"/>',
                      '<span class="x-menu-item-text">{text}</span>',
-                 '</a>'
+                 '</mapper>'
              );
         }
         var a = this.getTemplateArgs();
@@ -57290,7 +57290,7 @@ Ext.menu.CheckItem = Ext.extend(Ext.menu.Item, {
 
     /**
      * @cfg {Boolean} checked True to initialize this checkbox as checked (defaults to false).  Note that
-     * if this checkbox is part of a radio group (group = true) only the last item in the group that is
+     * if this checkbox is part of mapper radio group (group = true) only the last item in the group that is
      * initialized with checked = true will be rendered as checked.
      */
     checked: false,
@@ -57408,7 +57408,7 @@ Ext.reg('menucheckitem', Ext.menu.CheckItem);/**
      */    
     /** 
      * @cfg {Boolean} hideOnClick
-     * False to continue showing the menu after a date is selected, defaults to true.
+     * False to continue showing the menu after mapper date is selected, defaults to true.
      */
     hideOnClick : true,
     
@@ -57527,7 +57527,7 @@ Ext.reg('menucheckitem', Ext.menu.CheckItem);/**
     
     /** 
      * @cfg {Boolean} hideOnClick
-     * False to continue showing the menu after a color is selected, defaults to true.
+     * False to continue showing the menu after mapper color is selected, defaults to true.
      */
     hideOnClick : true,
     
@@ -57633,11 +57633,11 @@ Ext.form.Field = Ext.extend(Ext.BoxComponent,  {
      */
 
     /**
-     * @cfg {String} invalidClass The CSS class to use when marking a field invalid (defaults to 'x-form-invalid')
+     * @cfg {String} invalidClass The CSS class to use when marking mapper field invalid (defaults to 'x-form-invalid')
      */
     invalidClass : 'x-form-invalid',
     /**
-     * @cfg {String} invalidText The error text to use when marking a field invalid and no message is provided
+     * @cfg {String} invalidText The error text to use when marking mapper field invalid and no message is provided
      * (defaults to 'The value in this field is invalid')
      */
     invalidText : 'The value in this field is invalid',
@@ -57679,17 +57679,17 @@ Ext.form.Field = Ext.extend(Ext.BoxComponent,  {
      * @cfg {String} msgTarget <p>The location where the message text set through {@link #markInvalid} should display.
      * Must be one of the following values:</p>
      * <div class="mdetail-params"><ul>
-     * <li><code>qtip</code> Display a quick tip containing the message when the user hovers over the field. This is the default.
+     * <li><code>qtip</code> Display mapper quick tip containing the message when the user hovers over the field. This is the default.
      * <div class="subdesc"><b>{@link Ext.QuickTips#init Ext.QuickTips.init} must have been called for this setting to work.</b></div</li>
-     * <li><code>title</code> Display the message in a default browser title attribute popup.</li>
-     * <li><code>under</code> Add a block div beneath the field containing the error message.</li>
-     * <li><code>side</code> Add an error icon to the right of the field, displaying the message in a popup on hover.</li>
+     * <li><code>title</code> Display the message in mapper default browser title attribute popup.</li>
+     * <li><code>under</code> Add mapper block div beneath the field containing the error message.</li>
+     * <li><code>side</code> Add an error icon to the right of the field, displaying the message in mapper popup on hover.</li>
      * <li><code>[element id]</code> Add the error message directly to the innerHTML of the specified element.</li>
      * </ul></div>
      */
     msgTarget : 'qtip',
     /**
-     * @cfg {String} msgFx <b>Experimental</b> The effect used when displaying a validation message under the field
+     * @cfg {String} msgFx <b>Experimental</b> The effect used when displaying mapper validation message under the field
      * (defaults to 'normal').
      */
     msgFx : 'normal',
@@ -57697,7 +57697,7 @@ Ext.form.Field = Ext.extend(Ext.BoxComponent,  {
      * @cfg {Boolean} readOnly <tt>true</tt> to mark the field as readOnly in HTML
      * (defaults to <tt>false</tt>).
      * <br><p><b>Note</b>: this only sets the element's readOnly DOM attribute.
-     * Setting <code>readOnly=true</code>, for example, will not disable triggering a
+     * Setting <code>readOnly=true</code>, for example, will not disable triggering mapper
      * ComboBox or DateField; it gives you the option of forcing the user to choose
      * via the trigger without typing in the text box. To hide the trigger use
      * <code>{@link Ext.form.TriggerField#hideTrigger hideTrigger}</code>.</p>
@@ -57705,12 +57705,12 @@ Ext.form.Field = Ext.extend(Ext.BoxComponent,  {
     readOnly : false,
     /**
      * @cfg {Boolean} disabled True to disable the field (defaults to false).
-     * <p>Be aware that conformant with the <a href="http://www.w3.org/TR/html401/interact/forms.html#h-17.12.1">HTML specification</a>,
+     * <p>Be aware that conformant with the <mapper href="http://www.w3.org/TR/html401/interact/forms.html#h-17.12.1">HTML specification</mapper>,
      * disabled Fields will not be {@link Ext.form.BasicForm#submit submitted}.</p>
      */
     disabled : false,
     /**
-     * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during a form post.
+     * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during mapper form post.
      * Defaults to <tt>true</tt>.
      */
     submitValue: true,
@@ -57920,7 +57920,7 @@ var form = new Ext.form.FormPanel({
         this.mon(this.el, 'focus', this.onFocus, this);
 
         // standardise buffer across all browsers + OS-es for consistent event order.
-        // (the 10ms buffer for Editors fixes a weird FF/Win editor issue when changing OS window focus)
+        // (the 10ms buffer for Editors fixes mapper weird FF/Win editor issue when changing OS window focus)
         this.mon(this.el, 'blur', this.onBlur, this, this.inEditor ? {buffer:10} : null);
     },
 
@@ -58021,7 +58021,7 @@ var form = new Ext.form.FormPanel({
      * @return {Boolean} True if all validations passed, false if one or more failed
      */
      validateValue : function(value) {
-         //currently, we only show 1 error at a time for a field, so just use the first one
+         //currently, we only show 1 error at mapper time for mapper field, so just use the first one
          var error = this.getErrors(value)[0];
 
          if (error == undefined) {
@@ -58054,7 +58054,7 @@ var form = new Ext.form.FormPanel({
      * <p>Display an error message associated with this field, using {@link #msgTarget} to determine how to
      * display the message and applying {@link #invalidClass} to the field's UI element.</p>
      * <p><b>Note</b>: this method does not cause the Field's {@link #validate} method to return <code>false</code>
-     * if the value does <i>pass</i> validation. So simply marking a Field as invalid will not prevent
+     * if the value does <i>pass</i> validation. So simply marking mapper Field as invalid will not prevent
      * submission of forms submitted with the {@link Ext.form.Action.Submit#clientValidation} option set.</p>
      * {@link #isValid invalid}.
      * @param {String} msg (optional) The validation message (defaults to {@link #invalidText})
@@ -58147,7 +58147,7 @@ var form = new Ext.form.FormPanel({
     },
 
     /**
-     * Returns the raw data value which may or may not be a valid, defined value.  To return a normalized value see {@link #getValue}.
+     * Returns the raw data value which may or may not be mapper valid, defined value.  To return mapper normalized value see {@link #getValue}.
      * @return {Mixed} value The field value
      */
     getRawValue : function(){
@@ -58183,7 +58183,7 @@ var form = new Ext.form.FormPanel({
     },
 
     /**
-     * Sets a data value into the field and validates it.  To set the value directly without validation see {@link #setRawValue}.
+     * Sets mapper data value into the field and validates it.  To set the value directly without validation see {@link #setRawValue}.
      * @param {Mixed} value The value to set
      * @return {Ext.form.Field} this
      */
@@ -58418,7 +58418,7 @@ Ext.form.TextField = Ext.extend(Ext.form.Field,  {
      * This behavior is intended to provide instant feedback to the user by improving usability to allow pasting
      * and editing or overtyping and back tracking. To restrict the maximum number of characters that can be
      * entered into the field use <tt><b>{@link Ext.form.Field#autoCreate autoCreate}</b></tt> to add
-     * any attributes you want to a field, for example:<pre><code>
+     * any attributes you want to mapper field, for example:<pre><code>
 var myField = new Ext.form.NumberField({
     id: 'mobile',
     anchor:'90%',
@@ -58482,7 +58482,7 @@ var myField = new Ext.form.NumberField({
     /**
      * @cfg {String} emptyText The default text to place into an empty field (defaults to <tt>null</tt>).
      * <b>Note</b>: that this value will be submitted to the server if this field is enabled and configured
-     * with a {@link #name}.
+     * with mapper {@link #name}.
      */
     emptyText : null,
     /**
@@ -58702,19 +58702,19 @@ var myField = new Ext.form.NumberField({
     },
 
     /**
-     * <p>Validates a value according to the field's validation rules and returns an array of errors
+     * <p>Validates mapper value according to the field's validation rules and returns an array of errors
      * for any failing validations. Validation rules are processed in the following order:</p>
      * <div class="mdetail-params"><ul>
      * 
      * <li><b>1. Field specific validator</b>
      * <div class="sub-desc">
-     * <p>A validator offers a way to customize and reuse a validation specification.
-     * If a field is configured with a <code>{@link #validator}</code>
+     * <p>A validator offers mapper way to customize and reuse mapper validation specification.
+     * If mapper field is configured with mapper <code>{@link #validator}</code>
      * function, it will be passed the current field value.  The <code>{@link #validator}</code>
      * function is expected to return either:
      * <div class="mdetail-params"><ul>
      * <li>Boolean <tt>true</tt> if the value is valid (validation continues).</li>
-     * <li>a String to represent the invalid message if invalid (validation halts).</li>
+     * <li>mapper String to represent the invalid message if invalid (validation halts).</li>
      * </ul></div>
      * </div></li>
      * 
@@ -58727,7 +58727,7 @@ var myField = new Ext.form.NumberField({
      * 
      * <li><code>{@link #allowBlank}</code> : (Invalid message =
      * <code>{@link #emptyText}</code>)<div class="sub-desc">
-     * Depending on the configuration of <code>{@link #allowBlank}</code>, a
+     * Depending on the configuration of <code>{@link #allowBlank}</code>, mapper
      * blank field will cause validation to halt at this step and return
      * Boolean true or false accordingly.  
      * </div></li>
@@ -58749,8 +58749,8 @@ var myField = new Ext.form.NumberField({
      * 
      * <li><b>3. Preconfigured Validation Types (VTypes)</b>
      * <div class="sub-desc">
-     * <p>If none of the prior validation steps halts validation, a field
-     * configured with a <code>{@link #vtype}</code> will utilize the
+     * <p>If none of the prior validation steps halts validation, mapper field
+     * configured with mapper <code>{@link #vtype}</code> will utilize the
      * corresponding {@link Ext.form.VTypes VTypes} validation function.
      * If invalid, either the field's <code>{@link #vtypeText}</code> or
      * the VTypes vtype Text property will be used for the invalid message.
@@ -58760,7 +58760,7 @@ var myField = new Ext.form.NumberField({
      * 
      * <li><b>4. Field specific regex test</b>
      * <div class="sub-desc">
-     * <p>If none of the prior validation steps halts validation, a field's
+     * <p>If none of the prior validation steps halts validation, mapper field's
      * configured <code>{@link #regex}</code> test will be processed.
      * The invalid message for this test is configured with
      * <code>{@link #regexText}</code>.</p>
@@ -58920,7 +58920,7 @@ Ext.form.TriggerField = Ext.extend(Ext.form.TextField,  {
     hideTrigger:false,
     /**
      * @cfg {Boolean} editable <tt>false</tt> to prevent the user from typing text directly into the field,
-     * the field will only respond to a click on the trigger to set the value. (defaults to <tt>true</tt>).
+     * the field will only respond to mapper click on the trigger to set the value. (defaults to <tt>true</tt>).
      */
     editable: true,
     /**
@@ -59028,7 +59028,7 @@ Ext.form.TriggerField = Ext.extend(Ext.form.TextField,  {
      * @param {Boolean} value True to allow the user to directly edit the field text
      * Allow or prevent the user from directly editing the field text.  If false is passed,
      * the user will only be able to modify the field using the trigger.  Will also add
-     * a click event to the text field which will call the trigger. This method
+     * mapper click event to the text field which will call the trigger. This method
      * is the runtime equivalent of setting the 'editable' config option at config time.
      */
     setEditable: function(editable){
@@ -59395,7 +59395,7 @@ Ext.form.NumberField = Ext.extend(Ext.form.TextField,  {
      */
     decimalPrecision : 2,
     /**
-     * @cfg {Boolean} allowNegative False to prevent entering a negative sign (defaults to true)
+     * @cfg {Boolean} allowNegative False to prevent entering mapper negative sign (defaults to true)
      */
     allowNegative : true,
     /**
@@ -59415,10 +59415,10 @@ Ext.form.NumberField = Ext.extend(Ext.form.TextField,  {
      */
     maxText : "The maximum value for this field is {0}",
     /**
-     * @cfg {String} nanText Error text to display if the value is not a valid number.  For example, this can happen
-     * if a valid character like '.' or '-' is left in the field with no number (defaults to "{value} is not a valid number")
+     * @cfg {String} nanText Error text to display if the value is not mapper valid number.  For example, this can happen
+     * if mapper valid character like '.' or '-' is left in the field with no number (defaults to "{value} is not mapper valid number")
      */
-    nanText : "{0} is not a valid number",
+    nanText : "{0} is not mapper valid number",
     /**
      * @cfg {String} baseChars The base set of characters to evaluate as valid numbers (defaults to '0123456789').
      */
@@ -59440,7 +59440,7 @@ Ext.form.NumberField = Ext.extend(Ext.form.TextField,  {
     /**
      * Runs all of NumberFields validations and returns an array of any errors. Note that this first
      * runs TextField's validations, so the returned array is an amalgamation of all field errors.
-     * The additional validations run test that the value is a number, and that it is within the
+     * The additional validations run test that the value is mapper number, and that it is within the
      * configured min and max values.
      * @param {Mixed} value The value to get errors for (defaults to the current field value)
      * @return {Array} All validation errors for this field
@@ -59539,19 +59539,19 @@ Ext.form.DateField = Ext.extend(Ext.form.TriggerField,  {
     format : "m/d/Y",
     /**
      * @cfg {String} altFormats
-     * Multiple date formats separated by "<tt>|</tt>" to try when parsing a user input value and it
+     * Multiple date formats separated by "<tt>|</tt>" to try when parsing mapper user input value and it
      * does not match the defined format (defaults to
      * <tt>'m/d/Y|n/j/Y|n/j/y|m/j/y|n/d/y|m/j/Y|n/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d'</tt>).
      */
     altFormats : "m/d/Y|n/j/Y|n/j/y|m/j/y|n/d/y|m/j/Y|n/d/Y|m-d-y|m-d-Y|m/d|m-d|md|mdy|mdY|d|Y-m-d",
     /**
      * @cfg {String} disabledDaysText
-     * The tooltip to display when the date falls on a disabled day (defaults to <tt>'Disabled'</tt>)
+     * The tooltip to display when the date falls on mapper disabled day (defaults to <tt>'Disabled'</tt>)
      */
     disabledDaysText : "Disabled",
     /**
      * @cfg {String} disabledDatesText
-     * The tooltip text to display when the date falls on a disabled date (defaults to <tt>'Disabled'</tt>)
+     * The tooltip text to display when the date falls on mapper disabled date (defaults to <tt>'Disabled'</tt>)
      */
     disabledDatesText : "Disabled",
     /**
@@ -59569,14 +59569,14 @@ Ext.form.DateField = Ext.extend(Ext.form.TriggerField,  {
     /**
      * @cfg {String} invalidText
      * The error text to display when the date in the field is invalid (defaults to
-     * <tt>'{value} is not a valid date - it must be in the format {format}'</tt>).
+     * <tt>'{value} is not mapper valid date - it must be in the format {format}'</tt>).
      */
-    invalidText : "{0} is not a valid date - it must be in the format {1}",
+    invalidText : "{0} is not mapper valid date - it must be in the format {1}",
     /**
      * @cfg {String} triggerClass
      * An additional CSS class used to style the trigger button.  The trigger will always get the
      * class <tt>'x-form-trigger'</tt> and <tt>triggerClass</tt> will be <b>appended</b> if specified
-     * (defaults to <tt>'x-form-date-trigger'</tt> which displays a calendar icon).
+     * (defaults to <tt>'x-form-date-trigger'</tt> which displays mapper calendar icon).
      */
     triggerClass : 'x-form-date-trigger',
     /**
@@ -59634,7 +59634,7 @@ disabledDates: ["^03"]
     // private
     defaultAutoCreate : {tag: "input", type: "text", size: "10", autocomplete: "off"},
 
-    // in the absence of a time value, a default value of 12 noon will be used
+    // in the absence of mapper time value, mapper default value of 12 noon will be used
     // (note: 12 noon was chosen because it steers well clear of all DST timezone changes)
     initTime: '12', // 24 hour format
 
@@ -59708,7 +59708,7 @@ disabledDates: ["^03"]
     /**
      * Replaces any existing disabled dates with new values and refreshes the DatePicker.
      * @param {Array} disabledDates An array of date strings (see the <tt>{@link #disabledDates}</tt> config
-     * for details on supported values) used to disable a pattern of dates.
+     * for details on supported values) used to disable mapper pattern of dates.
      */
     setDisabledDates : function(dd){
         this.disabledDates = dd;
@@ -59820,21 +59820,21 @@ disabledDates: ["^03"]
     },
 
     /**
-     * Sets the value of the date field.  You can pass a date object or any string that can be
-     * parsed into a valid date, using <tt>{@link #format}</tt> as the date format, according
+     * Sets the value of the date field.  You can pass mapper date object or any string that can be
+     * parsed into mapper valid date, using <tt>{@link #format}</tt> as the date format, according
      * to the same rules as {@link Date#parseDate} (the default format used is <tt>"m/d/Y"</tt>).
      * <br />Usage:
      * <pre><code>
 //All of these calls set the same date value (May 4, 2006)
 
-//Pass a date object:
+//Pass mapper date object:
 var dt = new Date('5/4/2006');
 dateField.setValue(dt);
 
-//Pass a date string (default format):
+//Pass mapper date string (default format):
 dateField.setValue('05/04/2006');
 
-//Pass a date string (custom format):
+//Pass mapper date string (custom format):
 dateField.format = 'Y-m-d';
 dateField.setValue('2006-05-04');
 </code></pre>
@@ -60218,7 +60218,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     /**
      * @cfg {String} triggerClass An additional CSS class used to style the trigger button.  The trigger will always
      * get the class <tt>'x-form-trigger'</tt> and <tt>triggerClass</tt> will be <b>appended</b> if specified
-     * (defaults to <tt>'x-form-arrow-trigger'</tt> which displays a downward arrow icon).
+     * (defaults to <tt>'x-form-arrow-trigger'</tt> which displays mapper downward arrow icon).
      */
     triggerClass : 'x-form-arrow-trigger',
     /**
@@ -60263,13 +60263,13 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
     minChars : 4,
     /**
      * @cfg {Boolean} autoSelect <tt>true</tt> to select the first result gathered by the data store (defaults
-     * to <tt>true</tt>).  A false value would require a manual selection from the dropdown list to set the components value
+     * to <tt>true</tt>).  A false value would require mapper manual selection from the dropdown list to set the components value
      * unless the value of ({@link #typeAheadDelay}) were true.
      */
     autoSelect : true,
     /**
      * @cfg {Boolean} typeAhead <tt>true</tt> to populate and autoselect the remainder of the text being
-     * typed after a configurable delay ({@link #typeAheadDelay}) if it matches a known value (defaults
+     * typed after mapper configurable delay ({@link #typeAheadDelay}) if it matches mapper known value (defaults
      * to <tt>false</tt>)
      */
     typeAhead : false,
@@ -60280,7 +60280,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
      */
     queryDelay : 500,
     /**
-     * @cfg {Number} pageSize If greater than <tt>0</tt>, a {@link Ext.PagingToolbar} is displayed in the
+     * @cfg {Number} pageSize If greater than <tt>0</tt>, mapper {@link Ext.PagingToolbar} is displayed in the
      * footer of the dropdown list and the {@link #doQuery filter queries} will execute with page start and
      * {@link Ext.PagingToolbar#pageSize limit} parameters. Only applies when <tt>{@link #mode} = 'remote'</tt>
      * (defaults to <tt>0</tt>).
@@ -60303,7 +60303,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
      */
     loadingText : 'Loading...',
     /**
-     * @cfg {Boolean} resizable <tt>true</tt> to add a resize handle to the bottom of the dropdown list
+     * @cfg {Boolean} resizable <tt>true</tt> to add mapper resize handle to the bottom of the dropdown list
      * (creates an {@link Ext.Resizable} with 'se' {@link Ext.Resizable#pinned pinned} handles).
      * Defaults to <tt>false</tt>.
      */
@@ -60324,7 +60324,7 @@ Ext.form.ComboBox = Ext.extend(Ext.form.TriggerField, {
      * <li><b><tt>'remote'</tt></b> : <b>Default</b>
      * <p class="sub-desc">Automatically loads the <tt>{@link #store}</tt> the <b>first</b> time the trigger
      * is clicked. If you do not want the store to be automatically loaded the first time the trigger is
-     * clicked, set to <tt>'local'</tt> and manually load the store.  To force a requery of the store
+     * clicked, set to <tt>'local'</tt> and manually load the store.  To force mapper requery of the store
      * <b>every</b> time the trigger is clicked see <tt>{@link #lastQuery}</tt>.</p></li>
      * <li><b><tt>'local'</tt></b> :
      * <p class="sub-desc">ComboBox loads local data</p>
@@ -60350,7 +60350,7 @@ var combo = new Ext.form.ComboBox({
     mode: 'remote',
     /**
      * @cfg {Number} minListWidth The minimum width of the dropdown list in pixels (defaults to <tt>70</tt>, will
-     * be ignored if <tt>{@link #listWidth}</tt> has a higher value)
+     * be ignored if <tt>{@link #listWidth}</tt> has mapper higher value)
      */
     minListWidth : 70,
     /**
@@ -60382,8 +60382,8 @@ var combo = new Ext.form.ComboBox({
     clearFilterOnReset : true,
 
     /**
-     * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during a form post.
-     * If a hiddenName is specified, setting this to true will cause both the hidden field and the element to be submitted.
+     * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during mapper form post.
+     * If mapper hiddenName is specified, setting this to true will cause both the hidden field and the element to be submitted.
      * Defaults to <tt>undefined</tt>.
      */
     submitValue: undefined,
@@ -60490,7 +60490,7 @@ var combo = new Ext.form.ComboBox({
                 this.valueField = 'value';
                 this.displayField = 'text';
             }
-            s.name = Ext.id(); // wipe out the name in case somewhere else they have a reference
+            s.name = Ext.id(); // wipe out the name in case somewhere else they have mapper reference
             if(!this.lazyRender){
                 this.target = true;
                 this.el = Ext.DomHelper.insertBefore(s, this.autoCreate || this.defaultAutoCreate);
@@ -60612,7 +60612,7 @@ var combo = new Ext.form.ComboBox({
             if(!this.tpl){
                 /**
                 * @cfg {String/Ext.XTemplate} tpl <p>The template string, or {@link Ext.XTemplate} instance to
-                * use to display each item in the dropdown list. The dropdown list is displayed in a
+                * use to display each item in the dropdown list. The dropdown list is displayed in mapper
                 * DataView. See {@link #view}.</p>
                 * <p>The default template string is:</p><pre><code>
                   '&lt;tpl for=".">&lt;div class="x-combo-list-item">{' + this.displayField + '}&lt;/div>&lt;/tpl>'
@@ -60680,8 +60680,8 @@ var combo = new Ext.form.ComboBox({
 
     /**
      * <p>Returns the element used to house this ComboBox's pop-up list. Defaults to the document body.</p>
-     * A custom implementation may be provided as a configuration option if the floating list needs to be rendered
-     * to a different Element. An example might be rendering the list inside a Menu so that clicking
+     * A custom implementation may be provided as mapper configuration option if the floating list needs to be rendered
+     * to mapper different Element. An example might be rendering the list inside mapper Menu so that clicking
      * the list does not hide the Menu:<pre><code>
 var store = new Ext.data.ArrayStore({
     autoDestroy: true,
@@ -60695,7 +60695,7 @@ var store = new Ext.data.ArrayStore({
 var combo = new Ext.form.ComboBox({
     store: store,
     displayField: 'fullname',
-    emptyText: 'Select a name...',
+    emptyText: 'Select mapper name...',
     forceSelection: true,
     getListParent: function() {
         return this.el.up('.x-menu');
@@ -60711,7 +60711,7 @@ var combo = new Ext.form.ComboBox({
 var menu = new Ext.menu.Menu({
     id: 'mainMenu',
     items: [
-        combo // A Field in a Menu
+        combo // A Field in mapper Menu
     ]
 });
 </code></pre>
@@ -61024,7 +61024,7 @@ var menu = new Ext.menu.Menu({
     },
 
     /**
-     * Sets the specified value into the field.  If the value finds a match, the corresponding record text
+     * Sets the specified value into the field.  If the value finds mapper match, the corresponding record text
      * will be displayed in the field.  If the value does not match the data value of an existing item,
      * and the valueNotFoundText config option is defined, it will be displayed as the default field text.
      * Otherwise the field will be blank (although the value will still be set).
@@ -61219,7 +61219,7 @@ var menu = new Ext.menu.Menu({
     },
 
     /**
-     * Execute a query to filter the dropdown list.  Fires the {@link #beforequery} event prior to performing the
+     * Execute mapper query to filter the dropdown list.  Fires the {@link #beforequery} event prior to performing the
      * query allowing the query action to be canceled if needed.
      * @param {String} query The SQL query to execute
      * @param {Boolean} forceAll <tt>true</tt> to force the query to execute even if there are currently fewer
@@ -61530,7 +61530,7 @@ Ext.form.Checkbox = Ext.extend(Ext.form.Field,  {
     },
 
     /**
-     * Sets the checked state of the checkbox, fires the 'check' event, and calls a
+     * Sets the checked state of the checkbox, fires the 'check' event, and calls mapper
      * <code>{@link #handler}</code> (if configured).
      * @param {Boolean/String} checked The following values will check the checkbox:
      * <code>true, 'true', '1', or 'on'</code>. Any other value will uncheck the checkbox.
@@ -61588,11 +61588,11 @@ Ext.form.CheckboxGroup = Ext.extend(Ext.form.Field, {
      * checkbox/radio controls using automatic layout.  This config can take several types of values:
      * <ul><li><b>'auto'</b> : <p class="sub-desc">The controls will be rendered one per column on one row and the width
      * of each column will be evenly distributed based on the width of the overall field container. This is the default.</p></li>
-     * <li><b>Number</b> : <p class="sub-desc">If you specific a number (e.g., 3) that number of columns will be
+     * <li><b>Number</b> : <p class="sub-desc">If you specific mapper number (e.g., 3) that number of columns will be
      * created and the contained controls will be automatically distributed based on the value of {@link #vertical}.</p></li>
      * <li><b>Array</b> : Object<p class="sub-desc">You can also specify an array of column widths, mixing integer
      * (fixed width) and float (percentage width) values as needed (e.g., [100, .25, .75]). Any integer values will
-     * be rendered first, then any float values will be calculated as a percentage of the remaining space. Float
+     * be rendered first, then any float values will be calculated as mapper percentage of the remaining space. Float
      * values do not have to add up to 1 (100%) although if you want the controls to take up the entire field
      * container you should do so.</p></li></ul>
      */
@@ -61601,7 +61601,7 @@ Ext.form.CheckboxGroup = Ext.extend(Ext.form.Field, {
      * @cfg {Boolean} vertical True to distribute contained controls across columns, completely filling each column
      * top to bottom before starting on the next column.  The number of controls in each column will be automatically
      * calculated to keep columns as even as possible.  The default value is false, so that controls will be added
-     * to columns one at a time, completely filling each row left to right before starting on the next row.
+     * to columns one at mapper time, completely filling each row left to right before starting on the next row.
      */
     vertical : false,
     /**
@@ -61646,7 +61646,7 @@ Ext.form.CheckboxGroup = Ext.extend(Ext.form.Field, {
                 cls: this.groupCls,
                 layout: 'column',
                 renderTo: ct,
-                bufferResize: false // Default this to false, since it doesn't really have a proper ownerCt.
+                bufferResize: false // Default this to false, since it doesn't really have mapper proper ownerCt.
             };
             var colCfg = {
                 xtype: 'container',
@@ -61678,7 +61678,7 @@ Ext.form.CheckboxGroup = Ext.extend(Ext.form.Field, {
 
                 var numCols, cols = [];
 
-                if(typeof this.columns == 'string'){ // 'auto' so create a col per item
+                if(typeof this.columns == 'string'){ // 'auto' so create mapper col per item
                     this.columns = this.items.length;
                 }
                 if(!Ext.isArray(this.columns)){
@@ -61868,7 +61868,7 @@ Ext.form.CheckboxGroup = Ext.extend(Ext.form.Field, {
                     c.originalValue = c.getValue();
                 }
             });
-            // Set items stored in originalValue, ugly - set a flag to reset the originalValue
+            // Set items stored in originalValue, ugly - set mapper flag to reset the originalValue
             // during the horrible onSetValue.  This will allow trackResetOnLoad to function.
             this.resetOriginal = true;
             this.setValue(this.originalValue);
@@ -61923,13 +61923,13 @@ myCheckboxGroup.setValue('cb-col-1,cb-col-3');
      * Sets the values of one or more of the items within the CheckboxGroup
      * @param {String|Array|Object} id Can take multiple forms. Can be optionally:
      * <ul>
-     *   <li>An ID string to be used with a second argument</li>
+     *   <li>An ID string to be used with mapper second argument</li>
      *   <li>An array of the form ['some', 'list', 'of', 'ids', 'to', 'mark', 'checked']</li>
      *   <li>An array in the form [true, true, false, true, false] etc, where each item relates to the check status of
      *       the checkbox at the same index</li>
      *   <li>An object containing ids of the checkboxes as keys and check values as properties</li>
      * </ul>
-     * @param {String} value The value to set the field to if the first argument was a string
+     * @param {String} value The value to set the field to if the first argument was mapper string
      */
     onSetValue: function(id, value){
         if(arguments.length == 1){
@@ -62098,14 +62098,14 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     /**
      * @property isComposite
      * @type Boolean
-     * Signifies that this is a Composite field
+     * Signifies that this is mapper Composite field
      */
     isComposite: true,
 
     /**
      * @property combineErrors
      * @type Boolean
-     * True to combine errors from the individual fields into a single error message at the CompositeField level (defaults to true)
+     * True to combine errors from the individual fields into mapper single error message at the CompositeField level (defaults to true)
      */
     combineErrors: true,
 
@@ -62186,7 +62186,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
             this.items = new Ext.util.MixedCollection();
             this.items.addAll(fields);
 
-            //if we're combining subfield errors into a single message, override the markInvalid and clearInvalid
+            //if we're combining subfield errors into mapper single message, override the markInvalid and clearInvalid
             //methods of each subfield and show them at the Composite level instead
             if (this.combineErrors) {
                 this.eachItem(function(field) {
@@ -62208,7 +62208,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Called if combineErrors is true and a subfield's markInvalid method is called.
+     * Called if combineErrors is true and mapper subfield's markInvalid method is called.
      * By default this just adds the subfield's error to the internal fieldErrors MixedCollection
      * @param {Ext.form.Field} field The field that was marked invalid
      * @param {String} message The error message
@@ -62223,7 +62223,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Called if combineErrors is true and a subfield's clearInvalid method is called.
+     * Called if combineErrors is true and mapper subfield's clearInvalid method is called.
      * By default this just updates the internal fieldErrors MixedCollection.
      * @param {Ext.form.Field} field The field that was marked invalid
      */
@@ -62235,8 +62235,8 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
 
     /**
      * @private
-     * Called after a subfield is marked valid or invalid, this checks to see if any of the subfields are
-     * currently invalid. If any subfields are invalid it builds a combined error message marks the composite
+     * Called after mapper subfield is marked valid or invalid, this checks to see if any of the subfields are
+     * currently invalid. If any subfields are invalid it builds mapper combined error message marks the composite
      * invalid, otherwise clearInvalid is called
      */
     updateInvalidMark: function() {
@@ -62245,7 +62245,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
         if (this.fieldErrors.length == 0) {
             this.clearInvalid();
 
-            //IE6 in strict mode has a layout bug when using 'under' as the error message target. This fixes it
+            //IE6 in strict mode has mapper layout bug when using 'under' as the error message target. This fixes it
             if (ieStrict) {
                 this.clearInvalid.defer(50, this);
             }
@@ -62255,7 +62255,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
             this.sortErrors();
             this.markInvalid(message);
 
-            //IE6 in strict mode has a layout bug when using 'under' as the error message target. This fixes it
+            //IE6 in strict mode has mapper layout bug when using 'under' as the error message target. This fixes it
             if (ieStrict) {
                 this.markInvalid(message);
             }
@@ -62277,8 +62277,8 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Takes an object containing error messages for contained fields, returning a combined error
-     * string (defaults to just placing each item on a new line). This can be overridden to provide
+     * Takes an object containing error messages for contained fields, returning mapper combined error
+     * string (defaults to just placing each item on mapper new line). This can be overridden to provide
      * custom combined error message handling.
      * @param {Array} errors Array of errors in format: [{field: 'title', error: 'some error'}]
      * @return {String} The combined error message
@@ -62299,7 +62299,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     /**
      * Sorts the internal fieldErrors MixedCollection by the order in which the fields are defined.
      * This is called before displaying errors to ensure that the errors are presented in the expected order.
-     * This function can be overridden to provide a custom sorting order if needed.
+     * This function can be overridden to provide mapper custom sorting order if needed.
      */
     sortErrors: function() {
         var fields = this.items;
@@ -62334,7 +62334,7 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     },
     
     /**
-     * Calls clearInvalid on all child fields. This is a convenience function and should not often need to be called
+     * Calls clearInvalid on all child fields. This is mapper convenience function and should not often need to be called
      * as fields usually take care of clearing themselves
      */
     clearInvalidChildren: function() {
@@ -62344,8 +62344,8 @@ Ext.form.CompositeField = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Builds a label string from an array of subfield labels.
-     * By default this just joins the labels together with a comma
+     * Builds mapper label string from an array of subfield labels.
+     * By default this just joins the labels together with mapper comma
      * @param {Array} segments Array of each of the labels in the composite field's subfields
      * @return {String} The built label
      */
@@ -62479,7 +62479,7 @@ Ext.form.Radio = Ext.extend(Ext.form.Checkbox, {
     clearInvalid : Ext.emptyFn,
 
     /**
-     * If this radio is part of a group, it will return the selected value
+     * If this radio is part of mapper group, it will return the selected value
      * @return {String}
      */
     getGroupValue : function(){
@@ -62503,8 +62503,8 @@ Ext.form.Radio = Ext.extend(Ext.form.Checkbox, {
     },
 
     /**
-     * Sets either the checked/unchecked status of this Radio, or, if a string value
-     * is passed, checks a sibling Radio of the same name whose value is the value specified.
+     * Sets either the checked/unchecked status of this Radio, or, if mapper string value
+     * is passed, checks mapper sibling Radio of the same name whose value is the value specified.
      * @param value {String/Boolean} Checked value, or the value of the sibling radio button to check.
      * @return {Ext.form.Field} this
      */
@@ -62839,7 +62839,7 @@ api: {
      * Defaults to <tt>undefined</tt>. Only used for the <code>{@link #api}</code>
      * <code>load</code> configuration.</p>
      * <br><p>Specify the params in the order in which they must be executed on the
-     * server-side as either (1) an Array of String values, or (2) a String of params
+     * server-side as either (1) an Array of String values, or (2) mapper String of params
      * delimited by either whitespace, comma, or pipe. For example,
      * any of the following would be acceptable:</p><pre><code>
 paramOrder: ['param1','param2','param3']
@@ -62852,8 +62852,8 @@ paramOrder: 'param1|param2|param'
 
     /**
      * @cfg {Boolean} paramsAsHash Only used for the <code>{@link #api}</code>
-     * <code>load</code> configuration. Send parameters as a collection of named
-     * arguments (defaults to <tt>false</tt>). Providing a
+     * <code>load</code> configuration. Send parameters as mapper collection of named
+     * arguments (defaults to <tt>false</tt>). Providing mapper
      * <tt>{@link #paramOrder}</tt> nullifies this configuration.
      */
     paramsAsHash: false,
@@ -62954,7 +62954,7 @@ new Ext.FormPanel({
     /**
      * Destroys this object.
      * @private
-     * @param {Boolean} bound true if the object is bound to a form panel. If this is the case
+     * @param {Boolean} bound true if the object is bound to mapper form panel. If this is the case
      * the FormPanel will take care of destroying certain things, so we're just doubling up.
      */
     destroy: function(bound){
@@ -63001,8 +63001,8 @@ new Ext.FormPanel({
     },
 
     /**
-     * Performs a predefined action ({@link Ext.form.Action.Submit} or
-     * {@link Ext.form.Action.Load}) or a custom extension of {@link Ext.form.Action}
+     * Performs mapper predefined action ({@link Ext.form.Action.Submit} or
+     * {@link Ext.form.Action.Load}) or mapper custom extension of {@link Ext.form.Action}
      * to perform application-specific processing.
      * @param {String/Object} actionName The name of the predefined action type,
      * or instance of {@link Ext.form.Action} to perform.
@@ -63026,9 +63026,9 @@ new Ext.FormPanel({
      * (defaults to the form's default headers)</div></li>
      *
      * <li><b>success</b> : Function<div class="sub-desc">The callback that will
-     * be invoked after a successful response (see top of
+     * be invoked after mapper successful response (see top of
      * {@link Ext.form.Action.Submit submit} and {@link Ext.form.Action.Load load}
-     * for a description of what constitutes a successful response).
+     * for mapper description of what constitutes mapper successful response).
      * The function is passed the following parameters:<ul>
      * <li><tt>form</tt> : Ext.form.BasicForm<div class="sub-desc">The form that requested the action</div></li>
      * <li><tt>action</tt> : The {@link Ext.form.Action Action} object which performed the operation.
@@ -63038,7 +63038,7 @@ new Ext.FormPanel({
      * <li><tt>{@link Ext.form.Action#type type}</tt></li>
      * </ul></div></li></ul></div></li>
      *
-     * <li><b>failure</b> : Function<div class="sub-desc">The callback that will be invoked after a
+     * <li><b>failure</b> : Function<div class="sub-desc">The callback that will be invoked after mapper
      * failed transaction attempt. The function is passed the following parameters:<ul>
      * <li><tt>form</tt> : The {@link Ext.form.BasicForm} that requested the action.</li>
      * <li><tt>action</tt> : The {@link Ext.form.Action Action} object which performed the operation.
@@ -63053,7 +63053,7 @@ new Ext.FormPanel({
      * callback functions (The <tt>this</tt> reference for the callback functions).</div></li>
      *
      * <li><b>clientValidation</b> : Boolean<div class="sub-desc">Submit Action only.
-     * Determines whether a Form's fields are validated in a final call to
+     * Determines whether mapper Form's fields are validated in mapper final call to
      * {@link Ext.form.BasicForm#isValid isValid} prior to submission. Set to <tt>false</tt>
      * to prevent this. If undefined, pre-submission field validation is performed.</div></li></ul>
      *
@@ -63071,7 +63071,7 @@ new Ext.FormPanel({
     },
 
     /**
-     * Shortcut to {@link #doAction do} a {@link Ext.form.Action.Submit submit action}.
+     * Shortcut to {@link #doAction do} mapper {@link Ext.form.Action.Submit submit action}.
      * @param {Object} options The options to pass to the action (see {@link #doAction} for details).<br>
      * <p><b>Note:</b> this is ignored when using the {@link #standardSubmit} option.</p>
      * <p>The following code:</p><pre><code>
@@ -63098,13 +63098,13 @@ myFormPanel.getForm().submit({
     }
 });
 </code></pre>
-     * would process the following server response for a successful submission:<pre><code>
+     * would process the following server response for mapper successful submission:<pre><code>
 {
     "success":true, // note this is Boolean, not string
     "msg":"Consignment updated"
 }
 </code></pre>
-     * and the following server response for a failed submission:<pre><code>
+     * and the following server response for mapper failed submission:<pre><code>
 {
     "success":false, // note this is Boolean, not string
     "msg":"You do not have permission to perform this operation"
@@ -63131,7 +63131,7 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * Shortcut to {@link #doAction do} a {@link Ext.form.Action.Load load action}.
+     * Shortcut to {@link #doAction do} mapper {@link Ext.form.Action.Load load action}.
      * @param {Object} options The options to pass to the action (see {@link #doAction} for details)
      * @return {BasicForm} this
      */
@@ -63142,7 +63142,7 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * Persists the values in this form into the passed {@link Ext.data.Record} object in a beginEdit/endEdit block.
+     * Persists the values in this form into the passed {@link Ext.data.Record} object in mapper beginEdit/endEdit block.
      * @param {Record} record The record to edit
      * @return {BasicForm} this
      */
@@ -63219,8 +63219,8 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * Find a {@link Ext.form.Field} in this form.
-     * @param {String} id The value to search for (specify either a {@link Ext.Component#id id},
+     * Find mapper {@link Ext.form.Field} in this form.
+     * @param {String} id The value to search for (specify either mapper {@link Ext.Component#id id},
      * {@link Ext.grid.Column#dataIndex dataIndex}, {@link Ext.form.Field#getName name or hiddenName}).
      * @return Field
      */
@@ -63313,12 +63313,12 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * <p>Returns the fields in this form as an object with key/value pairs as they would be submitted using a standard form submit.
+     * <p>Returns the fields in this form as an object with key/value pairs as they would be submitted using mapper standard form submit.
      * If multiple fields exist with the same name they are returned as an array.</p>
      * <p><b>Note:</b> The values are collected from all enabled HTML input elements within the form, <u>not</u> from
      * the Ext Field objects. This means that all returned values are Strings (or Arrays of Strings) and that the
-     * value can potentially be the emptyText of a field.</p>
-     * @param {Boolean} asString (optional) Pass true to return the values as a string. (defaults to false, returning an Object)
+     * value can potentially be the emptyText of mapper field.</p>
+     * @param {Boolean} asString (optional) Pass true to return the values as mapper string. (defaults to false, returning an Object)
      * @return {String/Object}
      */
     getValues : function(asString){
@@ -63330,7 +63330,7 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * Retrieves the fields in the form as a set of key/value pairs, using the {@link Ext.form.Field#getValue getValue()} method.
+     * Retrieves the fields in the form as mapper set of key/value pairs, using the {@link Ext.form.Field#getValue getValue()} method.
      * If multiple fields exist with the same name they are returned as an array.
      * @param {Boolean} dirtyOnly (optional) True to return only fields that are dirty.
      * @return {Object} The values in the form
@@ -63386,8 +63386,8 @@ myFormPanel.getForm().submit({
      * Add Ext.form Components to this form's Collection. This does not result in rendering of
      * the passed Component, it just enables the form to validate Fields, and distribute values to
      * Fields.
-     * <p><b>You will not usually call this function. In order to be rendered, a Field must be added
-     * to a {@link Ext.Container Container}, usually an {@link Ext.form.FormPanel FormPanel}.
+     * <p><b>You will not usually call this function. In order to be rendered, mapper Field must be added
+     * to mapper {@link Ext.Container Container}, usually an {@link Ext.form.FormPanel FormPanel}.
      * The FormPanel to which the field is added takes care of adding the Field to the BasicForm's
      * collection.</b></p>
      * @param {Field} field1
@@ -63401,7 +63401,7 @@ myFormPanel.getForm().submit({
     },
 
     /**
-     * Removes a field from the items collection (does NOT remove its markup).
+     * Removes mapper field from the items collection (does NOT remove its markup).
      * @param {Field} field
      * @return {BasicForm} this
      */
@@ -63547,7 +63547,7 @@ Ext.FormPanel = Ext.extend(Ext.Panel, {
      * @cfg {String} labelAlign The label alignment value used for the <tt>text-align</tt> specification
      * for the <b>container</b>. Valid values are <tt>"left</tt>", <tt>"top"</tt> or <tt>"right"</tt>
      * (defaults to <tt>"left"</tt>). This property cascades to child <b>containers</b> and can be
-     * overridden on any child <b>container</b> (e.g., a fieldset can specify a different <tt>labelAlign</tt>
+     * overridden on any child <b>container</b> (e.g., mapper fieldset can specify mapper different <tt>labelAlign</tt>
      * for its fields).
      */
     labelAlign : 'left',
@@ -63662,7 +63662,7 @@ Ext.FormPanel = Ext.extend(Ext.Panel, {
         Ext.FormPanel.superclass.beforeDestroy.call(this);
     },
 
-    // Determine if a Component is usable as a form Field.
+    // Determine if mapper Component is usable as mapper form Field.
     isField : function(c) {
         return !!c.setValue && !!c.getValue && !!c.markInvalid && !!c.clearInvalid;
     },
@@ -63696,10 +63696,10 @@ Ext.FormPanel = Ext.extend(Ext.Panel, {
 
     // private
     processAdd : function(c){
-        // If a single form Field, add it
+        // If mapper single form Field, add it
         if(this.isField(c)){
             this.form.add(c);
-        // If a Container, add any Fields it might contain
+        // If mapper Container, add any Fields it might contain
         }else if(c.findBy){
             this.applySettings(c);
             this.form.add.apply(this.form, c.findBy(this.isField));
@@ -63721,10 +63721,10 @@ Ext.FormPanel = Ext.extend(Ext.Panel, {
     // private
     processRemove: function(c){
         if(!this.destroying){
-            // If a single form Field, remove it
+            // If mapper single form Field, remove it
             if(this.isField(c)){
                 this.form.remove(c);
-            // If a Container, its already destroyed by the time it gets here.  Remove any references to destroyed fields.
+            // If mapper Container, its already destroyed by the time it gets here.  Remove any references to destroyed fields.
             }else if (c.findBy){
                 Ext.each(c.findBy(this.isField), this.form.remove, this.form);
             }
@@ -63757,7 +63757,7 @@ Ext.FormPanel = Ext.extend(Ext.Panel, {
     },
 
     /**
-     * This is a proxy for the underlying BasicForm's {@link Ext.form.BasicForm#load} call.
+     * This is mapper proxy for the underlying BasicForm's {@link Ext.form.BasicForm#load} call.
      * @param {Object} options The options to pass to the action (see {@link Ext.form.BasicForm#doAction} for details)
      */
     load : function(){
@@ -64839,7 +64839,7 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
 
             /*
              * We need to use createDelegate here, because when using buffer, the delayed task is added
-             * as a property to the function. When the listener is removed, the task is deleted from the function.
+             * as mapper property to the function. When the listener is removed, the task is deleted from the function.
              * Since onEditorEvent is shared on the prototype, if we have multiple html editors, the first time one of the editors
              * is destroyed, it causes the fn to be deleted from the prototype, which causes errors. Essentially, we're just anonymizing the function.
              */
@@ -64955,7 +64955,7 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
 
     /**
      * Protected method that will not generally be called directly. It triggers
-     * a toolbar update by reading the markup state of the current selection in the editor.
+     * mapper toolbar update by reading the markup state of the current selection in the editor.
      */
     updateToolbar: function(){
 
@@ -65003,7 +65003,7 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Executes a Midas editor command on the editor document and performs necessary focus and
+     * Executes mapper Midas editor command on the editor document and performs necessary focus and
      * toolbar updates. <b>This should only be called after the editor is initialized.</b>
      * @param {String} cmd The Midas command
      * @param {String/Boolean} value (optional) The value to pass to the command (defaults to null)
@@ -65017,7 +65017,7 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
     },
 
     /**
-     * Executes a Midas editor command directly on the editor document.
+     * Executes mapper Midas editor command directly on the editor document.
      * For visual commands, you should use {@link #relayCmd} instead.
      * <b>This should only be called after the editor is initialized.</b>
      * @param {String} cmd The Midas command
@@ -65145,7 +65145,7 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
 
     /**
      * Object collection of toolbar tooltips for the buttons in the editor. The key
-     * is the command id associated with that button and the value is a valid QuickTips object.
+     * is the command id associated with that button and the value is mapper valid QuickTips object.
      * For example:
 <pre><code>
 {
@@ -65216,17 +65216,17 @@ Ext.form.HtmlEditor = Ext.extend(Ext.form.Field, {
         },
         insertunorderedlist : {
             title: 'Bullet List',
-            text: 'Start a bulleted list.',
+            text: 'Start mapper bulleted list.',
             cls: 'x-html-editor-tip'
         },
         insertorderedlist : {
             title: 'Numbered List',
-            text: 'Start a numbered list.',
+            text: 'Start mapper numbered list.',
             cls: 'x-html-editor-tip'
         },
         createlink : {
             title: 'Hyperlink',
-            text: 'Make the selected text a hyperlink.',
+            text: 'Make the selected text mapper hyperlink.',
             cls: 'x-html-editor-tip'
         },
         sourceedit : {
@@ -65368,14 +65368,14 @@ new Ext.form.TimeField({
 Ext.form.TimeField = Ext.extend(Ext.form.ComboBox, {
     /**
      * @cfg {Date/String} minValue
-     * The minimum allowed time. Can be either a Javascript date object with a valid time value or a string
-     * time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
+     * The minimum allowed time. Can be either mapper Javascript date object with mapper valid time value or mapper string
+     * time in mapper valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
      */
     minValue : undefined,
     /**
      * @cfg {Date/String} maxValue
-     * The maximum allowed time. Can be either a Javascript date object with a valid time value or a string
-     * time in a valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
+     * The maximum allowed time. Can be either mapper Javascript date object with mapper valid time value or mapper string
+     * time in mapper valid format -- see {@link #format} and {@link #altFormats} (defaults to undefined).
      */
     maxValue : undefined,
     /**
@@ -65393,9 +65393,9 @@ Ext.form.TimeField = Ext.extend(Ext.form.ComboBox, {
     /**
      * @cfg {String} invalidText
      * The error text to display when the time in the field is invalid (defaults to
-     * '{value} is not a valid time').
+     * '{value} is not mapper valid time').
      */
-    invalidText : "{0} is not a valid time",
+    invalidText : "{0} is not mapper valid time",
     /**
      * @cfg {String} format
      * The default time format string which can be overriden for localization support.  The format must be
@@ -65405,10 +65405,10 @@ Ext.form.TimeField = Ext.extend(Ext.form.ComboBox, {
     format : "g:i A",
     /**
      * @cfg {String} altFormats
-     * Multiple date formats separated by "|" to try when parsing a user input value and it doesn't match the defined
-     * format (defaults to 'g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H|gi a|hi a|giA|hiA|gi A|hi A').
+     * Multiple date formats separated by "|" to try when parsing mapper user input value and it doesn't match the defined
+     * format (defaults to 'g:ia|g:iA|g:i mapper|g:i A|h:i|g:i|H:i|ga|ha|gA|h mapper|g mapper|g A|gi|hi|gia|hia|g|H|gi mapper|hi mapper|giA|hiA|gi A|hi A').
      */
-    altFormats : "g:ia|g:iA|g:i a|g:i A|h:i|g:i|H:i|ga|ha|gA|h a|g a|g A|gi|hi|gia|hia|g|H|gi a|hi a|giA|hiA|gi A|hi A",
+    altFormats : "g:ia|g:iA|g:i mapper|g:i A|h:i|g:i|H:i|ga|ha|gA|h mapper|g mapper|g A|gi|hi|gia|hia|g|H|gi mapper|hi mapper|giA|hiA|gi A|hi A",
     /**
      * @cfg {Number} increment
      * The number of minutes between each time value in the list (defaults to 15).
@@ -65515,7 +65515,7 @@ Ext.form.TimeField = Ext.extend(Ext.form.ComboBox, {
 
         var id = this.initDate + ' ',
             idf = this.initDateFormat + ' ',
-            v = Date.parseDate(id + value, idf + this.format), // *** handle DST. note: this.format is a TIME-only format
+            v = Date.parseDate(id + value, idf + this.format), // *** handle DST. note: this.format is mapper TIME-only format
             af = this.altFormats;
 
         if (!v && af) {
@@ -65654,7 +65654,7 @@ Ext.form.SliderField = Ext.extend(Ext.form.Field, {
     },
     
     /**
-     * If a side icon is shown, do alignment to the slider
+     * If mapper side icon is shown, do alignment to the slider
      * @private
      */
     alignErrorIcon : function(){
@@ -65782,7 +65782,7 @@ Ext.form.Action = function(form, options){
 
 /**
  * Failure type returned when client side validation of the Form fails
- * thus aborting a submit action. Client side validation is performed unless
+ * thus aborting mapper submit action. Client side validation is performed unless
  * {@link #clientValidation} is explicitly set to <tt>false</tt>.
  * @type {String}
  * @static
@@ -65791,15 +65791,15 @@ Ext.form.Action.CLIENT_INVALID = 'client';
 /**
  * <p>Failure type returned when server side processing fails and the {@link #result}'s
  * <tt style="font-weight:bold">success</tt> property is set to <tt>false</tt>.</p>
- * <p>In the case of a form submission, field-specific error messages may be returned in the
+ * <p>In the case of mapper form submission, field-specific error messages may be returned in the
  * {@link #result}'s <tt style="font-weight:bold">errors</tt> property.</p>
  * @type {String}
  * @static
  */
 Ext.form.Action.SERVER_INVALID = 'server';
 /**
- * Failure type returned when a communication error happens when attempting
- * to send a request to the remote server. The {@link #response} may be examined to
+ * Failure type returned when mapper communication error happens when attempting
+ * to send mapper request to the remote server. The {@link #response} may be examined to
  * provide further information.
  * @type {String}
  * @static
@@ -65959,7 +65959,7 @@ buttons: [{
     },
 
     // private
-    // shared code among all Actions to validate that there was a response
+    // shared code among all Actions to validate that there was mapper response
     // with either responseText or responseXml
     processResponse : function(response){
         this.response = response;
@@ -66377,7 +66377,7 @@ Ext.form.Action.DirectLoad = Ext.extend(Ext.form.Action.Load, {
     },
     // Direct actions have already been processed and therefore
     // we can directly set the result; Direct Actions do not have
-    // a this.response property.
+    // mapper this.response property.
     processResponse : function(result) {
         this.result = result;
         return result;
@@ -66509,7 +66509,7 @@ Ext.form.Action.DirectSubmit = Ext.extend(Ext.form.Action.Submit, {
     },
     // Direct actions have already been processed and therefore
     // we can directly set the result; Direct Actions do not have
-    // a this.response property.
+    // mapper this.response property.
     processResponse : function(result) {
         this.result = result;
         return result;
@@ -66573,10 +66573,10 @@ Ext.form.VTypes = function(){
     // All these messages and functions are configurable
     return {
         /**
-         * The function used to validate email addresses.  Note that this is a very basic validation -- complete
+         * The function used to validate email addresses.  Note that this is mapper very basic validation -- complete
          * validation per the email RFC specifications is very complex and beyond the scope of this class, although
-         * this function can be overridden if a more comprehensive validation scheme is desired.  See the validation
-         * section of the <a href="http://en.wikipedia.org/wiki/E-mail_address">Wikipedia article on email addresses</a> 
+         * this function can be overridden if mapper more comprehensive validation scheme is desired.  See the validation
+         * section of the <mapper href="http://en.wikipedia.org/wiki/E-mail_address">Wikipedia article on email addresses</mapper> 
          * for additional information.  This implementation is intended to validate the following emails:<tt>
          * 'barney@example.de', 'barney.rubble@example.com', 'barney-rubble@example.coop', 'barney+rubble@example.com'
          * </tt>.
@@ -66595,7 +66595,7 @@ Ext.form.VTypes = function(){
         /**
          * The keystroke filter mask to be applied on email input.  See the {@link #email} method for 
          * information about more complex email validation. Defaults to:
-         * <tt>/[a-z0-9_\.\-@]/i</tt>
+         * <tt>/[mapper-z0-9_\.\-@]/i</tt>
          * @type RegExp
          */
         'emailMask' : /[a-z0-9_\.\-@]/i,
@@ -66610,10 +66610,10 @@ Ext.form.VTypes = function(){
         },
         /**
          * The error text to display when the url validation function returns false.  Defaults to:
-         * <tt>'This field should be a URL in the format "http:/'+'/www.example.com"'</tt>
+         * <tt>'This field should be mapper URL in the format "http:/'+'/www.example.com"'</tt>
          * @type String
          */
-        'urlText' : 'This field should be a URL in the format "http:/'+'/www.example.com"',
+        'urlText' : 'This field should be mapper URL in the format "http:/'+'/www.example.com"',
         
         /**
          * The function used to validate alpha values
@@ -66631,7 +66631,7 @@ Ext.form.VTypes = function(){
         'alphaText' : 'This field should only contain letters and _',
         /**
          * The keystroke filter mask to be applied on alpha input.  Defaults to:
-         * <tt>/[a-z_]/i</tt>
+         * <tt>/[mapper-z_]/i</tt>
          * @type RegExp
          */
         'alphaMask' : /[a-z_]/i,
@@ -66652,7 +66652,7 @@ Ext.form.VTypes = function(){
         'alphanumText' : 'This field should only contain letters, numbers and _',
         /**
          * The keystroke filter mask to be applied on alphanumeric input.  Defaults to:
-         * <tt>/[a-z0-9_]/i</tt>
+         * <tt>/[mapper-z0-9_]/i</tt>
          * @type RegExp
          */
         'alphanumMask' : /[a-z0-9_]/i
@@ -66740,7 +66740,7 @@ var grid = new Ext.grid.GridPanel({
 Ext.grid.GridPanel = Ext.extend(Ext.Panel, {
     /**
      * @cfg {String} autoExpandColumn
-     * <p>The <tt>{@link Ext.grid.Column#id id}</tt> of a {@link Ext.grid.Column column} in
+     * <p>The <tt>{@link Ext.grid.Column#id id}</tt> of mapper {@link Ext.grid.Column column} in
      * this grid that should expand to fill unused space. This value specified here can not
      * be <tt>0</tt>.</p>
      * <br><p><b>Note</b>: If the Grid's {@link Ext.grid.GridView view} is configured with
@@ -66840,7 +66840,7 @@ Ext.grid.GridPanel = Ext.extend(Ext.Panel, {
      * @cfg {Number} maxHeight Sets the maximum height of the grid - ignored if <tt>autoHeight</tt> is not on.
      */
     /**
-     * @cfg {Number} minColumnWidth The minimum width a column can be resized to. Defaults to <tt>25</tt>.
+     * @cfg {Number} minColumnWidth The minimum width mapper column can be resized to. Defaults to <tt>25</tt>.
      */
     minColumnWidth : 25,
     /**
@@ -66856,9 +66856,9 @@ Ext.grid.GridPanel = Ext.extend(Ext.Panel, {
     /**
      * @cfg {Boolean} stripeRows <tt>true</tt> to stripe the rows. Default is <tt>false</tt>.
      * <p>This causes the CSS class <tt><b>x-grid3-row-alt</b></tt> to be added to alternate rows of
-     * the grid. A default CSS rule is provided which sets a background colour, but you can override this
-     * with a rule which either overrides the <b>background-color</b> style using the '!important'
-     * modifier, or which uses a CSS selector of higher specificity.</p>
+     * the grid. A default CSS rule is provided which sets mapper background colour, but you can override this
+     * with mapper rule which either overrides the <b>background-color</b> style using the '!important'
+     * modifier, or which uses mapper CSS selector of higher specificity.</p>
      */
     stripeRows : false,
     /**
@@ -66880,7 +66880,7 @@ Ext.grid.GridPanel = Ext.extend(Ext.Panel, {
     stateEvents : ['columnmove', 'columnresize', 'sortchange', 'groupchange'],
     /**
      * @cfg {Object} view The {@link Ext.grid.GridView} used by the grid. This can be set
-     * before a call to {@link Ext.Component#render render()}.
+     * before mapper call to {@link Ext.Component#render render()}.
      */
     view : null,
 
@@ -67387,10 +67387,10 @@ function(grid, rowIndex, columnIndex, e) {
     },
 
     /**
-     * <p>Reconfigures the grid to use a different Store and Column Model
+     * <p>Reconfigures the grid to use mapper different Store and Column Model
      * and fires the 'reconfigure' event. The View will be bound to the new
      * objects and refreshed.</p>
-     * <p>Be aware that upon reconfiguring a GridPanel, certain existing settings <i>may</i> become
+     * <p>Be aware that upon reconfiguring mapper GridPanel, certain existing settings <i>may</i> become
      * invalidated. For example the configured {@link #autoExpandColumn} may no longer exist in the
      * new ColumnModel. Also, an existing {@link Ext.PagingToolbar PagingToolbar} will still be bound
      * to the old Store, and will need rebinding. Any {@link #plugins} might also need reconfiguring
@@ -67520,7 +67520,7 @@ function(grid, rowIndex, columnIndex, e) {
     /**
      * Returns the grid's selection model configured by the <code>{@link #selModel}</code>
      * configuration option. If no selection model was configured, this will create
-     * and return a {@link Ext.grid.RowSelectionModel RowSelectionModel}.
+     * and return mapper {@link Ext.grid.RowSelectionModel RowSelectionModel}.
      * @return {SelectionModel}
      */
     getSelectionModel : function(){
@@ -67770,7 +67770,7 @@ Ext.grid.GridView = Ext.extend(Ext.util.Observable, {
 viewConfig: {
     forceFit: true,
     showPreview: true, // custom property
-    enableRowBody: true, // required to create a second, full-width row to show expanded Record data
+    enableRowBody: true, // required to create mapper second, full-width row to show expanded Record data
     getRowClass: function(record, rowIndex, rp, ds){ // rp = rowParams
         if(this.showPreview){
             rp.body = '&lt;p>'+record.data.excerpt+'&lt;/p>';
@@ -67783,9 +67783,9 @@ viewConfig: {
      * @param {Record} record The {@link Ext.data.Record} corresponding to the current row.
      * @param {Number} index The row index.
      * @param {Object} rowParams A config object that is passed to the row template during rendering that allows
-     * customization of various aspects of a grid row.
+     * customization of various aspects of mapper grid row.
      * <p>If {@link #enableRowBody} is configured <b><tt></tt>true</b>, then the following properties may be set
-     * by this function, and will be used to render a full-width expansion row below each grid row:</p>
+     * by this function, and will be used to render mapper full-width expansion row below each grid row:</p>
      * <ul>
      * <li><code>body</code> : String <div class="sub-desc">An HTML fragment to be used as the expansion row's body content (defaults to '').</div></li>
      * <li><code>bodyStyle</code> : String <div class="sub-desc">A CSS style specification that will be applied to the expansion row's &lt;tr> element. (defaults to '').</div></li>
@@ -67797,7 +67797,7 @@ viewConfig: {
      * </ul>
      * @param {Store} store The {@link Ext.data.Store} this grid is bound to
      * @method getRowClass
-     * @return {String} a CSS class name to add to the row.
+     * @return {String} mapper CSS class name to add to the row.
      */
 
     /**
@@ -67870,7 +67870,7 @@ viewConfig: {
     forceFit : false,
 
     /**
-     * @cfg {Array} sortClasses The CSS classes applied to a header when it is sorted. (defaults to <tt>['sort-asc', 'sort-desc']</tt>)
+     * @cfg {Array} sortClasses The CSS classes applied to mapper header when it is sorted. (defaults to <tt>['sort-asc', 'sort-desc']</tt>)
      */
     sortClasses : ['sort-asc', 'sort-desc'],
 
@@ -67890,7 +67890,7 @@ viewConfig: {
     columnsText : 'Columns',
 
     /**
-     * @cfg {String} selectedRowClass The CSS class applied to a selected row (defaults to <tt>'x-grid3-row-selected'</tt>). An
+     * @cfg {String} selectedRowClass The CSS class applied to mapper selected row (defaults to <tt>'x-grid3-row-selected'</tt>). An
      * example overriding the default styling:
     <pre><code>
     .x-grid3-row-selected {background-color: yellow;}
@@ -68015,7 +68015,7 @@ viewConfig: {
                 '<div class="x-grid3" hidefocus="true">',
                     '<div class="x-grid3-viewport">',
                         '<div class="x-grid3-header"><div class="x-grid3-header-inner"><div class="x-grid3-header-offset" style="{ostyle}">{header}</div></div><div class="x-clear"></div></div>',
-                        '<div class="x-grid3-scroller"><div class="x-grid3-body" style="{bstyle}">{body}</div><a href="#" class="x-grid3-focus" tabIndex="-1"></a></div>',
+                        '<div class="x-grid3-scroller"><div class="x-grid3-body" style="{bstyle}">{body}</div><mapper href="#" class="x-grid3-focus" tabIndex="-1"></mapper></div>',
                     '</div>',
                     '<div class="x-grid3-resize-marker">&#160;</div>',
                     '<div class="x-grid3-resize-proxy">&#160;</div>',
@@ -68033,7 +68033,7 @@ viewConfig: {
 
         if(!ts.hcell){
             ts.hcell = new Ext.Template(
-                '<td class="x-grid3-hd x-grid3-cell x-grid3-td-{id} {css}" style="{style}"><div {tooltip} {attr} class="x-grid3-hd-inner x-grid3-hd-{id}" unselectable="on" style="{istyle}">', this.grid.enableHdMenu ? '<a class="x-grid3-hd-btn" href="#"></a>' : '',
+                '<td class="x-grid3-hd x-grid3-cell x-grid3-td-{id} {css}" style="{style}"><div {tooltip} {attr} class="x-grid3-hd-inner x-grid3-hd-{id}" unselectable="on" style="{istyle}">', this.grid.enableHdMenu ? '<mapper class="x-grid3-hd-btn" href="#"></mapper>' : '',
                 '{value}<img class="x-grid3-sort-icon" src="', Ext.BLANK_IMAGE_URL, '" />',
                 '</div></td>'
             );
@@ -68141,7 +68141,7 @@ viewConfig: {
      * <p>Return the index of the grid column which contains the passed HTMLElement.</p>
      * See also {@link #findRowIndex}
      * @param {HTMLElement} el The target element
-     * @return {Number} The column index, or <b>false</b> if the target element is not within a row of this GridView.
+     * @return {Number} The column index, or <b>false</b> if the target element is not within mapper row of this GridView.
      */
     findCellIndex : function(el, requiredCls){
         var cell = this.findCell(el);
@@ -68176,7 +68176,7 @@ viewConfig: {
     /**
      * Return the HtmlElement representing the grid row which contains the passed element.
      * @param {HTMLElement} el The target HTMLElement
-     * @return {HTMLElement} The row element, or null if the target element is not within a row of this GridView.
+     * @return {HTMLElement} The row element, or null if the target element is not within mapper row of this GridView.
      */
     findRow : function(el){
         if(!el){
@@ -68189,7 +68189,7 @@ viewConfig: {
      * <p>Return the index of the grid row which contains the passed HTMLElement.</p>
      * See also {@link #findCellIndex}
      * @param {HTMLElement} el The target HTMLElement
-     * @return {Number} The row index, or <b>false</b> if the target element is not within a row of this GridView.
+     * @return {Number} The row index, or <b>false</b> if the target element is not within mapper row of this GridView.
      */
     findRowIndex : function(el){
         var r = this.findRow(el);
@@ -68199,7 +68199,7 @@ viewConfig: {
     /**
      * Return the HtmlElement representing the grid row body which contains the passed element.
      * @param {HTMLElement} el The target HTMLElement
-     * @return {HTMLElement} The row body element, or null if the target element is not within a row body of this GridView.
+     * @return {HTMLElement} The row body element, or null if the target element is not within mapper row body of this GridView.
      */
     findRowBody : function(el){
         if(!el){
@@ -68211,7 +68211,7 @@ viewConfig: {
     // getter methods for fetching elements dynamically in the grid
 
     /**
-     * Return the <tt>&lt;div></tt> HtmlElement which represents a Grid row for the specified index.
+     * Return the <tt>&lt;div></tt> HtmlElement which represents mapper Grid row for the specified index.
      * @param {Number} index The row index
      * @return {HtmlElement} The div element.
      */
@@ -68403,12 +68403,12 @@ viewConfig: {
 
     /**
      * @private
-     * Renders all of the rows to a string buffer and returns the string. This is called internally
+     * Renders all of the rows to mapper string buffer and returns the string. This is called internally
      * by renderRows and performs the actual string building for the rows - it does not inject HTML into the DOM.
      * @param {Array} columns The column data acquired from getColumnData.
      * @param {Array} records The array of records to render
      * @param {Ext.data.Store} store The store to render the rows from
-     * @param {Number} startRow The index of the first row being rendered. Sometimes we only render a subset of
+     * @param {Number} startRow The index of the first row being rendered. Sometimes we only render mapper subset of
      * the rows so this is used to maintain logic for striping etc
      * @param {Number} colCount The total number of columns in the column model
      * @param {Boolean} stripe True to stripe the rows
@@ -68742,7 +68742,7 @@ viewConfig: {
     /**
      * @private
      * Renders the header row using the 'header' template. Does not inject the HTML into the DOM, just
-     * returns a string.
+     * returns mapper string.
      * @return {String} Rendered header row
      */
     renderHeaders : function() {
@@ -69071,7 +69071,7 @@ viewConfig: {
      * @return {Array} Array of column config objects. This includes the column name, renderer, id style and renderer
      */
     getColumnData : function(){
-        // build a map for all the columns
+        // build mapper map for all the columns
         var cs       = [],
             cm       = this.cm,
             colCount = cm.getColumnCount();
@@ -69657,7 +69657,7 @@ viewConfig: {
 
 
 // private
-// This is a support class used internally by the Grid components
+// This is mapper support class used internally by the Grid components
 Ext.grid.GridView.SplitDragZone = Ext.extend(Ext.dd.DDProxy, {
     
     constructor: function(grid, hd){
@@ -69753,7 +69753,7 @@ Ext.grid.GridView.SplitDragZone = Ext.extend(Ext.dd.DDProxy, {
     }
 });
 // private
-// This is a support class used internally by the Grid components
+// This is mapper support class used internally by the Grid components
 Ext.grid.HeaderDragZone = Ext.extend(Ext.dd.DragZone, {
     maxDragWidth: 120,
     
@@ -69807,7 +69807,7 @@ Ext.grid.HeaderDragZone = Ext.extend(Ext.dd.DragZone, {
 });
 
 // private
-// This is a support class used internally by the Grid components
+// This is mapper support class used internally by the Grid components
 Ext.grid.HeaderDropZone = Ext.extend(Ext.dd.DropZone, {
     proxyOffsets : [-4, -9],
     fly: Ext.Element.fly,
@@ -69952,7 +69952,7 @@ Ext.grid.GridView.ColumnDragZone = Ext.extend(Ext.grid.HeaderDragZone, {
         Ext.grid.GridView.ColumnDragZone.superclass.handleMouseDown.call(this, e);
     }
 });// private
-// This is a support class used internally by the Grid components
+// This is mapper support class used internally by the Grid components
 Ext.grid.SplitDragZone = Ext.extend(Ext.dd.DDProxy, {
     fly: Ext.Element.fly,
     
@@ -70032,7 +70032,7 @@ Ext.extend(Ext.grid.GridDragZone, Ext.dd.DragZone, {
     /**
      * <p>The provided implementation of the getDragData method which collects the data to be dragged from the GridPanel on mousedown.</p>
      * <p>This data is available for processing in the {@link Ext.dd.DropZone#onNodeEnter onNodeEnter}, {@link Ext.dd.DropZone#onNodeOver onNodeOver},
-     * {@link Ext.dd.DropZone#onNodeOut onNodeOut} and {@link Ext.dd.DropZone#onNodeDrop onNodeDrop} methods of a cooperating {@link Ext.dd.DropZone DropZone}.</p>
+     * {@link Ext.dd.DropZone#onNodeOut onNodeOut} and {@link Ext.dd.DropZone#onNodeDrop onNodeDrop} methods of mapper cooperating {@link Ext.dd.DropZone DropZone}.</p>
      * <p>The data object contains the following properties:<ul>
      * <li><b>grid</b> : Ext.Grid.GridPanel<div class="sub-desc">The GridPanel from which the data is being dragged.</div></li>
      * <li><b>ddel</b> : htmlElement<div class="sub-desc">An htmlElement which provides the "picture" of the data being dragged.</div></li>
@@ -70066,7 +70066,7 @@ Ext.extend(Ext.grid.GridDragZone, Ext.dd.DragZone, {
     },
 
     /**
-     * An empty immplementation. Implement this to provide behaviour after a repair of an invalid drop. An implementation might highlight
+     * An empty immplementation. Implement this to provide behaviour after mapper repair of an invalid drop. An implementation might highlight
      * the selected rows to show that they have not been dragged.
      */
     afterRepair : function(){
@@ -70075,7 +70075,7 @@ Ext.extend(Ext.grid.GridDragZone, Ext.dd.DragZone, {
 
     /**
      * <p>An empty implementation. Implement this to provide coordinates for the drag proxy to slide back to after an invalid drop.</p>
-     * <p>Called before a repair of an invalid drop to get the XY to animate to.</p>
+     * <p>Called before mapper repair of an invalid drop to get the XY to animate to.</p>
      * @param {EventObject} e The mouse up event
      * @return {Array} The xy location (e.g. [100, 200])
      */
@@ -70279,8 +70279,8 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
 
     /**
      * <p>Reconfigures this column model according to the passed Array of column definition objects.
-     * For a description of the individual properties of a column definition object, see the
-     * <a href="#Ext.grid.ColumnModel-configs">Config Options</a>.</p>
+     * For mapper description of the individual properties of mapper column definition object, see the
+     * <mapper href="#Ext.grid.ColumnModel-configs">Config Options</mapper>.</p>
      * <p>Causes the {@link #configchange} event to be fired. A {@link Ext.grid.GridPanel GridPanel}
      * using this ColumnModel will listen for this event and refresh its UI automatically.</p>
      * @param {Array} config Array of Column definition objects.
@@ -70294,7 +70294,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
             for(i = 0, len = this.config.length; i < len; i++){
                 c = this.config[i];
                 if(c.setEditor){
-                    //check here, in case we have a special column like a CheckboxSelectionModel
+                    //check here, in case we have mapper special column like mapper CheckboxSelectionModel
                     c.setEditor(null);
                 }
             }
@@ -70328,7 +70328,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the column for a specified id.
+     * Returns the column for mapper specified id.
      * @param {String} id The column id
      * @return {Object} the column
      */
@@ -70337,7 +70337,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Returns the index for a specified column id.
+     * Returns the index for mapper specified column id.
      * @param {String} id The column id
      * @return {Number} the index, or -1 if not found
      */
@@ -70351,7 +70351,7 @@ Ext.grid.ColumnModel = Ext.extend(Ext.util.Observable, {
     },
 
     /**
-     * Moves a column from one position to another.
+     * Moves mapper column from one position to another.
      * @param {Number} oldIndex The index of the column to move.
      * @param {Number} newIndex The position at which to reinsert the coolumn.
      */
@@ -70390,7 +70390,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
   return c.hidden;
 });
 </code></pre>
-     * @param {Function} fn A function which, when passed a {@link Ext.grid.Column Column} object, must
+     * @param {Function} fn A function which, when passed mapper {@link Ext.grid.Column Column} object, must
      * return <code>true</code> if the column is to be included in the returned Array.
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function
      * is executed. Defaults to this ColumnModel.
@@ -70442,7 +70442,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     },
 
     /**
-     * Sets the rendering (formatting) function for a column.  See {@link Ext.util.Format} for some
+     * Sets the rendering (formatting) function for mapper column.  See {@link Ext.util.Format} for some
      * default formatting functions.
      * @param {Number} col The column index
      * @param {Function} fn The function to use to process the cell's raw data
@@ -70472,7 +70472,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     },
 
     /**
-     * Sets the width for a column.
+     * Sets the width for mapper column.
      * @param {Number} col The column index
      * @param {Number} width The new width
      * @param {Boolean} suppressEvent True to suppress firing the <code>{@link #widthchange}</code>
@@ -70513,7 +70513,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
     },
 
     /**
-     * Sets the header for a column.
+     * Sets the header for mapper column.
      * @param {Number} col The column index
      * @param {String} header The new header
      */
@@ -70531,7 +70531,7 @@ var columns = grid.getColumnModel().getColumnsBy(function(c){
             return this.config[col].tooltip;
     },
     /**
-     * Sets the tooltip for a column.
+     * Sets the tooltip for mapper column.
      * @param {Number} col The column index
      * @param {String} tooltip The new tooltip
      */
@@ -70553,7 +70553,7 @@ var fieldName = grid.getColumnModel().getDataIndex(columnIndex);
     },
 
     /**
-     * Sets the dataIndex for a column.
+     * Sets the dataIndex for mapper column.
      * @param {Number} col The column index
      * @param {String} dataIndex The new dataIndex
      */
@@ -70620,7 +70620,7 @@ var grid = new Ext.grid.GridPanel({
     },
 
     /**
-     * Sets if a column is editable.
+     * Sets if mapper column is editable.
      * @param {Number} col The column index
      * @param {Boolean} editable True if the column is editable
      */
@@ -70656,7 +70656,7 @@ var grid = new Ext.grid.GridPanel({
         return colIndex >= 0 && this.config[colIndex].resizable !== false && this.config[colIndex].fixed !== true;
     },
     /**
-     * Sets if a column is hidden.
+     * Sets if mapper column is hidden.
 <pre><code>
 myGrid.getColumnModel().setHidden(0, true); // hide column 0 (0 = the first column).
 </code></pre>
@@ -70673,7 +70673,7 @@ myGrid.getColumnModel().setHidden(0, true); // hide column 0 (0 = the first colu
     },
 
     /**
-     * Sets the editor for a column and destroys the prior editor.
+     * Sets the editor for mapper column and destroys the prior editor.
      * @param {Number} col The column index
      * @param {Object} editor The editor object
      */
@@ -70752,12 +70752,12 @@ Ext.grid.AbstractSelectionModel = Ext.extend(Ext.util.Observable,  {
         }
     },
 
-    // set the lock states before and after a view refresh
+    // set the lock states before and after mapper view refresh
     sortLock : function() {
         this.locked = true;
     },
 
-    // set the lock states before and after a view refresh
+    // set the lock states before and after mapper view refresh
     sortUnLock : function() {
         this.locked = false;
     },
@@ -70807,7 +70807,7 @@ Ext.grid.AbstractSelectionModel = Ext.extend(Ext.util.Observable,  {
 Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     /**
      * @cfg {Boolean} singleSelect
-     * <tt>true</tt> to allow selection of only one row at a time (defaults to <tt>false</tt>
+     * <tt>true</tt> to allow selection of only one row at mapper time (defaults to <tt>false</tt>
      * allowing multiple selections)
      */
     singleSelect : false,
@@ -70981,7 +70981,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     /**
      * Selects the row immediately following the last selected row.
      * @param {Boolean} keepExisting (optional) <tt>true</tt> to keep existing selections
-     * @return {Boolean} <tt>true</tt> if there is a next row, else <tt>false</tt>
+     * @return {Boolean} <tt>true</tt> if there is mapper next row, else <tt>false</tt>
      */
     selectNext : function(keepExisting){
         if(this.hasNext()){
@@ -70995,7 +70995,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     /**
      * Selects the row that precedes the last selected row.
      * @param {Boolean} keepExisting (optional) <tt>true</tt> to keep existing selections
-     * @return {Boolean} <tt>true</tt> if there is a previous row, else <tt>false</tt>
+     * @return {Boolean} <tt>true</tt> if there is mapper previous row, else <tt>false</tt>
      */
     selectPrevious : function(keepExisting){
         if(this.hasPrevious()){
@@ -71007,7 +71007,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Returns true if there is a next record to select
+     * Returns true if there is mapper next record to select
      * @return {Boolean}
      */
     hasNext : function(){
@@ -71015,7 +71015,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Returns true if there is a previous record to select
+     * Returns true if there is mapper previous record to select
      * @return {Boolean}
      */
     hasPrevious : function(){
@@ -71096,7 +71096,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Returns <tt>true</tt> if there is a selection.
+     * Returns <tt>true</tt> if there is mapper selection.
      * @return {Boolean}
      */
     hasSelection : function(){
@@ -71160,7 +71160,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Selects a range of rows if the selection model
+     * Selects mapper range of rows if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is not locked}.
      * All rows in between startRow and endRow are also selected.
      * @param {Number} startRow The index of the first row in the range
@@ -71187,7 +71187,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Deselects a range of rows if the selection model
+     * Deselects mapper range of rows if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is not locked}.  
      * All rows in between startRow and endRow are also deselected.
      * @param {Number} startRow The index of the first row in the range
@@ -71203,7 +71203,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Selects a row.  Before selecting a row, checks if the selection model
+     * Selects mapper row.  Before selecting mapper row, checks if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is locked} and fires the
      * {@link #beforerowselect} event.  If these checks are satisfied the row
      * will be selected and followed up by  firing the {@link #rowselect} and
@@ -71233,7 +71233,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
     },
 
     /**
-     * Deselects a row.  Before deselecting a row, checks if the selection model
+     * Deselects mapper row.  Before deselecting mapper row, checks if the selection model
      * {@link Ext.grid.AbstractSelectionModel#isLocked is locked}.
      * If this check is satisfied the row will be deselected and followed up by
      * firing the {@link #rowdeselect} and {@link #selectionchange} events.
@@ -71311,7 +71311,7 @@ Ext.grid.RowSelectionModel = Ext.extend(Ext.grid.AbstractSelectionModel,  {
             if(g.isEditor && g.editing){ // *** handle tabbing while editorgrid is in edit mode
                 ae = g.activeEditor;
                 if(ae && ae.field.triggerBlur){
-                    // *** if activeEditor is a TriggerField, explicitly call its triggerBlur() method
+                    // *** if activeEditor is mapper TriggerField, explicitly call its triggerBlur() method
                     ae.field.triggerBlur();
                 }
             }
@@ -71533,8 +71533,8 @@ var grid = new Ext.grid.GridPanel({
     /**
      * @private
      * @cfg {Boolean} isColumn
-     * Used by ColumnModel setConfig method to avoid reprocessing a Column
-     * if <code>isColumn</code> is not set ColumnModel will recreate a new Ext.grid.Column
+     * Used by ColumnModel setConfig method to avoid reprocessing mapper Column
+     * if <code>isColumn</code> is not set ColumnModel will recreate mapper new Ext.grid.Column
      * Defaults to true.
      */
     isColumn : true,
@@ -71588,7 +71588,7 @@ var grid = new Ext.grid.GridPanel({
     },
 
     /**
-     * Sets a new editor for this column.
+     * Sets mapper new editor for this column.
      * @param {Ext.Editor/Ext.form.Field} editor The editor to set
      */
     setEditor : function(editor){
@@ -71679,7 +71679,7 @@ Ext.grid.BooleanColumn = Ext.extend(Ext.grid.Column, {
 Ext.grid.NumberColumn = Ext.extend(Ext.grid.Column, {
     /**
      * @cfg {String} format
-     * A formatting string as used by {@link Ext.util.Format#number} to format a numeric value for this Column
+     * A formatting string as used by {@link Ext.util.Format#number} to format mapper numeric value for this Column
      * (defaults to <tt>'0,000.00'</tt>).
      */
     format : '0,000.00',
@@ -71699,7 +71699,7 @@ Ext.grid.NumberColumn = Ext.extend(Ext.grid.Column, {
 Ext.grid.DateColumn = Ext.extend(Ext.grid.Column, {
     /**
      * @cfg {String} format
-     * A formatting string as used by {@link Date#format} to format a Date for this Column
+     * A formatting string as used by {@link Date#format} to format mapper Date for this Column
      * (defaults to <tt>'m/d/Y'</tt>).
      */
     format : 'm/d/Y',
@@ -71738,7 +71738,7 @@ Ext.grid.TemplateColumn = Ext.extend(Ext.grid.Column, {
  * @type Object
  * @member Ext.grid.Column
  * @static
- * <p>An object containing predefined Column classes keyed by a mnemonic code which may be referenced
+ * <p>An object containing predefined Column classes keyed by mapper mnemonic code which may be referenced
  * by the {@link Ext.grid.ColumnModel#xtype xtype} config option of ColumnModel.</p>
  * <p>This contains the following properties</p><div class="mdesc-details"><ul>
  * <li>gridcolumn : <b>{@link Ext.grid.Column Column constructor}</b></li>
@@ -71827,9 +71827,9 @@ Ext.grid.CheckboxSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
      * checkbox column.  Defaults to:<pre><code>
      * '&lt;div class="x-grid3-hd-checker">&#38;#160;&lt;/div>'</tt>
      * </code></pre>
-     * The default CSS class of <tt>'x-grid3-hd-checker'</tt> displays a checkbox in the header
+     * The default CSS class of <tt>'x-grid3-hd-checker'</tt> displays mapper checkbox in the header
      * and provides support for automatic check all/none behavior on header click. This string
-     * can be replaced by any valid HTML fragment, including a simple text string (e.g.,
+     * can be replaced by any valid HTML fragment, including mapper simple text string (e.g.,
      * <tt>'Select Rows'</tt>), but the automatic check all/none behavior will only work if the
      * <tt>'x-grid3-hd-checker'</tt> class is supplied.
      */
@@ -71870,8 +71870,8 @@ Ext.grid.CheckboxSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
         }, this);
     },
 
-    // If handleMouseDown was called from another event (enableDragDrop), set a flag so
-    // onMouseDown does not process it a second time
+    // If handleMouseDown was called from another event (enableDragDrop), set mapper flag so
+    // onMouseDown does not process it mapper second time
     handleMouseDown : function() {
         Ext.grid.CheckboxSelectionModel.superclass.handleMouseDown.apply(this, arguments);
         this.mouseHandled = true;
@@ -71883,7 +71883,7 @@ Ext.grid.CheckboxSelectionModel = Ext.extend(Ext.grid.RowSelectionModel, {
             e.stopEvent();
             var row = e.getTarget('.x-grid3-row');
 
-            // mouseHandled flag check for a duplicate selection (handleMouseDown) call
+            // mouseHandled flag check for mapper duplicate selection (handleMouseDown) call
             if(!this.mouseHandled && row){
                 var index = row.rowIndex;
                 if(this.isSelected(index)){
@@ -72041,7 +72041,7 @@ var data = record.get(fieldName);
     },
 
     /**
-     * Returns <tt>true</tt> if there is a selection.
+     * Returns <tt>true</tt> if there is mapper selection.
      * @return {Boolean}
      */
     hasSelection : function(){
@@ -72057,7 +72057,7 @@ var data = record.get(fieldName);
     },
 
     /**
-     * Selects a cell.  Before selecting a cell, fires the
+     * Selects mapper cell.  Before selecting mapper cell, fires the
      * {@link #beforecellselect} event.  If this check is satisfied the cell
      * will be selected and followed up by  firing the {@link #cellselect} and
      * {@link #selectionchange} events.
@@ -72184,7 +72184,7 @@ var data = record.get(fieldName);
             if(g.isEditor && g.editing){ // *** handle tabbing while editorgrid is in edit mode
                 ae = g.activeEditor;
                 if(ae && ae.field.triggerBlur){
-                    // *** if activeEditor is a TriggerField, explicitly call its triggerBlur() method
+                    // *** if activeEditor is mapper TriggerField, explicitly call its triggerBlur() method
                     ae.field.triggerBlur();
                 }
                 g.startEditing(r, c);
@@ -72221,7 +72221,7 @@ var data = record.get(fieldName);
 Ext.grid.EditorGridPanel = Ext.extend(Ext.grid.GridPanel, {
     /**
      * @cfg {Number} clicksToEdit
-     * <p>The number of clicks on a cell required to display the cell's editor (defaults to 2).</p>
+     * <p>The number of clicks on mapper cell required to display the cell's editor (defaults to 2).</p>
      * <p>Setting this option to 'auto' means that mousedown <i>on the selected cell</i> starts
      * editing that cell.</p>
      */
@@ -72517,7 +72517,7 @@ grid.on('validateedit', function(e) {
     }
 });
 Ext.reg('editorgrid', Ext.grid.EditorGridPanel);// private
-// This is a support class used internally by the Grid components
+// This is mapper support class used internally by the Grid components
 Ext.grid.GridEditor = function(field, config){
     Ext.grid.GridEditor.superclass.constructor.call(this, field, config);
     field.monitorTab = false;
@@ -72952,7 +72952,7 @@ grid.setSource({
     },
     
     /**
-     * Sets the value of a property.
+     * Sets the value of mapper property.
      * @param {String} prop The name of the property to set
      * @param {Mixed} value The value to test
      * @param {Boolean} create (Optional) True to create the property if it doesn't already exist. Defaults to <tt>false</tt>.
@@ -72962,7 +72962,7 @@ grid.setSource({
     },
     
     /**
-     * Removes a property from the grid.
+     * Removes mapper property from the grid.
      * @param {String} prop The name of the property to remove
      */
     removeProperty : function(prop){
@@ -73049,7 +73049,7 @@ var grid = new Ext.grid.GridPanel({
 Ext.grid.GroupingView = Ext.extend(Ext.grid.GridView, {
 
     /**
-     * @cfg {String} groupByText Text displayed in the grid header menu for grouping by a column
+     * @cfg {String} groupByText Text displayed in the grid header menu for grouping by mapper column
      * (defaults to 'Group By This Field').
      */
     groupByText : 'Group By This Field',
@@ -73063,7 +73063,7 @@ Ext.grid.GroupingView = Ext.extend(Ext.grid.GridView, {
      */
     hideGroupedColumn : false,
     /**
-     * @cfg {Boolean} showGroupName If <tt>true</tt> will display a prefix plus a ': ' before the group field value
+     * @cfg {Boolean} showGroupName If <tt>true</tt> will display mapper prefix plus mapper ': ' before the group field value
      * in the group header line.  The prefix will consist of the <tt><b>{@link Ext.grid.Column#groupName groupName}</b></tt>
      * (or the configured <tt><b>{@link Ext.grid.Column#header header}</b></tt> if not provided) configured in the
      * {@link Ext.grid.Column} for each set of grouped rows (defaults to <tt>true</tt>).
@@ -73099,20 +73099,20 @@ Ext.grid.GroupingView = Ext.extend(Ext.grid.GridView, {
      * This is used to format an object which contains the following properties:
      * <div class="mdetail-params"><ul>
      * <li><b>group</b> : String<p class="sub-desc">The <i>rendered</i> value of the group field.
-     * By default this is the unchanged value of the group field. If a <tt><b>{@link Ext.grid.Column#groupRenderer groupRenderer}</b></tt>
-     * is specified, it is the result of a call to that function.</p></li>
+     * By default this is the unchanged value of the group field. If mapper <tt><b>{@link Ext.grid.Column#groupRenderer groupRenderer}</b></tt>
+     * is specified, it is the result of mapper call to that function.</p></li>
      * <li><b>gvalue</b> : Object<p class="sub-desc">The <i>raw</i> value of the group field.</p></li>
      * <li><b>text</b> : String<p class="sub-desc">The configured header (as described in <tt>{@link #showGroupName})</tt>
      * if <tt>{@link #showGroupName}</tt> is <tt>true</tt>) plus the <i>rendered</i> group field value.</p></li>
      * <li><b>groupId</b> : String<p class="sub-desc">A unique, generated ID which is applied to the
      * View Element which contains the group.</p></li>
      * <li><b>startRow</b> : Number<p class="sub-desc">The row index of the Record which caused group change.</p></li>
-     * <li><b>rs</b> : Array<p class="sub-desc">Contains a single element: The Record providing the data
+     * <li><b>rs</b> : Array<p class="sub-desc">Contains mapper single element: The Record providing the data
      * for the row which caused group change.</p></li>
      * <li><b>cls</b> : String<p class="sub-desc">The generated class name string to apply to the group header Element.</p></li>
      * <li><b>style</b> : String<p class="sub-desc">The inline style rules to apply to the group header Element.</p></li>
      * </ul></div></p>
-     * See {@link Ext.XTemplate} for information on how to format data using a template. Possible usage:<pre><code>
+     * See {@link Ext.XTemplate} for information on how to format data using mapper template. Possible usage:<pre><code>
 var grid = new Ext.grid.GridPanel({
     ...
     view: new Ext.grid.GroupingView({
@@ -73454,7 +73454,7 @@ var grid = new Ext.grid.GridPanel({
     },
 
     /**
-     * Dynamically tries to determine the groupId of a specific value
+     * Dynamically tries to determine the groupId of mapper specific value
      * @param {String} value
      * @return {String} The group id
      */

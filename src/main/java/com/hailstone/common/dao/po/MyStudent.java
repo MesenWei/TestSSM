@@ -7,9 +7,9 @@ public class MyStudent {
 
     private String classid;
 
-    private String yuwen;
+    private Long yuwen;
 
-    private String shuxue;
+    private Long shuxue;
 
     public String getId() {
         return id;
@@ -35,19 +35,19 @@ public class MyStudent {
         this.classid = classid == null ? null : classid.trim();
     }
 
-    public String getYuwen() {
+    public Long getYuwen() {
         return yuwen;
     }
 
-    public void setYuwen(String yuwen) {
-        this.yuwen = yuwen == null ? null : yuwen.trim();
+    public void setYuwen(Long yuwen) {
+        this.yuwen = yuwen;
     }
 
-    public String getShuxue() {
+    public Long getShuxue() {
         return shuxue;
     }
 
-    public void setShuxue(String shuxue) {
-        this.shuxue = shuxue == null ? null : shuxue.trim();
+    public void setShuxue(Long shuxue) {
+        this.shuxue = shuxue;
     }
 }

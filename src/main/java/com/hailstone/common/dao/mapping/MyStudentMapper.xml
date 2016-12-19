@@ -5,8 +5,8 @@
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="classid" property="classid" jdbcType="VARCHAR" />
-    <result column="yuwen" property="yuwen" jdbcType="VARCHAR" />
-    <result column="shuxue" property="shuxue" jdbcType="VARCHAR" />
+    <result column="yuwen" property="yuwen" jdbcType="DECIMAL" />
+    <result column="shuxue" property="shuxue" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -101,17 +101,20 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.hailstone.common.dao.po.MyStudent" >
-    insert into my_student (id, name, classid, 
-      yuwen, shuxue)
-    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, 
-      #{yuwen,jdbcType=VARCHAR}, #{shuxue,jdbcType=VARCHAR})
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into my_student (name, classid, yuwen, 
+      shuxue)
+    values (#{name,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, #{yuwen,jdbcType=DECIMAL}, 
+      #{shuxue,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.hailstone.common.dao.po.MyStudent" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into my_student
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="name != null" >
         name,
       </if>
@@ -126,9 +129,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
-      </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
@@ -136,10 +136,10 @@
         #{classid,jdbcType=VARCHAR},
       </if>
       <if test="yuwen != null" >
-        #{yuwen,jdbcType=VARCHAR},
+        #{yuwen,jdbcType=DECIMAL},
       </if>
       <if test="shuxue != null" >
-        #{shuxue,jdbcType=VARCHAR},
+        #{shuxue,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -162,10 +162,10 @@
         classid = #{record.classid,jdbcType=VARCHAR},
       </if>
       <if test="record.yuwen != null" >
-        yuwen = #{record.yuwen,jdbcType=VARCHAR},
+        yuwen = #{record.yuwen,jdbcType=DECIMAL},
       </if>
       <if test="record.shuxue != null" >
-        shuxue = #{record.shuxue,jdbcType=VARCHAR},
+        shuxue = #{record.shuxue,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -177,8 +177,8 @@
     set id = #{record.id,jdbcType=VARCHAR},
       name = #{record.name,jdbcType=VARCHAR},
       classid = #{record.classid,jdbcType=VARCHAR},
-      yuwen = #{record.yuwen,jdbcType=VARCHAR},
-      shuxue = #{record.shuxue,jdbcType=VARCHAR}
+      yuwen = #{record.yuwen,jdbcType=DECIMAL},
+      shuxue = #{record.shuxue,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -193,10 +193,10 @@
         classid = #{classid,jdbcType=VARCHAR},
       </if>
       <if test="yuwen != null" >
-        yuwen = #{yuwen,jdbcType=VARCHAR},
+        yuwen = #{yuwen,jdbcType=DECIMAL},
       </if>
       <if test="shuxue != null" >
-        shuxue = #{shuxue,jdbcType=VARCHAR},
+        shuxue = #{shuxue,jdbcType=DECIMAL},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -205,8 +205,8 @@
     update my_student
     set name = #{name,jdbcType=VARCHAR},
       classid = #{classid,jdbcType=VARCHAR},
-      yuwen = #{yuwen,jdbcType=VARCHAR},
-      shuxue = #{shuxue,jdbcType=VARCHAR}
+      yuwen = #{yuwen,jdbcType=DECIMAL},
+      shuxue = #{shuxue,jdbcType=DECIMAL}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -1,13 +1,18 @@
-package com.hailstone.bsms.controller;
+package com.hailstone.common.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
+import com.hailstone.common.dao.po.MyStudent;
+import com.hailstone.server.business.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.hailstone.common.dao.po.MyStudent;
-import com.hailstone.server.business.DemoService;
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ * 关于方法的返回值，可以使
+ * @author  maosheng
+ * @date 创建时间：2016年12月19日 下午4:13:32
+ */
 
 @Controller
 @RequestMapping("/demo")
