@@ -1,6 +1,7 @@
 package com.hailstone.server.business.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import com.hailstone.common.dao.mapper.MyStudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,11 @@ public class DemoServiceImpl implements DemoService{
 		return myStudentMapper.selectByPrimaryKey(id);
 	}
 
+	@Override
+	public MyStudent queryForList(String id) {
+		return myStudentMapper.queryForList(id);
+	}
+
 
 	@Override
 	public Integer saveMyStudent(MyStudent myStudent) {
@@ -49,7 +55,7 @@ public class DemoServiceImpl implements DemoService{
 			return i;
 		
 		if(null == myStudent.getId()){
-			myStudent.setId("");
+			myStudent.setId(UUID.randomUUID().toString());
 			i = myStudentMapper.insertSelective(myStudent);
 		}else{
 			i = myStudentMapper.updateByPrimaryKey(myStudent);

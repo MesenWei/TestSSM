@@ -33,10 +33,13 @@
 		要生成哪些表更改tableName和domainObjectName就可以，可同时生成多个表。
 		如果需要生成Example条件实体注意后边几个开启标志。
 		-->
-		<table tableName="my_student" domainObjectName="MyStudent" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" >
+		<table tableName="my_class" alias="my_class" domainObjectName="MyClass" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" >
 			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
 		</table>
-		<table tableName="my_class" domainObjectName="MyClass" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" >
+		<table tableName="my_student" alias="my_student" domainObjectName="MyStudent" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" >
+			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
+		</table>
+		<table tableName="my_course" alias="my_course" domainObjectName="MyCourse" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true" >
 			<generatedKey column="id" sqlStatement="MySql" identity="true"/>
 		</table>
 	</context>

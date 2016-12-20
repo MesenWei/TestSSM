@@ -11,7 +11,9 @@ public interface DemoService {
 	public MyStudent findUniqueMyStudent(MyStudent myStudent);
 	
 	public MyStudent findMyStudentById(String id);
-	
+
+	public MyStudent queryForList(String id);
+
 	public Integer saveMyStudent(MyStudent myStudent);
 	
 	public Integer updateMyStudent(MyStudent myStudent);

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hailstone.common.dao.mapper.MyClassMapper" >
   <resultMap id="BaseResultMap" type="com.hailstone.common.dao.po.MyClass" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="class_name" property="className" jdbcType="VARCHAR" />
-    <result column="student_number" property="studentNumber" jdbcType="INTEGER" />
+    <id column="my_class_id" property="id" jdbcType="VARCHAR" />
+    <result column="my_class_class_name" property="className" jdbcType="VARCHAR" />
+    <result column="my_class_student_number" property="studentNumber" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, class_name, student_number
+    my_class.id as my_class_id, my_class.class_name as my_class_class_name, my_class.student_number as my_class_student_number
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hailstone.common.dao.po.MyClassExample" >
     select
@@ -74,7 +74,7 @@
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from my_class
+    from my_class my_class
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,15 +85,15 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from my_class
-    where id = #{id,jdbcType=VARCHAR}
+    from my_class my_class
+    where my_class.id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from my_class
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.hailstone.common.dao.po.MyClassExample" >
-    delete from my_class
+    delete from my_class my_class
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -128,22 +128,22 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.hailstone.common.dao.po.MyClassExample" resultType="java.lang.Integer" >
-    select count(*) from my_class
+    select count(*) from my_class my_class
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update my_class
+    update my_class my_class
     <set >
       <if test="record.id != null" >
-        id = #{record.id,jdbcType=VARCHAR},
+        my_class.id = #{record.id,jdbcType=VARCHAR},
       </if>
       <if test="record.className != null" >
-        class_name = #{record.className,jdbcType=VARCHAR},
+        my_class.class_name = #{record.className,jdbcType=VARCHAR},
       </if>
       <if test="record.studentNumber != null" >
-        student_number = #{record.studentNumber,jdbcType=INTEGER},
+        my_class.student_number = #{record.studentNumber,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -151,10 +151,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update my_class
-    set id = #{record.id,jdbcType=VARCHAR},
-      class_name = #{record.className,jdbcType=VARCHAR},
-      student_number = #{record.studentNumber,jdbcType=INTEGER}
+    update my_class my_class
+    set my_class.id = #{record.id,jdbcType=VARCHAR},
+      my_class.class_name = #{record.className,jdbcType=VARCHAR},
+      my_class.student_number = #{record.studentNumber,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
