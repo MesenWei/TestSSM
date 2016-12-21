@@ -217,34 +217,82 @@
 
   <!-- 多对一 collection  -->
   <!--对于学生来讲，多个课程对应一个学生。多对一也能体现出来，重点是在后面，也就是指的一。同样的一对多，重点在后面也就是多。-->
+  <!--**************繁琐方式：应当被摒弃****************-->
   <resultMap id="queryForListMap1" type="com.hailstone.common.dao.po.MyStudent" >
-    <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="classid" property="classid" jdbcType="VARCHAR" />
-    <result column="yuwen" property="yuwen" jdbcType="DECIMAL" />
-    <result column="shuxue" property="shuxue" jdbcType="DECIMAL" />
+    <id column="my_student_id" property="id" jdbcType="VARCHAR" />
+    <result column="my_student_name" property="name" jdbcType="VARCHAR" />
+    <result column="my_student_classid" property="classid" jdbcType="VARCHAR" />
+    <result column="my_student_yuwen" property="yuwen" jdbcType="DECIMAL" />
+    <result column="my_student_shuxue" property="shuxue" jdbcType="DECIMAL" />
 
     <!-- collection用法1 -->
     <collection property="listMyCourse" javaType="java.util.List" ofType="com.hailstone.common.dao.po.MyCourse">
       <!--这个地方的column绝对不能和一对多当中一的那个column一样，否则映射错误-->
-      <id column="mc_id" property="id" jdbcType="VARCHAR" />
-      <result column="mc_student_id" jdbcType="VARCHAR" property="studentId" />
-      <result column="mc_name" property="name" jdbcType="VARCHAR" />
-      <result column="mc_note" property="note" jdbcType="VARCHAR" />
+      <id column="my_course_id" jdbcType="VARCHAR" property="id" />
+      <result column="my_course_student_id" jdbcType="VARCHAR" property="studentId" />
+      <result column="my_course_name" jdbcType="VARCHAR" property="name" />
+      <result column="my_course_note" jdbcType="VARCHAR" property="note" />
     </collection>
-
-    <!-- collection用法2 -->
-    <!--未做测试-->
-    <!--<collection property="listMyCourse" javaType="java.util.List" ofType="MyCourse" select="selectByPrimaryKey" />-->
-
   </resultMap>
 
-  <select id="queryForList" resultMap="queryForListMap1" parameterType="java.lang.String">
+  <select id="queryForList1" resultMap="queryForListMap1" parameterType="java.lang.String">
     select
-    <include refid="My_Student_Column_List" />,
-    <include refid="My_Course_Column_List" />
-    from my_student ms LEFT JOIN my_course mc ON ms.id = mc.student_id
-    WHERE ms.id = #{id,jdbcType=VARCHAR}
+    <include refid="Base_Column_List" />,
+    <include refid="com.hailstone.common.dao.mapper.MyCourseMapper.Base_Column_List" />
+    from my_student my_student LEFT JOIN my_course my_course ON my_student.id = my_course.student_id
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
   </select>
+  <!--**************END****************-->
+
+  <!--**************简便方式：collection用法1****************-->
+  <!--使用这种简便方式之前必须确认两个resultMap中的字段是不重复的-->
+  <resultMap id="queryForListMap2" type="com.hailstone.common.dao.po.MyStudent" extends="BaseResultMap">
+    <collection property="listMyCourse" resultMap="com.hailstone.common.dao.mapper.MyCourseMapper.BaseResultMap"/>
+  </resultMap>
+
+  <select id="queryForList2" resultMap="queryForListMap2" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />,
+    <include refid="com.hailstone.common.dao.mapper.MyCourseMapper.Base_Column_List" />
+    from my_student my_student LEFT JOIN my_course my_course ON my_student.id = my_course.student_id
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--**************END****************-->
+
+  <!--**************简便方式：collection用法2****************-->
+  <resultMap id="queryForListMap3" type="com.hailstone.common.dao.po.MyStudent" extends="BaseResultMap">
+    <!--使用这种方法之前必须确认两个resultMap中的字段是不重复的-->
+    <collection property="listMyCourse" javaType="java.util.List" ofType="com.hailstone.common.dao.po.MyCourse"
+                select="queryForMyCourse3" column="{ student_id = my_student_id}"
+    />
+  </resultMap>
+  
+  <select id="queryForMyCourse3" parameterType="java.util.HashMap" resultMap="com.hailstone.common.dao.mapper.MyCourseMapper.BaseResultMap">
+    select
+    <include refid="com.hailstone.common.dao.mapper.MyCourseMapper.Base_Column_List" />
+    FROM my_course my_course
+    WHERE 1=1 
+    <if test="student_id != null">
+      and my_course.student_id = #{student_id}
+    </if>
+  </select>
+  
+  <select id="queryForList3" resultMap="queryForListMap3" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from my_student my_student
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--**************END****************-->
+
 
 </mapper>

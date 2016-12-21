@@ -43,8 +43,18 @@ public class DemoServiceImpl implements DemoService{
 	}
 
 	@Override
-	public MyStudent queryForList(String id) {
-		return myStudentMapper.queryForList(id);
+	public MyStudent queryForList1(String id) {
+		return myStudentMapper.queryForList1(id);
+	}
+
+	@Override
+	public MyStudent queryForList2(String id) {
+		return myStudentMapper.queryForList2(id);
+	}
+
+	@Override
+	public MyStudent queryForList3(String id) {
+		return myStudentMapper.queryForList3(id);
 	}
 
 

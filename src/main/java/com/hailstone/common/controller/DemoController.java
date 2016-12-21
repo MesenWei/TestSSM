@@ -15,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
+import java.util.Map;
 
 /**
  * @author  maosheng
@@ -111,11 +112,13 @@ public class DemoController {
 	public ViewObject<MyStudent> association(String id){
 		ViewObject vo = new ViewObject();
 
-		MyStudent myStudent = demoService.queryForList(id);
+		MyStudent myStudent1 = demoService.queryForList1(id);
+		MyStudent myStudent2 = demoService.queryForList2(id);
+		MyStudent myStudent3 = demoService.queryForList3(id);
 
 		vo.setMsg("操作成功");
 		vo.setStatus(Status.SUCC);
-		vo.setData(myStudent);
+		vo.setData(myStudent1);
 
 		return vo;
 	}

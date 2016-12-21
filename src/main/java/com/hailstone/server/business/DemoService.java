@@ -12,7 +12,11 @@ public interface DemoService {
 	
 	public MyStudent findMyStudentById(String id);
 
-	public MyStudent queryForList(String id);
+	public MyStudent queryForList1(String id);
+
+	public MyStudent queryForList2(String id);
+
+	public MyStudent queryForList3(String id);
 
 	public Integer saveMyStudent(MyStudent myStudent);
 	

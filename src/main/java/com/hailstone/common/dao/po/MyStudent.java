@@ -1,5 +1,7 @@
 package com.hailstone.common.dao.po;
 
+import java.util.List;
+
 public class MyStudent {
     private String id;
 
@@ -10,6 +12,13 @@ public class MyStudent {
     private Long yuwen;
 
     private Long shuxue;
+
+    //==============================================
+    //=================所有增加的属性================
+    //==============================================
+    private List<MyCourse> listMyCourse;
+
+    //==============================================
 
     public String getId() {
         return id;
@@ -49,5 +58,13 @@ public class MyStudent {
 
     public void setShuxue(Long shuxue) {
         this.shuxue = shuxue;
+    }
+
+    public List<MyCourse> getListMyCourse() {
+        return listMyCourse;
+    }
+
+    public void setListMyCourse(List<MyCourse> listMyCourse) {
+        this.listMyCourse = listMyCourse;
     }
 }

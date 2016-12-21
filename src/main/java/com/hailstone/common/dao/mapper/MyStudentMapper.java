@@ -27,4 +27,10 @@ public interface MyStudentMapper {
     int updateByPrimaryKeySelective(MyStudent record);
 
     int updateByPrimaryKey(MyStudent record);
+
+    MyStudent queryForList1(@Param(value="id")String id);
+
+    MyStudent queryForList2(@Param(value="id")String id);
+
+    MyStudent queryForList3(@Param(value="id")String id);
 }
