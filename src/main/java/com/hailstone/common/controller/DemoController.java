@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
+import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.Map;
 
 /**
+ * controller只分发请求和校验参数，其余的任何逻辑都放在service层。
+ * 因为
+ * 		1.在spring中，controller是单例的，存在线程安全问题，但是springmvc默认设置service不是单例模式，是线程安全的。
+ * 		2.同时也能体现分层的思想。
  * @author  maosheng
  * @date 创建时间：2016年12月19日 下午4:13:32
  */
@@ -119,6 +122,25 @@ public class DemoController {
 		vo.setMsg("操作成功");
 		vo.setStatus(Status.SUCC);
 		vo.setData(myStudent1);
+
+		return vo;
+	}
+
+	/**
+	 * 应该是springmvc在装配参数的时候，自动检测session是否存在，
+	 * 如果不存在，则自动创建了一个session，肯定也自动放到了cookie中。
+	 * @param request
+	 * @param session
+	 * @return
+	 */
+	@RequestMapping("/getSion")
+	@ResponseBody
+	public ViewObject<String> getSion(HttpServletRequest request, HttpSession session){
+		ViewObject vo = new ViewObject();
+
+		vo.setMsg("操作成功");
+		vo.setStatus(Status.SUCC);
+		vo.setData(session.getId());
 
 		return vo;
 	}
