@@ -106,6 +106,30 @@ CREATE TABLE `student` (
 
 insert  into `student`(`SNO`,`SNAME`,`SSEX`,`SBIRTHDAY`,`CLASS`) values ('108','曾华','男','0000-00-00 00:00:00','95033'),('105','匡明','男','0000-00-00 00:00:00','95031'),('107','王丽','女','0000-00-00 00:00:00','95033'),('101','李军','男','0000-00-00 00:00:00','95033'),('109','王芳','女','0000-00-00 00:00:00','95031'),('103','陆君','男','0000-00-00 00:00:00','95031');
 
+/*Table structure for table `t_book` */
+
+DROP TABLE IF EXISTS `t_book`;
+
+CREATE TABLE `t_book` (
+  `id` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_book` */
+
+insert  into `t_book`(`id`,`name`) values ('1','bookkkkkkkkkkkkk');
+
+/*Table structure for table `t_user` */
+
+DROP TABLE IF EXISTS `t_user`;
+
+CREATE TABLE `t_user` (
+  `id` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `t_user` */
+
 /*Table structure for table `teacher` */
 
 DROP TABLE IF EXISTS `teacher`;
