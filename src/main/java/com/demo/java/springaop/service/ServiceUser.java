@@ -25,8 +25,8 @@ public class ServiceUser {
 //        throw new RuntimeException("ccccccccccccccccc");
 
         /**
-         * abc方法不存在事务，但是addUser存在事务
-         * 仍然会回滚
+         * abc方法不存在事务，但是addUser存在事务，
+         * 所以仍然会回滚
          */
         abc();
     }
