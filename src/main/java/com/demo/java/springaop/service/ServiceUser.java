@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * Created by weimaosheng on 2016/10/10.
  */
 public class ServiceUser {
-    public static final String ADD_USER="insert into t_user(id,name) values(1,'duck')";
+    public static final String ADD_USER="insert into t_user(id,name) values(1,'userrrrrrrrrrrr')";
 
     @Autowired
     private ServiceBook serviceBook;
@@ -19,7 +19,19 @@ public class ServiceUser {
 
     public void addUser(){
         this.serviceBook.addBook();
+
         this.jdbcTemplate.execute(ADD_USER);
+
+//        throw new RuntimeException("ccccccccccccccccc");
+
+        /**
+         * abc方法不存在事务，但是addUser存在事务
+         * 仍然会回滚
+         */
+        abc();
+    }
+
+    public void abc(){
         throw new RuntimeException("ccccccccccccccccc");
     }
 
