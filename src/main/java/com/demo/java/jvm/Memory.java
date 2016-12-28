@@ -1,4 +1,4 @@
-package com.demo.java.test;
+package com.demo.java.jvm;
 
 /**
  * class文件常量池
