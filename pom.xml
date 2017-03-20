@@ -1,7 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!--公司中某个项目-->
     <groupId>TestSSM</groupId>
+    <!--项目中的某一个模块-->
     <artifactId>TestSSM</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
@@ -190,6 +193,7 @@
         </dependency>
 
     </dependencies>
+
     <build>
         <finalName>TestSSM</finalName>
         <plugins>
