@@ -18,7 +18,7 @@ public class ServiceUser {
     }
 
     public void addUser(){
-        this.serviceBook.addBook();
+//        this.serviceBook.addBook();
 
         this.jdbcTemplate.execute(ADD_USER);
 

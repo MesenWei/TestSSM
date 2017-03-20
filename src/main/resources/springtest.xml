@@ -93,9 +93,9 @@
 
     <tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
-            <!--<tx:method name="add*" propagation="REQUIRED"/>-->
-            <!--<tx:method name="addBook" propagation="REQUIRED"/>-->
-            <!--<tx:method name="addUserBook" propagation="MANDATORY"/>-->
+            <tx:method name="addUserBook" propagation="SUPPORTS"/>
+            <tx:method name="addBook" propagation="REQUIRES_NEW"/>
+            <!--<tx:method name="addUserBook" propagation="REQUIRES_NEW"/>-->
         </tx:attributes>
     </tx:advice>
 </beans>
