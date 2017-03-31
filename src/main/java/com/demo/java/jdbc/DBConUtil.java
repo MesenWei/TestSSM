@@ -18,10 +18,17 @@ public class DBConUtil {
         final String USER = "root";
         final String PWD = "";
 
+        return getConnection(DRIVER,URL,USER,PWD);
+    }
+
+    // 获取数据库连接
+    public static Connection getConnection(String driver,String url,String user,String pwd) {
+        Connection con = null;
+
         try {
 
-            Class.forName(DRIVER);
-            con = DriverManager.getConnection(URL, USER,PWD);
+            Class.forName(driver);
+            con = DriverManager.getConnection(url, user,pwd);
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -30,5 +37,4 @@ public class DBConUtil {
         }
         return con;
     }
-
 }
