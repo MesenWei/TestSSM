@@ -13,6 +13,9 @@ http://www.springframework.org/schema/aop
 http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 ">
 
+	<!-- 引入属性文件 -->
+	<context:property-placeholder location="classpath:config.properties" />
+
 	<!-- *************************数据源************************** -->
 	<!-- 配读写数据源 -->
 	<bean id="hailstoneDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
