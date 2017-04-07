@@ -68,6 +68,8 @@ http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
 		<property name="mapperLocations">
 			<list>
 				<value>classpath*:com/hailstone/common/dao/mapping/*Mapper.xml</value>
+				<!--扫描多个-->
+				<!--<value>classpath*:com/hailstone/common/dao/mapping/*Mapper.xml</value>-->
 			</list>
 		</property>
 	</bean>
