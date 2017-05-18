@@ -1,4 +1,4 @@
-package com.demo.java.springaop.service;
+package com.demo.java.springtransaction;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 

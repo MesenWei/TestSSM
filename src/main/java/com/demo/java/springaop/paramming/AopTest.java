@@ -1,6 +1,6 @@
-package com.demo.java.springaop;
+package com.demo.java.springaop.paramming;
 
-import com.demo.java.springaop.service.ServiceFacade;
+import com.demo.java.springtransaction.ServiceFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.BeansException;
