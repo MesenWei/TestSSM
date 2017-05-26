@@ -1,7 +1,5 @@
 package com.demo.java.xml.sax;
 
-import com.demo.java.xml.TestOrg;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
