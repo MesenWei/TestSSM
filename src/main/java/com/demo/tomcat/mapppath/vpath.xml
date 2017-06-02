@@ -1,0 +1,7 @@
+<!-- <?xml version='1.0' encoding='utf-8'?> -->
+<!-- tomcat目录映射方法二 -->
+<!-- 最佳配置。在tomcat\apache-tomcat-8.0.33\conf\Catalina\localhost下新增xml文件。
+	 注意，经验证，此文件不能有中文。也不能有注释。
+	 建议，只写<Context />标签
+	 访问地址：http访问地址：http://localhost:8080/vpath/demo/returnJSON.do -->
+<Context path="/vpath" docBase="D:/technology/datasource/mesen/TestSSM/target/TestSSM" />
