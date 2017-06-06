@@ -25,10 +25,10 @@ public class AmqGoodController {
     private QueueSender1 queueSender;
     @Autowired
     private TopicSender1 topicSender;
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("a")
     private Destination aDestination;
-    @Autowired
+    @Autowired(required = false)
     @Qualifier("b")
     private Destination bDestination;
 

@@ -24,87 +24,87 @@ public class PagesObject<T> {
     /**
      * 当前页码
      */
-    private Integer           pageNum          = 1;
+    private Integer pageNum = 1;
 
     /**
      * 每页显示数量
      */
-    private Integer           pageSize         = 10;
+    private Integer pageSize = 10;
 
     /**
      * 排序字段|排序方式
      */
-    private String            sort;
+    private String sort;
 
     /**
      * 当前页显示数量
      */
-    private int               size             = 0;
+    private int size = 0;
 
     /**
      * 当前页面第一个元素在数据库中的行号
      */
-    private int               startRow         = 0;
+    private int startRow = 0;
 
     /**
      * 当前页面最后一个元素在数据库中的行号
      */
-    private int               endRow           = 0;
+    private int endRow = 0;
 
     /**
      * 总数量
      */
-    private long              total            = 0;
+    private long total = 0;
 
     /**
      * 总页数
      */
-    private int               pages            = 0;
+    private int pages = 0;
 
     /**
      * 首页页码
      */
-    private int               firstPage        = 0;
+    private int firstPage = 0;
 
     /**
      * 上一页页码
      */
-    private int               prePage          = 0;
+    private int prePage = 0;
 
     /**
      * 下一页页码
      */
-    private int               nextPage         = 0;
+    private int nextPage = 0;
 
     /**
      * 尾页页码
      */
-    private int               lastPage         = 0;
+    private int lastPage = 0;
 
     /**
      * 是否为第一页
      */
-    private boolean           onFirstPage      = false;
+    private boolean onFirstPage = false;
 
     /**
      * 是否为最后一页
      */
-    private boolean           onLastPage       = false;
+    private boolean onLastPage = false;
 
     /**
      * 是否有前一页
      */
-    private boolean           hasPreviousPage  = false;
+    private boolean hasPreviousPage = false;
 
     /**
      * 是否有下一页
      */
-    private boolean           hasNextPage      = false;
+    private boolean hasNextPage = false;
 
     /**
      * 所有导航页号
      */
-    private int               navigatePages    = 0;
+    private int navigatePages = 0;
 
     public Integer getStatus() {
         return status;
