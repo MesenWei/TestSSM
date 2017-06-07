@@ -10,18 +10,15 @@ import java.util.List;
 @SuppressWarnings("serial")
 @XmlRootElement(name = "orgs")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class TestOrgs extends ArrayList<TestOrg> {
+public class TestOrgs {
     @XmlAttribute(name = "size")
     private int size;
     @XmlAttribute(name = "batch_number")
     private Long batchNumber;
     @XmlAttribute(name = "errmsg")
     private String errmsg;
-
-    @XmlElement(name = "org")
-    public List<TestOrg> getOrgs() {
-        return this;
-    }
+    @XmlElements(value = { @XmlElement(name = "org", type = TestOrg.class) })
+    public List<TestOrg> orgs;
 
     public int getSize() {
         return size;
@@ -47,4 +44,11 @@ public class TestOrgs extends ArrayList<TestOrg> {
         this.errmsg = errmsg;
     }
 
+    public List<TestOrg> getOrgs() {
+        return orgs;
+    }
+
+    public void setOrgs(List<TestOrg> orgs) {
+        this.orgs = orgs;
+    }
 }
