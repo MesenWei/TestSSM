@@ -1,4 +1,4 @@
-package com.demo.java.springaop.paramming;
+package com.demo.java.aop.springaop.pojo;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -9,9 +9,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * spring aop 的五个通知。
+ * 作用是：在运行时，动态地将代码切入到类的指定方法、指定位置上。
  * Created by weimaosheng on 2016/9/27.
  */
-public class DemoAop {
+public class Advice {
     /**
      * 切面的前置方法 即方法执行前拦截到的方法 记录并输出
      * 在目标方法执行之前的通知
