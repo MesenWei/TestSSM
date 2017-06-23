@@ -25,6 +25,12 @@ public class QueueSender1 {
      * @param message 消息内容
      */
     public void send(String queueName, final String message){
+        /*
+         * 当destination为字符串时，spring默认指定destination类型为Queue。
+         * spring默认指定destination是在JmsTemplate中的pubSubDomain属性指定的：
+         * pubSubDomain = false 字符串destination类型为Queue
+         * pubSubDomain = true  字符串destination类型为Topic
+         */
         jmsTemplate.send(queueName, new MessageCreator() {
             public Message createMessage(Session session) throws JMSException {
                 return session.createTextMessage(message);
