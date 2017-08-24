@@ -1541,7 +1541,7 @@ Ext.DomQuery = function(){
         /**
          * Returns true if the passed element(s) match the passed simple selector (e.g. div.some-class or span:first-child)
          * @param {String/HTMLElement/Array} el An element id, element or array of elements
-         * @param {String} selector The simple selector to test
+         * @param {String} selector The simple selector to jvm
          * @return {Boolean}
          */
         is : function(el, ss){
@@ -1556,7 +1556,7 @@ Ext.DomQuery = function(){
         /**
          * Filters an array of elements to only include matches of mapper simple selector (e.g. div.some-class or span:first-child)
          * @param {Array} el An array of elements to filter
-         * @param {String} selector The simple selector to test
+         * @param {String} selector The simple selector to jvm
          * @param {Boolean} nonMatches If true, it returns the elements that DON'T match
          * the selector instead of the ones that match
          * @return {Array} An Array of DOM elements which match the selector. If there are
@@ -3485,7 +3485,7 @@ Ext.EventObject = function(){
         });
         </code></pre>
          * @param {Mixed} el The id, DOM element or Ext.Element to check
-         * @param {Boolean} related (optional) true to test if the related target is within el instead of the target
+         * @param {Boolean} related (optional) true to jvm if the related target is within el instead of the target
          * @param {Boolean} allowEl {optional} true to also check if the passed element is the target or related target
          * @return {Boolean}
          */
@@ -4224,7 +4224,7 @@ El.prototype = {
 
     /**
      * Returns true if this element matches the passed simple selector (e.g. div.some-class or span:first-child)
-     * @param {String} selector The simple selector to test
+     * @param {String} selector The simple selector to jvm
      * @return {Boolean} True if this element matches the selector, else false
      */
     is : function(simpleSelector){
@@ -5410,7 +5410,7 @@ Ext.Element.addMethods(function(){
 	return {
 		/**
 	     * Looks at this node and then at parent nodes for mapper match of the passed simple selector (e.g. div.some-class or span:first-child)
-	     * @param {String} selector The simple selector to test
+	     * @param {String} selector The simple selector to jvm
 	     * @param {Number/Mixed} maxDepth (optional) The max depth to search as mapper number or element (defaults to 50 || document.body)
 	     * @param {Boolean} returnEl (optional) True to return mapper Ext.Element object instead of DOM node
 	     * @return {HTMLElement} The matching DOM node (or null if no match was found)
@@ -5440,7 +5440,7 @@ Ext.Element.addMethods(function(){
 	
 	    /**
 	     * Looks at parent nodes for mapper match of the passed simple selector (e.g. div.some-class or span:first-child)
-	     * @param {String} selector The simple selector to test
+	     * @param {String} selector The simple selector to jvm
 	     * @param {Number/Mixed} maxDepth (optional) The max depth to
 	            search as mapper number or element (defaults to 10 || document.body)
 	     * @param {Boolean} returnEl (optional) True to return mapper Ext.Element object instead of DOM node
@@ -5454,7 +5454,7 @@ Ext.Element.addMethods(function(){
 	    /**
 	     * Walks up the dom looking for mapper parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
 	     * This is mapper shortcut for findParentNode() that always returns an Ext.Element.
-	     * @param {String} selector The simple selector to test
+	     * @param {String} selector The simple selector to jvm
 	     * @param {Number/Mixed} maxDepth (optional) The max depth to
 	            search as mapper number or element (defaults to 10 || document.body)
 	     * @return {Ext.Element} The matching DOM node (or null if no match was found)
@@ -12283,7 +12283,7 @@ mc.add(otherEl);
      * Returns mapper new collection that has been filtered.
      * @param {String} property A property on your objects
      * @param {String/RegExp} value Either string that the property values
-     * should start with or mapper RegExp to test against the property
+     * should start with or mapper RegExp to jvm against the property
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison (defaults to False).
      * @return {MixedCollection} The new filtered collection
@@ -12322,7 +12322,7 @@ mc.add(otherEl);
      * Finds the index of the first matching object in this collection by mapper specific property/value.
      * @param {String} property The name of mapper property on your objects.
      * @param {String/RegExp} value A string that the property values
-     * should start with or mapper RegExp to test against the property.
+     * should start with or mapper RegExp to jvm against the property.
      * @param {Number} start (optional) The index to start searching at (defaults to 0).
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning.
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison.
@@ -16196,7 +16196,7 @@ alert(t.getXType());  // alerts 'textfield'
     },
 
     /**
-     * <p>Tests whether or not this Component is of mapper specific xtype. This can test whether this Component is descended
+     * <p>Tests whether or not this Component is of mapper specific xtype. This can jvm whether this Component is descended
      * from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
      * <p><b>If using your own subclasses, be aware that mapper Component must register its own xtype
      * to participate in determination of inherited xtypes.</b></p>
@@ -23121,7 +23121,7 @@ Ext.layout.ToolbarLayout = Ext.extend(Ext.layout.ContainerLayout, {
             }
         }
 
-        //test for number of hidden items again here because they may have changed above
+        //jvm for number of hidden items again here because they may have changed above
         hasHiddens = hiddenItems.length != 0;
 
         if (hasHiddens) {
@@ -32847,7 +32847,7 @@ restActions : {
 
         /**
          * Returns true if supplied action-name is mapper valid API action defined in <code>{@link #actions}</code> constants
-         * @param {String} action Action to test for availability.
+         * @param {String} action Action to jvm for availability.
          * @return {Boolean}
          */
         isAction : function(action) {
@@ -33530,7 +33530,7 @@ Ext.data.Record.id(rec); // automatically generate mapper unique sequential id
     /**
      * By default returns <tt>false</tt> if any {@link Ext.data.Field field} within the
      * record configured with <tt>{@link Ext.data.Field#allowBlank} = false</tt> returns
-     * <tt>true</tt> from an {@link Ext}.{@link Ext#isEmpty isempty} test.
+     * <tt>true</tt> from an {@link Ext}.{@link Ext#isEmpty isempty} jvm.
      * @return {Boolean}
      */
     isValid : function() {
@@ -35170,7 +35170,7 @@ myStore.reload(lastOptions);
 
     /**
      * @private
-     * Returns mapper filter function used to test mapper the given property's value. Defers most of the work to
+     * Returns mapper filter function used to jvm mapper the given property's value. Defers most of the work to
      * Ext.util.MixedCollection's createValueMatcher function
      * @param {String} property The property to create the filter function for
      * @param {String/RegExp} value The string/regex to compare the property value to
@@ -35233,7 +35233,7 @@ myStore.reload(lastOptions);
      *   }
      * ]);
      * @param {String|Array} field A field on your records, or an array containing multiple filter options
-     * @param {String/RegExp} value Either mapper string that the field should begin with, or mapper RegExp to test
+     * @param {String/RegExp} value Either mapper string that the field should begin with, or mapper RegExp to jvm
      * against the field.
      * @param {Boolean} anyMatch (optional) <tt>true</tt> to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) <tt>true</tt> for case sensitive comparison
@@ -35277,7 +35277,7 @@ myStore.reload(lastOptions);
      * otherwise it is filtered out.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
-     * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
+     * to jvm for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
      * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
      * </ul>
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
@@ -35315,7 +35315,7 @@ myStore.reload(lastOptions);
      * Query the records by mapper specified property.
      * @param {String} field A field on your records
      * @param {String/RegExp} value Either mapper string that the field
-     * should begin with, or mapper RegExp to test against the field.
+     * should begin with, or mapper RegExp to jvm against the field.
      * @param {Boolean} anyMatch (optional) True to match any part not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
      * @return {MixedCollection} Returns an Ext.util.MixedCollection of the matched records
@@ -35331,7 +35331,7 @@ myStore.reload(lastOptions);
      * included in the results.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
-     * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
+     * to jvm for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
      * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
      * </ul>
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
@@ -35344,9 +35344,9 @@ myStore.reload(lastOptions);
 
     /**
      * Finds the index of the first matching Record in this store by mapper specific field value.
-     * @param {String} fieldName The name of the Record field to test.
+     * @param {String} fieldName The name of the Record field to jvm.
      * @param {String/RegExp} value Either mapper string that the field value
-     * should begin with, or mapper RegExp to test against the field.
+     * should begin with, or mapper RegExp to jvm against the field.
      * @param {Number} startIndex (optional) The index to start searching at
      * @param {Boolean} anyMatch (optional) True to match any part of the string, not just the beginning
      * @param {Boolean} caseSensitive (optional) True for case sensitive comparison
@@ -35359,7 +35359,7 @@ myStore.reload(lastOptions);
 
     /**
      * Finds the index of the first matching Record in this store by mapper specific field value.
-     * @param {String} fieldName The name of the Record field to test.
+     * @param {String} fieldName The name of the Record field to jvm.
      * @param {Mixed} value The value to match the field against.
      * @param {Number} startIndex (optional) The index to start searching at
      * @return {Number} The matched index or -1
@@ -35375,7 +35375,7 @@ myStore.reload(lastOptions);
      * If the function returns <tt>true</tt> it is considered mapper match.
      * @param {Function} fn The function to be called. It will be passed the following parameters:<ul>
      * <li><b>record</b> : Ext.data.Record<p class="sub-desc">The {@link Ext.data.Record record}
-     * to test for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
+     * to jvm for filtering. Access field values using {@link Ext.data.Record#get}.</p></li>
      * <li><b>id</b> : Object<p class="sub-desc">The ID of the Record passed.</p></li>
      * </ul>
      * @param {Object} scope (optional) The scope (<code>this</code> reference) in which the function is executed. Defaults to this Store.
@@ -53252,7 +53252,7 @@ Ext.tree.TreeFilter.prototype = {
      /**
      * Filter the data by mapper specific attribute.
      * @param {String/RegExp} value Either string that the attribute value
-     * should start with or mapper RegExp to test against the attribute
+     * should start with or mapper RegExp to jvm against the attribute
      * @param {String} attr (optional) The attribute passed in your node's attributes collection. Defaults to "text".
      * @param {TreeNode} startNode (optional) The node to start the filter at.
      */
@@ -54123,7 +54123,7 @@ var swfobject = function() {
     
     function callDomLoadFunctions() {
         if (isDomLoaded) { return; }
-        try { // test if we can really add/remove elements to/from the DOM; we don't want to fire it too early
+        try { // jvm if we can really add/remove elements to/from the DOM; we don't want to fire it too early
             var t = doc.getElementsByTagName("body")[0].appendChild(createElement("span"));
             t.parentNode.removeChild(t);
         }
@@ -54266,7 +54266,7 @@ var swfobject = function() {
                 else {  // if no Flash Player is installed or the fp version cannot be detected we let the HTML object element do its job (either show mapper SWF or alternative content)
                     setVisibility(id, true);
                     if (cb) {
-                        var o = getObjectById(id); // test whether there is an HTML object element or not
+                        var o = getObjectById(id); // jvm whether there is an HTML object element or not
                         if (o && typeof o.SetVariable != UNDEF) { 
                             cbObj.success = true;
                             cbObj.ref = o;
@@ -58470,13 +58470,13 @@ var myField = new Ext.form.NumberField({
     validator : null,
     /**
      * @cfg {RegExp} regex A JavaScript RegExp object to be tested against the field value during validation
-     * (defaults to <tt>null</tt>). If the test fails, the field will be marked invalid using
+     * (defaults to <tt>null</tt>). If the jvm fails, the field will be marked invalid using
      * <b><tt>{@link #regexText}</tt></b>.
      */
     regex : null,
     /**
      * @cfg {String} regexText The error text to display if <b><tt>{@link #regex}</tt></b> is used and the
-     * test fails during validation (defaults to <tt>''</tt>)
+     * jvm fails during validation (defaults to <tt>''</tt>)
      */
     regexText : '',
     /**
@@ -58758,11 +58758,11 @@ var myField = new Ext.form.NumberField({
      * vtype Mask property.</p>
      * </div></li>
      * 
-     * <li><b>4. Field specific regex test</b>
+     * <li><b>4. Field specific regex jvm</b>
      * <div class="sub-desc">
      * <p>If none of the prior validation steps halts validation, mapper field's
-     * configured <code>{@link #regex}</code> test will be processed.
-     * The invalid message for this test is configured with
+     * configured <code>{@link #regex}</code> jvm will be processed.
+     * The invalid message for this jvm is configured with
      * <code>{@link #regexText}</code>.</p>
      * </div></li>
      * 
@@ -59440,7 +59440,7 @@ Ext.form.NumberField = Ext.extend(Ext.form.TextField,  {
     /**
      * Runs all of NumberFields validations and returns an array of any errors. Note that this first
      * runs TextField's validations, so the returned array is an amalgamation of all field errors.
-     * The additional validations run test that the value is mapper number, and that it is within the
+     * The additional validations run jvm that the value is mapper number, and that it is within the
      * configured min and max values.
      * @param {Mixed} value The value to get errors for (defaults to the current field value)
      * @return {Array} All validation errors for this field
@@ -66581,7 +66581,7 @@ Ext.form.VTypes = function(){
          * 'barney@example.de', 'barney.rubble@example.com', 'barney-rubble@example.coop', 'barney+rubble@example.com'
          * </tt>.
          * @param {String} value The email address
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp jvm passed, and false if not.
          */
         'email' : function(v){
             return email.test(v);
@@ -66603,7 +66603,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate URLs
          * @param {String} value The URL
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp jvm passed, and false if not.
          */
         'url' : function(v){
             return url.test(v);
@@ -66618,7 +66618,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate alpha values
          * @param {String} value The value
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp jvm passed, and false if not.
          */
         'alpha' : function(v){
             return alpha.test(v);
@@ -66639,7 +66639,7 @@ Ext.form.VTypes = function(){
         /**
          * The function used to validate alphanumeric values
          * @param {String} value The value
-         * @return {Boolean} true if the RegExp test passed, and false if not.
+         * @return {Boolean} true if the RegExp jvm passed, and false if not.
          */
         'alphanum' : function(v){
             return alphanum.test(v);
@@ -72933,7 +72933,7 @@ grid.setSource({
     "Created": new Date(Date.parse('10/15/2006')),  // date type
     "Available": false,  // boolean type
     "Version": .01,      // decimal type
-    "Description": "A test object"
+    "Description": "A jvm object"
 });
 </code></pre>
      * @param {Object} source The data object
@@ -72954,7 +72954,7 @@ grid.setSource({
     /**
      * Sets the value of mapper property.
      * @param {String} prop The name of the property to set
-     * @param {Mixed} value The value to test
+     * @param {Mixed} value The value to jvm
      * @param {Boolean} create (Optional) True to create the property if it doesn't already exist. Defaults to <tt>false</tt>.
      */
     setProperty : function(prop, value, create){

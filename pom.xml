@@ -258,11 +258,13 @@
                 </configuration>
             </plugin>
 
-            <!--  一般情况下，我们将用到的资源文件（各种xml，properites，xsd文件等）都放在src/main/resources下面，
-                  利用maven打包时，maven能把这些资源文件打包到相应的jar或者war里。但是放在src/main/java下面的xml文件不会被打包-->
-
-            <!--  利用此plugin，把源代码中的xml文件，
-                  打包到相应位置，这里主要是为了打包Mybatis的mapper.xml文件-->
+            <!--
+                一般情况下，我们将用到的资源文件（各种xml，properites，xsd文件等）都放在src/main/resources下面，
+                利用maven打包时，maven能把这些资源文件打包到相应的jar或者war里。但是放在src/main/java下面的xml文件不会被打包。
+                利用此plugin，把源代码中的xml文件，打包到相应位置，这里主要是为了打包Mybatis的mapper.xml文件
+                注意：
+                在启动项目前，必须先经过maven的compile周期后的命令，项目才能启动正常，因为如果只启动了项目，此插件没有被运行。
+            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>

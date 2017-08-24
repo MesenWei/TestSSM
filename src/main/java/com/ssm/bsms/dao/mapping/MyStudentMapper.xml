@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ssm.bsms.dao.mapper.MyStudentMapper" >
+  <resultMap id="BaseResultMap" type="com.ssm.bsms.dao.po.MyStudent" >
+    <id column="my_student_id" property="id" jdbcType="VARCHAR" />
+    <result column="my_student_name" property="name" jdbcType="VARCHAR" />
+    <result column="my_student_classid" property="classid" jdbcType="VARCHAR" />
+    <result column="my_student_yuwen" property="yuwen" jdbcType="DECIMAL" />
+    <result column="my_student_shuxue" property="shuxue" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    my_student.id as my_student_id, my_student.name as my_student_name, my_student.classid as my_student_classid, 
+    my_student.yuwen as my_student_yuwen, my_student.shuxue as my_student_shuxue
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ssm.bsms.dao.po.MyStudentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from my_student my_student
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from my_student my_student
+    where my_student.id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from my_student
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ssm.bsms.dao.po.MyStudentExample" >
+    delete from my_student my_student
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ssm.bsms.dao.po.MyStudent" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into my_student (name, classid, yuwen, 
+      shuxue)
+    values (#{name,jdbcType=VARCHAR}, #{classid,jdbcType=VARCHAR}, #{yuwen,jdbcType=DECIMAL}, 
+      #{shuxue,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ssm.bsms.dao.po.MyStudent" >
+    <selectKey resultType="java.lang.String" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into my_student
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="yuwen != null" >
+        yuwen,
+      </if>
+      <if test="shuxue != null" >
+        shuxue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="yuwen != null" >
+        #{yuwen,jdbcType=DECIMAL},
+      </if>
+      <if test="shuxue != null" >
+        #{shuxue,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ssm.bsms.dao.po.MyStudentExample" resultType="java.lang.Integer" >
+    select count(*) from my_student my_student
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update my_student my_student
+    <set >
+      <if test="record.id != null" >
+        my_student.id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        my_student.name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.classid != null" >
+        my_student.classid = #{record.classid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yuwen != null" >
+        my_student.yuwen = #{record.yuwen,jdbcType=DECIMAL},
+      </if>
+      <if test="record.shuxue != null" >
+        my_student.shuxue = #{record.shuxue,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update my_student my_student
+    set my_student.id = #{record.id,jdbcType=VARCHAR},
+      my_student.name = #{record.name,jdbcType=VARCHAR},
+      my_student.classid = #{record.classid,jdbcType=VARCHAR},
+      my_student.yuwen = #{record.yuwen,jdbcType=DECIMAL},
+      my_student.shuxue = #{record.shuxue,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ssm.bsms.dao.po.MyStudent" >
+    update my_student
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=VARCHAR},
+      </if>
+      <if test="yuwen != null" >
+        yuwen = #{yuwen,jdbcType=DECIMAL},
+      </if>
+      <if test="shuxue != null" >
+        shuxue = #{shuxue,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ssm.bsms.dao.po.MyStudent" >
+    update my_student
+    set name = #{name,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=VARCHAR},
+      yuwen = #{yuwen,jdbcType=DECIMAL},
+      shuxue = #{shuxue,jdbcType=DECIMAL}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <!--=====================================================================-->
+  <!--所有新增加的内容，都在文件的最后添加，方便应对数据库表结构的更改。-->
+  <!--=====================================================================-->
+
+  <!-- 多对一 collection  -->
+  <!--对于学生来讲，多个课程对应一个学生。多对一也能体现出来，重点是在后面，也就是指的一。同样的一对多，重点在后面也就是多。-->
+  <!--**************繁琐方式：应当被摒弃****************-->
+  <resultMap id="queryForListMap1" type="com.ssm.bsms.dao.po.MyStudent" >
+    <id column="my_student_id" property="id" jdbcType="VARCHAR" />
+    <result column="my_student_name" property="name" jdbcType="VARCHAR" />
+    <result column="my_student_classid" property="classid" jdbcType="VARCHAR" />
+    <result column="my_student_yuwen" property="yuwen" jdbcType="DECIMAL" />
+    <result column="my_student_shuxue" property="shuxue" jdbcType="DECIMAL" />
+
+    <!-- collection用法1 -->
+    <collection property="listMyCourse" javaType="java.util.List" ofType="com.ssm.bsms.dao.po.MyCourse">
+      <!--这个地方的column绝对不能和一对多当中一的那个column一样，否则映射错误-->
+      <id column="my_course_id" jdbcType="VARCHAR" property="id" />
+      <result column="my_course_student_id" jdbcType="VARCHAR" property="studentId" />
+      <result column="my_course_name" jdbcType="VARCHAR" property="name" />
+      <result column="my_course_note" jdbcType="VARCHAR" property="note" />
+    </collection>
+  </resultMap>
+
+  <select id="queryForList1" resultMap="queryForListMap1" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />,
+    <include refid="com.ssm.bsms.dao.mapper.MyCourseMapper.Base_Column_List" />
+    from my_student my_student LEFT JOIN my_course my_course ON my_student.id = my_course.student_id
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--**************END****************-->
+
+  <!--**************简便方式：collection用法1****************-->
+  <!--使用这种简便方式之前必须确认两个resultMap中的字段是不重复的-->
+  <resultMap id="queryForListMap2" type="com.ssm.bsms.dao.po.MyStudent" extends="BaseResultMap">
+    <collection property="listMyCourse" resultMap="com.ssm.bsms.dao.mapper.MyCourseMapper.BaseResultMap"/>
+  </resultMap>
+
+  <select id="queryForList2" resultMap="queryForListMap2" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />,
+    <include refid="com.ssm.bsms.dao.mapper.MyCourseMapper.Base_Column_List" />
+    from my_student my_student LEFT JOIN my_course my_course ON my_student.id = my_course.student_id
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--**************END****************-->
+
+  <!--**************简便方式：collection用法2****************-->
+  <resultMap id="queryForListMap3" type="com.ssm.bsms.dao.po.MyStudent" extends="BaseResultMap">
+    <!--使用这种方法之前必须确认两个resultMap中的字段是不重复的-->
+    <collection property="listMyCourse" javaType="java.util.List" ofType="com.ssm.bsms.dao.po.MyCourse"
+                select="queryForMyCourse3" column="{ student_id = my_student_id}"
+    />
+  </resultMap>
+  
+  <select id="queryForMyCourse3" parameterType="java.util.HashMap" resultMap="com.ssm.bsms.dao.mapper.MyCourseMapper.BaseResultMap">
+    select
+    <include refid="com.ssm.bsms.dao.mapper.MyCourseMapper.Base_Column_List" />
+    FROM my_course my_course
+    WHERE 1=1 
+    <if test="student_id != null">
+      and my_course.student_id = #{student_id}
+    </if>
+  </select>
+  
+  <select id="queryForList3" resultMap="queryForListMap3" parameterType="java.lang.String">
+    select
+    <include refid="Base_Column_List" />
+    from my_student my_student
+    WHERE 1=1
+    <if test="id != null">
+      and my_student.id = #{id,jdbcType=VARCHAR}
+    </if>
+  </select>
+  <!--**************END****************-->
+
+
+</mapper>

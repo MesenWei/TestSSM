@@ -16,17 +16,17 @@
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.hailstone.common.dao.po" targetProject="./out">
+		<javaModelGenerator targetPackage="com.ssm.bsms.dao.po" targetProject="./out">
 			<property name="enableSubPackages" value="true" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 		<!-- 生成的映射文件包名和位置 -->
-		<sqlMapGenerator targetPackage="com.hailstone.common.dao.mapping" targetProject="./out">
+		<sqlMapGenerator targetPackage="com.ssm.bsms.dao.mapping" targetProject="./out">
 		<!-- <sqlMapGenerator targetPackage="cn.px.dxs.server.etl.dao.irs.mapping" targetProject="./out"> -->
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 		<!-- 生成DAO的包名和位置 -->
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.hailstone.common.dao.mapper" targetProject="./out">
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.ssm.bsms.dao.mapper" targetProject="./out">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		<!-- 
