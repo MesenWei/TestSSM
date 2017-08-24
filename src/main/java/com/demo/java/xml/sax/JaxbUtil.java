@@ -120,13 +120,14 @@ public class JaxbUtil {
     }
 
     /**
-     * 未知错误
+     * 将输入流读取为对象。
+     * 类必须被XmlRootElement和XmlAccessorType注解修饰
      * @param dataStream
      * @return
      * @throws JAXBException
      */
     @SuppressWarnings("unchecked")
-    /*public static <T> T readConfigFromStream(Class<T> clazz, InputStream dataStream) throws JAXBException {
+    public static <T> T readConfigFromStream(Class<T> clazz, InputStream dataStream) throws JAXBException {
         try {
             JAXBContext jc = JAXBContext.newInstance(clazz);
             Unmarshaller u = jc.createUnmarshaller();
@@ -134,7 +135,28 @@ public class JaxbUtil {
         } catch (JAXBException e) {
             throw e;
         }
-    }*/
+    }
+
+    /**
+     * 重载方法。将输入流读取为对象。
+     * 类必须被XmlRootElement和XmlAccessorType注解修饰
+     * @param clazz 父类
+     * @param clazzChild 子类
+     * @param dataStream 数据流
+     * @param <T> 子类
+     * @return
+     * @throws JAXBException
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> T readConfigFromStream(Class clazz, Class<T> clazzChild, InputStream dataStream) throws JAXBException {
+        try {
+            JAXBContext jc = JAXBContext.newInstance(clazz,clazzChild);
+            Unmarshaller u = jc.createUnmarshaller();
+            return (T) u.unmarshal(dataStream);
+        } catch (JAXBException e) {
+            throw e;
+        }
+    }
 
     /**
      * 数据流转xml字符串。
