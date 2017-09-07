@@ -28,12 +28,12 @@ public class HttpSendXml {
      */
     public static void main(String[] args) {
 
-        String url = "http://localhost:8085/callback/1";
+        String url = "http://localhost:8088/callback/inside";
 
-        post(url,getXmlInfo());
+        post(url, getXmlInfo2());
     }
 
-    public static void post(String url,String xmlFileName){
+    public static void post(String url, String xmlFileName) {
         try {
             CloseableHttpClient httpclient = HttpClients.createDefault();
             try {
@@ -63,13 +63,26 @@ public class HttpSendXml {
     }
 
 
-
     private static String getXmlInfo() {
         StringBuilder sb = new StringBuilder();
         sb.append("<xml>");
         sb.append("<ToUserName>aaaaaaaaaaaaaaaaaaaaaaaaaaa</ToUserName>");
         sb.append("<AgentID>1</AgentID>");
         sb.append("<Encrypt>bbbbbbbbbbbbbbbbbbbbbbbbbbbb</Encrypt>");
+        sb.append("</xml>");
+
+        return sb.toString();
+    }
+
+    private static String getXmlInfo2() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<xml>");
+        sb.append("<ToUserName><![CDATA[toUser]]></ToUserName>");
+        sb.append("<FromUserName><![CDATA[fromUser]]></FromUserName>");
+        sb.append("<CreateTime>1348831860</CreateTime>");
+        sb.append("<MsgType><![CDATA[text]]></MsgType>");
+        sb.append("<Content><![CDATA[this is a test]]></Content>");
+        sb.append("<MsgId>1234567890123456</MsgId>");
         sb.append("</xml>");
 
         return sb.toString();
