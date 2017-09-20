@@ -57,6 +57,7 @@ public class DemoController {
     /**
      * 测试返回json。
      * 测试异常处理。
+     *
      * @param id
      * @return
      */
@@ -95,28 +96,32 @@ public class DemoController {
     @ResponseBody
     public ViewObject<PagesObject<MyStudent>> pages(MyStudent myStudent, PagesObject pagesObject) {
         ViewObject<PagesObject<MyStudent>> vo = new ViewObject();
+        try {
+            if (StringUtils.isNotBlank(pagesObject.getSort())) {
+                PageHelper.startPage(pagesObject.getPageNum(), pagesObject.getPageSize());
+            } else {
+                // 默认时按时间倒序
+                PageHelper.startPage(pagesObject.getPageNum(), pagesObject.getPageSize());
+            }
 
-        if (StringUtils.isNotBlank(pagesObject.getSort())) {
-            PageHelper.startPage(pagesObject.getPageNum(), pagesObject.getPageSize());
-        } else {
-            // 默认时按时间倒序
-            PageHelper.startPage(pagesObject.getPageNum(), pagesObject.getPageSize());
-        }
+            List<MyStudent> list = demoService.findMyStudent(myStudent);
 
-        List<MyStudent> list = demoService.findMyStudent(myStudent);
 
-        if (null != list) {
-            PageInfo<MyStudent> pageInfo = new PageInfo<>(list);
+            if (null != list) {
+                PageInfo<MyStudent> pageInfo = new PageInfo<>(list);
 
-            PageConverter pageConverter = new PageConverter();
-            PagesObject<MyStudent> po = pageConverter.converter(pageInfo);
+                PageConverter pageConverter = new PageConverter();
+                PagesObject<MyStudent> po = pageConverter.converter(pageInfo);
 
-            vo.setMsg("操作成功");
-            vo.setCode(Status.SUCC);
-            vo.setData(po);
-        } else {
-            vo.setMsg("系统异常，请联系管理员");
-            vo.setCode(Status.FAIL);
+                vo.setMsg("操作成功");
+                vo.setCode(Status.SUCC);
+                vo.setData(po);
+            } else {
+                vo.setMsg("系统异常，请联系管理员");
+                vo.setCode(Status.FAIL);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return vo;
@@ -126,14 +131,17 @@ public class DemoController {
     @ResponseBody
     public ViewObject<MyStudent> association(String id) {
         ViewObject vo = new ViewObject();
+        try {
+            MyStudent myStudent1 = demoService.queryForList1(id);
+            MyStudent myStudent2 = demoService.queryForList2(id);
+            MyStudent myStudent3 = demoService.queryForList3(id);
+            vo.setMsg("操作成功");
+            vo.setCode(Status.SUCC);
+            vo.setData(myStudent1);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        MyStudent myStudent1 = demoService.queryForList1(id);
-        MyStudent myStudent2 = demoService.queryForList2(id);
-        MyStudent myStudent3 = demoService.queryForList3(id);
-
-        vo.setMsg("操作成功");
-        vo.setCode(Status.SUCC);
-        vo.setData(myStudent1);
 
         return vo;
     }

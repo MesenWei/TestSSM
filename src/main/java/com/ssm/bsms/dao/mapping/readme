@@ -1,0 +1,3 @@
+在使用maven管理项目的时候，maven在打包的时候不会把非resources中的xml文件进行打包。
+mybatis的mapping写在了这个地方，会使maven在打包的时候这些文件不被打包，
+为了解决这个问题，maven有专门的插件可以进行打包。
