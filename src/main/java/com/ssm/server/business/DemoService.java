@@ -6,26 +6,26 @@ import com.ssm.bsms.dao.po.MyStudent;
 
 
 public interface DemoService {
-	public List<MyStudent> findMyStudent(MyStudent myStudent);
+	List<MyStudent> findMyStudent(MyStudent myStudent) throws Exception;
 	
-	public MyStudent findUniqueMyStudent(MyStudent myStudent);
+	MyStudent findUniqueMyStudent(MyStudent myStudent) throws Exception;
 	
-	public MyStudent findMyStudentById(String id) throws Exception;
+	MyStudent findMyStudentById(String id) throws Exception;
 
-	public MyStudent queryForList1(String id);
+	MyStudent queryForList1(String id) throws Exception;
 
-	public MyStudent queryForList2(String id);
+	MyStudent queryForList2(String id) throws Exception;
 
-	public MyStudent queryForList3(String id);
+	MyStudent queryForList3(String id) throws Exception;
 
-	public Integer saveMyStudent(MyStudent myStudent);
+	Integer saveMyStudent(MyStudent myStudent) throws Exception;
 	
-	public Integer updateMyStudent(MyStudent myStudent);
+	Integer updateMyStudent(MyStudent myStudent) throws Exception;
 	
-	public Integer updateMyStudentById(MyStudent myStudent);
+	Integer updateMyStudentById(MyStudent myStudent) throws Exception;
 	
-	public Integer deleteMyStudent(MyStudent myStudent);
+	Integer deleteMyStudent(MyStudent myStudent) throws Exception;
 	
-	public Integer deleteMyStudentById(String id);
+	Integer deleteMyStudentById(String id) throws Exception;
 	
 }

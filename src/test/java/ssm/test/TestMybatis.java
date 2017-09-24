@@ -15,7 +15,12 @@ public class TestMybatis {
 	public void test1(){
 		ApplicationContext ac = new ClassPathXmlApplicationContext(new String[]{"spring.xml","spring-mybatis.xml"});
 		DemoService demoService = (DemoService)ac.getBean("demoServiceImpl");
-		List<MyStudent> myStudent = demoService.findMyStudent(new MyStudent());
+		List<MyStudent> myStudent = null;
+		try {
+			myStudent = demoService.findMyStudent(new MyStudent());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		System.out.println(myStudent);
 	}
 }

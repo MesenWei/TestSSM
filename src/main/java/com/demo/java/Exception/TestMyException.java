@@ -10,27 +10,38 @@ package com.demo.java.Exception;
  * Created by Administrator on 2016/11/17.
  */
 public class TestMyException {
-    Object o;
-    public void test1() {
-        try {
-            System.out.println("方法开始执行");
-//            o.equals("");
-            if(null == o)
-                throw new MyException("Object 对象为null！");
-            System.out.println("方法执行结束");
+    public static void a() throws MyException {
+        throw new MyException("aaa");
+    }
 
-        }catch (Exception e){
+    public static String b(){
+        String a = "1";
+        try {
+            a();
+            System.out.println("b1");
+        } catch (MyException e) {
+            System.out.println("cause:"+e.getMessage());
+            a = "2";
+            return a;
+        }
+        System.out.println("b2");
+        return "3";
+    }
+
+    public static void c(){
+        try{
+            System.out.println("c1");
+            throw new MyException("ccccccccc");
+        } catch (Exception e){
             e.printStackTrace();
+            System.out.println("c2");
+        }finally {
+            System.out.println("c3");
         }
     }
 
-    public void test2(){
-        System.out.println("test2 start");
-    }
-    public static void main(String[] args){
-        new TestMyException().test1();
-        System.out.println("main执行结束");
-        new TestMyException().test2();
 
+    public static void main(String[] args){
+        System.out.println(b());
     }
 }
