@@ -12,15 +12,15 @@
 	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
 	<!-- 如果连接网络：tcp://ip:61616；未连接网络：tcp://localhost:61616 以及用户名，密码-->
 	<!--1.只有一台主机-->
-	<!--<amq:connectionFactory id="amqConnectionFactory"
-						   brokerURL="tcp://192.168.249.1:61616" userName="admin" password="admin"  />-->
+	<amq:connectionFactory id="amqConnectionFactory"
+						   brokerURL="tcp://localhost:61616" userName="admin" password="admin"  />
 	<!--2.多台主机
 	可以不用写用户名和密码。-->
-	<amq:connectionFactory
-			brokerURL="failover:(tcp://172.16.81.50:61616,tcp://172.16.81.25:61616)?initialReconnectDelay=1000"
-			trustAllPackages="true"
-			id="amqConnectionFactory">
-	</amq:connectionFactory>
+	<!--<amq:connectionFactory-->
+			<!--brokerURL="failover:(tcp://172.16.81.50:61616,tcp://172.16.81.25:61616)?initialReconnectDelay=1000"-->
+			<!--trustAllPackages="true"-->
+			<!--id="amqConnectionFactory">-->
+	<!--</amq:connectionFactory>-->
 
 	<!-- Spring Caching连接工厂 -->
 	<!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
@@ -38,6 +38,9 @@
 
 	<!-- 定义Topic类型的Destination -->
 	<amq:topic id="b" physicalName="topicDestination"/>
+
+	<!--定义压力测试的Queue类型的Destination-->
+	<amq:queue id="c" physicalName="queueDestination3"/>
 
 	<!-- Spring JmsTemplate 的消息生产者 start-->
 	<!-- 定义JmsTemplate的Queue类型 -->
@@ -62,6 +65,7 @@
 	<jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
 		<jms:listener destination="queueDestination" ref="queueReceiver1"/>
 		<jms:listener destination="queueDestination" ref="queueReceiver2"/>
+		<jms:listener destination="queueDestination3" ref="queueReceiver3"/>
 	</jms:listener-container>
 
 	<!-- 定义Topic监听器 -->
