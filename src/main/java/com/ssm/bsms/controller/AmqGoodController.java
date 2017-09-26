@@ -2,6 +2,7 @@ package com.ssm.bsms.controller;
 
 import com.demo.jms.amq.QueueSender1;
 import com.demo.jms.amq.TopicSender1;
+import com.demo.jms.pressure.QueueSender3;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class AmqGoodController {
     @Autowired
     private QueueSender1 queueSender;
     @Autowired
+    private QueueSender3 queueSender3;
+    @Autowired
     private TopicSender1 topicSender;
     @Autowired(required = false)
     @Qualifier("a")
@@ -31,6 +34,9 @@ public class AmqGoodController {
     @Autowired(required = false)
     @Qualifier("b")
     private Destination bDestination;
+    @Autowired(required = false)
+    @Qualifier("c")
+    private Destination destination3;
 
     /**
      * 发送消息到队列
@@ -41,7 +47,7 @@ public class AmqGoodController {
     @ResponseBody
     @RequestMapping("queueSender")
     public String queueSender(@RequestParam("message")String message){
-        String opt="";
+        String opt;
         try {
             ActiveMQQueue a = (ActiveMQQueue) aDestination;
             queueSender.send(a.getPhysicalName(), message);
@@ -61,6 +67,20 @@ public class AmqGoodController {
             ActiveMQTopic b = (ActiveMQTopic) bDestination;
             topicSender.send(b.getPhysicalName(), message);
             opt = "suc";
+        } catch (Exception e) {
+            opt = e.getCause().toString();
+        }
+        return opt;
+    }
+    @ResponseBody
+    @RequestMapping("queueSenderPressure")
+    public String queueSenderPressure(@RequestParam("message")String message){
+        String opt ;
+
+        try {
+            ActiveMQQueue d3 = (ActiveMQQueue) destination3;
+            queueSender3.send(d3.getPhysicalName(), message);
+            opt = "sucs";
         } catch (Exception e) {
             opt = e.getCause().toString();
         }
