@@ -28,7 +28,14 @@ public class Test2ForStream {
      * 集合和stream都有forEach方法，作用是遍历。
      */
     public static void forEach(){
-        features.forEach(n -> System.out.println(n));
+        //features.forEach(n -> System.out.println(n));
+
+        Person p1 = new Person("a",18);
+        Person p2 = new Person("b",28);
+        List<Person> list = Arrays.asList(p1,p2);
+        list.forEach(p -> p.setName("cccc"));//对于这种简单对数据进行修改的需求，此操作要比map快很多。
+        list.forEach(p -> System.out.println(p.getName()));
+
     }
 
     /**
@@ -97,6 +104,13 @@ public class Test2ForStream {
 
         Stream<String> stream2 = stream1.map(s -> s + ".china");
         stream2.forEach(System.out::println);
+
+        //error stream has already been operated upon or closed
+        Stream<String> stream3 = stream1.map(s -> {
+            System.out.println(s);
+            return s + ".china";
+        });
+        stream3.forEach(System.out::println);
 
     }
 
@@ -175,7 +189,7 @@ public class Test2ForStream {
     }
 
     public static void main (String[] org0){
-        //forEach();
+        forEach();
         //filter();
         //distinct();
         //count();
@@ -185,7 +199,7 @@ public class Test2ForStream {
         //flatMap();
         //reduce();
         //stream();
-        puttingItTogether();
+        //puttingItTogether();
     }
 
 }
@@ -244,12 +258,28 @@ class Person {
     private String name;
     private int age;
 
+    public Person() {
+    }
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public int getAge() {
         return age;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public static void main (String[] org0){
