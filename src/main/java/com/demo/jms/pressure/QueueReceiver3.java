@@ -8,6 +8,9 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 /**
+ * 监听器，JMS？采用的单例模式来获取QueueReceiver3对象，所以，
+ * 这个全局变量会一直增加。
+ *
  * Created by maosheng on 2017/5/25.
  */
 @Component("queueReceiver3")

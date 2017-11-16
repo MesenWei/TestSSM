@@ -31,7 +31,7 @@ public class QueueSender3 {
          * pubSubDomain = false 字符串destination类型为Queue
          * pubSubDomain = true  字符串destination类型为Topic
          */
-        for(int i=0,l=300;i<l;i++){
+        for(int i=0,l=20;i<l;i++){
             jmsTemplate.send(queueName,session -> session.createTextMessage(message));
         }
     }

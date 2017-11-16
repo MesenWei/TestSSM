@@ -189,14 +189,14 @@ public class Test2ForStream {
     }
 
     public static void main (String[] org0){
-        forEach();
+        //forEach();
         //filter();
         //distinct();
         //count();
         //collect();
         //peek();
         //map();
-        //flatMap();
+        flatMap();
         //reduce();
         //stream();
         //puttingItTogether();

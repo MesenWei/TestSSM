@@ -12,4 +12,7 @@
 	<context:component-scan base-package="com.ssm" />
 	<context:component-scan base-package="com.demo.jms" />
 
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
 </beans>

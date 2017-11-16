@@ -1,0 +1,393 @@
+https://www.evget.com/article/2014/6/18/21196.html
+http://it.deepinmind.com/index.html
+1、不小心重用了流
+
+我敢打赌，每人至少都会犯一次这样的错误。就像现有的这些"流"（比如说InputStream）,你也只能对它们消费一次。下面的代码是无法工作的：
+
+?
+1
+2
+3
+4
+5
+IntStream stream = IntStream.of(1, 2);
+stream.forEach(System.out::println);
+
+// That was fun! Let's do it again!
+stream.forEach(System.out::println);
+你会碰到一个这样的错误：
+
+java.lang.IllegalStateException: stream has already been operated upon or closed
+
+因此使用流的时候应当格外注意。它只能消费一次。
+
+2、不小心创建了一个"无限"流
+
+你可能一不留神就创建了一个无限流。就拿下面这个例子来说：
+
+?
+1
+2
+IntStream.iterate(0, i -> i + 1)
+.forEach(System.out::println);
+流的问题就在于它有可能是无限的，如果你的确是这样设计的话。唯一的问题就是，这并不是你真正想要的。因此，你得确保每次都给流提供一个适当的大小限制：
+
+?
+1
+2
+3
+4
+// That's better
+IntStream.iterate(0, i -> i + 1)
+.limit(10)
+.forEach(System.out::println);
+3、不小心创建了一个"隐藏的"无限流
+
+这个话题是说不完的。你可能一不小心就真的创建了一个无限流。比如说下面的这个：
+
+?
+1
+2
+3
+4
+IntStream.iterate(0, i -> ( i + 1 ) % 2)
+.distinct()
+.limit(10)
+.forEach(System.out::println);
+这样做的结果是：
+
+我们生成了0和1的交替数列
+然后只保留不同的数值，比如说，一个0和一个1
+然后再将流的大小限制为10
+最后对流进行消费
+好吧，这个distinct()操作它并不知道iterate()所调用的这个函数生成的只有两个不同的值。它觉得可能还会有别的值。因此它会不停地从流中消费新的值，而这个limit(10)永远也不会被调用到。不幸的是，你的应用程序会崩掉。
+
+4、不小心创建了一个"隐藏"的并行无限流
+
+我还是想继续提醒下你，你可能真的一不小心就消费了一个无限流。假设你认为distinct()操作是会并行执行的。那你可能会这么写：
+
+?
+1
+2
+3
+4
+5
+IntStream.iterate(0, i -> ( i + 1 ) % 2)
+.parallel()
+.distinct()
+.limit(10)
+.forEach(System.out::println);
+现在我们可以知道的是，这段代码会一直执行下去。不过在前面那个例子中，你至少只消耗了机器上的一个CPU。而现在你可能会消耗四个，一个无限流的消费很可能就会消耗掉你整个系统的资源。这可相当不妙。这种情况下你可能得去重启服务器了。看下我的笔记本在最终崩溃前是什么样的:
+
+5、操作的顺序
+
+为什么我一直在强调你可能一不小心就创建了一个无限流？很简单。因为如果你把上面的这个流的limit()和distinct()操作的顺序掉换一下，一切就都OK了。
+
+?
+1
+2
+3
+4
+IntStream.iterate(0, i -> ( i + 1 ) % 2)
+.limit(10)
+.distinct()
+.forEach(System.out::println);
+现在则会输出：
+
+0
+
+1
+
+为什么会这样？因为我们先将无限流的大小限制为10个值，也就是(0 1 0 1 0 1 0 1 0 1)，然后再在这个有限流上进行归约，求出它所包含的不同值，（0，1）。当然了，这个在语义上就是错误的了。因为你实际上想要的是数据集的前10个不同值。没有人会真的要先取10个随机数，然后再求出它们的不同值的。如果你是来自SQL背景的话，你可能不会想到还有这个区别。就拿SQL Server 2012举例来说，下面的两个SQL语句是一样的：
+
+-- Using TOP
+SELECT DISTINCT TOP 10 *
+FROM i
+ORDER BY ..
+
+-- Using FETCH
+SELECT *
+FROM i
+ORDER BY ..
+OFFSET 0 ROWS
+FETCH NEXT 10 ROWS ONLY
+
+因此，作为一名SQL用户，你可能并不会注意到流操作顺序的重要性。
+
+6、还是操作顺序
+
+既然说到了SQL，如果你用的是MySQL或者PostgreSQL，你可能会经常用到LIMIT .. OFFSET子句。SQL里全是这种暗坑，这就是其中之一。正如SQL Server 2012中的语法所说明的那样，OFFSET子名会优先执行。
+
+如果你将MySQL/PostgreSQL方言转化成流的话，得到的结果很可能是错的：
+
+?
+1
+2
+3
+4
+IntStream.iterate(0, i -> i + 1)
+.limit(10) // LIMIT
+.skip(5) // OFFSET
+.forEach(System.out::println);
+上面的代码会输出：
+
+5
+
+6
+
+7
+
+8
+
+9
+
+是的，它输出9后就结束了，因为首先生效的是limit()，这样会输出(0 1 2 3 4 5 6 7 8 9)。其次才是skip()，它将流缩减为(5 6 7 8 9)。而这并不是你所想要的。
+
+警惕LIMIT .. OFFSET和OFFSET .. LIMIT的陷阱！
+
+7、使用过滤器来遍历文件系统
+
+这个问题我们之前已经讲过了。使用过滤器来遍历文件系统是个不错的方式：
+
+?
+1
+2
+3
+Files.walk(Paths.get("."))
+.filter(p -> !p.toFile().getName().startsWith("."))
+.forEach(System.out::println);
+看起来上面的这个流只是遍历了所有的非隐藏目录，也就是不以点号开始的那些目录。不幸的是，你又犯了错误五和错误六了。walk()方法已经生成一个当前目录下的所有子目录的流。虽然是一个惰性流，但是也包含了所有的子路径。现在的这个过滤器可以正确过滤掉所有名字以点号开始的那些目录，也就是说结果流中不会包含.git或者.idea。不过路径可能会是:..git\refs或者..idea\libraries。而这并不是你实际想要的。
+
+你可别为了解决问题而这么写：
+
+?
+1
+2
+3
+Files.walk(Paths.get("."))
+.filter(p -> !p.toString().contains(File.separator + "."))
+.forEach(System.out::println);
+虽然这么写的结果是对的，但是它会去遍历整个子目录结构树，这会递归所有的隐藏目录的子目录。
+
+我猜你又得求助于老的JDK1.0中所提供的File.list()了。不过好消息是， FilenameFilter和FileFilter现在都是函数式接口了。
+
+8、修改流内部的集合
+
+当遍历列表的时候，你不能在迭代的过程中同时去修改这个列表。这个在Java 8之前就是这样的，不过在Java 8的流中则更为棘手。看下下面这个0到9的列表：
+
+?
+1
+2
+3
+4
+5
+// Of course, we create this list using streams:
+List<Integer> list =
+IntStream.range(0, 10)
+.boxed()
+.collect(toCollection(ArrayList::new));
+现在，假设下我们在消费流的时候同时去删除元素：
+
+?
+1
+2
+3
+4
+list.stream()
+// remove(Object), not remove(int)!
+.peek(list::remove)
+.forEach(System.out::println);
+有趣的是，其中的一些元素中可以的删除的。你得到的输出将会是这样的：
+
+0
+
+2
+
+4
+
+6
+
+8
+
+null
+
+null
+
+null
+
+null
+
+null
+
+java.util.ConcurrentModificationException
+
+如果我们捕获异常后再查看下这个列表，会发现一个很有趣的事情。得到的结果是：
+
+[1, 3, 5, 7, 9]
+
+所有的奇数都这样。这是一个BUG吗？不，这更像是一个特性。如果你看一下JDK的源码，会发现在ArrayList.ArraListSpliterator里面有这么一段注释：
+
+/* * If ArrayLists were immutable, or structurally immutable (no * adds, removes, etc), we could implement their spliterators * with Arrays.spliterator. Instead we detect as much * interference during traversal as practical without * sacrificing much performance. We rely primarily on * modCounts. These are not guaranteed to detect concurrency * violations, and are sometimes overly conservative about * within-thread interference, but detect enough problems to * be worthwhile in practice. To carry this out, we (1) lazily * initialize fence and expectedModCount until the latest * point that we need to commit to the state we are checking * against; thus improving precision. (This doesn't apply to * SubLists, that create spliterators with current non-lazy * values). (2) We perform only a single * ConcurrentModificationException check at the end of forEach * (the most performance-sensitive method). When using forEach * (as opposed to iterators), we can normally only detect * interference after actions, not before. Further * CME-triggering checks apply to all other possible * violations of assumptions for example null or too-small * elementData array given its size(), that could only have * occurred due to interference. This allows the inner loop * of forEach to run without any further checks, and * simplifies lambda-resolution. While this does entail a * number of checks, note that in the common case of * list.stream().forEach(a), no checks or other computation * occur anywhere other than inside forEach itself. The other * less-often-used methods cannot take advantage of most of * these streamlinings. */
+
+现在来看下如果我们对这个流排序后会是什么结果：
+
+?
+1
+2
+3
+4
+list.stream()
+.sorted()
+.peek(list::remove)
+.forEach(System.out::println);
+输出的结果看起来是我们想要的：
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+而流消费完后的列表是空的：
+
+[]
+
+也就是说所有的元素都正确地消费掉并删除了。sorted()操作是一个"带状态的中间操作"，这意味着后续的操作不会再操作内部的那个集合了，而是在一个内部的状态上进行操作。现在你可以安全地从列表里删除元素了！
+
+不过，真的是吗这样？我们来试一下带有parallel(), sorted()的删除操作：
+
+?
+1
+2
+3
+4
+5
+list.stream()
+.sorted()
+.parallel()
+.peek(list::remove)
+.forEach(System.out::println);
+这个会输出 ：
+
+7
+
+6
+
+2
+
+5
+
+8
+
+4
+
+1
+
+0
+
+9
+
+3
+
+现在列表里包含：
+
+[8]
+
+唉呀。居然没有删完所有的元素？！谁能解决这个问题，我免费请他喝酒！
+
+这些行为看起来都是不确定的，我只能建议你在使用流的时候不要去修改它内部的数据集合。这样做是没用的。
+
+9、忘了去消费流
+
+你觉得下面这个流在做什么？
+
+?
+1
+2
+3
+4
+5
+6
+IntStream.range(1, 5)
+.peek(System.out::println)
+.peek(i -> {
+if (i == 5)
+throw new RuntimeException("bang");
+});
+看完这段代码，你觉得应该会输出(1 2 3 4 5)然后抛出一个异常。不过并不是这样。它什么也不会做。这个流并没有被消费掉，它只是静静的待在那里。
+
+正如别的流API或者DSL那样，你可能会忘了调用这个终止操作。当你使用peek()的时候也是这样的，因为peek有点类似于forEach()。
+
+在jOOQ中也存在这样的情况，如果你忘了去调用 execute()或者fetch():
+
+DSL.using(configuration)
+.update(TABLE)
+.set(TABLE.COL1, 1)
+.set(TABLE.COL2, "abc")
+
+.where(TABLE.ID.eq(3));
+
+杯具。忘了调用execute方法了。
+
+10、并行流死锁
+
+终于快讲完了～
+
+如果你没有正确地进行同步的话，所有的并发系统都可能碰到死锁。现实中的例子可能不那么明显，不过如果你想自己创造一个场景的话倒是很容易。下面这个parallel()流肯定会造成死锁：
+
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+Object[] locks = { new Object(), new Object() };
+
+IntStream
+.range(1, 5)
+.parallel()
+.peek(Unchecked.intConsumer(i -> {
+synchronized (locks[i % locks.length]) {
+Thread.sleep(100);
+
+synchronized (locks[(i + 1) % locks.length]) {
+Thread.sleep(50);
+}
+}
+}))
+.forEach(System.out::println);
+注意这里Unchecked.intConsumer()的使用，它把IntConsumer接口转化成了 org.jooq.lambda.fi.util.function.CheckedIntConsumer，这样你才可以抛出已检查异常。
+
+好吧。这下你的机器倒霉了。这些线程会一直阻塞下去:-)。不过好消息就是，在Java里面要写出一个这种教科书上的死锁可不是那么容易。
+
+想进一步了解的话，可以看下Brian Goetz在StackOverflow上的一个回答。
+
+结论
+
+引入了流和函数式编程之后，我们开始会碰到许多新的难以发现的BUG。这些BUG很难避免，除非你见过并且还时刻保持警惕。你必须去考虑操作的顺序，还得注意流是不是无限的。
+
+流是一个非常强大的工具，但也是一个首先得去熟练掌握的工具。

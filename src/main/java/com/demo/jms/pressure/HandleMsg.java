@@ -11,8 +11,12 @@ public class HandleMsg {
         try {
             count ++ ;
             System.out.println("开始处理第" + count + "条数据。");
-            Thread.sleep(1000);
+            Thread.sleep(500);
+            if(count == 10)
+                throw new Exception();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
