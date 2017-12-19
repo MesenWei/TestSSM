@@ -10,9 +10,11 @@
 
 	<!-- ActiveMQ 连接工厂 -->
 	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供-->
-	<!-- 如果连接网络：tcp://ip:61616；未连接网络：tcp://localhost:61616 以及用户名，密码-->
 	<amq:connectionFactory id="amqConnectionFactory"
-						   brokerURL="tcp://192.168.249.1:61616" userName="admin" password="admin"  />
+						   brokerURL="tcp://localhost:61616" userName="admin" password="admin"
+						   redeliveryPolicy="#activeMQRedeliveryPolicy"
+						   useAsyncSend="true"
+	/>
 
 	<!-- Spring Caching连接工厂 -->
 	<!-- Spring用于管理真正的ConnectionFactory的ConnectionFactory -->
@@ -23,10 +25,10 @@
 		<!-- <constructor-arg ref="amqConnectionFactory" /> -->
 		<!-- Session缓存数量 -->
 		<property name="sessionCacheSize" value="100" />
+
 	</bean>
 
 	<!-- Spring JmsTemplate 的消息生产者 start-->
-
 	<!-- 定义JmsTemplate的Queue类型 -->
 	<bean id="jmsQueueTemplate" class="org.springframework.jms.core.JmsTemplate">
 		<!-- 这个connectionFactory对应的是我们定义的Spring提供的那个ConnectionFactory对象 -->
@@ -42,14 +44,33 @@
 		<!-- pub/sub模型（发布/订阅） -->
 		<property name="pubSubDomain" value="true" />
 	</bean>
-
 	<!--Spring JmsTemplate 的消息生产者 end-->
+
+	<!--
+	在P2P模式下，amq为我们提供了消息重投机制
+	1.给LinsterContainer加上事务处理。
+	2.创建一个ReDeliveryPolicy，来定义ReDelivery的机制。
+	3.在ActiveMQ的Connection Factory中应用这个Policy。
+	-->
+	<bean id="testReDelivery" class="com.demo.jms.amq.TestReDelivery">
+	</bean>
+	<bean class="org.springframework.jms.listener.SimpleMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory"/>
+		<property name="destinationName" value="test.redelivery"/>
+		<property name="messageListener" ref="testReDelivery"/>
+		<property name="sessionTransacted" value="true" />
+	</bean>
+
+	<amq:queue id="testredelivery" physicalName="test.redelivery" />
+
+	<amq:redeliveryPolicy id="activeMQRedeliveryPolicy" destination="#testredelivery" redeliveryDelay="60000" maximumRedeliveries="4" />
 
 	<!-- 消息消费者 start-->
 	 <!--定义Queue监听器 -->
 	<jms:listener-container destination-type="queue" container-type="default" connection-factory="connectionFactory" acknowledge="auto">
 		<jms:listener destination="test.queue" ref="queueReceiver1"/>
 		<jms:listener destination="test.queue" ref="queueReceiver2"/>
+		<jms:listener destination="test.redelivery" ref="testReDelivery"/>
 	</jms:listener-container>
 
 	<!-- 定义Topic监听器 -->

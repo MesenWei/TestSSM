@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Created by maosheng on 2017/5/25.
  */
 @Controller
-@RequestMapping("amp")
+@RequestMapping("amq")
 public class AmqController {
 
     @Autowired
@@ -46,6 +46,19 @@ public class AmqController {
         String opt = "";
         try {
             topicSender.send("test.topic", message);
+            opt = "suc";
+        } catch (Exception e) {
+            opt = e.getCause().toString();
+        }
+        return opt;
+    }
+
+    @ResponseBody
+    @RequestMapping("redelivery")
+    public String testReDelivery(@RequestParam("message")String message){
+        String opt = "";
+        try {
+            queueSender.send("test.redelivery", message);
             opt = "suc";
         } catch (Exception e) {
             opt = e.getCause().toString();
