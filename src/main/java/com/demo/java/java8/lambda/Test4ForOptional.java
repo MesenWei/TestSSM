@@ -74,6 +74,9 @@ public class Test4ForOptional {
         //test4ForOptional.isPresent();
         //test4ForOptional.orElse();
         test4ForOptional.orElseGet();
+
+        String a = new StringBuffer(null).append("aaa").toString();
+        System.out.println(a);
     }
 
 }

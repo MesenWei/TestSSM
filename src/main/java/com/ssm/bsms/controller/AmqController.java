@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * activemq测试：spring-amq.xml
- * Created by maosheng on 2017/5/25.
+ * Created by maosheng on 2016/5/25.
  */
 @Controller
 @RequestMapping("amq")

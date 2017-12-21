@@ -1,5 +1,7 @@
 package com.demo.java.java8.lambda;
 
+import com.alibaba.fastjson.JSON;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -73,13 +75,13 @@ public class Test2ForStream {
      *              新的stream中的元素与原stream中的元素没有任何改变。
      */
     public static void peek(){
-        List<String> list = Arrays.asList("one", "two", "three", "four");
+        List<String> list = Arrays.asList("aaa", "bbbb", "ccccc", "dddddd");
 
         List<String> list2 = list.stream()
                 .filter(e -> e.length() > 3)
                 .peek(e -> System.out.println("第一次符合条件的值为: " + e))
-                .filter(e->e.length()>4)
-                .peek(e -> System.out.println("第二次符合条件的值为: " + e))
+                .filter(e->e.length()<5)
+                .peek(e -> System.out.println("第二次符合条件的值为: " + e))//在第一次过滤的基础上
                 .collect(Collectors.toList());
 
         System.out.println(list2.size());
@@ -188,6 +190,28 @@ public class Test2ForStream {
         //people.sort();
     }
 
+    public static void anyMatch(){
+        String str = "Date and Time API";
+        boolean b = features.parallelStream().anyMatch(s -> s.equals(str));
+        System.out.println(b);
+    }
+
+    /**
+     * 此方法证明stream的多核多线程造成的现象。
+     *
+     */
+    public static void parallelStream(){
+        List names = Arrays.asList("100001","100002","100003","100004");
+
+        Person p = new Person();
+
+        names.parallelStream().forEach(name -> {
+            p.setName((String) name);
+            System.out.println((JSON.toJSONString(p)));
+            System.out.println(name);
+        });
+    }
+
     public static void main (String[] org0){
         //forEach();
         //filter();
@@ -196,10 +220,12 @@ public class Test2ForStream {
         //collect();
         //peek();
         //map();
-        flatMap();
+        //flatMap();
         //reduce();
         //stream();
         //puttingItTogether();
+        //anyMatch();
+        parallelStream();
     }
 
 }
@@ -289,3 +315,4 @@ class Person {
         Arrays.sort(people, byName);
     }
 }
+
